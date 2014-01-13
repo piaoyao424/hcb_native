@@ -20,6 +20,7 @@
     <string name="inputReNewPassWord">请重复新密码</string>
     <string name="inputVerifyCode">请输入验证码</string>
     <string name="login">登录</string>
+    <string name="submit">提交</string>
     
 
 </resources>
