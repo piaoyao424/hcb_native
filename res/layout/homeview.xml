@@ -1,0 +1,137 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/light_gray"
+        android:gravity="center_vertical" >
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/light_gray"
+        android:gravity="center_vertical" >
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/light_gray"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/light_gray"
+            android:gravity="center_vertical" >
+
+            <com.vincentTools.ImageView_Win8
+                android:id="@+id/homeview_aiCheMeiRong"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:scaleType="matrix"
+                android:src="@drawable/aichemeirong" />
+
+            <com.vincentTools.ImageView_Win8
+                android:id="@+id/homeview_qiCheYongPin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:scaleType="matrix"
+                android:src="@drawable/qicheyongping" />
+
+            <com.vincentTools.ImageView_Win8
+                android:id="@+id/homeview_cheLiangBaoXian"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:scaleType="matrix"
+                android:src="@drawable/cheliangbaoxian" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/light_gray"
+            android:gravity="center_vertical" >
+
+            <com.vincentTools.ImageView_Win8
+                android:id="@+id/homeview_aiCheQingJie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:scaleType="matrix"
+                android:src="@drawable/aicheqingjie" />
+
+            <com.vincentTools.ImageView_Win8
+                android:id="@+id/homeview_woDeHuiCheBao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:scaleType="matrix"
+                android:src="@drawable/wodehuichebao" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/light_gray"
+            android:gravity="center_vertical" >
+
+            <com.vincentTools.ImageView_Win8
+                android:id="@+id/homeview_aiCheBaoYang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:scaleType="matrix"
+                android:src="@drawable/aichebaoyang" />
+
+            <com.vincentTools.ImageView_Win8
+                android:id="@+id/homeview_daoLuJiuYuan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:scaleType="matrix"
+                android:src="@drawable/daolujiuyuan" />
+
+            <com.vincentTools.ImageView_Win8
+                android:id="@+id/homeview_jingCaiHuoDong"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:scaleType="matrix"
+                android:src="@drawable/jingcaihuodong" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/light_gray"
+            android:gravity="center_vertical" >
+
+            <com.vincentTools.ImageView_Win8
+                android:id="@+id/homeview_webHome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:scaleType="matrix"
+                android:src="@drawable/webhome" />
+
+            <com.vincentTools.ImageView_Win8
+                android:id="@+id/homeview_telephone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:scaleType="matrix"
+                android:src="@drawable/telephone" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
