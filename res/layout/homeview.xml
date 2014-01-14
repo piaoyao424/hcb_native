@@ -1,156 +1,213 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/white"
-    android:orientation="vertical" >
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:scrollbars="none" >
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_height="wrap_content"
         android:background="@color/light_gray"
-        android:gravity="center_vertical" >
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:background="@color/light_gray"
-        android:gravity="center_vertical" >
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="match_parent"
-        android:background="@color/light_gray"
-        android:gravity="center_vertical"
         android:orientation="vertical" >
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="102dp"
+            android:layout_height="80dp"
+            android:layout_margin="8dp"
             android:background="@color/light_gray"
             android:gravity="center_vertical"
-            android:orientation="horizontal" >
+            android:orientation="horizontal"
+            android:paddingTop="15dp" >
 
-            <com.vincentTools.ImageView_Win8
-                android:id="@+id/homeview_aiCheMeiRong"
+            <ImageView
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:layout_marginleft="4dp"
-                android:layout_marginRight="4dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/aichemeirong" />
-
-            <com.vincentTools.ImageView_Win8
-                android:id="@+id/homeview_qiCheYongPin"
-                android:layout_weight="0.59"
-                android:layout_width="0dip"
-                android:layout_height="match_parent"
-                android:layout_marginleft="4dp"
-                android:layout_marginRight="4dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/qicheyongping" />
-
-            <com.vincentTools.ImageView_Win8
-                android:id="@+id/homeview_cheLiangBaoXian"
-                android:layout_marginleft="4dp"
-                android:layout_marginRight="4dp"
-                android:layout_width="0dip"
-                android:layout_height="match_parent"
-                android:layout_weight="0.47"
-                android:scaleType="fitCenter"
-                android:src="@drawable/cheliangbaoxian" />
+                android:layout_gravity="left"
+                android:layout_weight="0.26"
+                android:contentDescription="@string/ImageDescription"
+                android:scaleType="fitStart"
+                android:src="@drawable/applogo04" >
+            </ImageView>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="136dp"
-            android:background="@color/light_gray"
+            android:layout_height="60dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
             android:gravity="center_vertical"
             android:orientation="horizontal" >
 
-            <com.vincentTools.ImageView_Win8
-                android:id="@+id/homeview_aiCheQingJie"
+            <ImageView
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:layout_marginleft="4dp"
-                android:layout_marginRight="4dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/aicheqingjie" />
+                android:layout_gravity="left"
+                android:layout_weight="0.26"
+                android:contentDescription="@string/ImageDescription"
+                android:scaleType="fitStart"
+                android:src="@drawable/speaker_new" >
+            </ImageView>
 
-            <com.vincentTools.ImageView_Win8
-                android:id="@+id/homeview_woDeHuiCheBao"
+            <ViewFlipper
+                android:id="@+id/home_viewflipper"
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
+                android:layout_gravity="center"
                 android:layout_weight="1"
-                android:layout_marginleft="4dp"
-                android:layout_marginRight="4dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/wodehuichebao" />
+                android:background="@color/white"
+                android:flipInterval="5000"
+                android:padding="4dip" >
+
+                <TextView
+                    android:id="@+id/versioncode_textview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:gravity="center"
+                    android:text="version 1.0v"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp" />
+            </ViewFlipper>
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="102dp"
+            android:layout_width="fill_parent"
+            android:layout_height="392dp"
             android:background="@color/light_gray"
             android:gravity="center_vertical"
-            android:orientation="horizontal" >
+            android:orientation="vertical" >
 
-            <com.vincentTools.ImageView_Win8
-                android:id="@+id/homeview_aiCheBaoYang"
-                android:layout_width="0dip"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:layout_margin="4dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/aichebaoyang" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@color/light_gray"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
 
-            <com.vincentTools.ImageView_Win8
-                android:id="@+id/homeview_daoLuJiuYuan"
-                android:layout_width="0dip"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:layout_margin="4dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/daolujiuyuan" />
+                <com.vincentTools.ImageView_Win8
+                    android:id="@+id/homeview_aiCheMeiRong"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/aichemeirong" />
 
-            <com.vincentTools.ImageView_Win8
-                android:id="@+id/homeview_jingCaiHuoDong"
-                android:layout_width="0dip"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:layout_margin="4dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/jingcaihuodong" />
-        </LinearLayout>
+                <com.vincentTools.ImageView_Win8
+                    android:id="@+id/homeview_qiCheYongPin"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_weight="0.59"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/qicheyongping" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="51dp"
-            android:background="@color/light_gray"
-            android:gravity="center_vertical"
-            android:orientation="horizontal" >
+                <com.vincentTools.ImageView_Win8
+                    android:id="@+id/homeview_cheLiangBaoXian"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_weight="0.47"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/cheliangbaoxian" />
+            </LinearLayout>
 
-            <com.vincentTools.ImageView_Win8
-                android:id="@+id/homeview_webHome"
-                android:layout_width="0dip"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:layout_margin="4dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/webhome" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="134dp"
+                android:background="@color/light_gray"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
 
-            <com.vincentTools.ImageView_Win8
-                android:id="@+id/homeview_telephone"
-                android:layout_width="0dip"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:layout_margin="4dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/telephone" />
+                <com.vincentTools.ImageView_Win8
+                    android:id="@+id/homeview_aiCheQingJie"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/aicheqingjie" />
+
+                <com.vincentTools.ImageView_Win8
+                    android:id="@+id/homeview_woDeHuiCheBao"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/wodehuichebao" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@color/light_gray"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <com.vincentTools.ImageView_Win8
+                    android:id="@+id/homeview_aiCheBaoYang"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/aichebaoyang" />
+
+                <com.vincentTools.ImageView_Win8
+                    android:id="@+id/homeview_daoLuJiuYuan"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_weight="0.88"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/daolujiuyuan" />
+
+                <com.vincentTools.ImageView_Win8
+                    android:id="@+id/homeview_jingCaiHuoDong"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_weight="0.87"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/jingcaihuodong" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/light_gray"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <com.vincentTools.ImageView_Win8
+                    android:id="@+id/homeview_webHome"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/webhome" />
+
+                <com.vincentTools.ImageView_Win8
+                    android:id="@+id/homeview_telephone"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/telephone" />
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 
-</LinearLayout>
+</ScrollView>

@@ -40,7 +40,7 @@ public class BtAPP  extends Application {
 	
 	public  int GetVersionCode()
 	{
-		String pName = "com.btten.calltaxi";  
+		String pName = "com.btten.hcb";  
 		int versionCode=0;
 		try {  
 		        PackageInfo pinfo =this. getPackageManager().getPackageInfo(pName, PackageManager.GET_CONFIGURATIONS);
@@ -51,7 +51,7 @@ public class BtAPP  extends Application {
 	}
 	
 	public String GetVersion(){
-		String pName = "com.btten.calltaxi";  
+		String pName = "com.btten.hcb";  
 		String versionName=null;
 		try {  
 		        PackageInfo pinfo =this. getPackageManager().getPackageInfo(pName, PackageManager.GET_CONFIGURATIONS);

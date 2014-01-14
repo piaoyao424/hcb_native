@@ -4,7 +4,7 @@ import org.json.JSONObject;
 
 
 import com.btten.base.BtAPP;
-import com.btten.calltaxi.Login.LoginResultItem;
+import com.btten.hcb.Login.LoginResultItem;
 import com.btten.model.BaseJsonItem;
 import com.btten.tools.CommonConvert;
 import com.btten.tools.Log;

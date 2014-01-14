@@ -1,6 +1,6 @@
 <resources>
 
-    <string name="app_name">惠车宝加盟商</string>
+    <string name="app_name">惠车宝</string>
     <string name="head_address">北京市石景山区八大处高科技园区西井路3-3-5947</string>
     <string name="branch_address">宜昌市东山开发区珠海路8号412室</string>
     <string name="postcode">4330000</string>
@@ -10,7 +10,7 @@
     <string name="choicemonth">选择月份</string>
     <string name="choiceyear">选择年份</string>
     <string name="chaxun"> 查询</string>
-    <string name="riqi">日期</string>
+    <string name="date">日期</string>
     <!-- temp path -->
     <string name="TEMP_PATH">/calltaxi/temp</string>
     <string name="inputName">请输入手机号码</string>
@@ -21,6 +21,6 @@
     <string name="inputVerifyCode">请输入验证码</string>
     <string name="login">登录</string>
     <string name="submit">提交</string>
-    
+    <string name="ImageDescription">图片描述</string>
 
 </resources>

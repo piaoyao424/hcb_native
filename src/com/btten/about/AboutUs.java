@@ -18,7 +18,7 @@ import com.btten.base.BaseActivity;
 import com.btten.base.BtAPP;
 import com.btten.base.MainActivity;
 import com.btten.base.WelcomActivity;
-import com.btten.calltaxi.Service.CallTaxiNotification;
+import com.btten.hcb.Service.CallTaxiNotification;
 import com.btten.ui.view.BaseView;
 
 public class AboutUs extends BaseView implements OnClickListener {
@@ -142,19 +142,6 @@ public class AboutUs extends BaseView implements OnClickListener {
 								@Override
 								public void onClick(DialogInterface dialog,
 										int which) {
-									// TODO Auto-generated method stub
-									/*
-									 * root.mManager.SetListener(null); if
-									 * (root.mManager.GetIsDriver())
-									 * root.mManager.UnMarkDriver();
-									 * root.mManager.Logout();
-									 * 
-									 * if(LocationClientService.getInstance().
-									 * isStarted())
-									 * LocationClientService.getInstance
-									 * ().stop();
-									 * root.stopService(root.serviceIntent);
-									 */
 
 									JmsAccountManager.getInstance().Logout();
 
@@ -184,7 +171,6 @@ public class AboutUs extends BaseView implements OnClickListener {
 	public void Backward() {
 		// TODO Auto-generated method stub
 		super.Backward();
-		root.GoToView(0);
 	}
 
 	/**

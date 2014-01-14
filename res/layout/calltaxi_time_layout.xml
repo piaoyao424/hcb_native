@@ -26,17 +26,17 @@
         android:paddingRight="10dp"
         android:paddingTop="10dp" >
 
-        <com.btten.calltaxi.wheelview.WheelView
+        <com.btten.hcb.wheelview.WheelView
             android:id="@+id/reserve_years"
             android:layout_width="120dp"
             android:layout_height="wrap_content" />
 
-        <com.btten.calltaxi.wheelview.WheelView
+        <com.btten.hcb.wheelview.WheelView
             android:id="@+id/reserve_monthes"
             android:layout_width="80dp"
             android:layout_height="wrap_content" />
 
-        <com.btten.calltaxi.wheelview.WheelView
+        <com.btten.hcb.wheelview.WheelView
             android:id="@+id/reserve_days"
             android:layout_width="80dp"
             android:layout_height="wrap_content" />
@@ -54,12 +54,12 @@
         android:paddingTop="10dp"
         android:visibility="gone" >
 
-        <com.btten.calltaxi.wheelview.WheelView
+        <com.btten.hcb.wheelview.WheelView
             android:id="@+id/reserve_hours"
             android:layout_width="80dp"
             android:layout_height="wrap_content" />
 
-        <com.btten.calltaxi.wheelview.WheelView
+        <com.btten.hcb.wheelview.WheelView
             android:id="@+id/reserve_mins"
             android:layout_width="80dp"
             android:layout_height="wrap_content" />
