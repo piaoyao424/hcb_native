@@ -10,8 +10,6 @@ public class UrlFactory {
 	//登录和连接用的域名 连许东
 	public static final String rootUrl_short = "http://www.huichebo.com/";
 	public static final String rootUrl = "http://www.huichebo.com/mobile.php";
-//	public static final String rootUrl = "http://www.chinahcb.net/mobile.php";
-//	public static final String rootUrl = "http://192.168.1.55/mobile.php";
 
 	public static String GetUrlOld(String data, String... args) {
 		String result = UrlFactory.rootUrl;
@@ -78,7 +76,6 @@ public class UrlFactory {
 			try {
 				argvalue = URLEncoder.encode(args[i * 2 + 1], "UTF-8");
 			} catch (UnsupportedEncodingException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			result += ("&" + args[i * 2] + "=" + argvalue);

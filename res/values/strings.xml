@@ -23,4 +23,11 @@
     <string name="submit">提交</string>
     <string name="ImageDescription">图片描述</string>
 
+    <string-array name="Criteria">
+        <item>距离最近</item>
+        <item>价格最低</item>
+        <item>推荐网点</item>
+        <item>评分最高</item>
+    </string-array>
+
 </resources>

@@ -13,7 +13,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.btten.Jms.R;
-import com.btten.account.JmsAccountManager;
+import com.btten.account.VIPAccountManager;
 import com.btten.base.BaseActivity;
 import com.btten.base.BtAPP;
 import com.btten.base.MainActivity;
@@ -143,7 +143,7 @@ public class AboutUs extends BaseView implements OnClickListener {
 								public void onClick(DialogInterface dialog,
 										int which) {
 
-									JmsAccountManager.getInstance().Logout();
+									VIPAccountManager.getInstance().Logout();
 
 									CallTaxiNotification.getInstance()
 											.LogoutApp();

@@ -20,7 +20,7 @@ import org.json.JSONObject;
 import android.accounts.AccountsException;
 import android.util.Log;
 
-import com.btten.account.JmsAccountManager;
+import com.btten.account.VIPAccountManager;
 import com.btten.network.OnUploadCallBack;
 import com.btten.network.UrlFactory;
 import com.btten.tools.CommonConvert;
@@ -37,7 +37,7 @@ public class CallTaxiVoiceUpload {
 
 	public CallTaxiVoiceUpload(VoiceUploadCallBack callback, File file) {
 		this.callback = callback;
-		doUpload(file, "UploadVoice", "doUploadVoice", "userid", JmsAccountManager
+		doUpload(file, "UploadVoice", "doUploadVoice", "userid", VIPAccountManager
 				.getInstance().getUserid());
 	}
 

@@ -35,6 +35,7 @@ public class NoticeInfoActivity extends BaseActivity {
 		tv_ggconten_riqi = (TextView) findViewById(R.id.tvId_ggconten_riqi);
 		tv_ggconten_neirong = (TextView) findViewById(R.id.tvId_ggconten_neirong);
 		tv_ggconten_name = (TextView) findViewById(R.id.tvId_ggconten_name);
+		
 		// 取得当前登录的用户的userid
 		Bundle bundle = this.getIntent().getExtras();
 		ggId = bundle.getString("KEY_GGID");
@@ -62,8 +63,6 @@ public class NoticeInfoActivity extends BaseActivity {
 
 		@Override
 		public void OnFailed(int status, String info, NetSceneBase<?> netScene) {
-			// TODO Auto-generated method stub
-			// mLoadMore.ShowNoMore();
 			ErrorAlert(status, info);
 		}
 	};

@@ -70,7 +70,7 @@ public class CallTaxiNotification {
 		String loginState = null;*/
 		String driverState = null;
 		
-		/*if (AccountManager.getInstance().IsLogin()){
+		/*if (VIPAccountManager.getInstance().IsLogin()){
 			loginState = "已登录";
 		}
 		else{

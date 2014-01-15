@@ -3,7 +3,7 @@ package com.btten.about;
 
 import android.util.Log;
 
-import com.btten.account.JmsAccountManager;
+import com.btten.account.VIPAccountManager;
 import com.btten.model.BaseJsonItem;
 import com.btten.network.NomalJsonSceneBase;
 import com.btten.network.OnSceneCallBack;
@@ -21,7 +21,7 @@ public class ChangePwdScene extends NomalJsonSceneBase{
 		SetCallBack(callBack);
 		targetUrl=UrlFactory.GetUrlOld(
 				"DoChangeJmsPwd",
-				"userid", JmsAccountManager.getInstance().getJmsUserid(),
+				"userid", VIPAccountManager.getInstance().getJmsUserid(),
 				"oldpwd",oldpwd,
 				"newpwd",newpwd
 				);

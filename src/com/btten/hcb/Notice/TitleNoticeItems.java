@@ -1,4 +1,4 @@
-package com.btten.hcb.NoticeView;
+package com.btten.hcb.Notice;
 
 import org.json.JSONArray;
 import org.json.JSONObject;

@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import com.btten.Jms.R;
 import com.btten.hcb.Gonggao.NoticeInfoActivity;
-import com.btten.hcb.NoticeView.TitleNoticeItem;
-import com.btten.hcb.NoticeView.TitleNoticeItems;
-import com.btten.hcb.NoticeView.TitleNoticeScene;
+import com.btten.hcb.Notice.TitleNoticeItem;
+import com.btten.hcb.Notice.TitleNoticeItems;
+import com.btten.hcb.Notice.TitleNoticeScene;
 import com.btten.hcb.Service.CallTaxiNotification;
 import com.btten.network.NetSceneBase;
 import com.btten.network.OnSceneCallBack;
@@ -24,7 +24,6 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 public class MainActivity extends BaseActivity {

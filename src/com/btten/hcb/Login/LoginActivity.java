@@ -17,7 +17,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import com.btten.Jms.R;
-import com.btten.account.JmsAccountManager;
+import com.btten.account.VIPAccountManager;
 import com.btten.base.BaseActivity;
 import com.btten.base.ClassTools;
 import com.btten.base.MainActivity;
@@ -154,7 +154,7 @@ public class LoginActivity extends BaseActivity {
 
 			LoginResultItems items = (LoginResultItems) data;
 			LoginResultItem item = items.item;
-			JmsAccountManager.getInstance().SetJmsInfo(nameStr,
+			VIPAccountManager.getInstance().SetJmsInfo(nameStr,
 					item.username, item.userid);
 
 			MsgCenter.getInstance().PostMsg(MsgConst.LOGIN_SUCCESS, this);

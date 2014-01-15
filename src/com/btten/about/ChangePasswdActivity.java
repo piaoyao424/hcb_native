@@ -18,7 +18,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import com.btten.Jms.R;
-import com.btten.account.JmsAccountManager;
+import com.btten.account.VIPAccountManager;
 import com.btten.base.BaseActivity;
 import com.btten.hcb.Login.LoginActivity;
 import com.btten.hcb.Service.CallTaxiNotification;
@@ -126,7 +126,7 @@ public class ChangePasswdActivity extends BaseActivity {
 		if (judge()) {
 			ShowProgress("提交数据中", "请稍候……");
 			System.out.println("userid + OldPwd + NewPwd : "
-					+ JmsAccountManager.getInstance().getUserid() + " + "
+					+ VIPAccountManager.getInstance().getUserid() + " + "
 					+ strOldPwd + " + " + strNewPwd);
 			chgScene = new ChangePwdScene();
 			chgScene.doChangePwdScene(saveBankCallBack, strOldPwd, strNewPwd);
@@ -165,7 +165,7 @@ public class ChangePasswdActivity extends BaseActivity {
 					if (LocationClientService.getInstance().isStarted()) {
 						LocationClientService.getInstance().stop();
 					}
-					JmsAccountManager.getInstance().Logout();
+					VIPAccountManager.getInstance().Logout();
 					
 					// 关闭位置
 					if (LocationClientService.getInstance().isStarted())

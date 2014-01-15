@@ -1,4 +1,4 @@
-package com.btten.hcb.NoticeView;
+package com.btten.hcb.Notice;
 
 import com.btten.model.BaseJsonItem;
 import com.btten.network.NomalJsonSceneBase;

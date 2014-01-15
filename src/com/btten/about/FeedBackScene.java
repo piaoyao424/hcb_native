@@ -2,7 +2,7 @@ package com.btten.about;
 
 import android.util.Log;
 
-import com.btten.account.JmsAccountManager;
+import com.btten.account.VIPAccountManager;
 import com.btten.model.BaseJsonItem;
 import com.btten.network.NomalJsonSceneBase;
 import com.btten.network.OnSceneCallBack;
@@ -18,7 +18,7 @@ public class FeedBackScene extends NomalJsonSceneBase{
 		SetCallBack(callBack);
 		targetUrl = UrlFactory.GetUrlNew("UserBaseInfo",
 										 "feedBack",
-										 "userid", JmsAccountManager.getInstance().getUserid(),
+										 "userid", VIPAccountManager.getInstance().getUserid(),
 										 "content", content
 										 );
 		Log.i("url", targetUrl);
