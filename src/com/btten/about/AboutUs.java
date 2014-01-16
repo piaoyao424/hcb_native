@@ -15,7 +15,7 @@ import android.widget.TextView;
 import com.btten.Jms.R;
 import com.btten.account.VIPAccountManager;
 import com.btten.base.BaseActivity;
-import com.btten.base.BtAPP;
+import com.btten.base.HcbAPP;
 import com.btten.base.MainActivity;
 import com.btten.base.WelcomActivity;
 import com.btten.hcb.Service.CallTaxiNotification;
@@ -41,7 +41,7 @@ public class AboutUs extends BaseView implements OnClickListener {
 		// 版本号
 		version_tv = (TextView) GetView().findViewById(
 				R.id.versioncode_textview);
-		version_tv.setText("version " + BtAPP.getInstance().GetVersion());
+		version_tv.setText("version " + HcbAPP.getInstance().GetVersion());
 		// 联系我们
 		contactUs = (RelativeLayout) GetView().findViewById(
 				R.id.aboutus_relative_contact);

@@ -41,7 +41,7 @@
         android:smallScreens="true" />
 <!--         android:name=".BtAPP" -->
     <application
-        android:name="com.btten.base.BtAPP"
+        android:name="com.btten.base.HcbAPP"
         android:icon="@drawable/applogo01"
         android:label="@string/app_name"
         android:theme="@android:style/Theme.NoTitleBar" >

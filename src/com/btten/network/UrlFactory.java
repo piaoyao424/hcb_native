@@ -3,7 +3,7 @@ package com.btten.network;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
-import com.btten.base.BtAPP;
+import com.btten.base.HcbAPP;
 
 
 public class UrlFactory {
@@ -14,7 +14,7 @@ public class UrlFactory {
 	public static String GetUrlOld(String data, String... args) {
 		String result = UrlFactory.rootUrl;
 		result += ("?" + "ostype" + "=" + "" + 1);
-		result += ("&" + "version" + "=" + "" + BtAPP.getInstance()
+		result += ("&" + "version" + "=" + "" + HcbAPP.getInstance()
 				.GetVersionCode());
 
 		result += ("&" + "mod" + "=" + "" + data);
@@ -39,7 +39,7 @@ public class UrlFactory {
 		result += ("/" + data);
 		result += ("/" + action);
 		result += ("?" + "ostype" + "=" + "" + 1);
-		result += ("&" + "version" + "=" + "" + BtAPP.getInstance()
+		result += ("&" + "version" + "=" + "" + HcbAPP.getInstance()
 				.GetVersionCode());
 
 		if (args == null || args.length <= 0)
@@ -64,7 +64,7 @@ public class UrlFactory {
 		result += ("/" + data);
 		result += ("/" + action);
 		result += ("?" + "ostype" + "=" + "" + 1);
-		result += ("&" + "version" + "=" + "" + BtAPP.getInstance()
+		result += ("&" + "version" + "=" + "" + HcbAPP.getInstance()
 				.GetVersionCode());
 
 		if (args == null || args.length <= 0)

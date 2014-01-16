@@ -8,7 +8,7 @@ import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
 import com.baidu.mapapi.BMapManager;
 import com.baidu.mapapi.MKGeneralListener;
-import com.btten.base.BtAPP;
+import com.btten.base.HcbAPP;
 import com.btten.hcb.Service.core.JmsMapManager;
 
 public class LocationClientService {
@@ -32,7 +32,7 @@ public class LocationClientService {
 
 	private LocationClientService() {
 		// 初始化，传一个context进去，最好是不会被释放掉的application
-		BDMapManager = new BMapManager(BtAPP.getInstance());
+		BDMapManager = new BMapManager(HcbAPP.getInstance());
 		// init第一个参数要填申请的api key
 		BDMapManager.init("54199DF0BEA75A3602418FD08FBB2310131E5612",
 				new MKGeneralListener() {
@@ -40,7 +40,7 @@ public class LocationClientService {
 					@Override
 					public void onGetPermissionState(int arg0) {
 						// TODO Auto-generated method stub
-						Toast.makeText(BtAPP.getInstance(), "网络不通",
+						Toast.makeText(HcbAPP.getInstance(), "网络不通",
 								Toast.LENGTH_SHORT).show();
 					}
 
@@ -51,12 +51,12 @@ public class LocationClientService {
 						if (arg0 == 300) {
 							str = "授权验证失败!";
 						}
-						Toast.makeText(BtAPP.getInstance(), "授权异常-" + str,
+						Toast.makeText(HcbAPP.getInstance(), "授权异常-" + str,
 								Toast.LENGTH_SHORT).show();
 					}
 				});
 
-		client = new LocationClient(BtAPP.getInstance());
+		client = new LocationClient(HcbAPP.getInstance());
 		locationListener = new BDLocationListener() {
 
 			@Override

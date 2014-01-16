@@ -2,7 +2,7 @@ package com.btten.tools;
 
 import java.util.List;
 
-import com.btten.base.BtAPP;
+import com.btten.base.HcbAPP;
 
 import android.content.Context;
 import android.content.ContextWrapper;
@@ -59,7 +59,7 @@ public class InfoQuery {
 	 public static Boolean checkIs2G()
 	 {
 		 boolean ret = false;
-		 Context contextW=BtAPP.getInstance();
+		 Context contextW=HcbAPP.getInstance();
 		 NetWorkConnectType netType = checkNetConnectType(contextW);
 		 
 		 if(NetWorkConnectType.CURRENT_NETWORK_CONNECTION_TYPE_2G == netType)

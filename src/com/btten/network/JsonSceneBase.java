@@ -5,7 +5,7 @@ import org.apache.http.util.EntityUtils;
 import org.json.JSONObject;
 
 
-import com.btten.base.BtAPP;
+import com.btten.base.HcbAPP;
 import com.btten.tools.Log;
 
 public abstract class JsonSceneBase extends NetSceneBase<JSONObject> {
@@ -26,8 +26,8 @@ public abstract class JsonSceneBase extends NetSceneBase<JSONObject> {
 			result = new JSONObject(str);
 		} catch (Exception e) {
 			Log.Exception(TAG, e);
-			BtAPP.getInstance();
-			BtAPP.ReportError(TAG + "error:\n" + e.toString()
+			HcbAPP.getInstance();
+			HcbAPP.ReportError(TAG + "error:\n" + e.toString()
 					+ "\ntargetUrl:\n" + targetUrl + "\nstr:\n" + str);
 		}
 		return result;

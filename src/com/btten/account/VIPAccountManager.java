@@ -1,6 +1,6 @@
 package com.btten.account;
 
-import com.btten.base.BtAPP;
+import com.btten.base.HcbAPP;
 import com.btten.tools.Util;
 
 import android.content.Context;
@@ -36,12 +36,12 @@ public class VIPAccountManager {
 
 	private String nickname;
 	// user
-	SharedPreferences settings = BtAPP.getInstance().getSharedPreferences(
+	SharedPreferences settings = HcbAPP.getInstance().getSharedPreferences(
 			PREFS_NAME, Context.MODE_PRIVATE);
 	SharedPreferences.Editor editor = settings.edit();
 
 	// jms
-	SharedPreferences jmsSettings = BtAPP.getInstance().getSharedPreferences(
+	SharedPreferences jmsSettings = HcbAPP.getInstance().getSharedPreferences(
 			PREFS_NAME, Context.MODE_PRIVATE);
 	SharedPreferences.Editor JmsEditor = jmsSettings.edit();
 
@@ -114,7 +114,7 @@ public class VIPAccountManager {
 
 	public String getNickname() {
 		if (Util.IsEmpty(nickname))
-			return BtAPP.getInstance().GetAnonymousName();
+			return HcbAPP.getInstance().GetAnonymousName();
 		return nickname;
 	}
 
@@ -178,7 +178,7 @@ public class VIPAccountManager {
 	}
 
 	private VIPAccountManager() {
-		SharedPreferences jmsUserInfo = BtAPP.getInstance()
+		SharedPreferences jmsUserInfo = HcbAPP.getInstance()
 				.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
 		userid = jmsUserInfo.getString(UID_KEY, "");
 		username = jmsUserInfo.getString(USERNAME_KEY, "");

@@ -3,7 +3,7 @@ package com.btten.hcb.Login;
 import org.json.JSONObject;
 
 
-import com.btten.base.BtAPP;
+import com.btten.base.HcbAPP;
 import com.btten.model.BaseJsonItem;
 import com.btten.tools.CommonConvert;
 import com.btten.tools.Log;
@@ -31,8 +31,8 @@ public class LoginResultItems extends BaseJsonItem{
 		} catch (Exception e) {
 			items.status=-1;
 			items.info=e.toString();
-			BtAPP.getInstance();
-			BtAPP.ReportError(TAG+"error:\n"+e.toString()+"\nresult:\n"+result.toString());
+			HcbAPP.getInstance();
+			HcbAPP.ReportError(TAG+"error:\n"+e.toString()+"\nresult:\n"+result.toString());
 			Log.Exception(TAG, e);
 			return false;
 		}

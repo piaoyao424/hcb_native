@@ -4,7 +4,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 
-import com.btten.base.BtAPP;
+import com.btten.base.HcbAPP;
 import com.btten.model.BaseJsonItem;
 import com.btten.tools.CommonConvert;
 import com.btten.tools.Log;
@@ -23,7 +23,7 @@ public class CallTaxiPublishDesignateItem extends BaseJsonItem{
 			// TODO Auto-generated catch block
 			this.status = -1;
 			this.info = e.toString();
-			BtAPP.getInstance().ReportError(
+			HcbAPP.getInstance().ReportError(
 					TAG + "error:\n" + e.toString() + "\nresult:\n"
 							+ result.toString());
 			Log.Exception(TAG, e);

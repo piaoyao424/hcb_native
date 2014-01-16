@@ -22,10 +22,10 @@ import com.nostra13.universalimageloader.utils.StorageUtils;
 import com.umeng.analytics.MobclickAgent;
 
 //import dalvik.system.VMRuntime;
-public class BtAPP  extends Application {
-	static BtAPP mainApp;
+public class HcbAPP  extends Application {
+	static HcbAPP mainApp;
 	
-	public BtAPP()
+	public HcbAPP()
 	{
 		mainApp     = this;
 		MsgCenter.getInstance();
@@ -34,7 +34,7 @@ public class BtAPP  extends Application {
 		//VMRuntime.getRuntime().setMinimumHeapSize(6* 1024* 1024);
 	}
 	
-	public static BtAPP getInstance(){
+	public static HcbAPP getInstance(){
 		return mainApp;
 	}
 	

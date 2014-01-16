@@ -10,7 +10,7 @@ import com.btten.network.UrlFactory;
 
 public class SearchScene extends NomalJsonSceneBase {
 	public static final String TAG = "SearchScene";
-
+	private int Flag = 0 ;
 	public SearchScene() {
 		super();
 	}
@@ -18,7 +18,7 @@ public class SearchScene extends NomalJsonSceneBase {
 	public void doAreaScene(OnSceneCallBack callBack, String Areaid) {
 
 		SetCallBack(callBack);
-
+		Flag = 0 ;
 		targetUrl = UrlFactory.GetUrlOld("DoAreaList", "areaid", Areaid);
 		ThreadPoolUtils.execute(this);
 		Log.i(TAG, targetUrl);
@@ -27,7 +27,7 @@ public class SearchScene extends NomalJsonSceneBase {
 	public void doSalesListScene(OnSceneCallBack callBack, String JID) {
 
 		SetCallBack(callBack);
-
+		Flag = 1 ;
 		targetUrl = UrlFactory.GetUrlOld("Sale", "getItems", "jid", JID);
 		ThreadPoolUtils.execute(this);
 		Log.i(TAG, targetUrl);
@@ -35,7 +35,7 @@ public class SearchScene extends NomalJsonSceneBase {
 
 	public void doSearchScene(OnSceneCallBack callBack, String name, String pwd) {
 		SetCallBack(callBack);
-
+		Flag = 2 ;
 		targetUrl = UrlFactory
 				.GetUrlOld("DoJmsLogin", "pwd", pwd, "name", name);
 		ThreadPoolUtils.execute(this);
@@ -44,8 +44,7 @@ public class SearchScene extends NomalJsonSceneBase {
 
 	@Override
 	protected BaseJsonItem CreateJsonItems() {
-		// TODO Auto-generated method stub
-		return new SearchResultItems();
+		return new SearchResultItems(Flag);
 	}
 
 }

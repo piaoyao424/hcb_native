@@ -2,7 +2,6 @@ package com.btten.hcb.search;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import android.accounts.AccountManager;
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
@@ -33,8 +32,6 @@ public class SearchActivity extends BaseActivity {
 
 	private String areaID = "261";
 	private String menuID = "0";
-	
-	private 
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -161,7 +158,6 @@ public class SearchActivity extends BaseActivity {
 		public void OnFailed(int status, String info, NetSceneBase<?> netScene) {
 			HideProgress();
 			ErrorAlert(status, info);
-
 		}
 
 		@Override

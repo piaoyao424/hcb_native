@@ -2,7 +2,7 @@ package com.btten.hcb.Service;
 
 
 import com.btten.Jms.R;
-import com.btten.base.BtAPP;
+import com.btten.base.HcbAPP;
 import com.btten.hcb.Service.core.DriverState;
 import com.btten.hcb.Service.core.JmsMapManager;
 
@@ -30,11 +30,11 @@ public class CallTaxiNotification {
 	RemoteViews notifyView = null;
 
 	private CallTaxiNotification() {
-		inflater = (LayoutInflater) BtAPP.getInstance().getSystemService(
+		inflater = (LayoutInflater) HcbAPP.getInstance().getSystemService(
 				Context.LAYOUT_INFLATER_SERVICE);
-		notificationManager = (NotificationManager) BtAPP.getInstance()
+		notificationManager = (NotificationManager) HcbAPP.getInstance()
 				.getSystemService(Context.NOTIFICATION_SERVICE);
-		notifyView = new RemoteViews(BtAPP.getInstance().getPackageName(),
+		notifyView = new RemoteViews(HcbAPP.getInstance().getPackageName(),
 				R.layout.notification);
 		notifyView.setTextViewText(R.id.notify_title, TITLE);
 	}
@@ -43,7 +43,7 @@ public class CallTaxiNotification {
 		// TODO Auto-generated method stub
 		Intent intent = null;
 		try {
-			intent = new Intent(BtAPP.getInstance(),
+			intent = new Intent(HcbAPP.getInstance(),
 					Class.forName("com.btten.hcb.SplashScreen"));
 			intent.setAction(Intent.ACTION_MAIN);
 			intent.addCategory(Intent.CATEGORY_LAUNCHER);
@@ -57,7 +57,7 @@ public class CallTaxiNotification {
 		PendingIntent pendingIntent = null;
 
 		if (intent != null) {
-			pendingIntent = PendingIntent.getActivity(BtAPP.getInstance(), 0,
+			pendingIntent = PendingIntent.getActivity(HcbAPP.getInstance(), 0,
 					intent, PendingIntent.FLAG_UPDATE_CURRENT);
 		}
 
