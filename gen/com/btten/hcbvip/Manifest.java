@@ -5,7 +5,7 @@
  * should not be modified by hand.
  */
 
-package com.btten.Jms;
+package com.btten.hcbvip;
 
 public final class Manifest {
     public static final class permission {

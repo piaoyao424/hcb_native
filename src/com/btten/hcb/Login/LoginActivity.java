@@ -16,7 +16,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-import com.btten.Jms.R;
+import com.btten.hcbvip.R;
 import com.btten.account.VIPAccountManager;
 import com.btten.base.BaseActivity;
 import com.btten.base.ClassTools;
@@ -47,7 +47,7 @@ public class LoginActivity extends BaseActivity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.login_activity);
-		setCurrentTitle("加盟商登录");
+		setCurrentTitle("会员登录");
 
 		init();
 		initPersonalInfo();
@@ -118,7 +118,7 @@ public class LoginActivity extends BaseActivity {
 		ShowProgress("登录中", "请稍候……");
 
 		loginScene = new LoginScene();
-		loginScene.doJmsScene(callBack, nameStr, pwdStr);
+		loginScene.doScene(callBack, nameStr, pwdStr);
 
 	}
 
@@ -186,7 +186,6 @@ public class LoginActivity extends BaseActivity {
 
 	@Override
 	public void onBackPressed() {
-		// TODO Auto-generated method stub
 		new AlertDialog.Builder(this)
 				.setTitle("提示")
 				.setMessage("退出惠车宝？")
@@ -194,19 +193,18 @@ public class LoginActivity extends BaseActivity {
 
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
-						// TODO Auto-generated method stub
 						CallTaxiNotification.getInstance().ExitApp();
 						if (LocationClientService.getInstance().getMapManager() != null)
 							LocationClientService.getInstance().getMapManager()
 									.destroy();
 						ClearAllActivity();
+						finish() ;
 					}
 				})
 				.setNegativeButton("取消", new DialogInterface.OnClickListener() {
 
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
-						// TODO Auto-generated method stub
 						dialog.dismiss();
 					}
 				}).show();

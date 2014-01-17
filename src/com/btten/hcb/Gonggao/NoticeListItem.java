@@ -1,7 +1,7 @@
 package com.btten.hcb.Gonggao;
 
 
-import com.btten.Jms.R;
+import com.btten.hcbvip.R;
 import com.btten.base.ListItemBase;
 
 import android.view.View;

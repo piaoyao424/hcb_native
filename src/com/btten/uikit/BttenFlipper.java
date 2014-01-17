@@ -1,6 +1,6 @@
 package com.btten.uikit;
 
-import com.btten.Jms.R;
+import com.btten.hcbvip.R;
 
 import android.content.Context;
 import android.util.AttributeSet;

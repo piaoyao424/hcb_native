@@ -3,7 +3,7 @@ package com.btten.hcb.tools;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import com.btten.Jms.R;
+import com.btten.hcbvip.R;
 
 import android.content.Context;
 import android.graphics.Canvas;

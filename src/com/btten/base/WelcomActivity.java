@@ -4,9 +4,9 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.btten.uikit.BttenFlipper;
-import com.btten.Jms.R;
 import com.btten.adapter.ViewFlowAdapter;
 import com.btten.hcb.Service.CallTaxiNotification;
+import com.btten.hcbvip.R;
 
 public class WelcomActivity extends BaseActivity {
 	@Override
@@ -24,7 +24,6 @@ public class WelcomActivity extends BaseActivity {
 
 	@Override
 	public void onBackPressed() {
-		// TODO Auto-generated method stub
 		super.onBackPressed();
 		if (IsFirstStart())
 			CallTaxiNotification.getInstance().ExitApp();

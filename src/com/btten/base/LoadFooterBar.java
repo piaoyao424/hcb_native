@@ -1,6 +1,6 @@
 package com.btten.base;
 
-import com.btten.Jms.R;
+import com.btten.hcbvip.R;
 
 import android.app.AlertDialog;
 import android.content.Context;

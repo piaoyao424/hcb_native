@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.btten.Jms"
+    package="com.btten.hcbvip"
     android:versionCode="14"
     android:versionName="Beta 1.4" >
 

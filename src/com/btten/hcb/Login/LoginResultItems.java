@@ -23,9 +23,7 @@ public class LoginResultItems extends BaseJsonItem{
 			// 有数据
 			if (items.status == 1) {
 				CommonConvert convert=new CommonConvert(result);
-				item.username = convert.getString("USERNAME");
-				item.userid = convert.getString("USERID");
-				item.phone = convert.getString("PHONE");
+				item.userid = convert.getString("ID");
 				item.status = convert.getInt("STATUS");
 			}
 		} catch (Exception e) {

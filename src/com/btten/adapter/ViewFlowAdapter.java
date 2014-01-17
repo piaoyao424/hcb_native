@@ -1,13 +1,20 @@
 package com.btten.adapter;
 
+import com.btten.hcb.Login.LoginActivity;
+import com.btten.hcbvip.R;
+
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
+import android.widget.RelativeLayout;
 
 public class ViewFlowAdapter extends BaseAdapter {
 
@@ -32,28 +39,24 @@ public class ViewFlowAdapter extends BaseAdapter {
 
 	@Override
 	public int getCount() {
-		// TODO Auto-generated method stub
 		return imageids.length;
 	}
 
 	@Override
 	public Object getItem(int arg0) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public long getItemId(int arg0) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup arg2) {
-		// TODO Auto-generated method stub
 		ImageView image;
 
-//		if (position < (imageids.length - 1)) {
+		if (position < (imageids.length - 1)) {
 			if (convertView != null) {
 				image = (ImageView) convertView;
 			} else {
@@ -65,30 +68,27 @@ public class ViewFlowAdapter extends BaseAdapter {
 			image.setImageResource(imageids[position]);
 
 			return image;
-//		}
-		// else{
-		//
-		// Button button;
-		// RelativeLayout rLayout;
-		// rLayout = (RelativeLayout) LayoutInflater.from(context).inflate(
-		// R.layout.welcome_button, null);
-		// button = (Button) rLayout.findViewById(R.id.welcome_button);
-		// button.setOnClickListener(new Button.OnClickListener() {
-		//
-		// @Override
-		// public void onClick(View v) {
-		// // TODO Auto-generated method stub
-		// // if (IsFirstStart()){
-		// Intent intent = new Intent(context, LoginActivity.class);
-		// context.startActivity(intent);
-		// // }
-		// context.finish();
-		// }
-		// });
-		//
-		//
-		// return rLayout;
-		// }
+		}
+		 else{
+		
+		 Button button;
+		 RelativeLayout rLayout;
+		 rLayout = (RelativeLayout) LayoutInflater.from(context).inflate(
+		 R.layout.welcome_button, null);
+		 button = (Button) rLayout.findViewById(R.id.welcome_button);
+		 button.setOnClickListener(new Button.OnClickListener() {
+		
+		 @Override
+		 public void onClick(View v) {
+		 Intent intent = new Intent(context, LoginActivity.class);
+		 context.startActivity(intent);
+		 context.finish();
+		 }
+		 });
+		
+		
+		 return rLayout;
+		 }
 	}
 
 	private boolean IsFirstStart() {

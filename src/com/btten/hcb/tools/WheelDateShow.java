@@ -17,7 +17,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.btten.Jms.R;
+import com.btten.hcbvip.R;
 import com.btten.hcb.wheelview.NumericWheelAdapter;
 import com.btten.hcb.wheelview.OnWheelChangedListener;
 import com.btten.hcb.wheelview.WheelView;

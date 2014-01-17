@@ -13,40 +13,50 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
+import android.view.View;
 import android.widget.ImageView;
 
 public class ImageView_Win8 extends ImageView {
 
-	private boolean onAnimation = true;
-	private int rotateDegree = 10;
+	public static final int Rotate_Handler_Message_Start = 1;
+	public static final int Rotate_Handler_Message_Turning = 2;
+	public static final int Rotate_Handler_Message_Turned = 3;
+	public static final int Rotate_Handler_Message_Reverse = 6;
 
+	public static final int Scale_Handler_Message_Start = 1;
+	public static final int Scale_Handler_Message_Turning = 2;
+	public static final int Scale_Handler_Message_Turned = 3;
+	public static final int Scale_Handler_Message_Reverse = 6;
+
+	private boolean isAntiAlias = true;
+	private boolean scaleOnly = false;
+	private boolean isSizeChanged = false;
+	private boolean isShowAnimation = true;
+	private int rotateDegree = 10;
 	private boolean isFirst = true;
 	private float minScale = 0.95f;
 	private int vWidth;
 	private int vHeight;
-	private boolean isFinish = true, isActionMove = false, isScale = false;
+	private boolean isAnimationFinish = true, isActionMove = false,
+			isScale = false;
 	private Camera camera;
-
 	boolean XbigY = false;
 	float RolateX = 0;
 	float RolateY = 0;
-
 	OnViewClick onclick = null;
 
 	public ImageView_Win8(Context context) {
 		super(context);
-		// TODO Auto-generated constructor stub
 		camera = new Camera();
 	}
 
 	public ImageView_Win8(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		// TODO Auto-generated constructor stub
 		camera = new Camera();
 	}
 
 	public void SetAnimationOnOff(boolean oo) {
-		onAnimation = oo;
+		isShowAnimation = oo;
 	}
 
 	public void setOnClickIntent(OnViewClick onclick) {
@@ -70,13 +80,13 @@ public class ImageView_Win8 extends ImageView {
 		vHeight = getHeight() - getPaddingTop() - getPaddingBottom();
 		Drawable drawable = getDrawable();
 		BitmapDrawable bd = (BitmapDrawable) drawable;
-		bd.setAntiAlias(true);
+		bd.setAntiAlias(isAntiAlias);
 	}
 
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
 		super.onTouchEvent(event);
-		if (!onAnimation)
+		if (!isShowAnimation)
 			return true;
 
 		switch (event.getAction() & MotionEvent.ACTION_MASK) {
@@ -92,9 +102,17 @@ public class ImageView_Win8 extends ImageView {
 			isActionMove = false;
 
 			if (isScale) {
-				handler.sendEmptyMessage(1);
+				if (isAnimationFinish && !isSizeChanged) {
+					isSizeChanged = true;
+					scale_handler.sendEmptyMessage(Scale_Handler_Message_Start);
+				}
 			} else {
-				rolateHandler.sendEmptyMessage(1);
+				if (scaleOnly) {
+					scale_handler.sendEmptyMessage(Scale_Handler_Message_Start);
+				} else {
+					rotate_Handler
+							.sendEmptyMessage(Rotate_Handler_Message_Start);
+				}
 			}
 			break;
 		case MotionEvent.ACTION_MOVE:
@@ -109,9 +127,11 @@ public class ImageView_Win8 extends ImageView {
 			break;
 		case MotionEvent.ACTION_UP:
 			if (isScale) {
-				handler.sendEmptyMessage(6);
+				if (isSizeChanged)
+					scale_handler
+							.sendEmptyMessage(Scale_Handler_Message_Reverse);
 			} else {
-				rolateHandler.sendEmptyMessage(6);
+				rotate_Handler.sendEmptyMessage(Rotate_Handler_Message_Reverse);
 			}
 			break;
 		}
@@ -119,11 +139,11 @@ public class ImageView_Win8 extends ImageView {
 	}
 
 	public interface OnViewClick {
-		public void onClick();
+		public void onClick(View v);
 	}
 
 	@SuppressLint("HandlerLeak")
-	private Handler rolateHandler = new Handler() {
+	private Handler rotate_Handler = new Handler() {
 		private Matrix matrix = new Matrix();
 		private float count = 0;
 
@@ -132,64 +152,64 @@ public class ImageView_Win8 extends ImageView {
 			super.handleMessage(msg);
 			matrix.set(getImageMatrix());
 			switch (msg.what) {
-			case 1:
+			case Rotate_Handler_Message_Start:
 				count = 0;
-				BeginRolate(matrix, (XbigY ? count : 0), (XbigY ? 0 : count));
-				rolateHandler.sendEmptyMessage(2);
+				beginRotate(matrix, (XbigY ? count : 0), (XbigY ? 0 : count));
+				rotate_Handler.sendEmptyMessage(Rotate_Handler_Message_Turning);
 				break;
-			case 2:
-				BeginRolate(matrix, (XbigY ? count : 0), (XbigY ? 0 : count));
+			case Rotate_Handler_Message_Turning:
+				beginRotate(matrix, (XbigY ? count : 0), (XbigY ? 0 : count));
+				count++;
 				if (count < getDegree()) {
-					rolateHandler.sendEmptyMessage(2);
+					rotate_Handler
+							.sendEmptyMessage(Rotate_Handler_Message_Turning);
 				} else {
-					isFinish = true;
+					isAnimationFinish = true;
 				}
-				count++;
-				count++;
 				break;
-			case 3:
-				BeginRolate(matrix, (XbigY ? count : 0), (XbigY ? 0 : count));
+			case Rotate_Handler_Message_Turned:
+				beginRotate(matrix, (XbigY ? count : 0), (XbigY ? 0 : count));
 				if (count > 0) {
-					rolateHandler.sendEmptyMessage(3);
+					rotate_Handler
+							.sendEmptyMessage(Rotate_Handler_Message_Turned);
 				} else {
-					isFinish = true;
+					isAnimationFinish = true;
 					if (!isActionMove && onclick != null) {
-						onclick.onClick();
+						onclick.onClick(ImageView_Win8.this);
 					}
 				}
 				count--;
 				count--;
 				break;
-			case 6:
+			case Rotate_Handler_Message_Reverse:
 				count = getDegree();
-				BeginRolate(matrix, (XbigY ? count : 0), (XbigY ? 0 : count));
-				rolateHandler.sendEmptyMessage(3);
+				beginRotate(matrix, (XbigY ? count : 0), (XbigY ? 0 : count));
+				rotate_Handler.sendEmptyMessage(Rotate_Handler_Message_Turned);
 				break;
 			}
 		}
 	};
 
-	private synchronized void BeginRolate(Matrix matrix, float rolateX,
-			float rolateY) {
-		// Bitmap bm = getImageBitmap();
+	private synchronized void beginRotate(Matrix matrix, float rotateX,
+			float rotateY) {
 		int scaleX = (int) (vWidth * 0.5f);
 		int scaleY = (int) (vHeight * 0.5f);
 		camera.save();
-		camera.rotateX(RolateY > 0 ? rolateY : -rolateY);
-		camera.rotateY(RolateX < 0 ? rolateX : -rolateX);
+		camera.rotateX(RolateY > 0 ? rotateY : -rotateY);
+		camera.rotateY(RolateX < 0 ? rotateX : -rotateX);
 		camera.getMatrix(matrix);
 		camera.restore();
 		// 控制中心点
-		if (RolateX > 0 && rolateX != 0) {
+		if (RolateX > 0 && rotateX != 0) {
 			matrix.preTranslate(-vWidth, -scaleY);
 			matrix.postTranslate(vWidth, scaleY);
-		} else if (RolateY > 0 && rolateY != 0) {
+		} else if (RolateY > 0 && rotateY != 0) {
 			matrix.preTranslate(-scaleX, -vHeight);
 			matrix.postTranslate(scaleX, vHeight);
-		} else if (RolateX < 0 && rolateX != 0) {
+		} else if (RolateX < 0 && rotateX != 0) {
 			matrix.preTranslate(-0, -scaleY);
 			matrix.postTranslate(0, scaleY);
-		} else if (RolateY < 0 && rolateY != 0) {
+		} else if (RolateY < 0 && rotateY != 0) {
 			matrix.preTranslate(-scaleX, -0);
 			matrix.postTranslate(scaleX, 0);
 		}
@@ -197,7 +217,7 @@ public class ImageView_Win8 extends ImageView {
 	}
 
 	@SuppressLint("HandlerLeak")
-	private Handler handler = new Handler() {
+	private Handler scale_handler = new Handler() {
 		private Matrix matrix = new Matrix();
 		private float s;
 		int count = 0;
@@ -207,45 +227,51 @@ public class ImageView_Win8 extends ImageView {
 			super.handleMessage(msg);
 			matrix.set(getImageMatrix());
 			switch (msg.what) {
-			case 1:
-				if (!isFinish) {
+			case Scale_Handler_Message_Start:
+				if (!isAnimationFinish) {
 					return;
 				} else {
-					isFinish = false;
+					isAnimationFinish = false;
+					isSizeChanged = true;
 					count = 0;
 					s = (float) Math.sqrt(Math.sqrt(minScale));
-					BeginScale(matrix, s);
-					handler.sendEmptyMessage(2);
+					beginScale(matrix, s);
+					scale_handler
+							.sendEmptyMessage(Scale_Handler_Message_Turning);
 				}
 				break;
-			case 2:
-				BeginScale(matrix, s);
+			case Scale_Handler_Message_Turning:
+				beginScale(matrix, s);
 				if (count < 4) {
-					handler.sendEmptyMessage(2);
+					scale_handler
+							.sendEmptyMessage(Scale_Handler_Message_Turning);
 				} else {
-					isFinish = true;
-					if (!isActionMove && onclick != null) {
-						onclick.onClick();
+					isAnimationFinish = true;
+					if (!isSizeChanged && !isActionMove && onclick != null) {
+						onclick.onClick(ImageView_Win8.this);
 					}
 				}
 				count++;
 				break;
-			case 6:
-				if (!isFinish) {
-					handler.sendEmptyMessage(6);
+			case Scale_Handler_Message_Reverse:
+				if (!isAnimationFinish) {
+					scale_handler
+							.sendEmptyMessage(Scale_Handler_Message_Reverse);
 				} else {
-					isFinish = false;
+					isAnimationFinish = false;
 					count = 0;
 					s = (float) Math.sqrt(Math.sqrt(1.0f / minScale));
-					BeginScale(matrix, s);
-					handler.sendEmptyMessage(2);
+					beginScale(matrix, s);
+					scale_handler
+							.sendEmptyMessage(Scale_Handler_Message_Turning);
+					isSizeChanged = false;
 				}
 				break;
 			}
 		}
 	};
 
-	private synchronized void BeginScale(Matrix matrix, float scale) {
+	private synchronized void beginScale(Matrix matrix, float scale) {
 		int scaleX = (int) (vWidth * 0.5f);
 		int scaleY = (int) (vHeight * 0.5f);
 		matrix.postScale(scale, scale, scaleX, scaleY);
@@ -267,5 +293,4 @@ public class ImageView_Win8 extends ImageView {
 	public void setScale(float scale) {
 		minScale = scale;
 	}
-
 }

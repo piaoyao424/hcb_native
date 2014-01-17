@@ -2,7 +2,7 @@ package com.btten.compaign;
 
 import java.util.ArrayList;
 
-import com.btten.Jms.R;
+import com.btten.hcbvip.R;
 
 import android.app.Activity;
 import android.view.LayoutInflater;

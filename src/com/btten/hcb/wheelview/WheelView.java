@@ -22,7 +22,7 @@ package com.btten.hcb.wheelview;
 import java.util.LinkedList;
 import java.util.List;
 
-import com.btten.Jms.R;
+import com.btten.hcbvip.R;
 
 import android.content.Context;
 import android.graphics.Canvas;

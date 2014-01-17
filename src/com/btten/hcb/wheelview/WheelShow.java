@@ -17,7 +17,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.btten.Jms.R;
+import com.btten.hcbvip.R;
 import com.btten.tools.Util;
 
 public class WheelShow extends TextView implements OnClickListener {

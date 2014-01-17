@@ -1,7 +1,7 @@
 package com.btten.hcb.Service;
 
 
-import com.btten.Jms.R;
+import com.btten.hcbvip.R;
 import com.btten.base.HcbAPP;
 import com.btten.hcb.Service.core.DriverState;
 import com.btten.hcb.Service.core.JmsMapManager;

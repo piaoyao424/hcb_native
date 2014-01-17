@@ -11,14 +11,13 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
-import com.btten.Jms.R;
 import com.btten.account.VIPAccountManager;
 import com.btten.base.BaseActivity;
 import com.btten.base.HcbAPP;
 import com.btten.base.MainActivity;
 import com.btten.base.WelcomActivity;
 import com.btten.hcb.Service.CallTaxiNotification;
+import com.btten.hcbvip.R;
 import com.btten.ui.view.BaseView;
 
 public class AboutUs extends BaseView implements OnClickListener {

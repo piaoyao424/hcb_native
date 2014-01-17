@@ -1,7 +1,7 @@
 package com.btten.hcb.tools;
 
 
-import com.btten.Jms.R;
+import com.btten.hcbvip.R;
 import com.btten.base.ClassTools;
 import com.btten.hcb.Service.CallTaxiJumpWindow;
 

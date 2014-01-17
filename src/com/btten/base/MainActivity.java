@@ -2,21 +2,25 @@ package com.btten.base;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.btten.Jms.R;
 import com.btten.hcb.Gonggao.NoticeInfoActivity;
 import com.btten.hcb.Notice.TitleNoticeItem;
 import com.btten.hcb.Notice.TitleNoticeItems;
 import com.btten.hcb.Notice.TitleNoticeScene;
 import com.btten.hcb.Service.CallTaxiNotification;
+import com.btten.hcb.search.SearchActivity;
+import com.btten.hcbvip.R;
 import com.btten.network.NetSceneBase;
 import com.btten.network.OnSceneCallBack;
 import com.umeng.update.UmengUpdateAgent;
+import com.vincentTools.CallTelephone;
 import com.vincentTools.ImageView_Win8;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -36,6 +40,7 @@ public class MainActivity extends BaseActivity {
 			R.id.homeview_daoLuJiuYuan, R.id.homeview_telephone,
 			R.id.homeview_webHome };
 	private List<ImageView_Win8> imageViewArray = new ArrayList<ImageView_Win8>();
+	private String menuID = "0";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -57,47 +62,45 @@ public class MainActivity extends BaseActivity {
 
 		for (int i = 0; i < imageIntegers.length; i++) {
 			ImageView_Win8 imageview = (ImageView_Win8) findViewById(imageIntegers[i]);
-			imageview.setOnClickListener(clickListener);
+			imageview.setOnClickIntent(onclick);
 			imageViewArray.add(imageview);
 		}
 	}
 
-	OnClickListener clickListener = new OnClickListener() {
+	ImageView_Win8.OnViewClick onclick = new ImageView_Win8.OnViewClick() {
 
 		@Override
 		public void onClick(View v) {
 			switch (v.getId()) {
-			case R.id.homeview_aiCheMeiRong:
-
-				break;
-			case R.id.homeview_qiCheYongPin:
-
-				break;
-			case R.id.homeview_cheLiangBaoXian:
-
-				break;
-			case R.id.homeview_aiCheQingJie:
-
-				break;
-			case R.id.homeview_woDeHuiCheBao:
-
-				break;
-			case R.id.homeview_jingCaiHuoDong:
-
-				break;
-			case R.id.homeview_aiCheBaoYang:
-
-				break;
-			case R.id.homeview_daoLuJiuYuan:
-
-				break;
 			case R.id.homeview_telephone:
-
+				new CallTelephone(MainActivity.this, "4006602020").call();
 				break;
 			case R.id.homeview_webHome:
-
+				Intent viewIntent = new Intent("android.intent.action.VIEW",
+						Uri.parse("http://www.huichebo.com"));
+				startActivity(viewIntent);
 				break;
+			case R.id.homeview_aiCheMeiRong:
+
+			case R.id.homeview_qiCheYongPin:
+
+			case R.id.homeview_cheLiangBaoXian:
+
+			case R.id.homeview_aiCheQingJie:
+
+			case R.id.homeview_woDeHuiCheBao:
+
+			case R.id.homeview_jingCaiHuoDong:
+
+			case R.id.homeview_aiCheBaoYang:
+
+			case R.id.homeview_daoLuJiuYuan:
+
 			default:
+				Intent intent = new Intent(MainActivity.this,
+						SearchActivity.class);
+				intent.putExtra("KEY_MENUID", menuID);
+				startActivity(intent);
 				break;
 			}
 		}
@@ -148,7 +151,6 @@ public class MainActivity extends BaseActivity {
 		public void onClick(View v) {
 			disPlayNoticeContent(context, titleid);
 		}
-
 	}
 
 	/**

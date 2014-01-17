@@ -9,8 +9,6 @@ import android.view.View.OnClickListener;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-
-import com.btten.Jms.R;
 import com.btten.base.BaseActivity;
 import com.btten.base.MainActivity;
 import com.btten.network.NetSceneBase;

@@ -5,7 +5,7 @@
  * should not be modified by hand.
  */
 
-package com.btten.Jms;
+package com.btten.hcbvip;
 
 public final class R {
     public static final class anim {
@@ -265,9 +265,15 @@ public final class R {
         public static final int voice_image=0x7f0200b2;
         public static final int webhome=0x7f0200b3;
         public static final int welcome_btn_bg=0x7f0200b4;
-        public static final int wheel_bg=0x7f0200b5;
-        public static final int wheel_val=0x7f0200b6;
-        public static final int wodehuichebao=0x7f0200b7;
+        public static final int welcome_page1=0x7f0200b5;
+        public static final int welcome_page2=0x7f0200b6;
+        public static final int welcome_page3=0x7f0200b7;
+        public static final int welcome_page4=0x7f0200b8;
+        public static final int welcome_page5=0x7f0200b9;
+        public static final int welcome_page6=0x7f0200ba;
+        public static final int wheel_bg=0x7f0200bb;
+        public static final int wheel_val=0x7f0200bc;
+        public static final int wodehuichebao=0x7f0200bd;
     }
     public static final class id {
         public static final int aboutus_logout_button=0x7f0b0007;
