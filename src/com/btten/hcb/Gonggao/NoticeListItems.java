@@ -1,4 +1,4 @@
-package com.btten.hcb.Gonggao;
+package com.btten.hcb.gonggao;
 
 import org.json.JSONArray;
 import org.json.JSONObject;

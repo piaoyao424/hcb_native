@@ -7,7 +7,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/light_gray"
-        android:orientation="vertical" >
+        android:orientation="vertical"
+        android:padding="8dp" >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -16,7 +17,7 @@
             android:background="@color/light_gray"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:paddingTop="15dp" >
+            android:paddingTop="7dp" >
 
             <ImageView
                 android:layout_width="0dip"
@@ -78,12 +79,12 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="95dp"
                 android:background="@color/light_gray"
                 android:gravity="center_vertical"
                 android:orientation="horizontal" >
 
-                <com.vincentTools.ImageView_Win8
+                <ImageView
                     android:id="@+id/homeview_aiCheMeiRong"
                     android:layout_width="0dip"
                     android:layout_height="match_parent"
@@ -93,7 +94,7 @@
                     android:scaleType="fitCenter"
                     android:src="@drawable/aichemeirong" />
 
-                <com.vincentTools.ImageView_Win8
+                <ImageView
                     android:id="@+id/homeview_qiCheYongPin"
                     android:layout_width="0dip"
                     android:layout_height="match_parent"
@@ -103,7 +104,7 @@
                     android:scaleType="fitCenter"
                     android:src="@drawable/qicheyongping" />
 
-                <com.vincentTools.ImageView_Win8
+                <ImageView
                     android:id="@+id/homeview_cheLiangBaoXian"
                     android:layout_width="0dip"
                     android:layout_height="match_parent"
@@ -116,12 +117,12 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="134dp"
+                android:layout_height="130dp"
                 android:background="@color/light_gray"
                 android:gravity="center_vertical"
                 android:orientation="horizontal" >
 
-                <com.vincentTools.ImageView_Win8
+                <ImageView
                     android:id="@+id/homeview_aiCheQingJie"
                     android:layout_width="0dip"
                     android:layout_height="match_parent"
@@ -131,7 +132,7 @@
                     android:scaleType="fitCenter"
                     android:src="@drawable/aicheqingjie" />
 
-                <com.vincentTools.ImageView_Win8
+                <ImageView
                     android:id="@+id/homeview_woDeHuiCheBao"
                     android:layout_width="0dip"
                     android:layout_height="match_parent"
@@ -144,12 +145,12 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="95dp"
                 android:background="@color/light_gray"
                 android:gravity="center_vertical"
                 android:orientation="horizontal" >
 
-                <com.vincentTools.ImageView_Win8
+                <ImageView
                     android:id="@+id/homeview_aiCheBaoYang"
                     android:layout_width="0dip"
                     android:layout_height="match_parent"
@@ -159,7 +160,7 @@
                     android:scaleType="fitCenter"
                     android:src="@drawable/aichebaoyang" />
 
-                <com.vincentTools.ImageView_Win8
+                <ImageView
                     android:id="@+id/homeview_daoLuJiuYuan"
                     android:layout_width="0dip"
                     android:layout_height="match_parent"
@@ -169,7 +170,7 @@
                     android:scaleType="fitCenter"
                     android:src="@drawable/daolujiuyuan" />
 
-                <com.vincentTools.ImageView_Win8
+                <ImageView
                     android:id="@+id/homeview_jingCaiHuoDong"
                     android:layout_width="0dip"
                     android:layout_height="match_parent"
@@ -187,7 +188,7 @@
                 android:gravity="center_vertical"
                 android:orientation="horizontal" >
 
-                <com.vincentTools.ImageView_Win8
+                <ImageView
                     android:id="@+id/homeview_webHome"
                     android:layout_width="0dip"
                     android:layout_height="match_parent"
@@ -197,7 +198,7 @@
                     android:scaleType="fitCenter"
                     android:src="@drawable/webhome" />
 
-                <com.vincentTools.ImageView_Win8
+                <ImageView
                     android:id="@+id/homeview_telephone"
                     android:layout_width="0dip"
                     android:layout_height="match_parent"

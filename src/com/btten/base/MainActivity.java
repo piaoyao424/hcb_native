@@ -2,30 +2,29 @@ package com.btten.base;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.btten.hcb.Gonggao.NoticeInfoActivity;
 import com.btten.hcb.Notice.TitleNoticeItem;
 import com.btten.hcb.Notice.TitleNoticeItems;
 import com.btten.hcb.Notice.TitleNoticeScene;
 import com.btten.hcb.Service.CallTaxiNotification;
+import com.btten.hcb.gonggao.NoticeInfoActivity;
 import com.btten.hcb.search.SearchActivity;
 import com.btten.hcbvip.R;
 import com.btten.network.NetSceneBase;
 import com.btten.network.OnSceneCallBack;
 import com.umeng.update.UmengUpdateAgent;
 import com.vincentTools.CallTelephone;
-import com.vincentTools.ImageView_Win8;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
@@ -39,8 +38,7 @@ public class MainActivity extends BaseActivity {
 			R.id.homeview_jingCaiHuoDong, R.id.homeview_aiCheBaoYang,
 			R.id.homeview_daoLuJiuYuan, R.id.homeview_telephone,
 			R.id.homeview_webHome };
-	private List<ImageView_Win8> imageViewArray = new ArrayList<ImageView_Win8>();
-	private String menuID = "0";
+	private List<ImageView> imageViewArray = new ArrayList<ImageView>();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -61,16 +59,18 @@ public class MainActivity extends BaseActivity {
 		titleNoticeScene.doScene(callBack);
 
 		for (int i = 0; i < imageIntegers.length; i++) {
-			ImageView_Win8 imageview = (ImageView_Win8) findViewById(imageIntegers[i]);
-			imageview.setOnClickIntent(onclick);
+			ImageView imageview = (ImageView) findViewById(imageIntegers[i]);
+			imageview.setOnClickListener(clickListener);
 			imageViewArray.add(imageview);
 		}
 	}
 
-	ImageView_Win8.OnViewClick onclick = new ImageView_Win8.OnViewClick() {
+	OnClickListener clickListener = new OnClickListener() {
 
 		@Override
 		public void onClick(View v) {
+			//默认爱车美容
+			String cid = "20002" ;
 			switch (v.getId()) {
 			case R.id.homeview_telephone:
 				new CallTelephone(MainActivity.this, "4006602020").call();
@@ -80,26 +80,26 @@ public class MainActivity extends BaseActivity {
 						Uri.parse("http://www.huichebo.com"));
 				startActivity(viewIntent);
 				break;
-			case R.id.homeview_aiCheMeiRong:
-
-			case R.id.homeview_qiCheYongPin:
-
 			case R.id.homeview_cheLiangBaoXian:
-
-			case R.id.homeview_aiCheQingJie:
-
+				break;
 			case R.id.homeview_woDeHuiCheBao:
-
-			case R.id.homeview_jingCaiHuoDong:
-
-			case R.id.homeview_aiCheBaoYang:
-
+				break;
 			case R.id.homeview_daoLuJiuYuan:
-
+				break;
+			case R.id.homeview_jingCaiHuoDong:
+				break;
+			case R.id.homeview_aiCheMeiRong:
+				cid = "20002" ;
+			case R.id.homeview_qiCheYongPin:
+				cid = "20005" ;
+			case R.id.homeview_aiCheQingJie:
+				cid = "20001" ;
+			case R.id.homeview_aiCheBaoYang:
+				cid = "20003" ;
 			default:
 				Intent intent = new Intent(MainActivity.this,
 						SearchActivity.class);
-				intent.putExtra("KEY_MENUID", menuID);
+				intent.putExtra("KEY_MENUID", cid);
 				startActivity(intent);
 				break;
 			}

@@ -1,4 +1,4 @@
-package com.btten.hcb.Gonggao;
+package com.btten.hcb.gonggao;
 
 import android.util.Log;
 import com.btten.model.BaseJsonItem;

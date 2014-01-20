@@ -1,4 +1,4 @@
-package com.vincentTools;
+﻿package com.vincentTools;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -16,8 +16,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 
-public class ImageView_Win8 extends ImageView {
-
+@SuppressLint("HandlerLeak")
+public class MyImageView extends ImageView {
 	public static final int Rotate_Handler_Message_Start = 1;
 	public static final int Rotate_Handler_Message_Turning = 2;
 	public static final int Rotate_Handler_Message_Turned = 3;
@@ -45,12 +45,12 @@ public class ImageView_Win8 extends ImageView {
 	float RolateY = 0;
 	OnViewClick onclick = null;
 
-	public ImageView_Win8(Context context) {
+	public MyImageView(Context context) {
 		super(context);
 		camera = new Camera();
 	}
 
-	public ImageView_Win8(Context context, AttributeSet attrs) {
+	public MyImageView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		camera = new Camera();
 	}
@@ -147,6 +147,7 @@ public class ImageView_Win8 extends ImageView {
 		private Matrix matrix = new Matrix();
 		private float count = 0;
 
+		// private boolean clickGuolv = false;
 		@Override
 		public void handleMessage(Message msg) {
 			super.handleMessage(msg);
@@ -175,7 +176,7 @@ public class ImageView_Win8 extends ImageView {
 				} else {
 					isAnimationFinish = true;
 					if (!isActionMove && onclick != null) {
-						onclick.onClick(ImageView_Win8.this);
+						onclick.onClick(MyImageView.this);
 					}
 				}
 				count--;
@@ -192,6 +193,7 @@ public class ImageView_Win8 extends ImageView {
 
 	private synchronized void beginRotate(Matrix matrix, float rotateX,
 			float rotateY) {
+		// Bitmap bm = getImageBitmap();
 		int scaleX = (int) (vWidth * 0.5f);
 		int scaleY = (int) (vHeight * 0.5f);
 		camera.save();
@@ -216,7 +218,6 @@ public class ImageView_Win8 extends ImageView {
 		setImageMatrix(matrix);
 	}
 
-	@SuppressLint("HandlerLeak")
 	private Handler scale_handler = new Handler() {
 		private Matrix matrix = new Matrix();
 		private float s;
@@ -248,7 +249,7 @@ public class ImageView_Win8 extends ImageView {
 				} else {
 					isAnimationFinish = true;
 					if (!isSizeChanged && !isActionMove && onclick != null) {
-						onclick.onClick(ImageView_Win8.this);
+						onclick.onClick(MyImageView.this);
 					}
 				}
 				count++;

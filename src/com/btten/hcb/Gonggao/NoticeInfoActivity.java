@@ -1,4 +1,4 @@
-package com.btten.hcb.Gonggao;
+package com.btten.hcb.gonggao;
 
 import android.os.Bundle;
 import android.widget.Button;

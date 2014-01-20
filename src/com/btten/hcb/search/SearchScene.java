@@ -19,7 +19,7 @@ public class SearchScene extends NomalJsonSceneBase {
 
 		SetCallBack(callBack);
 		Flag = 0 ;
-		targetUrl = UrlFactory.GetUrlOld("DoAreaList", "areaid", Areaid);
+		targetUrl = UrlFactory.GetUrlNew("PublicNotice","getAreaItems", "areaid", Areaid);
 		ThreadPoolUtils.execute(this);
 		Log.i(TAG, targetUrl);
 	}
@@ -28,7 +28,7 @@ public class SearchScene extends NomalJsonSceneBase {
 
 		SetCallBack(callBack);
 		Flag = 1 ;
-		targetUrl = UrlFactory.GetUrlOld("Sale", "getItems", "jid", JID);
+		targetUrl = UrlFactory.GetUrlNew("Sale", "getItems", "jid", JID);
 		ThreadPoolUtils.execute(this);
 		Log.i(TAG, targetUrl);
 	}
@@ -37,7 +37,7 @@ public class SearchScene extends NomalJsonSceneBase {
 		SetCallBack(callBack);
 		Flag = 2 ;
 		targetUrl = UrlFactory
-				.GetUrlOld("DoJmsLogin", "pwd", pwd, "name", name);
+				.GetUrlNew("DoJmsLogin", "pwd", pwd, "name", name);
 		ThreadPoolUtils.execute(this);
 		Log.i(TAG, targetUrl);
 	}

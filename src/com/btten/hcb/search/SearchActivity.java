@@ -36,7 +36,7 @@ public class SearchActivity extends BaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.login_activity);
+		setContentView(R.layout.saleslist_activity);
 
 		initView();
 		initData();
@@ -72,9 +72,7 @@ public class SearchActivity extends BaseActivity {
 		lv_salesmenu.setVisibility(View.GONE);
 
 		doArea();
-		doSalesItems();
 		doCriteria();
-
 	}
 
 	// 隐藏其他listview
@@ -130,19 +128,15 @@ public class SearchActivity extends BaseActivity {
 
 	// 静态加载限制条件列表
 	private void doCriteria() {
-
-		List<String> data = new ArrayList<String>();
 		Resources rs = getResources();
 		final String[] items = rs.getStringArray(R.array.Criteria);
 
-		for (String item : items) {
-			data.add(item);
-		}
-
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(
 				SearchActivity.this, R.layout.saleslist_item,
-				R.id.saleslist_txt_item, data);
+				R.id.saleslist_txt_item, items);
 		lv_criteria.setAdapter(adapter);
+		txt_criteria.setText(items[0]);
+		
 		lv_criteria.setOnItemClickListener(new OnItemClickListener() {
 
 			@SuppressLint("ResourceAsColor")
@@ -179,6 +173,8 @@ public class SearchActivity extends BaseActivity {
 				data1.add(item.areaName);
 			}
 
+			txt_area.setText(data1.get(0));
+
 			ArrayAdapter<String> adapter = new ArrayAdapter<String>(
 					SearchActivity.this, R.layout.saleslist_item,
 					R.id.saleslist_txt_item, data1);
@@ -200,6 +196,7 @@ public class SearchActivity extends BaseActivity {
 			});
 
 			HideProgress();
+			// doSalesItems();
 		}
 	};
 
@@ -290,7 +287,6 @@ public class SearchActivity extends BaseActivity {
 		});
 	}
 
-	// 查询回调
 	// 查询回调
 	OnSceneCallBack SearchcallBack = new OnSceneCallBack() {
 		@Override

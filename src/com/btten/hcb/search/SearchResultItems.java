@@ -40,10 +40,10 @@ public class SearchResultItems extends BaseJsonItem {
 						CommonConvert convert = new CommonConvert(
 								jsonArray.getJSONObject(i));
 
-						temp.areaID = convert.getString("USERNAME");
-						temp.areaName = convert.getString("USERID");
-						temp.areaUpID = convert.getString("PHONE");
-						temp.status = convert.getInt("STATUS");
+						temp.areaID = convert.getString("QYID");
+						temp.areaName = convert.getString("NAME");
+						temp.areaUpID = convert.getString("UPID");
+						 
 						areaItems[i] = temp;
 					}
 				}

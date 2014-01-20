@@ -51,13 +51,13 @@ public class UrlFactory {
 			try {
 				argvalue = URLEncoder.encode(args[i * 2 + 1], "UTF-8");
 			} catch (UnsupportedEncodingException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			result += ("&" + args[i * 2] + "=" + argvalue);
 		}
 		return result;
 	}
+	
 	//发送银行信息编码。gwj添加， 20130813
 	public static String GetUrlNew_Bank(String data, String action, String... args) {
 		String result = UrlFactory.javaRoot;
@@ -80,7 +80,6 @@ public class UrlFactory {
 			}
 			result += ("&" + args[i * 2] + "=" + argvalue);
 		}
-
 		return result;
 	}
 }

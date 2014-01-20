@@ -118,14 +118,19 @@
 
         <!-- 公告内容 -->
         <activity
-            android:name="com.btten.hcb.Gonggao.NoticeInfoActivity"
+            android:name="com.btten.hcb.gonggao.NoticeInfoActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <!--查询商品 -->
+        <activity
+            android:name="com.btten.hcb.search.SearchActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait" />
         <!-- 填写银行卡帐号 -->
         <activity
             android:name="com.btten.goal.mygoul.debitCardActivity"
             android:configChanges="orientation|keyboardHidden"
-            android:screenOrientation="portrait"
+           
             android:windowSoftInputMode="stateHidden" />
         <activity
             android:name="com.btten.goal.mygoul.debitCardActivity_new"
