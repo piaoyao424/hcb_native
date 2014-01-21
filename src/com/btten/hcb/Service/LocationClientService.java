@@ -8,6 +8,7 @@ import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
 import com.baidu.mapapi.BMapManager;
 import com.baidu.mapapi.MKGeneralListener;
+import com.btten.account.VIPAccountManager;
 import com.btten.base.HcbAPP;
 import com.btten.hcb.Service.core.JmsMapManager;
 
@@ -39,14 +40,12 @@ public class LocationClientService {
 
 					@Override
 					public void onGetPermissionState(int arg0) {
-						// TODO Auto-generated method stub
 						Toast.makeText(HcbAPP.getInstance(), "网络不通",
 								Toast.LENGTH_SHORT).show();
 					}
 
 					@Override
 					public void onGetNetworkState(int arg0) {
-						// TODO Auto-generated method stub
 						String str = " ";
 						if (arg0 == 300) {
 							str = "授权验证失败!";
@@ -61,17 +60,14 @@ public class LocationClientService {
 
 			@Override
 			public void onReceivePoi(BDLocation arg0) {
-				// TODO Auto-generated method stub
 
 			}
 
 			@Override
 			public void onReceiveLocation(BDLocation arg0) {
-				// TODO Auto-generated method stub
 				if (arg0 != null) {
-					// ClassTools.getInstance().put(ClassTools.locateInfo,
-					// arg0);
 					location = arg0;
+					VIPAccountManager.getInstance().setGps(arg0.getLatitude(),arg0.getLatitude());
 				}
 			}
 		};
@@ -119,7 +115,6 @@ public class LocationClientService {
 
 				@Override
 				public void run() {
-					// TODO Auto-generated method stub
 					try {
 						while (true) {
 							if (!client.isStarted())
@@ -132,7 +127,6 @@ public class LocationClientService {
 							Thread.sleep(deltaTime * 2);
 						}
 					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 				}

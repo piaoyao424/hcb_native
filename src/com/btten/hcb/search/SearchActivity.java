@@ -30,8 +30,8 @@ public class SearchActivity extends BaseActivity {
 	private String areaID = "261";
 	private String menuID = "0";
 	private String itemID = null;
-
-	private SearchScene searchScene = new SearchScene();
+	//缓存查询数据,避免更改第三选项时多次查询
+	private List<SearchResultItem> searchResultItems = new ArrayList<SearchResultItem>();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -66,11 +66,6 @@ public class SearchActivity extends BaseActivity {
 		menuID = bundle.getString("KEY_MENUID");
 		areaID = VIPAccountManager.getInstance().getAreaID();
 
-		lv_salesitems.setVisibility(View.GONE);
-		lv_criteria.setVisibility(View.GONE);
-		lv_area.setVisibility(View.GONE);
-		lv_salesmenu.setVisibility(View.GONE);
-
 		doArea();
 		doCriteria();
 	}
@@ -91,21 +86,21 @@ public class SearchActivity extends BaseActivity {
 		@Override
 		public void onClick(View v) {
 
-			txt_area.setBackgroundColor(R.color.orange);
-			txt_list.setBackgroundColor(R.color.orange);
-			txt_criteria.setBackgroundColor(R.color.orange);
+			txt_area.setBackgroundResource(R.color.orange);
+			txt_list.setBackgroundResource(R.color.orange);
+			txt_criteria.setBackgroundResource(R.color.orange);
 
 			switch (v.getId()) {
 			case R.id.saleslist_txt_area:
-				txt_area.setBackgroundColor(R.color.orange_deep);
+				txt_area.setBackgroundResource(R.color.orange_deep);
 				clearOtherListView(linear_area);
 				break;
 			case R.id.saleslist_txt_list:
-				txt_list.setBackgroundColor(R.color.orange_deep);
+				txt_list.setBackgroundResource(R.color.orange_deep);
 				clearOtherListView(linear_list);
 				break;
 			case R.id.saleslist_txt_criteria:
-				txt_criteria.setBackgroundColor(R.color.orange_deep);
+				txt_criteria.setBackgroundResource(R.color.orange_deep);
 				clearOtherListView(linear_criteria);
 				break;
 			}
@@ -114,15 +109,15 @@ public class SearchActivity extends BaseActivity {
 
 	private void doArea() {
 		ShowProgress("加载地区数据", "请稍候……");
-		searchScene.doAreaScene(AreacallBack, VIPAccountManager.getInstance()
-				.getAreaID());
+		new SearchScene().doAreaScene(AreacallBack, VIPAccountManager
+				.getInstance().getAreaID());
 	}
 
 	private void doSalesItems() {
 
 		ShowProgress("加载销售列表", "请稍候……");
 
-		searchScene.doSalesListScene(SalesListcallBack, VIPAccountManager
+		new SearchScene().doSalesListScene(SalesListcallBack, VIPAccountManager
 				.getInstance().getUserid());
 	}
 
@@ -136,15 +131,15 @@ public class SearchActivity extends BaseActivity {
 				R.id.saleslist_txt_item, items);
 		lv_criteria.setAdapter(adapter);
 		txt_criteria.setText(items[0]);
-		
+
 		lv_criteria.setOnItemClickListener(new OnItemClickListener() {
 
 			@SuppressLint("ResourceAsColor")
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
-				view.setBackgroundColor(R.color.deep_gray);
 				txt_criteria.setText(items[position]);
+				linear_criteria.setVisibility(View.GONE);
 			}
 		});
 	}
@@ -152,7 +147,7 @@ public class SearchActivity extends BaseActivity {
 	private void dosearch() {
 
 		ShowProgress("查询中", "请稍候……");
-		searchScene.doSearchScene(SearchcallBack, areaID, itemID);
+		new SearchScene().doSearchScene(SearchcallBack, areaID, itemID);
 	}
 
 	// 区域回调
@@ -187,16 +182,14 @@ public class SearchActivity extends BaseActivity {
 				@Override
 				public void onItemClick(AdapterView<?> parent, View view,
 						int position, long id) {
-					view.setBackgroundColor(R.color.deep_gray);
 					txt_area.setText(items[position].areaName);
 					areaID = items[position].areaID;
 					linear_area.setVisibility(View.GONE);
 					dosearch();
 				}
 			});
-
 			HideProgress();
-			// doSalesItems();
+			doSalesItems();
 		}
 	};
 
@@ -223,6 +216,7 @@ public class SearchActivity extends BaseActivity {
 			ArrayAdapter<String> adapter = new ArrayAdapter<String>(
 					SearchActivity.this, R.layout.saleslist_item,
 					R.id.saleslist_txt_item, menu);
+
 			lv_salesmenu.setAdapter(adapter);
 
 			lv_salesmenu.setOnItemClickListener(new OnItemClickListener() {
@@ -231,25 +225,26 @@ public class SearchActivity extends BaseActivity {
 				@Override
 				public void onItemClick(AdapterView<?> parent, View view,
 						int position, long id) {
-					view.setBackgroundColor(R.color.deep_gray);
-
-					int i = 0;
-					String itemName = menu.get(position);
-					while (i < items.length) {
-						if (itemName.equals(items[i].itemName)) {
-							showItems(items, items[i].itemID);
-							break;
-						}
-						i++;
-					}
+					showItems(items, menu.get(position));
 				}
 			});
+
+			showItems(items, menu.get(0));
 			HideProgress();
 		}
 	};
 
 	// 点击目录,显示商品
-	private void showItems(final SearchResultItem_saleslist[] items, String upid) {
+	private void showItems(final SearchResultItem_saleslist[] items, String name) {
+		String upid = null;
+
+		for (SearchResultItem_saleslist searchResultItem_saleslist : items) {
+			if (searchResultItem_saleslist.itemName.equals(name)) {
+				upid = searchResultItem_saleslist.itemID;
+				break;
+			}
+		}
+
 		final List<String> itemlist = new ArrayList<String>();
 
 		for (SearchResultItem_saleslist item : items) {
@@ -261,9 +256,10 @@ public class SearchActivity extends BaseActivity {
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(
 				SearchActivity.this, R.layout.saleslist_item,
 				R.id.saleslist_txt_item, itemlist);
-		lv_salesmenu.setAdapter(adapter);
+		lv_salesitems.setAdapter(adapter);
+		txt_list.setText(itemlist.get(0));
 
-		lv_salesmenu.setOnItemClickListener(new OnItemClickListener() {
+		lv_salesitems.setOnItemClickListener(new OnItemClickListener() {
 
 			@SuppressLint("ResourceAsColor")
 			@Override
@@ -276,7 +272,7 @@ public class SearchActivity extends BaseActivity {
 				while (i < items.length) {
 					if (itemName.equals(items[i].itemName)) {
 						itemID = items[i].itemID;
-						txt_list.setText(items[position].itemName);
+						txt_list.setText(items[i].itemName);
 						linear_list.setVisibility(View.GONE);
 						break;
 					}
@@ -293,12 +289,10 @@ public class SearchActivity extends BaseActivity {
 		public void OnFailed(int status, String info, NetSceneBase<?> netScene) {
 			HideProgress();
 			ErrorAlert(status, info);
-
 		}
 
 		@Override
 		public void OnSuccess(Object data, NetSceneBase<?> netScene) {
-
 			HideProgress();
 		}
 	};

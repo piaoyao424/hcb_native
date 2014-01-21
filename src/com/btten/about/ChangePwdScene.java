@@ -1,8 +1,6 @@
-//gwj-creat-20130818
 package com.btten.about;
 
 import android.util.Log;
-
 import com.btten.account.VIPAccountManager;
 import com.btten.model.BaseJsonItem;
 import com.btten.network.NomalJsonSceneBase;
@@ -21,7 +19,7 @@ public class ChangePwdScene extends NomalJsonSceneBase{
 		SetCallBack(callBack);
 		targetUrl=UrlFactory.GetUrlOld(
 				"DoChangeJmsPwd",
-				"userid", VIPAccountManager.getInstance().getJmsUserid(),
+				"userid", VIPAccountManager.getInstance().getUserid(),
 				"oldpwd",oldpwd,
 				"newpwd",newpwd
 				);
@@ -31,7 +29,6 @@ public class ChangePwdScene extends NomalJsonSceneBase{
 
 	@Override
 	protected BaseJsonItem CreateJsonItems() {
-		// TODO Auto-generated method stub
 		return new changePwdResultItems();
 	}
 

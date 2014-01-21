@@ -16,23 +16,16 @@ public class VIPAccountManager {
 	private static final String USERPHONE_KEY = "userphone";
 	private static final String USERCARNUM_KEY = "usercarnum";
 	private static final String USERTYPE_KEY = "usertype";
-	// 加盟商
-	private static final String JMS_PHONE_KEY = "jms_phone";
-	private static final String JMS_USERNAME_KEY = "jms_username";
-	private static final String JMS_USERID_KEY = "jms_userid";
 	// 加盟商-end
 	private String userid;
 	private String username;
 	private String userimage;
-
-	private String userphone; // 用户手机号
 	private String usercarnum;
+	private String userphone; // 用户手机号
 	private String areaID = "261";
 	private int usertype;
-	// jms
-	private String jms_phone;
-	private String jms_username;
-	private String jms_userid;
+	private Double gps_la = 30.711399;
+	private Double gps_lo = 111.329899;
 
 	private String nickname;
 	// user
@@ -40,17 +33,25 @@ public class VIPAccountManager {
 			PREFS_NAME, Context.MODE_PRIVATE);
 	SharedPreferences.Editor editor = settings.edit();
 
-	// jms
-	SharedPreferences jmsSettings = HcbAPP.getInstance().getSharedPreferences(
-			PREFS_NAME, Context.MODE_PRIVATE);
-	SharedPreferences.Editor JmsEditor = jmsSettings.edit();
-
 	/**
 	 * 设置当前用户车牌号
 	 */
 	public void setCarnum(String carnum) {
 		this.usercarnum = carnum;
 		editor.putString(USERCARNUM_KEY, usercarnum).commit();
+	}
+
+	public void setGps(Double la, Double lo) {
+		this.gps_la = la;
+		this.gps_lo = lo;
+	}
+
+	public Double getGpsla() {
+		return this.gps_la;
+	}
+
+	public Double getGpslo() {
+		return this.gps_lo;
 	}
 
 	/**
@@ -118,30 +119,6 @@ public class VIPAccountManager {
 		return nickname;
 	}
 
-	// jms
-	public void setJmsUserPhone(String phone) {
-		this.jms_phone = phone;
-		JmsEditor.putString(JMS_PHONE_KEY, jms_phone).commit();
-	}
-
-	public void setJmsUsername(String username) {
-		this.jms_username = username;
-		JmsEditor.putString(JMS_USERNAME_KEY, jms_username).commit();
-	}
-
-	public String getJmsUserPhone() {
-
-		return jms_phone;
-	}
-
-	public String getJmsUsername() {
-		return jms_username;
-	}
-
-	public String getJmsUserid() {
-		return jms_userid;
-	}
-
 	public void SetInfo(String username, String userid, String nickname,
 			String userimage) {
 		this.username = username;
@@ -157,20 +134,6 @@ public class VIPAccountManager {
 
 	}
 
-	public void SetJmsInfo(String jms_phone, String jms_username,
-			String jms_userid) {
-
-		this.jms_phone = jms_phone;
-		this.jms_username = jms_username;
-		this.jms_userid = jms_userid;
-
-		JmsEditor.putString(JMS_PHONE_KEY, jms_phone);
-		JmsEditor.putString(JMS_USERNAME_KEY, jms_username);
-		JmsEditor.putString(JMS_USERID_KEY, jms_userid);
-		JmsEditor.commit();
-
-	}
-	
 	public void setPhoto(String userimage) {
 		this.userimage = userimage;
 		editor.putString(USERIMAGE_KEY, userimage);
@@ -187,10 +150,6 @@ public class VIPAccountManager {
 		userphone = jmsUserInfo.getString(USERPHONE_KEY, "");
 		usercarnum = jmsUserInfo.getString(USERCARNUM_KEY, "");
 		usertype = jmsUserInfo.getInt(USERTYPE_KEY, 5);
-		jms_phone = jmsUserInfo.getString(JMS_PHONE_KEY, "");
-		jms_username = jmsUserInfo.getString(JMS_USERNAME_KEY, "");
-		jms_userid = jmsUserInfo.getString(JMS_USERID_KEY, "");
-		// jms-end
 	}
 
 	private static VIPAccountManager instance;
@@ -211,19 +170,6 @@ public class VIPAccountManager {
 
 	public void Logout() {
 		SetInfo("", "", "", "");
-	}
-
-	//Jms是否登录成功
-	public boolean IsJmsLogin() {
-		if (jms_userid == null || jms_userid.length() <= 0) {
-			return false;
-		} else {
-			return true;
-		}
-	}
-
-	public void JmsLogout() {
-		SetJmsInfo("", "", "");
 	}
 
 	public void setAreaID(String areaID) {

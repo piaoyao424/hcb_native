@@ -154,8 +154,8 @@ public class LoginActivity extends BaseActivity {
 
 			LoginResultItems items = (LoginResultItems) data;
 			LoginResultItem item = items.item;
-			VIPAccountManager.getInstance().SetJmsInfo(nameStr,
-					item.username, item.userid);
+			VIPAccountManager.getInstance().SetInfo(nameStr,
+					item.username, item.userid, nameStr);
 
 			MsgCenter.getInstance().PostMsg(MsgConst.LOGIN_SUCCESS, this);
 

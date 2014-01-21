@@ -65,15 +65,15 @@ public class SearchResultItems extends BaseJsonItem {
 						CommonConvert convert = new CommonConvert(
 								jsonArray.getJSONObject(i));
 
-						temp.itemID = convert.getString("USERNAME");
-						temp.itemName = convert.getString("USERID");
-						temp.itemUpID = convert.getString("PHONE");
+						temp.itemID = convert.getString("ITEMID");
+						temp.itemName = convert.getString("NAME");
+						temp.itemUpID = convert.getString("UPID");
 						temp.status = convert.getInt("STATUS");
 						saleslist[i] = temp;
 					}
 				}
 				break;
-			// 2加盟商列表
+			// 2加盟商查询列表
 			case 2:
 				this.status = result.getInt("STATUS");
 				this.info = result.getString("INFO");

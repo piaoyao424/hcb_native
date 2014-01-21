@@ -162,18 +162,14 @@ public class ChangePasswdActivity extends BaseActivity {
 					ClearOtherActivity();
 					clearTemp();
 					// 注销到登录页面
-					if (LocationClientService.getInstance().isStarted()) {
-						LocationClientService.getInstance().stop();
-					}
 					VIPAccountManager.getInstance().Logout();
-					
+
 					// 关闭位置
 					if (LocationClientService.getInstance().isStarted())
 						LocationClientService.getInstance().stop();
 					if (LocationClientService.getInstance().getMapManager() != null)
 						LocationClientService.getInstance().getMapManager()
 								.destroy();
-
 					CallTaxiNotification.getInstance().LogoutApp();
 					startActivity((new Intent(ChangePasswdActivity.this,
 							LoginActivity.class)));
@@ -229,7 +225,6 @@ public class ChangePasswdActivity extends BaseActivity {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// TODO Auto-generated method stub
 		if (item.getGroupId() == 0 && item.getItemId() == 0)
 			new AlertDialog.Builder(this)
 					.setMessage("退出惠车宝？")
@@ -248,7 +243,7 @@ public class ChangePasswdActivity extends BaseActivity {
 											.getMapManager() != null)
 										LocationClientService.getInstance()
 												.getMapManager().destroy();
-									
+
 									CallTaxiNotification.getInstance()
 											.ExitApp();
 									ClearAllActivity();
@@ -261,7 +256,6 @@ public class ChangePasswdActivity extends BaseActivity {
 								@Override
 								public void onClick(DialogInterface dialog,
 										int which) {
-									// TODO Auto-generated method stub
 									dialog.dismiss();
 								}
 							}).show();

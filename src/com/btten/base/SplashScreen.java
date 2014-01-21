@@ -4,6 +4,7 @@ import com.btten.account.VIPAccountManager;
 import com.btten.base.SplashScreen;
 import com.btten.hcb.Login.LoginActivity;
 import com.btten.hcb.Login.LoginScene;
+import com.btten.hcb.Service.LocationClientService;
 import com.btten.hcbvip.R;
 import com.btten.network.NetSceneBase;
 import com.btten.network.OnSceneCallBack;
@@ -18,12 +19,12 @@ public class SplashScreen extends BaseActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.splashscreen);
-
 		// 自动报错
 		MobclickAgent.onError(this);
-
 		// 更新配置
 		MobclickAgent.updateOnlineConfig(this);
+		// 打开GPS
+		LocationClientService.getInstance().start();
 
 		DelayLoad();
 	}
@@ -34,55 +35,54 @@ public class SplashScreen extends BaseActivity {
 		new Handler().postDelayed(new Runnable() {
 			@Override
 			public void run() {
-//				if (IsFirstStart()) {
-//					intent = new Intent(SplashScreen.this, WelcomActivity.class);
-//					startActivity(intent);
-//					finish();
-//					overridePendingTransition(R.anim.in_right_left,
-//							R.anim.out_right_left);
-//				} else {
-					if (VIPAccountManager.getInstance().IsLogin()) {
-						SharedPreferences settings = getSharedPreferences(
-								"jmscfg", MODE_PRIVATE);
-						String nameStr = settings.getString("nameStr", "");
-						String pwdStr = settings.getString("pwdStr", "");
+				// if (IsFirstStart()) {
+				// intent = new Intent(SplashScreen.this, WelcomActivity.class);
+				// startActivity(intent);
+				// finish();
+				// overridePendingTransition(R.anim.in_right_left,
+				// R.anim.out_right_left);
+				// } else {
+				if (VIPAccountManager.getInstance().IsLogin()) {
+					SharedPreferences settings = getSharedPreferences("jmscfg",
+							MODE_PRIVATE);
+					String nameStr = settings.getString("nameStr", "");
+					String pwdStr = settings.getString("pwdStr", "");
 
-						(new LoginScene()).doScene(new OnSceneCallBack() {
+					(new LoginScene()).doScene(new OnSceneCallBack() {
 
-							@Override
-							public void OnSuccess(Object data,
-									NetSceneBase<?> netScene) {
-								intent = new Intent(SplashScreen.this,
-										MainActivity.class);
-								startActivity(intent);
-								finish();
-								overridePendingTransition(R.anim.in_right_left,
-										R.anim.out_right_left);
-							}
+						@Override
+						public void OnSuccess(Object data,
+								NetSceneBase<?> netScene) {
+							intent = new Intent(SplashScreen.this,
+									MainActivity.class);
+							startActivity(intent);
+							finish();
+							overridePendingTransition(R.anim.in_right_left,
+									R.anim.out_right_left);
+						}
 
-							@Override
-							public void OnFailed(int status, String info,
-									NetSceneBase<?> netScene) {
-								intent = new Intent(SplashScreen.this,
-										LoginActivity.class);
-								startActivity(intent);
-								finish();
-								overridePendingTransition(R.anim.in_right_left,
-										R.anim.out_right_left);
-							}
-						}, nameStr, pwdStr);
+						@Override
+						public void OnFailed(int status, String info,
+								NetSceneBase<?> netScene) {
+							intent = new Intent(SplashScreen.this,
+									LoginActivity.class);
+							startActivity(intent);
+							finish();
+							overridePendingTransition(R.anim.in_right_left,
+									R.anim.out_right_left);
+						}
+					}, nameStr, pwdStr);
 
-					} else {
-//						intent = new Intent(SplashScreen.this,
-//								LoginActivity.class);
-						intent = new Intent(SplashScreen.this,
-								MainActivity.class);
-						startActivity(intent);
-						finish();
-						overridePendingTransition(R.anim.in_right_left,
-								R.anim.out_right_left);
-					}
-//				}
+				} else {
+					// intent = new Intent(SplashScreen.this,
+					// LoginActivity.class);
+					intent = new Intent(SplashScreen.this, MainActivity.class);
+					startActivity(intent);
+					finish();
+					overridePendingTransition(R.anim.in_right_left,
+							R.anim.out_right_left);
+				}
+				// }
 			}
 		}, 2000);
 	}

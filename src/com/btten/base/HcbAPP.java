@@ -7,7 +7,6 @@ import java.util.Map;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Application;
-import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.util.DisplayMetrics;
@@ -21,7 +20,6 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.utils.StorageUtils;
 import com.umeng.analytics.MobclickAgent;
 
-//import dalvik.system.VMRuntime;
 public class HcbAPP  extends Application {
 	static HcbAPP mainApp;
 	
@@ -30,8 +28,6 @@ public class HcbAPP  extends Application {
 		mainApp     = this;
 		MsgCenter.getInstance();
 		Log.setOutputPath(Log.SDCARD_LOG_PATH,Log.SYS_LOG, 0);
-		
-		//VMRuntime.getRuntime().setMinimumHeapSize(6* 1024* 1024);
 	}
 	
 	public static HcbAPP getInstance(){
@@ -88,32 +84,6 @@ public class HcbAPP  extends Application {
 			return 1;
 		return 0;
 	}
-	//是否要强制升�?
-	public boolean IsNeedForceUpdate(Context context)
-	{
-		String min_verson_code=MobclickAgent.getConfigParams(context, "min_verson_code");
-		//没有得到配置
-		if(min_verson_code==""||min_verson_code.length()<=0)
-			return false;
-		int cuVersonCode=GetVersionCode();
-		//得不到当前配�?
-		if(cuVersonCode<=0)
-			return false;
-		int i_min_verson_code=0;
-		try {  
-			i_min_verson_code=Integer.parseInt(min_verson_code);
-		}catch (Exception e) {
-			//得到远程配置出错
-			return false;
-		}
-		//比小�?��版本还要小，去死吧！，强制更�?
-		if(cuVersonCode<i_min_verson_code)
-		{
-			return true;
-		}
-		return false;
-		
-	}
 	
 	//上报错误
 	public static void ReportError(String error)
@@ -123,43 +93,16 @@ public class HcbAPP  extends Application {
 			return;
 		MobclickAgent.reportError(topactivity,error);
 	}
-	//服务器是否在维护
-	public String GetRepairInfo(Context context)
-	{
-		String Str_is_in_repair=MobclickAgent.getConfigParams(context, "in_repair_info");
-		if(Str_is_in_repair!=null&&Str_is_in_repair.equalsIgnoreCase("off"))
-			Str_is_in_repair=null;
-		
-		if(Str_is_in_repair!=null&&Str_is_in_repair.length()>0)
-		{
-			RepairInfo info=new RepairInfo();
-			if(!info.Parase(Str_is_in_repair))
-			{
-				return null;
-			}
-			//不在维修时间
-			if(!info.IsInTime())
-			{
-				return null;
-			}
-			return info.info;
-			 
-		}
-		 
-		   
-		return Str_is_in_repair;
-	}
-	@SuppressLint("NewApi")
+
 	@Override
 	public void onCreate() {
 		super.onCreate();
-		File cacheDir = StorageUtils.getOwnCacheDirectory(getApplicationContext(), "calltaxi/Cache");
-		 
+		File cacheDir = StorageUtils.getOwnCacheDirectory(getApplicationContext(), "hcb/Cache");
 		
 		ImageLoaderConfiguration.Builder  builder=new ImageLoaderConfiguration.Builder(getApplicationContext())
 		.threadPoolSize(4)
 		.threadPriority(Thread.NORM_PRIORITY - 2)
-		//.memoryCacheSize(20000000) // 20 Mb
+				// .memoryCacheSize(20000000) // 20 Mb
 		.memoryCache(new FIFOLimitedMemoryCache(5 * 1024 * 1024))
 		.discCache(new TotalSizeLimitedDiscCache(cacheDir,new Md5FileNameGenerator(),20 * 1024 *1024))  //能缓�?0M文件
 		.denyCacheImageMultipleSizesInMemory()
