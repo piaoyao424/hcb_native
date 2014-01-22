@@ -1,5 +1,8 @@
 package com.btten.hcb.search;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 import com.btten.base.HcbAPP;
@@ -13,7 +16,7 @@ public class SearchResultItems extends BaseJsonItem {
 	private int Flag = 0;
 	public SearchResultItem_area[] areaItems = null;
 	public SearchResultItem_saleslist[] saleslist = null;
-	public SearchResultItem[] items = null;
+	public List<SearchResultItem> items = null;
 
 	// 识别不同的请求类型
 	public SearchResultItems(int Flag) {
@@ -43,7 +46,7 @@ public class SearchResultItems extends BaseJsonItem {
 						temp.areaID = convert.getString("QYID");
 						temp.areaName = convert.getString("NAME");
 						temp.areaUpID = convert.getString("UPID");
-						 
+
 						areaItems[i] = temp;
 					}
 				}
@@ -82,7 +85,7 @@ public class SearchResultItems extends BaseJsonItem {
 				if (status == 1 && !result.isNull("DATA")) {
 					JSONArray jsonArray = result.getJSONArray("DATA");
 					int lenth = jsonArray.length();
-					items = new SearchResultItem[lenth];
+					items = new ArrayList<SearchResultItem>();
 
 					for (int i = 0; i < lenth; ++i) {
 						SearchResultItem temp = new SearchResultItem();
@@ -94,11 +97,11 @@ public class SearchResultItems extends BaseJsonItem {
 						temp.newPrice = convert.getString("NEWPRICE");
 						temp.oldPrice = convert.getString("OLDPRICE");
 						temp.scope = convert.getString("SCOPE");
-						temp.distance = Double.valueOf(convert.getString("DISTANCE"));
+						temp.distance = convert.getString("DISTANCE");
 						temp.star = Integer.valueOf(convert.getString("STAR"));
 						temp.status = convert.getInt("STATUS");
-						
-						items[i] = temp;
+
+						items.add(temp);
 					}
 				}
 				break;

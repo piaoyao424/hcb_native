@@ -21,7 +21,6 @@ public class NoticeInfoActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.gonggaocontent_activity);
 		setCurrentTitle("公告信息");

@@ -12,5 +12,6 @@
         android:gravity="center"
         android:singleLine="true"
         android:textColor="@color/text_gray"
+        android:text="ceshi"
         android:textSize="15sp" />
 </RelativeLayout>

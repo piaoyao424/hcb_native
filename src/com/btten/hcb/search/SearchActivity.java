@@ -26,11 +26,12 @@ public class SearchActivity extends BaseActivity {
 	private LinearLayout linear_area, linear_list, linear_criteria;
 
 	private TextView txt_area, txt_list, txt_criteria;
-
+	SreachListAdapter adapter = null;
 	private String areaID = "261";
 	private String menuID = "0";
 	private String itemID = null;
-	//缓存查询数据,避免更改第三选项时多次查询
+	private int criteriaID = 0;
+	// 缓存查询数据,避免更改第三选项时多次查询
 	private List<SearchResultItem> searchResultItems = new ArrayList<SearchResultItem>();
 
 	@Override
@@ -48,6 +49,8 @@ public class SearchActivity extends BaseActivity {
 		lv_salesitems = (ListView) findViewById(R.id.saleslist_lv_salesitems);
 		lv_criteria = (ListView) findViewById(R.id.saleslist_lv_criteria);
 		lv_jmsinfo = (ListView) findViewById(R.id.saleslist_lv_jmsinfo);
+		adapter = new SreachListAdapter(SearchActivity.this);
+		lv_jmsinfo.setAdapter(adapter);
 
 		linear_area = (LinearLayout) findViewById(R.id.saleslist_linear_area);
 		linear_list = (LinearLayout) findViewById(R.id.saleslist_linear_list);
@@ -144,10 +147,67 @@ public class SearchActivity extends BaseActivity {
 		});
 	}
 
-	private void dosearch() {
+	private void dosearchOnline() {
 
 		ShowProgress("查询中", "请稍候……");
 		new SearchScene().doSearchScene(SearchcallBack, areaID, itemID);
+	}
+
+	// 本地缓存查询,重新排序
+	private void dosearch() {
+		ShowProgress("查询中", "请稍候……");
+
+		SearchResultItem[] sItems = (SearchResultItem[]) searchResultItems
+				.toArray();
+		SearchResultItem tmpItem = null;
+
+		switch (criteriaID) {
+		case 0:
+			for (int i = 0; i < sItems.length - 1; i++) {
+				for (int j = 0; j < sItems.length - 1 - i; j++) {
+					if (Double.valueOf(sItems[j].distance) > Double
+							.valueOf(sItems[j + 1].distance)) {
+						tmpItem = sItems[j];
+						sItems[j] = sItems[j + 1];
+						sItems[j + 1] = tmpItem;
+					}
+				}
+			}
+		case 1:
+			for (int i = 0; i < sItems.length - 1; i++) {
+				for (int j = 0; j < sItems.length - 1 - i; j++) {
+					if (Double.valueOf(sItems[j].newPrice) > Double
+							.valueOf(sItems[j + 1].newPrice)) {
+						tmpItem = sItems[j];
+						sItems[j] = sItems[j + 1];
+						sItems[j + 1] = tmpItem;
+					}
+				}
+			}
+		case 2:
+
+		case 3:
+			for (int i = 0; i < sItems.length - 1; i++) {
+				for (int j = 0; j < sItems.length - 1 - i; j++) {
+					if (Double.valueOf(sItems[j].star) > Double
+							.valueOf(sItems[j + 1].star)) {
+						tmpItem = sItems[j];
+						sItems[j] = sItems[j + 1];
+						sItems[j + 1] = tmpItem;
+					}
+				}
+			}
+			break;
+		default:
+			showJmsList(sItems);
+			break;
+		}
+	}
+
+	// 显示
+	private void showJmsList(SearchResultItem[] sItems) {
+		adapter.setItems(sItems);
+		adapter.notifyDataSetChanged();
 	}
 
 	// 区域回调
@@ -185,7 +245,7 @@ public class SearchActivity extends BaseActivity {
 					txt_area.setText(items[position].areaName);
 					areaID = items[position].areaID;
 					linear_area.setVisibility(View.GONE);
-					dosearch();
+					dosearchOnline();
 				}
 			});
 			HideProgress();
@@ -278,7 +338,7 @@ public class SearchActivity extends BaseActivity {
 					}
 					i++;
 				}
-				dosearch();
+				dosearchOnline();
 			}
 		});
 	}
@@ -293,6 +353,8 @@ public class SearchActivity extends BaseActivity {
 
 		@Override
 		public void OnSuccess(Object data, NetSceneBase<?> netScene) {
+			searchResultItems = ((SearchResultItems) data).items;
+			dosearch();
 			HideProgress();
 		}
 	};
