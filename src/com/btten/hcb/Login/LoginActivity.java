@@ -1,4 +1,4 @@
-package com.btten.hcb.Login;
+package com.btten.hcb.login;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

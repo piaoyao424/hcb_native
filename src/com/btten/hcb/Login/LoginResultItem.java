@@ -1,4 +1,4 @@
-package com.btten.hcb.Login;
+package com.btten.hcb.login;
 
 public class LoginResultItem {
 	public String username;

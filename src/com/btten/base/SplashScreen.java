@@ -2,9 +2,9 @@ package com.btten.base;
 
 import com.btten.account.VIPAccountManager;
 import com.btten.base.SplashScreen;
-import com.btten.hcb.Login.LoginActivity;
-import com.btten.hcb.Login.LoginScene;
 import com.btten.hcb.Service.LocationClientService;
+import com.btten.hcb.login.LoginActivity;
+import com.btten.hcb.login.LoginScene;
 import com.btten.hcbvip.R;
 import com.btten.network.NetSceneBase;
 import com.btten.network.OnSceneCallBack;

@@ -2,11 +2,11 @@ package com.btten.base;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.btten.hcb.Notice.TitleNoticeItem;
-import com.btten.hcb.Notice.TitleNoticeItems;
-import com.btten.hcb.Notice.TitleNoticeScene;
 import com.btten.hcb.Service.CallTaxiNotification;
 import com.btten.hcb.gonggao.NoticeInfoActivity;
+import com.btten.hcb.notice.TitleNoticeItem;
+import com.btten.hcb.notice.TitleNoticeItems;
+import com.btten.hcb.notice.TitleNoticeScene;
 import com.btten.hcb.search.SearchActivity;
 import com.btten.hcbvip.R;
 import com.btten.network.NetSceneBase;

@@ -78,7 +78,7 @@
             android:screenOrientation="portrait" />
         <!-- 登录 -->
         <activity
-            android:name="com.btten.hcb.Login.LoginActivity"
+            android:name="com.btten.hcb.login.LoginActivity"
             android:alwaysRetainTaskState="true"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait"

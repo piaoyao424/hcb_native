@@ -37,25 +37,17 @@ public class BaseActivity extends Activity {
 
 	private static ArrayList<Activity> mActivityList = new ArrayList<Activity>();
 
-	// ViewGroup root_element;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		CrashReportHandler.attach(this);
 		mActivityList.add(this);
-		UmengUpdateAgent.setUpdateOnlyWifi(false);
-		UmengUpdateAgent.setUpdateAutoPopup(true);
-
-		// root_element=(ViewGroup)findViewById(R.id.root_element);
 	}
 
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
 		mActivityList.remove(this);
-		/*
-		 * if(root_element!=null) { root_element.removeAllViewsInLayout(); }
-		 */
 	}
 
 	// 得到顶部分的Activity

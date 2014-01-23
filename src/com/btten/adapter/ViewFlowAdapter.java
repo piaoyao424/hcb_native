@@ -1,6 +1,6 @@
 package com.btten.adapter;
 
-import com.btten.hcb.Login.LoginActivity;
+import com.btten.hcb.login.LoginActivity;
 import com.btten.hcbvip.R;
 
 import android.app.Activity;
