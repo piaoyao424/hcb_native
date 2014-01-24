@@ -1,5 +1,6 @@
 package com.btten.hcb.search;
 
+import android.graphics.Paint;
 import android.view.View;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -45,6 +46,7 @@ public class SearchResultItem extends ListItemBase {
 		// 经营范围
 		txtView[0].setText(scope);
 		// 原价
+		txtView[0].getPaint().setFlags(Paint. STRIKE_THRU_TEXT_FLAG);
 		txtView[0].setText("￥" + oldPrice);
 		// 折扣价
 		txtView[0].setText("￥" + newPrice);

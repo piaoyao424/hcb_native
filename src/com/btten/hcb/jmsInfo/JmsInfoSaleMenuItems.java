@@ -1,16 +1,14 @@
-package com.btten.hcb.gonggao;
+package com.btten.hcb.jmsInfo;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-
 import android.util.Log;
-
 import com.btten.model.BaseJsonItem;
 import com.btten.tools.CommonConvert;
 
-public class NoticeListItems extends BaseJsonItem {
+public class JmsInfoSaleMenuItems extends BaseJsonItem {
 	private JSONArray jsonArray = null;
-	public NoticeListItem[] item = null;
+	public JmsInfoSaleMenuItem[] items = null;
 
 	@Override
 	public boolean CreateFromJson(JSONObject result) {
@@ -20,21 +18,25 @@ public class NoticeListItems extends BaseJsonItem {
 			if (this.status == 1 && !result.isNull("DATA")) {
 				jsonArray = result.getJSONArray("DATA");
 				int length = jsonArray.length();
-				item = new NoticeListItem[length];
+				items = new JmsInfoSaleMenuItem[length];
 				for (int i = 0; i < length; i++) {
 					JSONObject obj = jsonArray.getJSONObject(i);
 					CommonConvert convert = new CommonConvert(obj);
-					NoticeListItem temp = new NoticeListItem();
-					temp.title = convert.getString("F2_4230");
-					temp.id = convert.getString("F1_4230");
-					temp.date = convert.getString("F4_4230");
-					item[i] = temp;
+					JmsInfoSaleMenuItem temp = new JmsInfoSaleMenuItem();
+
+					temp.id = convert.getString("ID");
+					temp.upid = convert.getString("UPID");
+					temp.name = convert.getString("NAME");
+					temp.oldprice = convert.getString("OLDPRICE");
+					temp.newprice = convert.getString("NEWPRICE");
+
+					items[i] = temp;
 				}
 			}
 		} catch (Exception ex) {
 			this.status = -1;
 			this.info = ex.toString();
-			Log.d("gwjtag", info);
+			Log.d("tag", info);
 			return false;
 		}
 		return true;

@@ -34,7 +34,7 @@ public class NoticeInfoActivity extends BaseActivity {
 		tv_ggconten_riqi = (TextView) findViewById(R.id.tvId_ggconten_riqi);
 		tv_ggconten_neirong = (TextView) findViewById(R.id.tvId_ggconten_neirong);
 		tv_ggconten_name = (TextView) findViewById(R.id.tvId_ggconten_name);
-		
+
 		// 取得当前登录的用户的userid
 		Bundle bundle = this.getIntent().getExtras();
 		ggId = bundle.getString("KEY_GGID");
@@ -46,6 +46,7 @@ public class NoticeInfoActivity extends BaseActivity {
 	private void DoRequest() {
 		ggScene = new NoticeInfoScene();
 		ggScene.doscene(callBack, ggId);
+		ShowRunning();
 	}
 
 	OnSceneCallBack callBack = new OnSceneCallBack() {
@@ -53,15 +54,16 @@ public class NoticeInfoActivity extends BaseActivity {
 		@Override
 		public void OnSuccess(Object data, NetSceneBase<?> netScene) {
 			NoticeInfoItems items = (NoticeInfoItems) data;
-			
+
 			tv_ggconten_neirong.setText(items.item.content);
 			tv_ggconten_name.setText("惠车宝");
-
+			HideProgress();
 			return;
 		}
 
 		@Override
 		public void OnFailed(int status, String info, NetSceneBase<?> netScene) {
+			HideProgress();
 			ErrorAlert(status, info);
 		}
 	};

@@ -1,0 +1,40 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:padding="10dp" >
+
+    <TextView
+        android:id="@+id/jmsinfo_salemenu_childs_name"
+        android:layout_width="0dp"
+        android:layout_height="fill_parent"
+        android:layout_weight="0.49"
+        android:singleLine="true"
+        android:text="小型车清洗"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/jmsinfo_salemenu_childs_oldprice"
+        android:layout_width="0dp"
+        android:layout_height="fill_parent"
+        android:layout_weight="0.13"
+        android:text="￥200"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/jmsinfo_salemenu_childs_newprice"
+        android:layout_width="0dp"
+        android:layout_height="fill_parent"
+        android:layout_weight="0.13"
+        android:text="￥150"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/jmsinfo_salemenu_childs_sorce"
+        android:layout_width="0dp"
+        android:layout_height="fill_parent"
+        android:layout_weight="0.25"
+        android:text="获得150分"
+        android:textSize="14sp" />
+
+</LinearLayout>
