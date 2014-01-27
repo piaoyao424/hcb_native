@@ -28,11 +28,10 @@ import com.btten.algorithm.TypeTransform;
 public class Log {
 	private static final String TAG = "BTCore.Log";
 
-	public static final String SDCARD_LOG_PATH = "/sdcard/btten/";
+	public static final String SDCARD_LOG_PATH = "/sdcard/hcb/";
 	public static final String MM_LOG = "mm.log";
 	public static final String PUSH_LOG = "push.log";
 	public static final String SYS_LOG = "sys.log";
-	// public static final String CRASH_LOG = "crash.log";
 
 	public static final int LEVEL_VERBOSE = 0;
 	public static final int LEVEL_DEBUG = 1;

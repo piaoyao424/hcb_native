@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+
+import com.btten.account.VIPAccountManager;
 import com.btten.base.HcbAPP;
 import com.btten.model.BaseJsonItem;
 import com.btten.tools.CommonConvert;
@@ -36,10 +38,16 @@ public class SearchResultItems extends BaseJsonItem {
 				if (status == 1 && !result.isNull("DATA")) {
 					JSONArray jsonArray = result.getJSONArray("DATA");
 					int lenth = jsonArray.length();
-					areaItems = new SearchResultItem_area[lenth];
+					areaItems = new SearchResultItem_area[lenth + 1];
 
-					for (int i = 0; i < lenth; ++i) {
-						SearchResultItem_area temp = new SearchResultItem_area();
+					SearchResultItem_area temp = new SearchResultItem_area();
+					temp.areaID = VIPAccountManager.getInstance().getAreaID();
+					temp.areaName = "全市";
+					temp.areaUpID = "0";
+					areaItems[0] = temp;
+
+					for (int i = 0; i < lenth; i++) {
+						temp = new SearchResultItem_area();
 						CommonConvert convert = new CommonConvert(
 								jsonArray.getJSONObject(i));
 
@@ -47,7 +55,7 @@ public class SearchResultItems extends BaseJsonItem {
 						temp.areaName = convert.getString("NAME");
 						temp.areaUpID = convert.getString("UPID");
 
-						areaItems[i] = temp;
+						areaItems[i + 1] = temp;
 					}
 				}
 				break;
@@ -92,12 +100,13 @@ public class SearchResultItems extends BaseJsonItem {
 						CommonConvert convert = new CommonConvert(
 								jsonArray.getJSONObject(i));
 
-						temp.jid = convert.getString("JID");
-						temp.jname = convert.getString("JNAME");
+						temp.jid = convert.getString("AGUID").trim();
+						temp.jname = convert.getString("JNAME").trim();
 						temp.newPrice = convert.getString("NEWPRICE");
 						temp.oldPrice = convert.getString("OLDPRICE");
 						temp.scope = convert.getString("SCOPE");
 						temp.distance = convert.getString("DISTANCE");
+						temp.areaName = convert.getString("AREANAME");
 						temp.star = Integer.valueOf(convert.getString("STAR"));
 						temp.status = convert.getInt("STATUS");
 

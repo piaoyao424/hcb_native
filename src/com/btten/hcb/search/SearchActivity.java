@@ -62,6 +62,9 @@ public class SearchActivity extends BaseActivity {
 		txt_list.setOnClickListener(listener);
 		txt_criteria = (TextView) findViewById(R.id.saleslist_txt_criteria);
 		txt_criteria.setOnClickListener(listener);
+
+		setBackKeyListner(listener);
+		setMapKeyListner(listener);
 	}
 
 	private void initData() {
@@ -106,6 +109,11 @@ public class SearchActivity extends BaseActivity {
 				txt_criteria.setBackgroundResource(R.color.orange_deep);
 				clearOtherListView(linear_criteria);
 				break;
+			case R.id.back_key_imagebutton:
+				onBackPressed();
+				break;
+			case R.id.map_key_imagebutton:
+				break;
 			}
 		}
 	};
@@ -142,7 +150,9 @@ public class SearchActivity extends BaseActivity {
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				txt_criteria.setText(items[position]);
+				criteriaID = position;
 				linear_criteria.setVisibility(View.GONE);
+				dosearch();
 			}
 		});
 	}
@@ -157,8 +167,13 @@ public class SearchActivity extends BaseActivity {
 	private void dosearch() {
 		ShowProgress("查询中", "请稍候……");
 
-		SearchResultItem[] sItems = (SearchResultItem[]) searchResultItems
-				.toArray();
+		SearchResultItem[] sItems = new SearchResultItem[searchResultItems
+				.size()];
+
+		for (int i = 0; i < searchResultItems.size(); i++) {
+			sItems[i] = searchResultItems.get(i);
+		}
+
 		SearchResultItem tmpItem = null;
 
 		switch (criteriaID) {
@@ -173,6 +188,7 @@ public class SearchActivity extends BaseActivity {
 					}
 				}
 			}
+			break;
 		case 1:
 			for (int i = 0; i < sItems.length - 1; i++) {
 				for (int j = 0; j < sItems.length - 1 - i; j++) {
@@ -184,12 +200,13 @@ public class SearchActivity extends BaseActivity {
 					}
 				}
 			}
+			break;
 		case 2:
 
 		case 3:
 			for (int i = 0; i < sItems.length - 1; i++) {
 				for (int j = 0; j < sItems.length - 1 - i; j++) {
-					if (Double.valueOf(sItems[j].star) > Double
+					if (Double.valueOf(sItems[j].star) < Double
 							.valueOf(sItems[j + 1].star)) {
 						tmpItem = sItems[j];
 						sItems[j] = sItems[j + 1];
@@ -199,9 +216,11 @@ public class SearchActivity extends BaseActivity {
 			}
 			break;
 		default:
-			showJmsList(sItems);
+
 			break;
 		}
+		showJmsList(sItems);
+		HideProgress();
 	}
 
 	// 显示
@@ -289,17 +308,23 @@ public class SearchActivity extends BaseActivity {
 				}
 			});
 
-			showItems(items, menu.get(0));
+			for (SearchResultItem_saleslist item : items) {
+				if (item.itemID.equals(menuID)) {
+					showItems(items, item.itemName);
+				}
+			}
+			dosearchOnline();
 			HideProgress();
 		}
 	};
 
 	// 点击目录,显示商品
-	private void showItems(final SearchResultItem_saleslist[] items, String name) {
+	private void showItems(final SearchResultItem_saleslist[] items,
+			String menuName) {
 		String upid = null;
 
 		for (SearchResultItem_saleslist searchResultItem_saleslist : items) {
-			if (searchResultItem_saleslist.itemName.equals(name)) {
+			if (searchResultItem_saleslist.itemName.equals(menuName)) {
 				upid = searchResultItem_saleslist.itemID;
 				break;
 			}
@@ -307,9 +332,15 @@ public class SearchActivity extends BaseActivity {
 
 		final List<String> itemlist = new ArrayList<String>();
 
-		for (SearchResultItem_saleslist item : items) {
-			if (item.itemUpID.equals(upid)) {
-				itemlist.add(item.itemName);
+		for (int j = 0; j < items.length; j++) {
+
+			if (items[j].itemUpID.equals(upid)) {
+				itemlist.add(items[j].itemName);
+
+				txt_list.setText(itemlist.get(0));
+				if (itemlist.size() == 1) {
+					itemID = items[j].itemID;
+				}
 			}
 		}
 
@@ -317,7 +348,6 @@ public class SearchActivity extends BaseActivity {
 				SearchActivity.this, R.layout.saleslist_item,
 				R.id.saleslist_txt_item, itemlist);
 		lv_salesitems.setAdapter(adapter);
-		txt_list.setText(itemlist.get(0));
 
 		lv_salesitems.setOnItemClickListener(new OnItemClickListener() {
 
@@ -325,8 +355,6 @@ public class SearchActivity extends BaseActivity {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
-				view.setBackgroundColor(R.color.deep_gray);
-
 				int i = 0;
 				String itemName = itemlist.get(position);
 				while (i < items.length) {

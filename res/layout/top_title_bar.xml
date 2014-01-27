@@ -24,13 +24,14 @@
         android:textSize="20sp" />
 
     <ImageButton
-        android:id="@+id/refresh_key_imagebutton"
-        android:layout_width="60dp"
-        android:layout_height="match_parent"
+        android:id="@+id/map_key_imagebutton"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
         android:layout_alignParentRight="true"
         android:background="@null"
         android:padding="8dp"
         android:scaleType="fitCenter"
-        android:src="@drawable/selector_refreshkey" />
+        android:src="@drawable/map_button"
+        android:visibility="gone" />
 
 </RelativeLayout>

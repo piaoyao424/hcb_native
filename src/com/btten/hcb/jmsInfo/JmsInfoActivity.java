@@ -63,6 +63,7 @@ public class JmsInfoActivity extends BaseActivity {
 		expandableListView.setAdapter(new MyExpandableListViewAdapter(
 				JmsInfoActivity.this));
 		expandableListView.setOnChildClickListener(onChildClickListener);
+		setCurrentTitle("网点详情");
 	}
 
 	private void initdate() {

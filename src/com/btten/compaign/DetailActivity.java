@@ -14,17 +14,15 @@ public class DetailActivity extends BaseActivity{
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_detail);
 		setBackKeyListner(backListener);
-		setRefreshKeyListner(refreshListener);
+		//setRefreshKeyListner(refreshListener);
 		init();
 	}
 	
 	@Override
 	protected void onResume() {
-		// TODO Auto-generated method stub
 		super.onResume();
 		ShowProgress("读取数据中", "请稍候……");
 		String id = getIntent().getStringExtra("id");

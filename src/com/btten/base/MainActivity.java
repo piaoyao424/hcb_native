@@ -2,7 +2,6 @@ package com.btten.base;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.btten.hcb.Service.CallTaxiNotification;
 import com.btten.hcb.gonggao.NoticeInfoActivity;
 import com.btten.hcb.notice.TitleNoticeItem;
 import com.btten.hcb.notice.TitleNoticeItems;
@@ -13,14 +12,10 @@ import com.btten.network.NetSceneBase;
 import com.btten.network.OnSceneCallBack;
 import com.umeng.update.UmengUpdateAgent;
 import com.vincentTools.CallTelephone;
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
@@ -69,8 +64,8 @@ public class MainActivity extends BaseActivity {
 
 		@Override
 		public void onClick(View v) {
-			//默认爱车美容
-			String cid = "20002" ;
+			// 默认爱车美容
+			String cid = "0";
 			switch (v.getId()) {
 			case R.id.homeview_telephone:
 				new CallTelephone(MainActivity.this, "4006602020").call();
@@ -89,19 +84,28 @@ public class MainActivity extends BaseActivity {
 			case R.id.homeview_jingCaiHuoDong:
 				break;
 			case R.id.homeview_aiCheMeiRong:
-				cid = "20002" ;
+				cid = "20002";
+				break;
 			case R.id.homeview_qiCheYongPin:
-				cid = "20005" ;
+				cid = "20005";
+				break;
 			case R.id.homeview_aiCheQingJie:
-				cid = "20001" ;
+				cid = "20001";
+				break;
 			case R.id.homeview_aiCheBaoYang:
-				cid = "20003" ;
+				cid = "20003";
+				break;
 			default:
+				cid = "20002";
+				break;
+			}
+			if (cid.equals("0")) {
+
+			} else {
 				Intent intent = new Intent(MainActivity.this,
 						SearchActivity.class);
 				intent.putExtra("KEY_MENUID", cid);
 				startActivity(intent);
-				break;
 			}
 		}
 	};
@@ -164,46 +168,4 @@ public class MainActivity extends BaseActivity {
 		intent.putExtra("KEY_GGID", titleid);
 		startActivity(intent);
 	}
-
-	/**
-	 * 菜单项
-	 */
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		MenuItem exit = menu.add(0, 0, 0, "退出");
-		exit.setIcon(R.drawable.home_tab_exit_icon);
-		return super.onCreateOptionsMenu(menu);
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		if (item.getGroupId() == 0 && item.getItemId() == 0) {
-			new AlertDialog.Builder(this)
-					.setMessage("退出惠车宝？")
-					.setPositiveButton("确定",
-							new DialogInterface.OnClickListener() {
-
-								@Override
-								public void onClick(DialogInterface dialog,
-										int which) {
-									CallTaxiNotification.getInstance()
-											.ExitApp();
-									ClearAllActivity();
-									System.exit(0);
-								}
-							})
-					.setNegativeButton("取消",
-							new DialogInterface.OnClickListener() {
-
-								@Override
-								public void onClick(DialogInterface dialog,
-										int which) {
-									dialog.dismiss();
-								}
-							}).show();
-		}
-		return super.onOptionsItemSelected(item);
-	}
-
 }

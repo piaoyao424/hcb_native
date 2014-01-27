@@ -66,7 +66,6 @@ public class ChangePasswdActivity extends BaseActivity {
 
 		@Override
 		public void onClick(View v) {
-			// TODO Auto-generated method stub
 			onBackPressed();
 		}
 	};

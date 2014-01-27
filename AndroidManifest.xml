@@ -126,6 +126,12 @@
             android:name="com.btten.hcb.search.SearchActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait" />
+        <!-- 加盟商信息 -->
+        <activity
+            android:name="com.btten.hcb.jmsInfo.JmsInfoActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+        
         <!-- 填写银行卡帐号 -->
         <activity
             android:name="com.btten.goal.mygoul.debitCardActivity"

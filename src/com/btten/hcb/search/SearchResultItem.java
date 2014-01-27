@@ -44,15 +44,15 @@ public class SearchResultItem extends ListItemBase {
 		// 评分
 		ratingStar.setRating(star);
 		// 经营范围
-		txtView[0].setText(scope);
+		txtView[1].setText(scope);
 		// 原价
-		txtView[0].getPaint().setFlags(Paint. STRIKE_THRU_TEXT_FLAG);
-		txtView[0].setText("￥" + oldPrice);
+		txtView[2].getPaint().setFlags(Paint. STRIKE_THRU_TEXT_FLAG);
+		txtView[2].setText("￥" + oldPrice);
 		// 折扣价
-		txtView[0].setText("￥" + newPrice);
+		txtView[3].setText("￥" + newPrice);
 		// 地区
-		txtView[0].setText(areaName);
+		txtView[4].setText(areaName);
 		// 距离
-		txtView[0].setText(distance + "公里");
+		txtView[5].setText(distance + "公里");
 	}
 }

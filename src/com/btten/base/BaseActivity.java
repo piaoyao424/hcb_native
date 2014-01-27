@@ -7,17 +7,18 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import com.btten.hcb.Service.CallTaxiNotification;
 import com.btten.hcbvip.R;
 import com.btten.network.NetConst;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.umeng.analytics.MobclickAgent;
-import com.umeng.update.UmengUpdateAgent;
 
 public class BaseActivity extends Activity {
 
@@ -92,14 +93,12 @@ public class BaseActivity extends Activity {
 
 	@Override
 	public void finish() {
-		// TODO Auto-generated method stub
 		super.finish();
 		overridePendingTransition(R.anim.in_left_right, R.anim.out_left_right);
 	}
 
 	@Override
 	public void startActivity(Intent intent) {
-		// TODO Auto-generated method stub
 		super.startActivity(intent);
 		overridePendingTransition(R.anim.in_right_left, R.anim.out_right_left);
 	}
@@ -138,8 +137,8 @@ public class BaseActivity extends Activity {
 	 * @param listener
 	 *            刷新按钮监听
 	 */
-	public void setRefreshKeyListner(OnClickListener listener) {
-		refreshKeyImageButton = (ImageButton) findViewById(R.id.refresh_key_imagebutton);
+	public void setMapKeyListner(OnClickListener listener) {
+		refreshKeyImageButton = (ImageButton) findViewById(R.id.map_key_imagebutton);
 		if (listener != null) {
 			refreshKeyImageButton.setVisibility(View.VISIBLE);
 			refreshKeyImageButton.setOnClickListener(listener);
@@ -174,17 +173,6 @@ public class BaseActivity extends Activity {
 		if (info == null)
 			info = "";
 		if (!this.isFinishing()) {
-			/*
-			 * @SuppressWarnings("unused") AlertDialog dlg = new
-			 * AlertDialog.Builder(this) .setTitle("提示") .setMessage(info)
-			 * .setPositiveButton("确定", new
-			 * android.content.DialogInterface.OnClickListener() {
-			 * 
-			 * @Override public void onClick(DialogInterface dialog, int which)
-			 * {
-			 * 
-			 * } }).show();
-			 */
 			Toast.makeText(this, info, Toast.LENGTH_SHORT).show();
 		}
 	}
@@ -251,4 +239,46 @@ public class BaseActivity extends Activity {
 	public void RightToLeft() {
 		overridePendingTransition(R.anim.in_right_left, R.anim.out_right_left);
 	}
+
+	/**
+	 * 菜单项
+	 */
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		MenuItem exit = menu.add(0, 0, 0, "退出");
+		exit.setIcon(R.drawable.home_tab_exit_icon);
+		return super.onCreateOptionsMenu(menu);
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		if (item.getGroupId() == 0 && item.getItemId() == 0) {
+			new AlertDialog.Builder(this)
+					.setMessage("退出惠车宝？")
+					.setPositiveButton("确定",
+							new DialogInterface.OnClickListener() {
+
+								@Override
+								public void onClick(DialogInterface dialog,
+										int which) {
+									CallTaxiNotification.getInstance()
+											.ExitApp();
+									ClearAllActivity();
+									System.exit(0);
+								}
+							})
+					.setNegativeButton("取消",
+							new DialogInterface.OnClickListener() {
+
+								@Override
+								public void onClick(DialogInterface dialog,
+										int which) {
+									dialog.dismiss();
+								}
+							}).show();
+		}
+		return super.onOptionsItemSelected(item);
+	}
+
 }

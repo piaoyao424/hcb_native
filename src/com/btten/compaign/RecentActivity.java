@@ -26,7 +26,7 @@ public class RecentActivity extends BaseActivity implements OnScrollListener{
 		setContentView(R.layout.recent_activity);
 		setCurrentTitle("近期活动");
 		setBackKeyListner(backListener);
-		setRefreshKeyListner(refreshListener);
+		//setRefreshKeyListner(refreshListener);
 		
 		init();
 	}

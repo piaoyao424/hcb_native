@@ -2,6 +2,7 @@ package com.btten.hcb.search;
 
 import com.btten.base.ListItemAdapter;
 import com.btten.hcb.gonggao.NoticeInfoActivity;
+import com.btten.hcb.jmsInfo.JmsInfoActivity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -41,7 +42,7 @@ public class SreachListAdapter extends ListItemAdapter {
 
 		@Override
 		public void onClick(View v) {
-			Intent intent = new Intent(context, NoticeInfoActivity.class);
+			Intent intent = new Intent(context, JmsInfoActivity.class);
 			intent.putExtra("KEY_GGID", ((SearchResultItem) items[index]).jid);
 			context.startActivity(intent);
 		}
