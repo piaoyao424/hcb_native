@@ -224,4 +224,19 @@ public class HcbAPP extends Application {
 		return android.os.Build.VERSION.RELEASE;
 	}
 
+	public static BMapManager getBMapManager() {
+		return mMapManager;
+	}
+
+	@Override
+	public void onTerminate() {
+
+		if (mMapManager == null) {
+
+		} else {
+			mMapManager.destroy();
+			mMapManager = null;
+		}
+		super.onTerminate();
+	}
 }

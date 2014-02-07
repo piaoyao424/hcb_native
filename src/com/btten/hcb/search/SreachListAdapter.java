@@ -1,9 +1,7 @@
 package com.btten.hcb.search;
 
 import com.btten.base.ListItemAdapter;
-import com.btten.hcb.gonggao.NoticeInfoActivity;
 import com.btten.hcb.jmsInfo.JmsInfoActivity;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.util.Log;

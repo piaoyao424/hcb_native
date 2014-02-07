@@ -57,11 +57,8 @@ public class MapManager {
 		try {
 			mMapManager = HcbAPP.getBMapManager();
 		} catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
-			System.out.println(e.getMessage());
 		}
-
 	}
 
 	public BMapManager initMap(MapView mMapView, BDLocation blocation) {
@@ -119,7 +116,6 @@ public class MapManager {
 */
 			return mMapManager;
 		} catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
 			return null;
 		}
