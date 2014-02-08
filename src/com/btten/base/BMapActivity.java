@@ -6,9 +6,6 @@ import com.btten.account.VIPAccountManager;
 import com.btten.base.BMapActivity;
 import com.btten.hcbvip.R;
 import com.vincentTools.MapManager;
-
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 
 public class BMapActivity extends BaseActivity {
@@ -20,17 +17,19 @@ public class BMapActivity extends BaseActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.bmap_activity);
+		init();
 	}
 
 	private void init() {
 		mMapView = (MapView) findViewById(R.id.mapId_wangdian_map);
+
 		// 取出加盟商信息
-		SharedPreferences jmsInfo = HcbAPP.getInstance().getSharedPreferences(
-				AppTitle.JMS_MAG, Context.MODE_PRIVATE);
-		String jms_map_info_str = jmsInfo.getString(AppTitle.JMS_INFO, null);
+		Bundle bundle = this.getIntent().getExtras();
+		String jms_map_info_str = bundle.getString("KEY_JMSGPS");
 		jmsinfo_split_str = splitStrToStr2(jms_map_info_str);
+
 		// 取出个人坐标信息
-		double gps_la = VIPAccountManager.getInstance().getGpsla(); 
+		double gps_la = VIPAccountManager.getInstance().getGpsla();
 		double gps_lo = VIPAccountManager.getInstance().getGpslo();
 
 		BDLocation userGps = new BDLocation();

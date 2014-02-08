@@ -1,4 +1,4 @@
-package com.btten.ui.view;
+package com.btten.base;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
 

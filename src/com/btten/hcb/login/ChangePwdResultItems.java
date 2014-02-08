@@ -1,4 +1,4 @@
-package com.btten.about;
+package com.btten.hcb.login;
 
 import org.json.JSONObject;
 
@@ -9,14 +9,14 @@ import com.btten.model.BaseJsonItem;
 import com.btten.tools.CommonConvert;
 import com.btten.tools.Log;
 
-public class changePwdResultItems extends BaseJsonItem{
-	private static String TAG="changePwdResultItems";
+public class ChangePwdResultItems extends BaseJsonItem{
+	private static String TAG="ChangePwdResultItems";
 	
 	public LoginResultItem item;
 
 	@Override
 	public boolean CreateFromJson(JSONObject result) {
-		changePwdResultItems items=this;
+		ChangePwdResultItems items=this;
 		item = new LoginResultItem();
 		try {
 			items.status = result.getInt("STATUS");

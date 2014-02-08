@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/list_item_title_gray"
+        android:orientation="horizontal"
+        android:padding="5dp" >
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="用户："
+                android:textColor="@color/main_text_color"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/evaluation_service_listitem_vipname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="13542535458"
+                android:textColor="@color/main_text_color"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="评分："
+                android:textColor="@color/main_text_color"
+                android:textSize="15sp" />
+
+            <RatingBar
+                android:id="@+id/evaluation_service_listitem_ratingbar"
+                style="@android:attr/ratingBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:isIndicator="true"
+                android:max="100"
+                android:numStars="5"
+                android:progressDrawable="@drawable/my_ratingbar_star"
+                android:rating="4"
+                android:stepSize="0.5" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:padding="8dp" >
+
+        <TextView
+            android:id="@+id/evaluation_service_listitem_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="洗的不错，很干净，下次不去了"
+            android:textColor="@color/main_text_color"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+</LinearLayout>

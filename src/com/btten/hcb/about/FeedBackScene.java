@@ -1,4 +1,4 @@
-package com.btten.about;
+package com.btten.hcb.about;
 
 import android.util.Log;
 

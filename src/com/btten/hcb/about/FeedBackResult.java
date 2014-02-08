@@ -1,4 +1,4 @@
-package com.btten.about;
+package com.btten.hcb.about;
 
 import org.json.JSONArray;
 import org.json.JSONObject;

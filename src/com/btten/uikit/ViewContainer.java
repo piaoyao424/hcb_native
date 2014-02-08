@@ -3,7 +3,7 @@ package com.btten.uikit;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.btten.ui.view.BaseView;
+import com.btten.base.BaseView;
 
 import android.content.Context;
 import android.util.AttributeSet;

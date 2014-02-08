@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/light_gray"
+    android:fadingEdge="none"
+    android:scrollbars="none" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <include layout="@layout/top_title_bar" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/my_goal_gray_bg"
+            android:orientation="vertical"
+            android:padding="1dp" >
+
+            <RelativeLayout
+                android:id="@+id/myhcb_relative_login"
+                style="@style/aboutus_relative_style"
+                android:layout_marginBottom="1dp" >
+
+                <ImageView
+                    style="@style/aboutus_ico_style"
+                    android:contentDescription="@string/ImageDescription"
+                    android:src="@drawable/login_pwd_icon" >
+                </ImageView>
+
+                <TextView
+                    style="@style/aboutus_text_style"
+                    android:text="会员登录 " />
+
+                <ImageView
+                    style="@style/aboutus_image_style"
+                    android:contentDescription="@string/ImageDescription" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/myhcb_relative_register"
+                style="@style/aboutus_relative_style"
+                android:layout_marginBottom="1dp" >
+
+                <ImageView
+                    style="@style/aboutus_ico_style"
+                    android:contentDescription="@string/ImageDescription"
+                    android:src="@drawable/login_pw" >
+                </ImageView>
+
+                <TextView
+                    style="@style/aboutus_text_style"
+                    android:text="注册会员" />
+
+                <ImageView
+                    style="@style/aboutus_image_style"
+                    android:contentDescription="@string/ImageDescription" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/myhcb_relative_activation"
+                style="@style/aboutus_relative_style" >
+
+                <ImageView
+                    style="@style/aboutus_ico_style"
+                    android:contentDescription="@string/ImageDescription"
+                    android:src="@drawable/card_activation_ico" >
+                </ImageView>
+
+                <TextView
+                    style="@style/aboutus_text_style"
+                    android:text="卡片激活" />
+
+                <ImageView
+                    style="@style/aboutus_image_style"
+                    android:contentDescription="@string/ImageDescription" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/my_goal_gray_bg"
+            android:orientation="vertical"
+            android:padding="1dp" >
+
+            <RelativeLayout
+                android:id="@+id/myhcb_relative_account"
+                style="@style/aboutus_relative_style"
+                android:layout_marginBottom="1dp" >
+
+                <ImageView
+                    style="@style/aboutus_ico_style"
+                    android:contentDescription="@string/ImageDescription"
+                    android:src="@drawable/login_account_icon" >
+                </ImageView>
+
+                <TextView
+                    style="@style/aboutus_text_style"
+                    android:text="我的账户" />
+
+                <ImageView
+                    style="@style/aboutus_image_style"
+                    android:contentDescription="@string/ImageDescription" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/myhcb_relative_shopping"
+                style="@style/aboutus_relative_style"
+                android:layout_marginBottom="1dp" >
+
+                <ImageView
+                    style="@style/aboutus_ico_style"
+                    android:contentDescription="@string/ImageDescription"
+                    android:src="@drawable/my_shopping_ico" >
+                </ImageView>
+
+                <TextView
+                    style="@style/aboutus_text_style"
+                    android:text="我的消费" />
+
+                <ImageView
+                    style="@style/aboutus_image_style"
+                    android:contentDescription="@string/ImageDescription" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/myhcb_relative_baseinfo"
+                style="@style/aboutus_relative_style"
+                android:layout_marginBottom="1dp" >
+
+                <ImageView
+                    style="@style/aboutus_ico_style"
+                    android:contentDescription="@string/ImageDescription"
+                    android:src="@drawable/my_baseinfo_ico" >
+                </ImageView>
+
+                <TextView
+                    style="@style/aboutus_text_style"
+                    android:text="我的信息" />
+
+                <ImageView
+                    style="@style/aboutus_image_style"
+                    android:contentDescription="@string/ImageDescription" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/myhcb_relative_exchange"
+                style="@style/aboutus_relative_style"
+                android:layout_marginBottom="1dp" >
+
+                <ImageView
+                    style="@style/aboutus_ico_style"
+                    android:contentDescription="@string/ImageDescription"
+                    android:src="@drawable/points_exchange_ico" >
+                </ImageView>
+
+                <TextView
+                    style="@style/aboutus_text_style"
+                    android:text="积分兑换" />
+
+                <ImageView
+                    style="@style/aboutus_image_style"
+                    android:contentDescription="@string/ImageDescription" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/myhcb_relative_points_record"
+                style="@style/aboutus_relative_style" >
+
+                <ImageView
+                    style="@style/aboutus_ico_style"
+                    android:contentDescription="@string/ImageDescription"
+                    android:src="@drawable/points_record_ico" >
+                </ImageView>
+
+                <TextView
+                    style="@style/aboutus_text_style"
+                    android:text="积分记录" />
+
+                <ImageView
+                    style="@style/aboutus_image_style"
+                    android:contentDescription="@string/ImageDescription" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/my_goal_gray_bg"
+            android:orientation="vertical"
+            android:padding="1dp" >
+
+            <RelativeLayout
+                android:id="@+id/myhcb_relative_faqs"
+                style="@style/aboutus_relative_style"
+                android:layout_marginBottom="1dp" >
+
+                <ImageView
+                    style="@style/aboutus_ico_style"
+                    android:contentDescription="@string/ImageDescription"
+                    android:src="@drawable/faqs_ico" >
+                </ImageView>
+
+                <TextView
+                    style="@style/aboutus_text_style"
+                    android:text="常见问题" />
+
+                <ImageView
+                    style="@style/aboutus_image_style"
+                    android:contentDescription="@string/ImageDescription" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/myhcb_relative_notices"
+                style="@style/aboutus_relative_style"
+                android:layout_marginBottom="1dp" >
+
+                <ImageView
+                    style="@style/aboutus_ico_style"
+                    android:contentDescription="@string/ImageDescription"
+                    android:src="@drawable/notices_ico" >
+                </ImageView>
+
+                <TextView
+                    style="@style/aboutus_text_style"
+                    android:text="惠车宝公告" />
+
+                <ImageView
+                    style="@style/aboutus_image_style"
+                    android:contentDescription="@string/ImageDescription" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/myhcb_relative_about_us"
+                style="@style/aboutus_relative_style" >
+
+                <ImageView
+                    style="@style/aboutus_ico_style"
+                    android:contentDescription="@string/ImageDescription"
+                    android:src="@drawable/about_us_ico" >
+                </ImageView>
+
+                <TextView
+                    style="@style/aboutus_text_style"
+                    android:text="关于我们" />
+
+                <ImageView
+                    style="@style/aboutus_image_style"
+                    android:contentDescription="@string/ImageDescription" />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

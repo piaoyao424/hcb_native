@@ -1,4 +1,4 @@
-package com.btten.about;
+package com.btten.hcb.login;
 
 import android.util.Log;
 import com.btten.account.VIPAccountManager;
@@ -29,7 +29,7 @@ public class ChangePwdScene extends NomalJsonSceneBase{
 
 	@Override
 	protected BaseJsonItem CreateJsonItems() {
-		return new changePwdResultItems();
+		return new ChangePwdResultItems();
 	}
 
 }

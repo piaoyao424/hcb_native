@@ -43,6 +43,7 @@ public class SearchActivity extends BaseActivity {
 		initData();
 	}
 
+	// 初始化控件
 	private void initView() {
 		lv_area = (ListView) findViewById(R.id.saleslist_lv_area);
 		lv_salesmenu = (ListView) findViewById(R.id.saleslist_lv_salesmenu);
@@ -67,6 +68,7 @@ public class SearchActivity extends BaseActivity {
 		setMapKeyListner(listener);
 	}
 
+	// 初始化数据
 	private void initData() {
 		Bundle bundle = this.getIntent().getExtras();
 		menuID = bundle.getString("KEY_MENUID");

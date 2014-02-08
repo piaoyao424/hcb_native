@@ -1,4 +1,4 @@
-package com.btten.about;
+package com.btten.hcb.about;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -10,10 +10,10 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import com.btten.base.BaseActivity;
+import com.btten.base.BaseView;
 import com.btten.base.MainActivity;
 import com.btten.network.NetSceneBase;
 import com.btten.network.OnSceneCallBack;
-import com.btten.ui.view.BaseView;
 
 public class FeedBackActivity extends BaseActivity {
 	Button ok_btn, cancel_btn;
