@@ -2,7 +2,7 @@ package com.btten.hcb.serviceEvaluation;
 
 import android.util.Log;
 
-import com.btten.account.VIPAccountManager;
+import com.btten.hcb.account.VIPAccountManager;
 import com.btten.model.BaseJsonItem;
 import com.btten.network.NomalJsonSceneBase;
 import com.btten.network.OnSceneCallBack;

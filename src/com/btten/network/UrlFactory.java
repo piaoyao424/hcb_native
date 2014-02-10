@@ -3,7 +3,7 @@ package com.btten.network;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
-import com.btten.base.HcbAPP;
+import com.btten.hcb.HcbAPP;
 
 
 public class UrlFactory {

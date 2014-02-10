@@ -8,9 +8,9 @@ import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
 import com.baidu.mapapi.BMapManager;
 import com.baidu.mapapi.MKGeneralListener;
-import com.btten.account.VIPAccountManager;
-import com.btten.base.HcbAPP;
+import com.btten.hcb.HcbAPP;
 import com.btten.hcb.Service.core.JmsMapManager;
+import com.btten.hcb.account.VIPAccountManager;
 
 public class LocationClientService {
 	private BMapManager BDMapManager = null;

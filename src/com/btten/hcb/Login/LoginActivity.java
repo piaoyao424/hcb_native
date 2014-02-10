@@ -17,12 +17,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import com.btten.hcbvip.R;
-import com.btten.account.VIPAccountManager;
 import com.btten.base.BaseActivity;
-import com.btten.base.ClassTools;
-import com.btten.base.MainActivity;
+import com.btten.hcb.MainActivity;
 import com.btten.hcb.Service.CallTaxiNotification;
 import com.btten.hcb.Service.LocationClientService;
+import com.btten.hcb.account.VIPAccountManager;
 import com.btten.msgcenter.MsgCenter;
 import com.btten.msgcenter.MsgConst;
 import com.btten.network.NetConst;
@@ -168,13 +167,11 @@ public class LoginActivity extends BaseActivity {
 				// 关闭软键盘，开启方法相同，这个方法是切换开启与关闭状态的
 			}
 
-			ClassTools.getInstance().isRequesting = false;
 			// TODO 返回成功后跳转到HOME页面
 			new Handler().postDelayed(new Runnable() {
 
 				@Override
 				public void run() {
-					// TODO Auto-generated method stub
 					startActivity((new Intent(LoginActivity.this,
 							MainActivity.class)));
 					finish();

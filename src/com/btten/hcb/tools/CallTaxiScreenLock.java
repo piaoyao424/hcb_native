@@ -1,10 +1,7 @@
 package com.btten.hcb.tools;
 
-
 import com.btten.hcbvip.R;
-import com.btten.base.ClassTools;
 import com.btten.hcb.Service.CallTaxiJumpWindow;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -14,11 +11,9 @@ import android.net.Uri;
 import android.os.Handler;
 import android.os.Message;
 import android.view.Gravity;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.View.OnKeyListener;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -33,7 +28,6 @@ public class CallTaxiScreenLock {
 	View root;
 
 	public CallTaxiScreenLock(Context context) {
-		// TODO Auto-generated constructor stub
 		this.mContext = context;
 		inflater = (LayoutInflater) mContext
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -155,8 +149,6 @@ public class CallTaxiScreenLock {
 				);
 		intent.putExtra("ACTION", "reShow");
 		mContext.getApplicationContext().startActivity(intent);
-
-		ClassTools.getInstance().isRequesting = false;
 
 		numRoot.setVisibility(View.GONE);
 		stateRoot.setVisibility(View.VISIBLE);

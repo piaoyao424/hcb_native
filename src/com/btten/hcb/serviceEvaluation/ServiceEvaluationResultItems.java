@@ -5,7 +5,7 @@ import org.json.JSONObject;
 
 import android.R.integer;
 
-import com.btten.base.HcbAPP;
+import com.btten.hcb.HcbAPP;
 import com.btten.model.BaseJsonItem;
 import com.btten.tools.CommonConvert;
 import com.btten.tools.Log;

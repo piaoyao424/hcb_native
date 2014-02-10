@@ -6,8 +6,8 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import com.btten.account.VIPAccountManager;
-import com.btten.base.HcbAPP;
+import com.btten.hcb.HcbAPP;
+import com.btten.hcb.account.VIPAccountManager;
 import com.btten.model.BaseJsonItem;
 import com.btten.tools.CommonConvert;
 import com.btten.tools.Log;

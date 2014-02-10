@@ -41,12 +41,12 @@
         android:smallScreens="true" />
 <!--         android:name=".BtAPP" -->
     <application
-        android:name="com.btten.base.HcbAPP"
+        android:name="com.btten.hcb.HcbAPP"
         android:icon="@drawable/applogo01"
         android:label="@string/app_name"
         android:theme="@android:style/Theme.NoTitleBar" >
         <activity
-            android:name="com.btten.base.SplashScreen"
+            android:name="com.btten.hcb.SplashScreen"
             android:alwaysRetainTaskState="true"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait" >
@@ -73,7 +73,7 @@
         <!-- NEW ACTIVITY -->
         <!-- 欢迎页面 -->
         <activity
-            android:name="com.btten.base.WelcomActivity"
+            android:name="com.btten.hcb.WelcomActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait" />
         <!-- 登录 -->
@@ -96,7 +96,7 @@
             android:screenOrientation="portrait" />
         <!-- 主页 -->
         <activity
-            android:name="com.btten.base.MainActivity"
+            android:name="com.btten.hcb.MainActivity"
             android:alwaysRetainTaskState="true"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait" />

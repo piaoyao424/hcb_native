@@ -5,7 +5,7 @@ import org.apache.http.util.EntityUtils;
 import org.json.JSONObject;
 
 
-import com.btten.base.HcbAPP;
+import com.btten.hcb.HcbAPP;
 import com.btten.tools.Log;
 
 public abstract class JsonSceneBase extends NetSceneBase<JSONObject> {

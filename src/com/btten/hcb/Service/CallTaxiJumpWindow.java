@@ -1,7 +1,7 @@
 package com.btten.hcb.Service;
 
 
-import com.btten.base.SplashScreen;
+import com.btten.hcb.SplashScreen;
 import com.btten.hcb.tools.CallTaxiScreenLock;
 
 import android.app.Activity;

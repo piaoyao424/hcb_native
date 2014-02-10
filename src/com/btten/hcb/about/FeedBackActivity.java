@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import com.btten.base.BaseActivity;
 import com.btten.base.BaseView;
-import com.btten.base.MainActivity;
+import com.btten.hcb.MainActivity;
 import com.btten.network.NetSceneBase;
 import com.btten.network.OnSceneCallBack;
 

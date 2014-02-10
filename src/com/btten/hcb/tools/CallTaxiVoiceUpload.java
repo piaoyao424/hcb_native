@@ -20,7 +20,7 @@ import org.json.JSONObject;
 import android.accounts.AccountsException;
 import android.util.Log;
 
-import com.btten.account.VIPAccountManager;
+import com.btten.hcb.account.VIPAccountManager;
 import com.btten.network.OnUploadCallBack;
 import com.btten.network.UrlFactory;
 import com.btten.tools.CommonConvert;

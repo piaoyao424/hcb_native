@@ -13,8 +13,9 @@ import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.btten.hcb.account.VIPAccountManager;
 import com.btten.hcbvip.R;
-import com.btten.account.VIPAccountManager;
 import com.btten.base.BaseActivity;
 import com.btten.network.NetSceneBase;
 import com.btten.network.OnSceneCallBack;

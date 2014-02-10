@@ -80,7 +80,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.btten.algorithm.MD5;
+import com.btten.tools.algorithm.MD5;
 
 public final class Util {
 	private static final String TAG = "BTCore.Util";

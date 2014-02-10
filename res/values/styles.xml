@@ -7,7 +7,6 @@
         <item name="android:layout_height">40dp</item>
         <item name="android:layout_marginLeft">10dp</item>
         <item name="android:layout_marginRight">10dp</item>
-        <item name="android:background">@drawable/login_edittext_bg</item>
         <item name="android:orientation">horizontal</item>
         <item name="android:gravity">center_vertical</item>
     </style>
@@ -27,9 +26,9 @@
     <style name="login_regist_editview">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
-        <item name="android:layout_marginLeft">5dp</item>
-        <item name="android:background">@null</item>
+        <item name="android:background">@drawable/edittext_bg</item>
         <item name="android:singleLine">true</item>
+        <item name="android:paddingLeft">10dp</item>
         <item name="android:textSize">20sp</item>
     </style>
 

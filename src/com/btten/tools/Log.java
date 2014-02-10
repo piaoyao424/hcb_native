@@ -17,8 +17,8 @@ import javax.crypto.spec.DESKeySpec;
 
 import android.text.format.DateFormat;
 
-import com.btten.algorithm.MD5;
-import com.btten.algorithm.TypeTransform;
+import com.btten.tools.algorithm.MD5;
+import com.btten.tools.algorithm.TypeTransform;
 
 /**
  * 

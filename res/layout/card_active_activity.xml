@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_gray"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <include layout="@layout/top_title_bar" />
+
+    <LinearLayout
+        android:id="@+id/loginview_block"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:background="#FFFFFFFF"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingBottom="35dp" >
+
+        <LinearLayout
+            style="@style/login_regist_editlayout"
+            android:layout_marginTop="20dp" >
+
+            <EditText
+                android:id="@+id/cardactive_num"
+                style="@style/login_regist_editview"
+                android:hint="请输入卡号"
+                android:inputType="phone" >
+            </EditText>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/login_regist_editlayout"
+            android:layout_marginTop="10dp" >
+
+            <EditText
+                android:id="@+id/cardactive_pwd"
+                style="@style/login_regist_editview"
+                android:hint="请输入秘钥"
+                android:inputType="textPassword" />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/login_regist_editlayout"
+            android:layout_marginTop="10dp" >
+
+            <EditText
+                android:id="@+id/cardactive_phone"
+                style="@style/login_regist_editview"
+                android:hint="请手机号码"
+                android:inputType="textPassword" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:background="@color/white"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="0.5" >
+
+                <EditText
+                    android:id="@+id/cardactive_edittext_verifycode"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="@drawable/edittext_bg"
+                    android:hint="请输入验证码"
+                    android:paddingLeft="10dp"
+                    android:singleLine="true"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/cardactive_button_verifycode"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="0.5"
+                android:background="@drawable/edittext_bg"
+                android:text="发送验证码"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/cardactive_button_submit"
+            android:layout_width="160dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="30dp"
+            android:layout_weight="1"
+            android:background="@color/orange"
+            android:padding="10dp"
+            android:text="激活"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+</LinearLayout>
