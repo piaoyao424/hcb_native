@@ -1,4 +1,4 @@
-package com.btten.hcb.gonggao;
+package com.btten.hcb.publicNotice;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -8,9 +8,9 @@ import android.util.Log;
 import com.btten.model.BaseJsonItem;
 import com.btten.tools.CommonConvert;
 
-public class NoticeListItems extends BaseJsonItem {
+public class PublicNoticeListItems extends BaseJsonItem {
 	private JSONArray jsonArray = null;
-	public NoticeListItem[] item = null;
+	public PublicNoticeListItem[] item = null;
 
 	@Override
 	public boolean CreateFromJson(JSONObject result) {
@@ -20,11 +20,11 @@ public class NoticeListItems extends BaseJsonItem {
 			if (this.status == 1 && !result.isNull("DATA")) {
 				jsonArray = result.getJSONArray("DATA");
 				int length = jsonArray.length();
-				item = new NoticeListItem[length];
+				item = new PublicNoticeListItem[length];
 				for (int i = 0; i < length; i++) {
 					JSONObject obj = jsonArray.getJSONObject(i);
 					CommonConvert convert = new CommonConvert(obj);
-					NoticeListItem temp = new NoticeListItem();
+					PublicNoticeListItem temp = new PublicNoticeListItem();
 					temp.title = convert.getString("F2_4230");
 					temp.id = convert.getString("F1_4230");
 					temp.date = convert.getString("F4_4230");

@@ -1,17 +1,22 @@
-package com.btten.hcb.about;
+package com.btten.hcb;
 
 import java.io.File;
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.RelativeLayout;
 import com.btten.base.BaseActivity;
+import com.btten.hcb.cardActive.CardActiveActivity;
 import com.btten.hcb.login.LoginActivity;
+import com.btten.hcb.notice.FaqsActivity;
+import com.btten.hcb.notice.NoticeInfoActivity;
+import com.btten.hcb.register.RegistActivity;
 import com.btten.hcbvip.R;
 
-public class MyHcb extends BaseActivity {
+public class MyHcbActivity extends BaseActivity {
 
 	int[] relativeID = { R.id.myhcb_relative_login,
 			R.id.myhcb_relative_register, R.id.myhcb_relative_activation,
@@ -20,9 +25,18 @@ public class MyHcb extends BaseActivity {
 			R.id.myhcb_relative_points_record, R.id.myhcb_relative_faqs,
 			R.id.myhcb_relative_notices, R.id.myhcb_relative_about_us };
 
-	public MyHcb(Activity context) {
-		super();
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.myhcb_activity);
 		initView();
+		setBackKeyListner(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				onBackPressed();
+			}
+		});
 	}
 
 	public void initView() {
@@ -39,54 +53,66 @@ public class MyHcb extends BaseActivity {
 
 		@Override
 		public void onClick(View v) {
-
+			Intent intent = null;
 			switch (v.getId()) {
 			// 登陆
 			case R.id.myhcb_relative_login:
-				startActivity(new Intent(MyHcb.this, LoginActivity.class));
+				intent = new Intent(MyHcbActivity.this, LoginActivity.class);
 				break;
 			// 注册
 			case R.id.myhcb_relative_register:
-				startActivity(new Intent(MyHcb.this, LoginActivity.class));
+				intent = new Intent(MyHcbActivity.this, RegistActivity.class);
 				break;
 			// 激活
 			case R.id.myhcb_relative_activation:
-				startActivity(new Intent(MyHcb.this, LoginActivity.class));
+				intent = new Intent(MyHcbActivity.this,
+						CardActiveActivity.class);
 				break;
 			// 我的账户
 			case R.id.myhcb_relative_account:
-				startActivity(new Intent(MyHcb.this, LoginActivity.class));
+				intent = new Intent(MyHcbActivity.this, LoginActivity.class);
 				break;
 			// 我的消费
 			case R.id.myhcb_relative_shopping:
-				startActivity(new Intent(MyHcb.this, LoginActivity.class));
+				intent = new Intent(MyHcbActivity.this, LoginActivity.class);
 				break;
 			// 我的信息
 			case R.id.myhcb_relative_baseinfo:
-				startActivity(new Intent(MyHcb.this, LoginActivity.class));
+				intent = new Intent(MyHcbActivity.this, LoginActivity.class);
 				break;
 			// 积分兑换
 			case R.id.myhcb_relative_exchange:
-				startActivity(new Intent(MyHcb.this, LoginActivity.class));
+				intent = new Intent(MyHcbActivity.this,
+						NoticeInfoActivity.class);
+				intent.putExtra(NoticeInfoActivity.KEY_NOTICEID,
+						NoticeInfoActivity.POINTSEXCHANGE);
 				break;
 			// 积分记录
 			case R.id.myhcb_relative_points_record:
-				startActivity(new Intent(MyHcb.this, LoginActivity.class));
+				intent = new Intent(MyHcbActivity.this, LoginActivity.class);
 				break;
 			// 常见问题
 			case R.id.myhcb_relative_faqs:
-				startActivity(new Intent(MyHcb.this, LoginActivity.class));
+				intent = new Intent(MyHcbActivity.this, FaqsActivity.class);
 				break;
 			// 惠车宝公告
 			case R.id.myhcb_relative_notices:
-				startActivity(new Intent(MyHcb.this, LoginActivity.class));
+				intent = new Intent(MyHcbActivity.this, LoginActivity.class);
 				break;
 			// 关于我们
 			case R.id.myhcb_relative_about_us:
-				startActivity(new Intent(MyHcb.this, GuideActivity.class));
+				intent = new Intent(MyHcbActivity.this,
+						NoticeInfoActivity.class);
+				intent.putExtra(NoticeInfoActivity.KEY_NOTICEID,
+						NoticeInfoActivity.ABOUTUS);
 				break;
 			}
 
+			if (intent == null) {
+
+			} else {
+				startActivity(intent);
+			}
 		}
 	};
 

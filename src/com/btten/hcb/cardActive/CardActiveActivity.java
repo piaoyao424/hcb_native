@@ -34,9 +34,15 @@ public class CardActiveActivity extends BaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.register_activity);
-		setCurrentTitle("注册");
-		setBackKeyListner(backListener);
+		setContentView(R.layout.card_active_activity);
+		setCurrentTitle("卡激活");
+		setBackKeyListner(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				onBackPressed();
+			}
+		});
 		init();
 	}
 
@@ -52,14 +58,6 @@ public class CardActiveActivity extends BaseActivity {
 		verifyCode_btn.setOnClickListener(requestCodeListener);
 	}
 
-	OnClickListener backListener = new OnClickListener() {
-
-		@Override
-		public void onClick(View v) {
-			onBackPressed();
-		}
-	};
-
 	ProgressDialog progress;
 	OnClickListener listener = new OnClickListener() {
 		@Override
@@ -68,7 +66,7 @@ public class CardActiveActivity extends BaseActivity {
 
 				if (progress == null) {
 					progress = ProgressDialog.show(CardActiveActivity.this,
-							"注册中……", "请稍候……", true, false);
+							"正在激活……", "请稍候……", true, false);
 				}
 
 				regist_btn.setClickable(false);

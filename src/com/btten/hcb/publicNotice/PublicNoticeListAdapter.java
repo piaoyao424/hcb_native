@@ -1,4 +1,4 @@
-package com.btten.hcb.gonggao;
+package com.btten.hcb.publicNotice;
 
 import com.btten.base.ListItemAdapter;
 
@@ -9,11 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 
-public class NoticeListAdapter extends ListItemAdapter {
+public class PublicNoticeListAdapter extends ListItemAdapter {
 	View view = null;
 	Activity context = null;
 
-	public NoticeListAdapter(Activity context) {
+	public PublicNoticeListAdapter(Activity context) {
 		super(context);
 		this.context = context;
 	}
@@ -41,10 +41,10 @@ public class NoticeListAdapter extends ListItemAdapter {
 		@Override
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
-			Intent intent = new Intent(context, NoticeInfoActivity.class);
-			intent.putExtra("KEY_GGID", ((NoticeListItem) items[index]).id);
-			intent.putExtra("KEY_DATE", ((NoticeListItem) items[index]).date);
-			intent.putExtra("KEY_TITLE", ((NoticeListItem) items[index]).title);
+			Intent intent = new Intent(context, PublicNoticeInfoActivity.class);
+			intent.putExtra("KEY_GGID", ((PublicNoticeListItem) items[index]).id);
+			intent.putExtra("KEY_DATE", ((PublicNoticeListItem) items[index]).date);
+			intent.putExtra("KEY_TITLE", ((PublicNoticeListItem) items[index]).title);
 			context.startActivity(intent);
 		}
 	}

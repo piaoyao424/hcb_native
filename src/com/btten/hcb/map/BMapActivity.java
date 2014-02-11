@@ -1,10 +1,10 @@
-package com.btten.hcb;
+package com.btten.hcb.map;
 
 import com.baidu.location.BDLocation;
 import com.baidu.mapapi.map.MapView;
 import com.btten.base.BaseActivity;
-import com.btten.hcb.BMapActivity;
 import com.btten.hcb.account.VIPAccountManager;
+import com.btten.hcb.map.BMapActivity;
 import com.btten.hcbvip.R;
 import com.btten.vincentTools.MapManager;
 

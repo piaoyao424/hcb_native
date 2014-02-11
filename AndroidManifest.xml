@@ -24,7 +24,9 @@
 
     <!-- 百度定位服务所需权限 -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <permission android:name="android.permission.BAIDU_LOCATION_SERVICE" />
+
     <uses-permission android:name="android.permission.BAIDU_LOCATION_SERVICE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCES_MOCK_LOCATION" />
@@ -39,9 +41,10 @@
         android:normalScreens="true"
         android:resizeable="true"
         android:smallScreens="true" />
-<!--         android:name=".BtAPP" -->
+
     <application
         android:name="com.btten.hcb.HcbAPP"
+        android:allowBackup="true"
         android:icon="@drawable/applogo01"
         android:label="@string/app_name"
         android:theme="@android:style/Theme.NoTitleBar" >
@@ -85,24 +88,26 @@
             android:windowSoftInputMode="stateHidden" />
         <!-- 注册 -->
         <activity
-            android:name="com.btten.calltaxi.regist.RegistActivity"
+            android:name="com.btten.hcb.register.RegistActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
+        <!-- 卡激活 -->
+        <activity
+            android:name="com.btten.hcb.cardActive.CardActiveActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        
         <!-- 服务条款 -->
         <activity
-            android:name="com.btten.calltaxi.regist.RegistTermsActivity"
+            android:name="com.btten.hcb.regist.RegistTermsActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait" />
         <!-- 主页 -->
         <activity
             android:name="com.btten.hcb.MainActivity"
             android:alwaysRetainTaskState="true"
-            android:configChanges="orientation|keyboardHidden"
-            android:screenOrientation="portrait" />
-        <!-- 消费详情 -->
-        <activity
-            android:name="com.btten.goal.consume.Detail.MyConsumeDetailActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait" />
         <!-- 个人评价 -->
@@ -118,10 +123,10 @@
 
         <!-- 公告内容 -->
         <activity
-            android:name="com.btten.hcb.gonggao.NoticeInfoActivity"
+            android:name="com.btten.hcb.publicNotice.PublicNoticeInfoActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait" />
-        <!--查询商品 -->
+        <!-- 查询商品 -->
         <activity
             android:name="com.btten.hcb.search.SearchActivity"
             android:configChanges="orientation|keyboardHidden"
@@ -131,65 +136,26 @@
             android:name="com.btten.hcb.jmsInfo.JmsInfoActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait" />
-        
-        <!-- 填写银行卡帐号 -->
+        <!-- 我的惠车宝 -->
         <activity
-            android:name="com.btten.goal.mygoul.debitCardActivity"
+            android:name="com.btten.hcb.MyHcbActivity"
             android:configChanges="orientation|keyboardHidden"
-           
-            android:windowSoftInputMode="stateHidden" />
-        <activity
-            android:name="com.btten.goal.mygoul.debitCardActivity_new"
-            android:configChanges="orientation|keyboardHidden"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" />
-        <activity
-            android:name="com.btten.goal.bank.bankOfSheng"
-            android:configChanges="orientation|keyboardHidden"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" />
-        <activity
-            android:name="com.btten.goal.bank.bankOfShi"
-            android:configChanges="orientation|keyboardHidden"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" />
-        <activity
-            android:name="com.btten.goal.bank.bankOfFenlei"
-            android:configChanges="orientation|keyboardHidden"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" />
+            android:screenOrientation="portrait" />
 
-        <!-- 我是司机 -->
+        <!-- 常见问题 列表 -->
         <activity
-            android:name="com.btten.calltaxi.Driver.DriverActivity"
-            android:configChanges="orientation|keyboardHidden"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" />
-        <activity
-            android:name="com.btten.calltaxi.Driver.Designate.DriverDesignatedActivity"
-            android:configChanges="orientation|keyboardHidden"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" />
-        <activity
-            android:name="com.btten.calltaxi.Driver.DriverGrabActivity"
+            android:name="com.btten.hcb.notice.FaqsActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait" />
+        <!-- 常见问题详情 -->
         <activity
-            android:name="com.btten.calltaxi.Driver.DriverResultActivity"
-            android:configChanges="orientation|keyboardHidden"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.btten.calltaxi.Designate.DesignatedDriverListActivity"
-            android:configChanges="orientation|keyboardHidden"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.btten.calltaxi.Designate.DesignatedComment"
+            android:name="com.btten.hcb.notice.NoticeInfoActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait" />
 
         <!-- 加盟商 网点地图 -->
         <activity
-            android:name="com.btten.JmsMap.JmsMapActivity"
+            android:name="com.btten.hcb.map.BMapActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
@@ -265,14 +231,9 @@
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
-        <!-- 叫车指南 -->
-        <activity
-            android:name="com.btten.about.GuideActivity"
-            android:configChanges="orientation|keyboardHidden"
-            android:screenOrientation="portrait" />
         <!-- 修改密码 -->
         <activity
-            android:name="com.btten.about.ChangePasswdActivity"
+            android:name="com.btten.hcb.changePassword.ChangePasswdActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
@@ -281,10 +242,10 @@
 
         <!-- BACKGROUND SERVICE -->
         <service
-            android:name="com.btten.calltcom.btten.hcb.Service.JmsMapService" 
+            android:name="com.btten.hcb.Service.JmsMapService"
             android:enabled="true" />
         <!-- END OF SERVICE -->
-        
+
         <activity
             android:name="com.umeng.fb.ui.SendFeedback"
             android:windowSoftInputMode="adjustResize" />
@@ -315,7 +276,7 @@
 
         <meta-data
             android:name="UMENG_APPKEY"
-            android:value="5240f6e056240b085f0eb52b" >
+            android:value="52576b8756240b9b9705cac3" >
         </meta-data>
         <meta-data
             android:name="UMENG_CHANNEL"

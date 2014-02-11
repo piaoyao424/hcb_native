@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/light_gray"
+    android:fadingEdge="none"
+    android:scrollbars="none" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <include layout="@layout/top_title_bar" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/my_goal_gray_bg"
+            android:orientation="vertical"
+            android:padding="1dp" >
+
+            <RelativeLayout
+                android:id="@+id/faqs_relative_cardactive"
+                style="@style/aboutus_relative_style"
+                android:layout_marginBottom="1dp" >
+
+                <TextView
+                    style="@style/aboutus_text_style"
+                    android:text="卡片激活 " />
+
+                <ImageView
+                    style="@style/aboutus_image_style"
+                    android:contentDescription="@string/ImageDescription" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/faqs_relative_huibiusage"
+                style="@style/aboutus_relative_style"
+                android:layout_marginBottom="1dp" >
+
+                <TextView
+                    style="@style/aboutus_text_style"
+                    android:text="惠币使用" />
+
+                <ImageView
+                    style="@style/aboutus_image_style"
+                    android:contentDescription="@string/ImageDescription" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/faqs_relative_bankcard"
+                style="@style/aboutus_relative_style" >
+
+                <TextView
+                    style="@style/aboutus_text_style"
+                    android:text="刷银行卡" />
+
+                <ImageView
+                    style="@style/aboutus_image_style"
+                    android:contentDescription="@string/ImageDescription" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/my_goal_gray_bg"
+            android:orientation="vertical"
+            android:padding="1dp" >
+
+            <RelativeLayout
+                android:id="@+id/faqs_relative_jmslist"
+                style="@style/aboutus_relative_style"
+                android:layout_marginBottom="1dp" >
+
+                <TextView
+                    style="@style/aboutus_text_style"
+                    android:text="合作网点" />
+
+                <ImageView
+                    style="@style/aboutus_image_style"
+                    android:contentDescription="@string/ImageDescription" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/faqs_relative_privilege"
+                style="@style/aboutus_relative_style"
+                android:layout_marginBottom="1dp" >
+
+                <TextView
+                    style="@style/aboutus_text_style"
+                    android:text="会员特权" />
+
+                <ImageView
+                    style="@style/aboutus_image_style"
+                    android:contentDescription="@string/ImageDescription" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/faqs_relative_integral_rules"
+                style="@style/aboutus_relative_style"
+                android:layout_marginBottom="1dp" >
+
+                <TextView
+                    style="@style/aboutus_text_style"
+                    android:text="积分规则" />
+
+                <ImageView
+                    style="@style/aboutus_image_style"
+                    android:contentDescription="@string/ImageDescription" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/faqs_relative_car_insurance"
+                style="@style/aboutus_relative_style"
+                android:layout_marginBottom="1dp" >
+
+                <TextView
+                    style="@style/aboutus_text_style"
+                    android:text="车辆保险" />
+
+                <ImageView
+                    style="@style/aboutus_image_style"
+                    android:contentDescription="@string/ImageDescription" />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

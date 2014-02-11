@@ -1,4 +1,4 @@
-package com.btten.hcb.gonggao;
+package com.btten.hcb.publicNotice;
 
 import android.util.Log;
 import com.btten.model.BaseJsonItem;
@@ -7,8 +7,8 @@ import com.btten.network.OnSceneCallBack;
 import com.btten.network.ThreadPoolUtils;
 import com.btten.network.UrlFactory;
 
-public class NoticeInfoScene extends NomalJsonSceneBase {
-	public NoticeInfoScene() {
+public class PublicNoticeInfoScene extends NomalJsonSceneBase {
+	public PublicNoticeInfoScene() {
 		super();
 	}
 
@@ -24,7 +24,7 @@ public class NoticeInfoScene extends NomalJsonSceneBase {
 
 	@Override
 	protected BaseJsonItem CreateJsonItems() {
-		return new NoticeInfoItems();
+		return new PublicNoticeInfoItems();
 	}
 
 }

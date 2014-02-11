@@ -4,17 +4,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.btten.base.BaseActivity;
-import com.btten.hcb.gonggao.NoticeInfoActivity;
+import com.btten.hcb.Service.CallTaxiNotification;
+import com.btten.hcb.Service.LocationClientService;
 import com.btten.hcb.notice.TitleNoticeItem;
 import com.btten.hcb.notice.TitleNoticeItems;
 import com.btten.hcb.notice.TitleNoticeScene;
+import com.btten.hcb.publicNotice.PublicNoticeInfoActivity;
 import com.btten.hcb.search.SearchActivity;
 import com.btten.hcbvip.R;
 import com.btten.network.NetSceneBase;
 import com.btten.network.OnSceneCallBack;
 import com.btten.vincentTools.CallTelephone;
 import com.umeng.update.UmengUpdateAgent;
+
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -68,18 +73,19 @@ public class MainActivity extends BaseActivity {
 		public void onClick(View v) {
 			// 默认爱车美容
 			String cid = "0";
+			Intent intent = null;
 			switch (v.getId()) {
 			case R.id.homeview_telephone:
 				new CallTelephone(MainActivity.this, "4006602020").call();
 				break;
 			case R.id.homeview_webHome:
-				Intent viewIntent = new Intent("android.intent.action.VIEW",
-						Uri.parse("http://www.huichebo.com"));
-				startActivity(viewIntent);
+				intent = new Intent("android.intent.action.VIEW",
+						Uri.parse(getString(R.string.homepage)));
 				break;
 			case R.id.homeview_cheLiangBaoXian:
 				break;
 			case R.id.homeview_woDeHuiCheBao:
+				intent = new Intent(MainActivity.this, MyHcbActivity.class);
 				break;
 			case R.id.homeview_daoLuJiuYuan:
 				break;
@@ -102,10 +108,9 @@ public class MainActivity extends BaseActivity {
 				break;
 			}
 			if (cid.equals("0")) {
-
+				startActivity(intent);
 			} else {
-				Intent intent = new Intent(MainActivity.this,
-						SearchActivity.class);
+				intent = new Intent(MainActivity.this, SearchActivity.class);
 				intent.putExtra("KEY_MENUID", cid);
 				startActivity(intent);
 			}
@@ -166,8 +171,34 @@ public class MainActivity extends BaseActivity {
 	 * @param titleid
 	 */
 	public void disPlayNoticeContent(Context context, String titleid) {
-		Intent intent = new Intent(context, NoticeInfoActivity.class);
+		Intent intent = new Intent(context, PublicNoticeInfoActivity.class);
 		intent.putExtra("KEY_GGID", titleid);
 		startActivity(intent);
+	}
+
+	@Override
+	public void onBackPressed() {
+		new AlertDialog.Builder(this)
+				.setTitle("提示")
+				.setMessage("退出惠车宝？")
+				.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						CallTaxiNotification.getInstance().ExitApp();
+						if (LocationClientService.getInstance().getMapManager() != null)
+							LocationClientService.getInstance().getMapManager()
+									.destroy();
+						ClearAllActivity();
+						finish();
+					}
+				})
+				.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						dialog.dismiss();
+					}
+				}).show();
 	}
 }

@@ -124,7 +124,13 @@ public class BaseActivity extends Activity {
 		backKeyImageButton = (ImageButton) findViewById(R.id.back_key_imagebutton);
 		if (listener != null) {
 			backKeyImageButton.setVisibility(View.VISIBLE);
-			backKeyImageButton.setOnClickListener(listener);
+			backKeyImageButton.setOnClickListener((new OnClickListener() {
+
+				@Override
+				public void onClick(View v) {
+					onBackPressed();
+				}
+			}));
 		} else {
 			backKeyImageButton.setVisibility(View.GONE);
 			backKeyImageButton.setOnClickListener(null);

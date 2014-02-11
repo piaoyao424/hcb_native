@@ -1,4 +1,4 @@
-package com.btten.hcb.gonggao;
+package com.btten.hcb.publicNotice;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -8,15 +8,15 @@ import android.util.Log;
 import com.btten.model.BaseJsonItem;
 import com.btten.tools.CommonConvert;
 
-public class NoticeInfoItems extends BaseJsonItem {
+public class PublicNoticeInfoItems extends BaseJsonItem {
 	private static String TAG = "MyGGContentItemsItems";
 	private JSONArray jsonArray = null;
-	NoticeInfoItem item;
+	PublicNoticeInfoItem item;
 
 	@Override
 	public boolean CreateFromJson(JSONObject result) {
 		
-		item = new NoticeInfoItem();
+		item = new PublicNoticeInfoItem();
 		try {
 			this.status = result.getInt("STATUS");
 			this.info = result.getString("INFO");

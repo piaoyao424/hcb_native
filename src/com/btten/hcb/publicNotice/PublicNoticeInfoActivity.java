@@ -1,4 +1,4 @@
-package com.btten.hcb.gonggao;
+package com.btten.hcb.publicNotice;
 
 import android.os.Bundle;
 import android.widget.Button;
@@ -10,13 +10,13 @@ import com.btten.network.NetSceneBase;
 import com.btten.network.OnSceneCallBack;
 import com.btten.tools.Util;
 
-public class NoticeInfoActivity extends BaseActivity {
+public class PublicNoticeInfoActivity extends BaseActivity {
 
 	private TextView tv_ggconten_biaoti;
 	private TextView tv_ggconten_riqi;
 	private TextView tv_ggconten_neirong;
 	private TextView tv_ggconten_name;
-	NoticeInfoScene ggScene = null;
+	PublicNoticeInfoScene ggScene = null;
 	String ggId = "";
 
 	@Override
@@ -44,7 +44,7 @@ public class NoticeInfoActivity extends BaseActivity {
 	}
 
 	private void DoRequest() {
-		ggScene = new NoticeInfoScene();
+		ggScene = new PublicNoticeInfoScene();
 		ggScene.doscene(callBack, ggId);
 		ShowRunning();
 	}
@@ -53,7 +53,7 @@ public class NoticeInfoActivity extends BaseActivity {
 
 		@Override
 		public void OnSuccess(Object data, NetSceneBase<?> netScene) {
-			NoticeInfoItems items = (NoticeInfoItems) data;
+			PublicNoticeInfoItems items = (PublicNoticeInfoItems) data;
 
 			tv_ggconten_neirong.setText(items.item.content);
 			tv_ggconten_name.setText("惠车宝");

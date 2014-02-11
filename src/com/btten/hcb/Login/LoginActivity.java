@@ -43,10 +43,16 @@ public class LoginActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.login_activity);
 		setCurrentTitle("会员登录");
+		setBackKeyListner(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				onBackPressed();
+			}
+		});
 
 		init();
 		initPersonalInfo();
@@ -153,8 +159,8 @@ public class LoginActivity extends BaseActivity {
 
 			LoginResultItems items = (LoginResultItems) data;
 			LoginResultItem item = items.item;
-			VIPAccountManager.getInstance().SetInfo(nameStr,
-					item.username, item.userid, nameStr);
+			VIPAccountManager.getInstance().SetInfo(nameStr, item.username,
+					item.userid, nameStr);
 
 			MsgCenter.getInstance().PostMsg(MsgConst.LOGIN_SUCCESS, this);
 
@@ -180,30 +186,4 @@ public class LoginActivity extends BaseActivity {
 			}, 200);
 		}
 	};
-
-	@Override
-	public void onBackPressed() {
-		new AlertDialog.Builder(this)
-				.setTitle("提示")
-				.setMessage("退出惠车宝？")
-				.setPositiveButton("确定", new DialogInterface.OnClickListener() {
-
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						CallTaxiNotification.getInstance().ExitApp();
-						if (LocationClientService.getInstance().getMapManager() != null)
-							LocationClientService.getInstance().getMapManager()
-									.destroy();
-						ClearAllActivity();
-						finish() ;
-					}
-				})
-				.setNegativeButton("取消", new DialogInterface.OnClickListener() {
-
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						dialog.dismiss();
-					}
-				}).show();
-	}
 }

@@ -1,4 +1,4 @@
-package com.btten.hcb.gonggao;
+package com.btten.hcb.publicNotice;
 
 
 import com.btten.hcbvip.R;
@@ -7,11 +7,11 @@ import com.btten.base.ListItemBase;
 import android.view.View;
 import android.widget.TextView;
 
-public class NoticeListItem extends ListItemBase {
+public class PublicNoticeListItem extends ListItemBase {
 	String title= "",date= "",id = "";
 	TextView tv_title, tv_date,tv_xiangxi;
 	
-	public NoticeListItem() {
+	public PublicNoticeListItem() {
 		layoutId = R.layout.gonggao_list_item;
 	}
 

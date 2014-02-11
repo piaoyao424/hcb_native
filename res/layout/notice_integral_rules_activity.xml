@@ -1,0 +1,213 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/notice_integral_rules_layout"
+    android:background="@android:color/white"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/notice_base_title"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center_horizontal"
+            android:text="积分规则"
+            android:textColor="@color/main_text_color"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="#CCCCCC"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="0.5dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="0.5dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_weight="0.5"
+                    android:background="#E1E7E7"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="会员获取方式"
+                    android:textColor="@color/main_text_color"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="0.5dp"
+                    android:layout_marginLeft="0.5dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_weight="0.5"
+                    android:background="#E1E7E7"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="所得积分"
+                    android:textColor="@color/main_text_color"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="0.5dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="0.5dp"
+                    android:layout_marginTop="0.5dp"
+                    android:layout_weight="0.5"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="在惠车宝任意加盟店消费即可获得消费积分"
+                    android:textColor="@color/main_text_color"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_marginBottom="0.5dp"
+                    android:layout_marginLeft="0.5dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0.5dp"
+                    android:layout_weight="0.5"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="所得积分=消费金额"
+                    android:textColor="@color/main_text_color"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="0.5dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="0.5dp"
+                    android:layout_marginTop="0.5dp"
+                    android:layout_weight="0.5"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="消费结束后，通过网站或手机客户端评价所得积分"
+                    android:textColor="@color/main_text_color"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_marginBottom="0.5dp"
+                    android:layout_marginLeft="0.5dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0.5dp"
+                    android:layout_weight="0.5"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="评价每次获得200积分"
+                    android:textColor="@color/main_text_color"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="0.5dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="0.5dp"
+                    android:layout_marginTop="0.5dp"
+                    android:layout_weight="0.5"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="网站或手机客户端首次注册成功所得积分"
+                    android:textColor="@color/main_text_color"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_marginBottom="0.5dp"
+                    android:layout_marginLeft="0.5dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0.5dp"
+                    android:layout_weight="0.5"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="第一次注册成功获得500积分"
+                    android:textColor="@color/main_text_color"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="0.5dp"
+                    android:layout_marginTop="0.5dp"
+                    android:layout_weight="0.5"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="每天登陆所得积分"
+                    android:textColor="@color/main_text_color"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="0.5dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0.5dp"
+                    android:layout_weight="0.5"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="每天登陆获得20积分"
+                    android:textColor="@color/main_text_color"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

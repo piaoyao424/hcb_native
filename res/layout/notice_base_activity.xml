@@ -6,11 +6,20 @@
 
     <include layout="@layout/top_title_bar" />
 
-    <LinearLayout
-        android:id="@+id/notice_base_linear"
-        android:layout_width="fill_parent"
+    <ScrollView
+        android:layout_width="match_parent"
         android:layout_height="fill_parent"
-        android:orientation="horizontal" >
-    </LinearLayout>
+        android:background="@null"
+        android:fadingEdge="none"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:id="@+id/notice_base_linear"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:paddingTop="20dp" >
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

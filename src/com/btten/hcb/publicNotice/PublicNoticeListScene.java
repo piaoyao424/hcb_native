@@ -1,4 +1,4 @@
-package com.btten.hcb.gonggao;
+package com.btten.hcb.publicNotice;
 
 import com.btten.model.BaseJsonItem;
 import com.btten.network.NomalJsonSceneBase;
@@ -7,10 +7,10 @@ import com.btten.network.ThreadPoolUtils;
 import com.btten.network.UrlFactory;
 import com.umeng.common.Log;
 
-public class NoticeListScene extends NomalJsonSceneBase {
+public class PublicNoticeListScene extends NomalJsonSceneBase {
 	@Override
 	protected BaseJsonItem CreateJsonItems() {
-		return new NoticeListItems();
+		return new PublicNoticeListItems();
 	}
 
 	public void doScene(OnSceneCallBack callBack)
