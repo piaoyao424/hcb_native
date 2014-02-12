@@ -163,11 +163,7 @@
             android:layout_marginRight="5dp"
             android:layout_weight="1"
             android:background="@drawable/record_time_block_bg" >
-
-            <TextView
-                style="@style/mygoal_time_left"
-                android:layout_weight="5"
-                android:text="开始时间" />
+ 
 
             <com.btten.hcb.wheelview.WheelShow
                 android:id="@+id/mygoal_start_time"
@@ -183,10 +179,7 @@
             android:layout_weight="1"
             android:background="@drawable/record_time_block_bg" >
 
-            <TextView
-                style="@style/mygoal_time_left"
-                android:layout_weight="5"
-                android:text="结束时间" />
+   
 
             <com.btten.hcb.wheelview.WheelShow
                 android:id="@+id/mygoal_end_time"

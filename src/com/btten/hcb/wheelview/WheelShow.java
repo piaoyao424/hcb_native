@@ -55,7 +55,6 @@ public class WheelShow extends TextView implements OnClickListener {
 
 			@Override
 			public void onDismiss(DialogInterface dialog) {
-				// TODO Auto-generated method stub
 				if (isShowed) {
 					WheelShow.this.setClickable(true);
 					isShowed = false;
