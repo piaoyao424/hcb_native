@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_height="30dp"
     android:background="@color/white"
     android:orientation="horizontal"
     android:padding="5dp" >
@@ -14,7 +14,7 @@
         android:gravity="center"
         android:text="2013-09-18"
         android:textColor="@color/black"
-        android:textSize="14sp" />
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/ponit_records_listitem_type"
@@ -24,7 +24,7 @@
         android:gravity="center"
         android:text="登陆"
         android:textColor="@color/black"
-        android:textSize="14sp" />
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/ponit_records_listitem_gotpoints"
@@ -34,7 +34,7 @@
         android:gravity="center"
         android:text="20分"
         android:textColor="@color/black"
-        android:textSize="14sp" />
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/ponit_records_listitem_usedpoints"
@@ -44,6 +44,6 @@
         android:gravity="center"
         android:text="200分"
         android:textColor="@color/black"
-        android:textSize="14sp" />
+        android:textSize="15sp" />
 
 </LinearLayout>

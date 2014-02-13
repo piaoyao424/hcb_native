@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="30dp"
+    android:background="@color/white"
+    android:orientation="horizontal"
+    android:padding="5dp" >
+    <TextView
+        android:id="@+id/recharge_records_listitem_date"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2.5"
+        android:gravity="center"
+        android:text="2013-09-08"
+        android:textColor="@color/black"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/recharge_records_listitem_gotpoints"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2.5"
+        android:gravity="center"
+        android:text="200元"
+        android:textColor="@color/black"
+        android:textSize="15sp" />
+
+</LinearLayout>

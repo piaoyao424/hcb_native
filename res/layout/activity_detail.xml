@@ -34,7 +34,7 @@
                     android:layout_marginTop="5dp"
                     android:text="元旦优惠大酬宾"
                     android:textColor="@color/white"
-                    android:textSize="16dp" />
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/activity_detail_end"
@@ -45,7 +45,7 @@
                     android:layout_toRightOf="@id/activity_detail_title"
                     android:text="活动已结束"
                     android:textColor="@color/black"
-                    android:textSize="12dp" />
+                    android:textSize="12sp" />
             </RelativeLayout>
         </LinearLayout>
 

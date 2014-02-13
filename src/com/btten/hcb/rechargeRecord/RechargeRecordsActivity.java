@@ -1,6 +1,7 @@
-package com.btten.hcb.pointRecords;
+package com.btten.hcb.rechargeRecord;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -12,7 +13,7 @@ import com.btten.hcbvip.R;
 import com.btten.network.NetSceneBase;
 import com.btten.network.OnSceneCallBack;
 
-public class PointRecordsActivity extends BaseActivity {
+public class RechargeRecordsActivity extends BaseActivity {
 	private Button btn_chaxun;
 	private String begin;
 	private String end;
@@ -23,7 +24,7 @@ public class PointRecordsActivity extends BaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.point_records);
+		setContentView(R.layout.recharge_records);
 		init();
 	}
 
@@ -38,7 +39,7 @@ public class PointRecordsActivity extends BaseActivity {
 		btn_chaxun.setOnClickListener(listener);
 
 		listView = (ListView) findViewById(R.id.point_records_list);
-		setCurrentTitle("积分记录");
+		setCurrentTitle("充值记录");
 	}
 
 	OnClickListener listener = new OnClickListener() {
@@ -51,7 +52,8 @@ public class PointRecordsActivity extends BaseActivity {
 			case R.id.point_records_end_time:
 			case R.id.point_records_button:
 				if (requireData()) {
-					new PointRecordsListScene().doscene(callBack, begin, end);
+					new RechargeRecordsListScene()
+							.doscene(callBack, begin, end);
 					ShowRunning();
 				}
 				break;
@@ -79,7 +81,7 @@ public class PointRecordsActivity extends BaseActivity {
 
 		if (Integer.parseInt(startString.toString()) > Integer
 				.parseInt(endString.toString())) {
-			PointRecordsActivity.this.Alert("结束日期不能小于开始日期！");
+			RechargeRecordsActivity.this.Alert("结束日期不能小于开始日期！");
 			return false;
 		}
 		begin += " 00:00:00";
@@ -89,26 +91,31 @@ public class PointRecordsActivity extends BaseActivity {
 
 	OnSceneCallBack callBack = new OnSceneCallBack() {
 		@Override
-		public void OnFailed(int status, String info, NetSceneBase netScene) {
+		public void OnFailed(int status, String info, NetSceneBase<?> netScene) {
 			HideProgress();
 			ErrorAlert(status, info);
 		}
 
 		@Override
-		public void OnSuccess(Object data, NetSceneBase netScene) {
+		public void OnSuccess(Object data, NetSceneBase<?> netScene) {
 			HideProgress();
-			PointRecordsListResult items = (PointRecordsListResult) data;
-			PointRecordsListAdapter adapter = new PointRecordsListAdapter(
-					PointRecordsActivity.this);
-
-			TextView textView = (TextView) findViewById(R.id.point_records_totle);
-			textView.setText(String.valueOf(items.remainPoints));
+			RechargeRecordsListResult items = (RechargeRecordsListResult) data;
+			RechargeRecordsListAdapter adapter = new RechargeRecordsListAdapter(
+					RechargeRecordsActivity.this);
 
 			adapter.setItems(items.items);
 			listView.setAdapter(adapter);
 
+			LayoutInflater layoutInflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+			View mFooterView = layoutInflater.inflate(
+					R.layout.recharge_records_list_footer, null);
+			TextView textView = (TextView) mFooterView
+					.findViewById(R.id.recharge_records_list_footer_totle);
+			textView.setText(String.valueOf(items.Points));
+
+			listView.addFooterView(mFooterView);
 			if (items.items.length == 0)
-				PointRecordsActivity.this.Alert("没有数据！");
+				RechargeRecordsActivity.this.Alert("没有数据！");
 
 		}
 	};

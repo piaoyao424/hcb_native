@@ -11,15 +11,15 @@
         android:id="@+id/loading_bar"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:padding="5dp"
-        android:indeterminateBehavior="repeat" />
+        android:indeterminateBehavior="repeat"
+        android:padding="5dp" />
 
     <TextView
         android:id="@+id/load_info_text"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:gravity="center_vertical"
-        android:text="加载数据中……"
+        android:text="数据加载中……"
         android:textColor="@color/gray_black"
         android:textSize="18dp" />
 

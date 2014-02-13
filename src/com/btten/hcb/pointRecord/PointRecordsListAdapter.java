@@ -1,4 +1,4 @@
-package com.btten.hcb.pointRecords;
+package com.btten.hcb.pointRecord;
 
 import com.btten.base.ListItemAdapter;
 import android.app.Activity;

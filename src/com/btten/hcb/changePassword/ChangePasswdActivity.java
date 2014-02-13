@@ -43,7 +43,7 @@ public class ChangePasswdActivity extends BaseActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.change_password_view);
+		setContentView(R.layout.change_password_activity);
 
 		setCurrentTitle("修改密码");
 		setBackKeyListner(backListener);
