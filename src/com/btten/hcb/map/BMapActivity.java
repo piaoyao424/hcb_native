@@ -6,7 +6,7 @@ import com.btten.base.BaseActivity;
 import com.btten.hcb.account.VIPAccountManager;
 import com.btten.hcb.map.BMapActivity;
 import com.btten.hcbvip.R;
-import com.btten.vincentTools.MapManager;
+import com.btten.vincenttools.MapManager;
 
 import android.os.Bundle;
 

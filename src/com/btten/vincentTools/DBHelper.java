@@ -1,4 +1,4 @@
-package com.btten.vincentTools;
+package com.btten.vincenttools;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

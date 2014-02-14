@@ -2,11 +2,9 @@ package com.btten.hcb;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import com.btten.base.BaseActivity;
 import com.btten.hcb.Service.CallTaxiNotification;
 import com.btten.hcb.Service.LocationClientService;
-import com.btten.hcb.notice.TitleNoticeItem;
 import com.btten.hcb.notice.TitleNoticeItems;
 import com.btten.hcb.notice.TitleNoticeScene;
 import com.btten.hcb.publicNotice.PublicNoticeInfoActivity;
@@ -14,9 +12,9 @@ import com.btten.hcb.search.SearchActivity;
 import com.btten.hcbvip.R;
 import com.btten.network.NetSceneBase;
 import com.btten.network.OnSceneCallBack;
-import com.btten.vincentTools.CallTelephone;
+import com.btten.vincenttools.CallTelephone;
+import com.btten.vincenttools.NotifyTextView;
 import com.umeng.update.UmengUpdateAgent;
-
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -25,22 +23,18 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup.LayoutParams;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.ViewFlipper;
 
 public class MainActivity extends BaseActivity {
 
-	private ViewFlipper viewFlipper = null;
-	private Integer[] imageIntegers = { R.id.homeview_aiCheMeiRong,
-			R.id.homeview_qiCheYongPin, R.id.homeview_cheLiangBaoXian,
-			R.id.homeview_aiCheQingJie, R.id.homeview_woDeHuiCheBao,
-			R.id.homeview_jingCaiHuoDong, R.id.homeview_aiCheBaoYang,
-			R.id.homeview_daoLuJiuYuan, R.id.homeview_telephone,
-			R.id.homeview_webHome };
+	private Integer[] imageIntegers = { R.id.homeview_xichemeirong,
+			R.id.homeview_jingcaihuodong, R.id.homeview_rencheshenghuo,
+			R.id.homeview_qicheyongping, R.id.homeview_wodehuichebao,
+			R.id.homeview_shiguchuli, R.id.homeview_weizhangchaxun,
+			R.id.homeview_cheliangbaoxian, R.id.homeview_daolujiuyuan,
+			R.id.homeview_shouye, R.id.homeview_telephone };
 	private List<ImageView> imageViewArray = new ArrayList<ImageView>();
+	private NotifyTextView textView = null;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -50,21 +44,21 @@ public class MainActivity extends BaseActivity {
 		UmengUpdateAgent.update(this);
 
 		setContentView(R.layout.homeview);
-		init();
+		initView();
 	}
 
 	// 初始化控件
-	public void init() {
-		viewFlipper = (ViewFlipper) findViewById(R.id.home_viewflipper);
-
-		TitleNoticeScene titleNoticeScene = new TitleNoticeScene();
-		titleNoticeScene.doScene(callBack);
+	public void initView() {
+		textView = (NotifyTextView) findViewById(R.id.homeview_textview);
 
 		for (int i = 0; i < imageIntegers.length; i++) {
 			ImageView imageview = (ImageView) findViewById(imageIntegers[i]);
 			imageview.setOnClickListener(clickListener);
 			imageViewArray.add(imageview);
 		}
+
+//		TitleNoticeScene titleNoticeScene = new TitleNoticeScene();
+//		titleNoticeScene.doScene(callBack);
 	}
 
 	OnClickListener clickListener = new OnClickListener() {
@@ -78,35 +72,36 @@ public class MainActivity extends BaseActivity {
 			case R.id.homeview_telephone:
 				new CallTelephone(MainActivity.this, "4006602020").call();
 				break;
-			case R.id.homeview_webHome:
+			case R.id.homeview_shouye:
 				intent = new Intent("android.intent.action.VIEW",
 						Uri.parse(getString(R.string.homepage)));
 				break;
-			case R.id.homeview_cheLiangBaoXian:
+			case R.id.homeview_cheliangbaoxian:
 				break;
-			case R.id.homeview_woDeHuiCheBao:
+			case R.id.homeview_wodehuichebao:
 				intent = new Intent(MainActivity.this, MyHcbActivity.class);
 				break;
-			case R.id.homeview_daoLuJiuYuan:
+			case R.id.homeview_daolujiuyuan:
 				break;
-			case R.id.homeview_jingCaiHuoDong:
+			case R.id.homeview_jingcaihuodong:
 				break;
-			case R.id.homeview_aiCheMeiRong:
+			case R.id.homeview_shiguchuli:
+				break;
+			case R.id.homeview_weizhangchaxun:
+				break;
+			case R.id.homeview_rencheshenghuo:
+				break;
+			case R.id.homeview_xichemeirong:
 				cid = "20002";
 				break;
-			case R.id.homeview_qiCheYongPin:
+			case R.id.homeview_qicheyongping:
 				cid = "20005";
-				break;
-			case R.id.homeview_aiCheQingJie:
-				cid = "20001";
-				break;
-			case R.id.homeview_aiCheBaoYang:
-				cid = "20003";
 				break;
 			default:
 				cid = "20002";
 				break;
 			}
+
 			if (cid.equals("0")) {
 				startActivity(intent);
 			} else {
@@ -122,7 +117,7 @@ public class MainActivity extends BaseActivity {
 		@Override
 		public void OnSuccess(Object data, NetSceneBase<?> netScene) {
 			TitleNoticeItems items = (TitleNoticeItems) data;
-			initViewFlipper(items.item);
+			initNotifyText(items.item[0].title, items.item[0].id);
 			return;
 		}
 
@@ -132,36 +127,28 @@ public class MainActivity extends BaseActivity {
 		}
 	};
 
-	private void initViewFlipper(TitleNoticeItem[] text) {
-		viewFlipper.removeAllViews();
-		for (int i = 0; i < text.length; i++) {
-
-			TextView textView = new TextView(MainActivity.this);
-			textView.setText(((TitleNoticeItem) text[i]).title);
-			textView.setOnClickListener(new NoticeTitleOnClickListener(
-					MainActivity.this, ((TitleNoticeItem) text[i]).id));
-			LayoutParams lp = new LinearLayout.LayoutParams(
-					LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT);
-			viewFlipper.addView(textView, lp);
-		}
-		viewFlipper.startFlipping();
-	}
-
 	/**
-	 * 公告title监听
+	 * 初始化notify数据
+	 * 
+	 * @param title
+	 * @param titleid
 	 */
-	class NoticeTitleOnClickListener implements OnClickListener {
-		private Context context = null;
-		private String titleid = null;
+	private void initNotifyText(final String title, final String titleid) {
+		
 
-		public NoticeTitleOnClickListener(Context context, String whichText) {
-			this.context = context;
-			this.titleid = whichText;
-		}
+		new Thread(new Runnable() {
+			public void run() {
+				textView.setText(title);
+			}
+		});
+		
+		textView.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				disPlayNoticeContent(MainActivity.this, titleid);
 
-		public void onClick(View v) {
-			disPlayNoticeContent(context, titleid);
-		}
+			}
+		});
 	}
 
 	/**

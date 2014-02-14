@@ -13,7 +13,7 @@ import android.widget.TextView;
 import com.btten.base.BaseActivity;
 import com.btten.hcb.MainActivity;
 import com.btten.hcbvip.R;
-import com.btten.vincentTools.CallTelephone;
+import com.btten.vincenttools.CallTelephone;
 
 public class NoticeInfoActivity extends BaseActivity {
 	public static final String KEY_NOTICEID = "KEY_NOTICEID";

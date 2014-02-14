@@ -1,4 +1,4 @@
-package com.btten.vincentTools;
+package com.btten.vincenttools;
 
 import android.app.AlertDialog;
 import android.content.Context;
