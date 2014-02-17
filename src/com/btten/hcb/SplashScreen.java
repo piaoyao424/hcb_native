@@ -6,6 +6,7 @@ import com.btten.hcb.Service.LocationClientService;
 import com.btten.hcb.account.VIPAccountManager;
 import com.btten.hcb.login.LoginActivity;
 import com.btten.hcb.login.LoginScene;
+import com.btten.hcb.mainActivity.MainActivity;
 import com.btten.hcbvip.R;
 import com.btten.network.NetSceneBase;
 import com.btten.network.OnSceneCallBack;

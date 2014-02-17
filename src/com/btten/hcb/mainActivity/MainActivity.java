@@ -1,12 +1,12 @@
-package com.btten.hcb;
+package com.btten.hcb.mainActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.btten.base.BaseActivity;
+import com.btten.hcb.MyHcbActivity;
 import com.btten.hcb.Service.CallTaxiNotification;
 import com.btten.hcb.Service.LocationClientService;
 import com.btten.hcb.notice.TitleNoticeItems;
-import com.btten.hcb.notice.TitleNoticeScene;
 import com.btten.hcb.publicNotice.PublicNoticeInfoActivity;
 import com.btten.hcb.search.SearchActivity;
 import com.btten.hcbvip.R;

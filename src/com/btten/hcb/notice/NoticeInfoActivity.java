@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.btten.base.BaseActivity;
-import com.btten.hcb.MainActivity;
+import com.btten.hcb.mainActivity.MainActivity;
 import com.btten.hcbvip.R;
 import com.btten.vincenttools.CallTelephone;
 

@@ -1,0 +1,331 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <include
+        android:layout_height="match_parent"
+        layout="@layout/top_title_bar" />
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/light_gray"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="20dp" >
+
+            <com.btten.uikit.ViewContainer
+                android:id="@+id/insurance_container"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="130dp"
+                android:contentDescription="@string/ImageDescription"
+                android:scaleType="fitStart"
+                android:src="@drawable/insurance_process" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#ACB0B1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp" >
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp" >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:gravity="right"
+                        android:singleLine="true"
+                        android:text="保险公司:"
+                        android:textColor="@color/text_gray"
+                        android:textSize="14sp" />
+
+                    <Spinner
+                        android:id="@+id/insurance_year"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="left"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="8"
+                        android:background="@drawable/nomal_shape"
+                        android:prompt="@string/choiceyear"
+                        android:visibility="visible" >
+                    </Spinner>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp" >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:gravity="right"
+                        android:singleLine="true"
+                        android:text="行驶城市:"
+                        android:textColor="@color/text_gray"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/insurance_city"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="8"
+                        android:background="@drawable/nomal_shape"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="10dp"
+                        android:singleLine="true"
+                        android:text="武汉"
+                        android:textColor="@color/text_gray"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp" >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:gravity="right"
+                        android:singleLine="true"
+                        android:text="车辆号码:"
+                        android:textColor="@color/text_gray"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/insurance_car_number"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="8"
+                        android:background="@drawable/nomal_shape"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="10dp"
+                        android:singleLine="true"
+                        android:text="R52134"
+                        android:textColor="@color/text_gray"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp" >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:gravity="right"
+                        android:singleLine="true"
+                        android:text="车价:"
+                        android:textColor="@color/text_gray"
+                        android:textSize="14sp" />
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="8"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="5dp" >
+
+                        <EditText
+                            android:id="@+id/insurance_price"
+                            android:layout_width="fill_parent"
+                            android:layout_height="40dp"
+                            android:background="@drawable/nomal_shape"
+                            android:gravity="center_vertical"
+                            android:inputType="number"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="20dp"
+                            android:singleLine="true"
+                            android:text="12"
+                            android:textColor="@color/text_gray"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="fill_parent"
+                            android:layout_alignParentRight="true"
+                            android:gravity="center_vertical"
+                            android:paddingRight="10dp"
+                            android:singleLine="true"
+                            android:text="万元"
+                            android:textColor="@color/text_gray"
+                            android:textSize="14sp" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="50dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp" >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:gravity="right"
+                        android:singleLine="true"
+                        android:text="购买年份:"
+                        android:textColor="@color/text_gray"
+                        android:textSize="14sp" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="8"
+                        android:paddingLeft="5dp" >
+
+                        <Spinner
+                            android:id="@+id/insurance_year"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="left"
+                            android:layout_weight="1"
+                            android:background="@drawable/nomal_shape"
+                            android:prompt="@string/choiceyear"
+                            android:visibility="visible" >
+                        </Spinner>
+
+                        <Spinner
+                            android:id="@+id/insurance_mouth"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="left"
+                            android:layout_marginLeft="10dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/nomal_shape"
+                            android:prompt="@string/choiceyear"
+                            android:visibility="visible" >
+                        </Spinner>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp" >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:gravity="right"
+                        android:singleLine="true"
+                        android:text="手机:"
+                        android:textColor="@color/text_gray"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/insurance_mobile"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="8"
+                        android:background="@drawable/nomal_shape"
+                        android:gravity="center_vertical"
+                        android:inputType="phone"
+                        android:paddingLeft="10dp"
+                        android:singleLine="true"
+                        android:text="15072105643"
+                        android:textColor="@color/text_gray"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp" >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:gravity="right"
+                        android:singleLine="true"
+                        android:text="Email:"
+                        android:textColor="@color/text_gray"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/insurance_email"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="8"
+                        android:background="@drawable/nomal_shape"
+                        android:gravity="center_vertical"
+                        android:inputType="textEmailAddress"
+                        android:paddingLeft="10dp"
+                        android:singleLine="true"
+                        android:text="hangwenjun424@126.com"
+                        android:textColor="@color/text_gray"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/insurance_button"
+                    android:layout_width="140dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/orange"
+                    android:padding="10dp"
+                    android:text="快速报价"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
