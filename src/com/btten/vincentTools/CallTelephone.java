@@ -10,10 +10,13 @@ import android.os.Handler;
 public class CallTelephone {
 	private Context context;
 	private String telephone;
+	private String name;
 
-	public CallTelephone(final Context context, final String telephone) {
+	public CallTelephone(final Context context, final String telephone,
+			final String name) {
 		this.context = context;
 		this.telephone = telephone;
+		this.name = name;
 	}
 
 	public void call() {
@@ -22,7 +25,7 @@ public class CallTelephone {
 			public void run() {
 				new AlertDialog.Builder(context)
 						.setTitle("提示")
-						.setMessage("拨打电话给 " + telephone)
+						.setMessage("拨打电话给 " + name)
 						.setPositiveButton("确定",
 								new DialogInterface.OnClickListener() {
 

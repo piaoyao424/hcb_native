@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import com.btten.base.BaseActivity;
 import com.btten.base.BaseView;
-import com.btten.hcb.mainActivity.MainActivity;
+import com.btten.hcb.homeActivity.HomeActivity;
 import com.btten.network.NetSceneBase;
 import com.btten.network.OnSceneCallBack;
 
@@ -51,7 +51,7 @@ public class FeedBackActivity extends BaseActivity {
 					// 关闭软键盘，开启方法相同，这个方法是切换开启与关闭状态的
 				}
 				startActivity(new Intent(FeedBackActivity.this,
-						MainActivity.class)
+						HomeActivity.class)
 						.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
 				finish();
 			}

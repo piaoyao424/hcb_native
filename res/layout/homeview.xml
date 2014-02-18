@@ -1,6 +1,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="fill_parent"
+    android:background="@color/white"
     android:scrollbars="none" >
 
     <LinearLayout
@@ -12,11 +13,12 @@
         <com.btten.uikit.ViewContainer
             android:id="@+id/homeview_container"
             android:layout_width="fill_parent"
-            android:layout_height="150dp" />
+            android:layout_height="120dp" />
 
         <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:id="@+id/homeview_linear"
+            android:layout_width="320dp"
+            android:layout_height="400dp"
             android:background="@color/light_gray"
             android:orientation="vertical"
             android:padding="10dp" >
@@ -24,7 +26,8 @@
             <com.btten.vincenttools.NotifyTextView
                 android:id="@+id/homeview_textview"
                 android:layout_width="fill_parent"
-                android:layout_height="30dp"
+                android:layout_height="0dp"
+                android:layout_weight="0.8"
                 android:background="#CCCCCC"
                 android:drawableLeft="@drawable/notify"
                 android:ellipsize="marquee"
@@ -32,6 +35,8 @@
                 android:focusableInTouchMode="true"
                 android:gravity="center_vertical"
                 android:marqueeRepeatLimit="marquee_forever"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
                 android:scrollHorizontally="true"
                 android:singleLine="true"
                 android:text="每日一禅滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动滚动"
@@ -40,8 +45,9 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="112dp"
-                android:layout_marginTop="10dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="3.1"
                 android:background="@color/light_gray"
                 android:orientation="horizontal" >
 
@@ -49,16 +55,16 @@
                     android:id="@+id/homeview_xichemeirong"
                     android:layout_width="0dip"
                     android:layout_height="fill_parent"
-                    android:layout_weight="8.7"
+                    android:layout_weight="317"
                     android:contentDescription="@string/ImageDescription"
-                    android:scaleType="fitCenter"
+                    android:scaleType="fitStart"
                     android:src="@drawable/xichemeirong" />
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="fill_parent"
                     android:layout_marginLeft="5dp"
-                    android:layout_weight="9"
+                    android:layout_weight="331"
                     android:orientation="vertical" >
 
                     <ImageView
@@ -67,7 +73,7 @@
                         android:layout_height="0dp"
                         android:layout_weight="1"
                         android:contentDescription="@string/ImageDescription"
-                        android:scaleType="fitCenter"
+                        android:scaleType="fitStart"
                         android:src="@drawable/jingcaihuodong" />
 
                     <ImageView
@@ -77,15 +83,16 @@
                         android:layout_marginTop="5dp"
                         android:layout_weight="1"
                         android:contentDescription="@string/ImageDescription"
-                        android:scaleType="fitCenter"
+                        android:scaleType="fitStart"
                         android:src="@drawable/rencheshenghuo" />
                 </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="84dp"
+                android:layout_height="0dp"
                 android:layout_marginTop="5dp"
+                android:layout_weight="2.39"
                 android:background="@color/light_gray"
                 android:gravity="center_vertical"
                 android:orientation="horizontal" >
@@ -94,9 +101,9 @@
                     android:id="@+id/homeview_qicheyongping"
                     android:layout_width="0dip"
                     android:layout_height="match_parent"
-                    android:layout_weight="1.2"
+                    android:layout_weight="276"
                     android:contentDescription="@string/ImageDescription"
-                    android:scaleType="fitCenter"
+                    android:scaleType="fitStart"
                     android:src="@drawable/qicheyongping" />
 
                 <ImageView
@@ -104,9 +111,9 @@
                     android:layout_width="0dip"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="5dp"
-                    android:layout_weight="0.8"
+                    android:layout_weight="178"
                     android:contentDescription="@string/ImageDescription"
-                    android:scaleType="fitCenter"
+                    android:scaleType="fitStart"
                     android:src="@drawable/wodehuichebao" />
 
                 <ImageView
@@ -114,16 +121,17 @@
                     android:layout_width="0dip"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="5dp"
-                    android:layout_weight="0.8"
+                    android:layout_weight="178"
                     android:contentDescription="@string/ImageDescription"
-                    android:scaleType="fitCenter"
+                    android:scaleType="fitStart"
                     android:src="@drawable/shiguchuli" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="84dp"
+                android:layout_height="0dp"
                 android:layout_marginTop="5dp"
+                android:layout_weight="2.39"
                 android:background="@color/light_gray"
                 android:gravity="center_vertical"
                 android:orientation="horizontal" >
@@ -132,9 +140,9 @@
                     android:id="@+id/homeview_weizhangchaxun"
                     android:layout_width="0dip"
                     android:layout_height="match_parent"
-                    android:layout_weight="1.2"
+                    android:layout_weight="276"
                     android:contentDescription="@string/ImageDescription"
-                    android:scaleType="fitCenter"
+                    android:scaleType="fitStart"
                     android:src="@drawable/weizhangchaxun" />
 
                 <ImageView
@@ -142,9 +150,9 @@
                     android:layout_width="0dip"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="5dp"
-                    android:layout_weight="0.8"
+                    android:layout_weight="178"
                     android:contentDescription="@string/ImageDescription"
-                    android:scaleType="fitCenter"
+                    android:scaleType="fitStart"
                     android:src="@drawable/cheliangbaoxian" />
 
                 <ImageView
@@ -152,16 +160,17 @@
                     android:layout_width="0dip"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="5dp"
-                    android:layout_weight="0.8"
+                    android:layout_weight="178"
                     android:contentDescription="@string/ImageDescription"
-                    android:scaleType="fitCenter"
+                    android:scaleType="fitStart"
                     android:src="@drawable/daolujiuyuan" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="0dp"
                 android:layout_marginTop="8dp"
+                android:layout_weight="1.05"
                 android:background="@color/light_gray"
                 android:gravity="center_vertical"
                 android:orientation="horizontal" >
@@ -172,17 +181,17 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:contentDescription="@string/ImageDescription"
-                    android:scaleType="fitCenter"
+                    android:scaleType="fitStart"
                     android:src="@drawable/shouye" />
 
                 <ImageView
                     android:id="@+id/homeview_telephone"
                     android:layout_width="0dip"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="8dp"
                     android:layout_weight="1"
                     android:contentDescription="@string/ImageDescription"
-                    android:scaleType="fitCenter"
+                    android:scaleType="fitStart"
                     android:src="@drawable/telephone" />
             </LinearLayout>
         </LinearLayout>

@@ -4,9 +4,9 @@ import com.btten.base.BaseActivity;
 import com.btten.hcb.SplashScreen;
 import com.btten.hcb.Service.LocationClientService;
 import com.btten.hcb.account.VIPAccountManager;
+import com.btten.hcb.homeActivity.HomeActivity;
 import com.btten.hcb.login.LoginActivity;
 import com.btten.hcb.login.LoginScene;
-import com.btten.hcb.mainActivity.MainActivity;
 import com.btten.hcbvip.R;
 import com.btten.network.NetSceneBase;
 import com.btten.network.OnSceneCallBack;
@@ -15,6 +15,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.DisplayMetrics;
 
 public class SplashScreen extends BaseActivity {
 	@Override
@@ -29,6 +30,15 @@ public class SplashScreen extends BaseActivity {
 		LocationClientService.getInstance().start();
 
 		DelayLoad();
+		// 获取屏幕宽高
+		DisplayMetrics metric = new DisplayMetrics();
+		getWindowManager().getDefaultDisplay().getMetrics(metric);
+		int width = metric.widthPixels; // 屏幕宽度（像素）
+		int height = metric.heightPixels; // 屏幕高度（像素）
+		float density = metric.density; // 屏幕密度（0.75 / 1.0 / 1.5）
+		int densityDpi = metric.densityDpi; // 屏幕密度DPI（120 / 160 / 240）
+		
+		VIPAccountManager.getInstance().setScreenWidth(width);
 	}
 
 	Intent intent = null;
@@ -56,7 +66,7 @@ public class SplashScreen extends BaseActivity {
 						public void OnSuccess(Object data,
 								NetSceneBase<?> netScene) {
 							intent = new Intent(SplashScreen.this,
-									MainActivity.class);
+									HomeActivity.class);
 							startActivity(intent);
 							finish();
 							overridePendingTransition(R.anim.in_right_left,
@@ -78,7 +88,7 @@ public class SplashScreen extends BaseActivity {
 				} else {
 					// intent = new Intent(SplashScreen.this,
 					// LoginActivity.class);
-					intent = new Intent(SplashScreen.this, MainActivity.class);
+					intent = new Intent(SplashScreen.this, HomeActivity.class);
 					startActivity(intent);
 					finish();
 					overridePendingTransition(R.anim.in_right_left,

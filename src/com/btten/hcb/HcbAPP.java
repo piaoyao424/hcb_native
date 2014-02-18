@@ -43,7 +43,6 @@ public class HcbAPP extends Application {
 			// new myMKGeneralListener());
 			mMapManager.init("DmFGGSGzxVcVse0wRjrmSC4n",
 					new myMKGeneralListener());
-
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
@@ -240,4 +239,5 @@ public class HcbAPP extends Application {
 		}
 		super.onTerminate();
 	}
+	
 }

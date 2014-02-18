@@ -1,4 +1,4 @@
-package com.btten.hcb.mainActivity;
+package com.btten.hcb.homeActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,12 +6,13 @@ import com.btten.base.BaseActivity;
 import com.btten.hcb.MyHcbActivity;
 import com.btten.hcb.Service.CallTaxiNotification;
 import com.btten.hcb.Service.LocationClientService;
-import com.btten.hcb.notice.TitleNoticeItems;
+import com.btten.hcb.account.VIPAccountManager;
 import com.btten.hcb.publicNotice.PublicNoticeInfoActivity;
 import com.btten.hcb.search.SearchActivity;
 import com.btten.hcbvip.R;
 import com.btten.network.NetSceneBase;
 import com.btten.network.OnSceneCallBack;
+import com.btten.uikit.ViewContainer;
 import com.btten.vincenttools.CallTelephone;
 import com.btten.vincenttools.NotifyTextView;
 import com.umeng.update.UmengUpdateAgent;
@@ -24,8 +25,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
-public class MainActivity extends BaseActivity {
+public class HomeActivity extends BaseActivity {
 
 	private Integer[] imageIntegers = { R.id.homeview_xichemeirong,
 			R.id.homeview_jingcaihuodong, R.id.homeview_rencheshenghuo,
@@ -33,6 +35,7 @@ public class MainActivity extends BaseActivity {
 			R.id.homeview_shiguchuli, R.id.homeview_weizhangchaxun,
 			R.id.homeview_cheliangbaoxian, R.id.homeview_daolujiuyuan,
 			R.id.homeview_shouye, R.id.homeview_telephone };
+	private ViewContainer container = null;
 	private List<ImageView> imageViewArray = new ArrayList<ImageView>();
 	private NotifyTextView textView = null;
 
@@ -45,20 +48,27 @@ public class MainActivity extends BaseActivity {
 
 		setContentView(R.layout.homeview);
 		initView();
+
+		new TitleNoticeScene().doScene(callBack);
 	}
 
 	// 初始化控件
 	public void initView() {
 		textView = (NotifyTextView) findViewById(R.id.homeview_textview);
+		container = (ViewContainer) findViewById(R.id.homeview_container);
+		// 设置动态长宽
+		int screenWidth = VIPAccountManager.getInstance().getScreenWidth();
+		LinearLayout layout = (LinearLayout) findViewById(R.id.homeview_linear);
+		container.setLayoutParams(new LinearLayout.LayoutParams(screenWidth,
+				screenWidth / 2));
+		layout.setLayoutParams(new LinearLayout.LayoutParams(screenWidth,
+				screenWidth * 390 / 320));
 
 		for (int i = 0; i < imageIntegers.length; i++) {
 			ImageView imageview = (ImageView) findViewById(imageIntegers[i]);
 			imageview.setOnClickListener(clickListener);
 			imageViewArray.add(imageview);
 		}
-
-//		TitleNoticeScene titleNoticeScene = new TitleNoticeScene();
-//		titleNoticeScene.doScene(callBack);
 	}
 
 	OnClickListener clickListener = new OnClickListener() {
@@ -70,7 +80,8 @@ public class MainActivity extends BaseActivity {
 			Intent intent = null;
 			switch (v.getId()) {
 			case R.id.homeview_telephone:
-				new CallTelephone(MainActivity.this, "4006602020").call();
+				new CallTelephone(HomeActivity.this, "4006602020", "惠车宝")
+						.call();
 				break;
 			case R.id.homeview_shouye:
 				intent = new Intent("android.intent.action.VIEW",
@@ -79,7 +90,7 @@ public class MainActivity extends BaseActivity {
 			case R.id.homeview_cheliangbaoxian:
 				break;
 			case R.id.homeview_wodehuichebao:
-				intent = new Intent(MainActivity.this, MyHcbActivity.class);
+				intent = new Intent(HomeActivity.this, MyHcbActivity.class);
 				break;
 			case R.id.homeview_daolujiuyuan:
 				break;
@@ -101,17 +112,18 @@ public class MainActivity extends BaseActivity {
 				cid = "20002";
 				break;
 			}
-
 			if (cid.equals("0")) {
-				startActivity(intent);
+				if (intent != null) {
+					startActivity(intent);
+				}
 			} else {
-				intent = new Intent(MainActivity.this, SearchActivity.class);
+				intent = new Intent(HomeActivity.this, SearchActivity.class);
 				intent.putExtra("KEY_MENUID", cid);
 				startActivity(intent);
 			}
 		}
 	};
-
+	// 每日一禅回调接口
 	OnSceneCallBack callBack = new OnSceneCallBack() {
 
 		@Override
@@ -134,19 +146,13 @@ public class MainActivity extends BaseActivity {
 	 * @param titleid
 	 */
 	private void initNotifyText(final String title, final String titleid) {
-		
 
-		new Thread(new Runnable() {
-			public void run() {
-				textView.setText(title);
-			}
-		});
-		
+		textView.setText(title);
+
 		textView.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				disPlayNoticeContent(MainActivity.this, titleid);
-
+				disPlayNoticeContent(HomeActivity.this, titleid);
 			}
 		});
 	}

@@ -40,7 +40,7 @@ public class SearchScene extends NomalJsonSceneBase {
 			String itemID) {
 		SetCallBack(callBack);
 		Flag = 2;
-		targetUrl = UrlFactory.GetUrlNew("PublicNotice", "getJmsList",
+		targetUrl = UrlFactory.GetUrlNew("JmsInfo", "getJmsList",
 				"areaID", areaID, "itemID", itemID, "gpsla",
 				String.valueOf(VIPAccountManager.getInstance().getGpsla()),
 				"gpslo",

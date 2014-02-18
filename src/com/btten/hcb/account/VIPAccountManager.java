@@ -2,7 +2,6 @@ package com.btten.hcb.account;
 
 import com.btten.hcb.HcbAPP;
 import com.btten.tools.Util;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 
@@ -26,8 +25,9 @@ public class VIPAccountManager {
 	private int usertype;
 	private Double gps_la = 30.711399;
 	private Double gps_lo = 111.329899;
-
 	private String nickname;
+	// 单位px
+	private int screenWidth = 0;
 	// user
 	SharedPreferences settings = HcbAPP.getInstance().getSharedPreferences(
 			PREFS_NAME, Context.MODE_PRIVATE);
@@ -178,5 +178,14 @@ public class VIPAccountManager {
 
 	public String getAreaID() {
 		return areaID;
+	}
+
+	public void setScreenWidth(int screenWidth) {
+		this.screenWidth = screenWidth;
+	}
+
+	public int getScreenWidth() {
+		return this.screenWidth;
+
 	}
 }

@@ -16,7 +16,7 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import com.btten.base.BaseActivity;
-import com.btten.hcb.mainActivity.MainActivity;
+import com.btten.hcb.homeActivity.HomeActivity;
 import com.btten.hcb.search.SearchActivity;
 import com.btten.hcbvip.R;
 import com.btten.network.NetSceneBase;
@@ -45,7 +45,6 @@ public class JmsInfoActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.jmsinfo_avtivity);
 
-		/*-第一季-*/
 		initdate();
 		initView();
 	}

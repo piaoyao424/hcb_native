@@ -16,7 +16,7 @@ public class JmsInfoScene extends NomalJsonSceneBase {
 	public void doScene(OnSceneCallBack callBack,String jid)
 	{
 		SetCallBack(callBack);
-		targetUrl = UrlFactory.GetUrlNew("PublicNotice","getPublicNoticeMaster","jid",jid
+		targetUrl = UrlFactory.GetUrlNew("JmsInfo","getJmsInfo","jid",jid
 				);
 		System.out.println(targetUrl);
 		Log.d("url", targetUrl);

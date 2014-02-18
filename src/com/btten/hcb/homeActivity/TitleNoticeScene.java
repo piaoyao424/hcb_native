@@ -1,4 +1,4 @@
-package com.btten.hcb.notice;
+package com.btten.hcb.homeActivity;
 
 import com.btten.model.BaseJsonItem;
 import com.btten.network.NomalJsonSceneBase;

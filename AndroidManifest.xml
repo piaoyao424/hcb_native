@@ -106,7 +106,7 @@
             android:screenOrientation="portrait" />
         <!-- 主页 -->
         <activity
-            android:name="com.btten.hcb.mainActivity.MainActivity"
+            android:name="com.btten.hcb.homeActivity.HomeActivity"
             android:alwaysRetainTaskState="true"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait" />

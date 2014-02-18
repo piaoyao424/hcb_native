@@ -1,4 +1,4 @@
-package com.btten.hcb.notice;
+package com.btten.hcb.homeActivity;
 
 import org.json.JSONArray;
 import org.json.JSONObject;

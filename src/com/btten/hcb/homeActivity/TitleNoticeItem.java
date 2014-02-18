@@ -1,4 +1,4 @@
-package com.btten.hcb.notice;
+package com.btten.hcb.homeActivity;
 
 public class TitleNoticeItem {
 	public String title = null;

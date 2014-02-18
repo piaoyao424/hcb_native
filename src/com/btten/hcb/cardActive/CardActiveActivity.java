@@ -18,7 +18,7 @@ import android.widget.Toast;
 import com.btten.base.BaseActivity;
 import com.btten.hcb.Service.CallTaxiNotification;
 import com.btten.hcb.account.VIPAccountManager;
-import com.btten.hcb.mainActivity.MainActivity;
+import com.btten.hcb.homeActivity.HomeActivity;
 import com.btten.hcbvip.R;
 import com.btten.msgcenter.MsgCenter;
 import com.btten.msgcenter.MsgConst;
@@ -280,7 +280,7 @@ public class CardActiveActivity extends BaseActivity {
 				@Override
 				public void run() {
 					startActivity((new Intent(CardActiveActivity.this,
-							MainActivity.class)));
+							HomeActivity.class)));
 					ClearOtherActivity();
 				}
 			}, 200);

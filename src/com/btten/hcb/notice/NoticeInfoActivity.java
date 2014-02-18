@@ -9,9 +9,7 @@ import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import com.btten.base.BaseActivity;
-import com.btten.hcb.mainActivity.MainActivity;
 import com.btten.hcbvip.R;
 import com.btten.vincenttools.CallTelephone;
 
@@ -83,8 +81,8 @@ public class NoticeInfoActivity extends BaseActivity {
 
 					@Override
 					public void onClick(View v) {
-						new CallTelephone(NoticeInfoActivity.this, "4006602020")
-								.call();
+						new CallTelephone(NoticeInfoActivity.this,
+								"4006602020", "惠车宝").call();
 					}
 				});
 				break;

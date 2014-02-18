@@ -21,7 +21,7 @@ import com.btten.base.BaseActivity;
 import com.btten.hcb.Service.CallTaxiNotification;
 import com.btten.hcb.Service.LocationClientService;
 import com.btten.hcb.account.VIPAccountManager;
-import com.btten.hcb.mainActivity.MainActivity;
+import com.btten.hcb.homeActivity.HomeActivity;
 import com.btten.msgcenter.MsgCenter;
 import com.btten.msgcenter.MsgConst;
 import com.btten.network.NetConst;
@@ -179,7 +179,7 @@ public class LoginActivity extends BaseActivity {
 				@Override
 				public void run() {
 					startActivity((new Intent(LoginActivity.this,
-							MainActivity.class)));
+							HomeActivity.class)));
 					finish();
 					BaseActivity.ClearOtherActivity();
 				}
