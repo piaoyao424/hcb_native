@@ -10,14 +10,12 @@ import com.umeng.common.Log;
 public class JmsInfoSaleMenuScene extends NomalJsonSceneBase {
 	@Override
 	protected BaseJsonItem CreateJsonItems() {
-		return new JmsInfoItems();
+		return new JmsInfoSaleMenuItems();
 	}
 
-	public void doScene(OnSceneCallBack callBack)
-	{
+	public void doScene(OnSceneCallBack callBack, String jid) {
 		SetCallBack(callBack);
-		targetUrl = UrlFactory.GetUrlNew("PublicNotice","getPublicNoticeMaster"
-				);
+		targetUrl = UrlFactory.GetUrlNew("JmsInfo", "getJmsSellItems", "jid", jid);
 		System.out.println(targetUrl);
 		Log.d("url", targetUrl);
 		ThreadPoolUtils.execute(this);

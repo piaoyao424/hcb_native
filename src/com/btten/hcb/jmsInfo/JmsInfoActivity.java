@@ -2,35 +2,37 @@ package com.btten.hcb.jmsInfo;
 
 import java.util.ArrayList;
 import java.util.List;
-import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.ExpandableListView.OnChildClickListener;
 import android.widget.ImageView;
 import android.widget.RatingBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.btten.base.BaseActivity;
-import com.btten.hcb.homeActivity.HomeActivity;
-import com.btten.hcb.search.SearchActivity;
 import com.btten.hcbvip.R;
 import com.btten.network.NetSceneBase;
 import com.btten.network.OnSceneCallBack;
 
 public class JmsInfoActivity extends BaseActivity {
 
-	private String jid;
+	private String jid, mobile;
 	private List<JmsInfoSaleMenuItem> groupArray;// 组列表
 	private List<List<JmsInfoSaleMenuItem>> childArray;// 子列表
 	private ExpandableListView expandableListView;
-	private TextView txt_jname, txt_scope, txt_commentNum;
+	private TextView txt_jname, txt_scope, txt_commentNum, txt_address,
+			txt_phone;
 	private RatingBar ratingBar;
 	private ImageView imageView1, imageView2;
+	private RelativeLayout address_layout, phone_layout;
 
 	class ExpandableListItemHolder { // 定义一个内部类，用于保存listitem的3个子视图引用
 		TextView txt_Name;
@@ -50,19 +52,24 @@ public class JmsInfoActivity extends BaseActivity {
 	}
 
 	private void initView() {
+		setCurrentTitle("网点详情");
 		txt_jname = (TextView) findViewById(R.id.jmsinfo_jname);
 		txt_scope = (TextView) findViewById(R.id.jmsinfo_scope);
 		txt_commentNum = (TextView) findViewById(R.id.jmsinfo_numstar);
+		txt_address = (TextView) findViewById(R.id.jmsinfo_address);
+		txt_phone = (TextView) findViewById(R.id.jmsinfo_phone);
+
 		ratingBar = (RatingBar) findViewById(R.id.jmsinfo_rat_star);
 		imageView1 = (ImageView) findViewById(R.id.jmsinfo_image_1);
 		imageView2 = (ImageView) findViewById(R.id.jmsinfo_image_2);
+		address_layout = (RelativeLayout) findViewById(R.id.jmsinfo_relative_address);
+		address_layout.setOnClickListener(clickListener);
+		phone_layout = (RelativeLayout) findViewById(R.id.jmsinfo_relative_phone);
+		phone_layout.setOnClickListener(clickListener);
 
 		expandableListView = (ExpandableListView) findViewById(R.id.jmsinfo_explv);
 		expandableListView.setGroupIndicator(null);
-		expandableListView.setAdapter(new MyExpandableListViewAdapter(
-				JmsInfoActivity.this));
 		expandableListView.setOnChildClickListener(onChildClickListener);
-		setCurrentTitle("网点详情");
 	}
 
 	private void initdate() {
@@ -76,6 +83,22 @@ public class JmsInfoActivity extends BaseActivity {
 		ShowRunning();
 	}
 
+	OnClickListener clickListener = new OnClickListener() {
+
+		@Override
+		public void onClick(View v) {
+			switch (v.getId()) {
+			case R.id.jmsinfo_relative_address:
+
+				break;
+			case R.id.jmsinfo_relative_phone:
+
+				break;
+			default:
+				break;
+			}
+		}
+	};
 	OnChildClickListener onChildClickListener = new OnChildClickListener() {
 
 		@Override
@@ -98,11 +121,15 @@ public class JmsInfoActivity extends BaseActivity {
 			txt_jname.setText(items.item.jname);
 			txt_scope.setText(items.item.jscope);
 			txt_commentNum.setText(items.item.commentNum + "人评价");
+			txt_address.setText(items.item.address);
+			txt_phone.setText(items.item.phone);
+
 			ratingBar.setRating(items.item.star);
 			imageLoader.displayImage(items.item.images1, imageView1);
 			imageLoader.displayImage(items.item.images2, imageView2);
+
 			HideProgress();
-			new JmsInfoSaleMenuScene().doScene(callBackSaleMenu);
+			new JmsInfoSaleMenuScene().doScene(callBackSaleMenu, jid);
 		}
 
 		@Override
@@ -118,17 +145,24 @@ public class JmsInfoActivity extends BaseActivity {
 		public void OnSuccess(Object data, NetSceneBase<?> netScene) {
 			JmsInfoSaleMenuItems items = (JmsInfoSaleMenuItems) data;
 			for (JmsInfoSaleMenuItem item : items.items) {
+				String upid = item.id;
 				if (item.upid.equals("0")) {
 					groupArray.add(item);
+
 					List<JmsInfoSaleMenuItem> tempchildArray = new ArrayList<JmsInfoSaleMenuItem>();
-					for (int i = 0; i < items.items.length; i++) {
-						if (items.items[i].upid.equals(item.id)) {
-							tempchildArray.add(items.items[i]);
+					// 找到child数据
+					for (JmsInfoSaleMenuItem item1 : items.items) {
+						if (item1.upid.equals(upid)) {
+							tempchildArray.add(item1);
 						}
 					}
+
 					childArray.add(tempchildArray);
 				}
 			}
+			expandableListView.setAdapter(new MyExpandableListViewAdapter(
+					JmsInfoActivity.this));
+			expandableListView.expandGroup(0);
 		}
 
 		@Override
@@ -142,8 +176,11 @@ public class JmsInfoActivity extends BaseActivity {
 		private LayoutInflater mChildInflater; // 用于加载listitem的布局xml
 		private LayoutInflater mGroupInflater; // 用于加载group的布局xml
 
-		public MyExpandableListViewAdapter(Activity activity) {
-
+		public MyExpandableListViewAdapter(Context context) {
+			mChildInflater = (LayoutInflater) context
+					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+			mGroupInflater = (LayoutInflater) context
+					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		}
 
 		@Override
@@ -162,7 +199,7 @@ public class JmsInfoActivity extends BaseActivity {
 
 			ExpandableListItemHolder holder = null; // 清空临时变量
 			if (convertView == null) { // 若行未初始化
-				// 通过flater初始化行视图
+				// 通过inflater初始化行视图
 				convertView = mChildInflater.inflate(
 						R.layout.jmsinfo_salemenu_childs, null);
 				// 并将行视图的3个子视图引用放到tag中
@@ -186,11 +223,11 @@ public class JmsInfoActivity extends BaseActivity {
 			if (info != null) {
 				// 根据模型数据，设置行视图的控件值
 				holder.txt_Name.setText(info.name);
-				holder.txt_oldprice.setText(info.oldprice);
-				holder.txt_newprice.setText(info.newprice);
+				holder.txt_oldprice.setText("￥" + info.oldprice);
+				holder.txt_newprice.setText("￥" + info.newprice);
 				holder.txt_oldprice.getPaint().setFlags(
 						Paint.STRIKE_THRU_TEXT_FLAG);
-				holder.txt_sorce.setText("获" + info.newprice + "分");
+				holder.txt_sorce.setText(info.newprice + "分");
 				holder.itemid = info.id;
 			}
 			return convertView;
@@ -201,9 +238,8 @@ public class JmsInfoActivity extends BaseActivity {
 				View convertView, ViewGroup parent) {
 
 			ExpandableListItemHolder holder = null; // 清空临时变量holder
-			if (convertView == null) { // 判断view（即view是否已构建好）是否为空
-				// 若组视图为空，构建组视图。注意flate的使用，R.layout.browser_expandable_list_item代表了
-				// 已加载到内存的browser_expandable_list_item.xml文件
+			if (convertView == null) { // 判断view是否已构建好
+				// 若组视图为空，构建组视图。注意inflate的使用
 				convertView = mGroupInflater.inflate(
 						R.layout.jmsinfo_salemenu_groups, null);
 				// 下面主要是取得组的各子视图，设置子视图的属性。用tag来保存各子视图的引用
@@ -221,18 +257,6 @@ public class JmsInfoActivity extends BaseActivity {
 			if (info != null) {
 				// 根据模型值设置textview的文本
 				holder.txt_Name.setText(info.name);
-
-				// 根据模型值设置checkbox的checked属性
-				/*
-				 * holder.chkChecked.setChecked(info.getChecked());
-				 * holder.chkChecked.setTag(info);
-				 * holder.chkChecked.setOnClickListener(new OnClickListener() {
-				 * 
-				 * @Override public void onClick(View v) { PhoneGroup group =
-				 * (PhoneGroup) v.getTag();
-				 * group.setChecked(!group.getChecked());
-				 * notifyDataSetChanged(); } });
-				 */
 			}
 			return convertView;
 		}

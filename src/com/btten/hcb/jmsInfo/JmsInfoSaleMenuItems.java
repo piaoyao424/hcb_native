@@ -15,7 +15,7 @@ public class JmsInfoSaleMenuItems extends BaseJsonItem {
 		try {
 			this.status = result.getInt("STATUS");
 			this.info = result.getString("INFO");
-			if (this.status == 1 && !result.isNull("DATA")) {
+			if (this.status == 1) {
 				jsonArray = result.getJSONArray("DATA");
 				int length = jsonArray.length();
 				items = new JmsInfoSaleMenuItem[length];
@@ -24,7 +24,7 @@ public class JmsInfoSaleMenuItems extends BaseJsonItem {
 					CommonConvert convert = new CommonConvert(obj);
 					JmsInfoSaleMenuItem temp = new JmsInfoSaleMenuItem();
 
-					temp.id = convert.getString("ID");
+					temp.id = convert.getString("ITEMID");
 					temp.upid = convert.getString("UPID");
 					temp.name = convert.getString("NAME");
 					temp.oldprice = convert.getString("OLDPRICE");

@@ -7,178 +7,248 @@
 
     <include layout="@layout/top_title_bar" />
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="fill_parent"
-        android:layout_height="175dp"
-        android:orientation="horizontal"
-        android:padding="5dp" >
+        android:layout_height="fill_parent"
+        android:scrollbars="none" >
 
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            android:layout_marginRight="5dp"
-            android:layout_weight="0.7"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical" >
 
             <LinearLayout
                 android:layout_width="fill_parent"
-                android:layout_height="0dp"
-                android:layout_weight="0.55"
-                android:orientation="vertical" >
+                android:layout_height="170dp"
+                android:baselineAligned="false"
+                android:orientation="horizontal"
+                android:padding="5dp" >
 
                 <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.55"
-                    android:orientation="horizontal"
-                    android:paddingBottom="10dp"
-                    android:paddingTop="10dp" >
-
-                    <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="fill_parent"
-                        android:layout_gravity="left"
-                        android:contentDescription="@string/ImageDescription"
-                        android:scaleType="fitStart"
-                        android:src="@drawable/xiaoquanquan" />
-
-                    <TextView
-                        android:id="@+id/jmsinfo_jname"
-                        android:layout_width="wrap_content"
-                        android:layout_height="fill_parent"
-                        android:gravity="center"
-                        android:singleLine="true"
-                        android:text="合众汽车美容中心"
-                        android:textColor="@color/text_gray"
-                        android:textSize="18sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="0dp"
-                    android:layout_marginLeft="25dp"
-                    android:layout_weight="0.45"
-                    android:orientation="horizontal"
-                    android:paddingBottom="10dp"
-                    android:paddingTop="5dp" >
-
-                    <TextView
-                        android:id="@+id/jmsinfo_scope"
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
-                        android:gravity="left"
-                        android:text="清洁  美容  保养 维修"
-                        android:textColor="@color/text_gray"
-                        android:textSize="14sp" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="0dp"
-                android:layout_weight="0.45"
-                android:background="@drawable/nomal_shape"
-                android:orientation="vertical"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp" >
-
-                <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="0.7"
                     android:orientation="vertical" >
 
-                    <TextView
-                        android:id="@+id/jmsinfo_numstar"
+                    <LinearLayout
                         android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="12人评价"
-                        android:textColor="@color/orange"
-                        android:textSize="18sp" />
-                    <!-- 作为边框使用 -->
+                        android:layout_height="0dp"
+                        android:layout_weight="0.55"
+                        android:orientation="vertical" >
 
-                    <TextView
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="0.55"
+                            android:orientation="horizontal"
+                            android:paddingBottom="10dp"
+                            android:paddingTop="10dp" >
+
+                            <ImageView
+                                android:layout_width="25dp"
+                                android:layout_height="fill_parent"
+                                android:layout_gravity="left"
+                                android:contentDescription="@string/ImageDescription"
+                                android:scaleType="fitCenter"
+                                android:src="@drawable/xiaoquanquan" />
+
+                            <TextView
+                                android:id="@+id/jmsinfo_jname"
+                                android:layout_width="wrap_content"
+                                android:layout_height="fill_parent"
+                                android:gravity="center_vertical"
+                                android:singleLine="true"
+                                android:text="合众汽车美容中心"
+                                android:textColor="@color/text_gray"
+                                android:textSize="18sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="0dp"
+                            android:layout_marginLeft="25dp"
+                            android:layout_weight="0.45"
+                            android:orientation="horizontal"
+                            android:paddingBottom="10dp"
+                            android:paddingTop="5dp" >
+
+                            <TextView
+                                android:id="@+id/jmsinfo_scope"
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:gravity="left"
+                                android:text="清洁  美容  保养 维修"
+                                android:textColor="@color/text_gray"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="fill_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginRight="20dp"
-                        android:layout_marginTop="3dp"
-                        android:background="@color/light_gray" />
+                        android:layout_height="0dp"
+                        android:layout_weight="0.45"
+                        android:background="@drawable/nomal_shape"
+                        android:orientation="vertical"
+                        android:paddingBottom="10dp"
+                        android:paddingTop="10dp" >
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical" >
+
+                            <TextView
+                                android:id="@+id/jmsinfo_numstar"
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="12人评价"
+                                android:textColor="@color/orange"
+                                android:textSize="18sp" />
+                            <!-- 作为边框使用 -->
+
+                            <TextView
+                                android:layout_width="fill_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginRight="20dp"
+                                android:layout_marginTop="3dp"
+                                android:background="@color/light_gray" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="25dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@color/white"
+                            android:gravity="left"
+                            android:orientation="horizontal" >
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="fill_parent"
+                                android:gravity="center"
+                                android:text="综合评价："
+                                android:textColor="@color/text_gray"
+                                android:textSize="14sp" />
+
+                            <RatingBar
+                                android:id="@+id/jmsinfo_rat_star"
+                                style="@android:attr/ratingBarStyle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="fill_parent"
+                                android:isIndicator="true"
+                                android:max="100"
+                                android:numStars="5"
+                                android:paddingTop="1dp"
+                                android:progressDrawable="@drawable/my_ratingbar_star"
+                                android:rating="4"
+                                android:stepSize="0.5" />
+                        </LinearLayout>
+                    </LinearLayout>
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="25dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginTop="5dp"
-                    android:background="@color/white"
-                    android:gravity="left"
-                    android:orientation="horizontal" >
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="0.3"
+                    android:orientation="vertical" >
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="fill_parent"
-                        android:gravity="center"
-                        android:text="综合评价："
-                        android:textColor="@color/text_gray"
-                        android:textSize="14sp" />
+                    <ImageView
+                        android:id="@+id/jmsinfo_image_1"
+                        android:layout_width="fill_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/nomal_shape"
+                        android:contentDescription="@string/ImageDescription"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/jms_ad1" >
+                    </ImageView>
 
-                    <RatingBar
-                        android:id="@+id/jmsinfo_rat_star"
-                        style="@android:attr/ratingBarStyle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="fill_parent"
-                        android:isIndicator="true"
-                        android:max="100"
-                        android:numStars="5"
-                        android:paddingTop="1dp"
-                        android:progressDrawable="@drawable/my_ratingbar_star"
-                        android:rating="4"
-                        android:stepSize="0.5" />
+                    <ImageView
+                        android:id="@+id/jmsinfo_image_2"
+                        android:layout_width="fill_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/nomal_shape"
+                        android:contentDescription="@string/ImageDescription"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/jms_ad1" >
+                    </ImageView>
                 </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            android:layout_weight="0.3"
-            android:orientation="vertical" >
-
-            <ImageView
-                android:id="@+id/jmsinfo_image_1"
+            <LinearLayout
                 android:layout_width="fill_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:background="@drawable/nomal_shape"
-                android:contentDescription="@string/ImageDescription"
-                android:scaleType="fitCenter"
-                android:src="@drawable/jms_ad1" >
-            </ImageView>
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:orientation="vertical" >
 
-            <ImageView
-                android:id="@+id/jmsinfo_image_2"
+                <RelativeLayout
+                    android:id="@+id/jmsinfo_relative_address"
+                    style="@style/aboutus_relative_style"
+                    android:layout_marginBottom="1dp" >
+
+                    <ImageView
+                        style="@style/aboutus_ico_style"
+                        android:contentDescription="@string/ImageDescription"
+                        android:src="@drawable/map_gray_ico" >
+                    </ImageView>
+
+                    <TextView
+                        android:id="@+id/jmsinfo_address"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="30dp"
+                        android:gravity="center_vertical"
+                        android:text="西陵区体育场路23号"
+                        android:textColor="@color/main_text_color"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        style="@style/aboutus_image_style"
+                        android:contentDescription="@string/ImageDescription" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/jmsinfo_relative_phone"
+                    style="@style/aboutus_relative_style"
+                    android:layout_marginBottom="1dp" >
+
+                    <ImageView
+                        style="@style/aboutus_ico_style"
+                        android:contentDescription="@string/ImageDescription"
+                        android:src="@drawable/tel_gray" >
+                    </ImageView>
+
+                    <TextView
+                        android:id="@+id/jmsinfo_phone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:layout_marginLeft="30dp"
+                        android:gravity="center_vertical"
+                        android:text="18574214578"
+                        android:textColor="@color/main_text_color"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        style="@style/aboutus_image_style"
+                        android:contentDescription="@string/ImageDescription" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <com.btten.vincenttools.MyExpandableListView
+                android:id="@+id/jmsinfo_explv"
                 android:layout_width="fill_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:background="@drawable/nomal_shape"
-                android:contentDescription="@string/ImageDescription"
-                android:scaleType="fitCenter"
-                android:src="@drawable/jms_ad1" >
-            </ImageView>
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:scrollbars="none" />
         </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical" >
-
-        <ExpandableListView
-            android:id="@+id/jmsinfo_explv"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

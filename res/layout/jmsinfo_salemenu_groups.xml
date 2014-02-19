@@ -9,9 +9,9 @@
         android:id="@+id/jmsinfo_salemenu_groups_txt_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
         android:layout_weight="0.8"
         android:paddingLeft="20dp"
-        android:layout_gravity="center_vertical"
         android:text="清洁"
         android:textColor="@color/black"
         android:textSize="18sp" />
@@ -20,9 +20,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="0.2"
-        android:padding="10dp"
         android:contentDescription="@string/ImageDescription"
+        android:padding="10dp"
         android:scaleType="center"
-        android:src="@drawable/arrow_bottom" />
+        android:src="@drawable/arrow_gray_right" />
 
 </LinearLayout>
