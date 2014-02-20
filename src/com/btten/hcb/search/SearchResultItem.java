@@ -10,6 +10,8 @@ import com.btten.hcbvip.R;
 public class SearchResultItem extends ListItemBase {
 	public String jname;
 	public String jid;
+	public Double gps_la;
+	public Double gps_lo;
 	public int star;
 	public String oldPrice;
 	public String newPrice;
@@ -46,7 +48,7 @@ public class SearchResultItem extends ListItemBase {
 		// 经营范围
 		txtView[1].setText(scope);
 		// 原价
-		txtView[2].getPaint().setFlags(Paint. STRIKE_THRU_TEXT_FLAG);
+		txtView[2].getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG);
 		txtView[2].setText("￥" + oldPrice);
 		// 折扣价
 		txtView[3].setText("￥" + newPrice);

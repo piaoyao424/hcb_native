@@ -30,13 +30,7 @@ public class MyHcbActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.myhcb_activity);
 		initView();
-		setBackKeyListner(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				onBackPressed();
-			}
-		});
+		setBackKeyListner(true);
 	}
 
 	public void initView() {

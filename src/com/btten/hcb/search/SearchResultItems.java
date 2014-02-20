@@ -109,6 +109,8 @@ public class SearchResultItems extends BaseJsonItem {
 						temp.areaName = convert.getString("AREANAME");
 						temp.star = Integer.valueOf(convert.getString("STAR"));
 						temp.status = convert.getInt("STATUS");
+						temp.gps_la = convert.getDouble("GPS_LA");
+						temp.gps_lo = convert.getDouble("GPS_LO");
 
 						items.add(temp);
 					}

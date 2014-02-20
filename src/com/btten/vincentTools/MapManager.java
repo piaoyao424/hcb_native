@@ -24,6 +24,9 @@ import com.baidu.mapapi.search.MKTransitRouteResult;
 import com.baidu.mapapi.search.MKWalkingRouteResult;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
 import com.btten.hcb.HcbAPP;
+import com.btten.hcb.Service.LocationClientService;
+import com.btten.hcb.jmsInfo.JmsInfoItem;
+import com.btten.hcb.map.JmsGps;
 import com.btten.hcbvip.R;
 
 import android.app.Activity;
@@ -45,7 +48,6 @@ public class MapManager {
 	// 搜索成员
 	private MKSearch mMKSearch = null;
 	public BDLocation userGps = null;
-	private String[] jmsinfo_split_str = new String[255];
 	// 标记加盟商初始化是否成功
 	public boolean isOK = false;
 	// 离线地图
@@ -55,7 +57,7 @@ public class MapManager {
 	public MapManager(final Context context) {
 		this.context = context;
 		try {
-			mMapManager = HcbAPP.getBMapManager();
+			mMapManager = LocationClientService.getInstance().getMapManager();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -86,34 +88,21 @@ public class MapManager {
 			mMKSearch = new MKSearch();
 			mMKSearch.init(mMapManager, new MySearchListener());
 
-/*	百度太恶心了，只能下载单独格式的离线包，不能共用百度地图的离线包，
- * 	为了减小APK的大小，放弃离线功能		
- * // 写在onCreate函数里
-			mOffline = new MKOfflineMap();
-			// offline 实始化方法用更改。
-			mOffline.init(mMapController, new MKOfflineMapListener() {
-				@Override
-				public void onGetOfflineMapState(int type, int state) {
-					switch (type) {
-					case MKOfflineMap.TYPE_DOWNLOAD_UPDATE: {
-						MKOLUpdateElement update = mOffline
-								.getUpdateInfo(state);
-					}
-						break;
-					case MKOfflineMap.TYPE_NEW_OFFLINE:
-						Log.d("OfflineDemo",
-								String.format("add offlinemap num:%d", state));
-						break;
-					case MKOfflineMap.TYPE_VER_UPDATE:
-						Log.d("OfflineDemo",
-								String.format("new offlinemap ver"));
-						break;
-					}
-				}
-			});
-			int num = mOffline.scan();
-			System.out.println(String.format("已安装%d个离线包", num));
-*/
+			/*
+			 * 百度太恶心了，只能下载单独格式的离线包，不能共用百度地图的离线包， 为了减小APK的大小，放弃离线功能 //
+			 * 写在onCreate函数里 mOffline = new MKOfflineMap(); // offline 实始化方法用更改。
+			 * mOffline.init(mMapController, new MKOfflineMapListener() {
+			 * 
+			 * @Override public void onGetOfflineMapState(int type, int state) {
+			 * switch (type) { case MKOfflineMap.TYPE_DOWNLOAD_UPDATE: {
+			 * MKOLUpdateElement update = mOffline .getUpdateInfo(state); }
+			 * break; case MKOfflineMap.TYPE_NEW_OFFLINE: Log.d("OfflineDemo",
+			 * String.format("add offlinemap num:%d", state)); break; case
+			 * MKOfflineMap.TYPE_VER_UPDATE: Log.d("OfflineDemo",
+			 * String.format("new offlinemap ver")); break; } } }); int num =
+			 * mOffline.scan(); System.out.println(String.format("已安装%d个离线包",
+			 * num));
+			 */
 			return mMapManager;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -137,19 +126,18 @@ public class MapManager {
 		}
 	}
 
-	public boolean initJMS(String str[], Activity active) {
+	public boolean initJMS(ArrayList<JmsGps> jmsGps, Activity active) {
 		isOK = false;
 		this.active = active;
-		this.jmsinfo_split_str = str;
-		int jms_count = jmsinfo_split_str.length / 4;
+		int jms_count = jmsGps.size();
 
 		Drawable mark = context.getResources().getDrawable(R.drawable.map_ico);
 		try {
 			// 一个加盟商就显示导航
 			if (jms_count == 1) {
 				final LocationData location = new LocationData();
-				location.latitude = Float.valueOf(jmsinfo_split_str[3]);
-				location.longitude = Float.valueOf(jmsinfo_split_str[2]);
+				location.latitude = jmsGps.get(0).la;
+				location.longitude = jmsGps.get(0).lo;
 
 				// 延迟加载导航信息,直接加载可能导致地图初始化未完成，导航请求已经发出，无法收到导航信息
 				new Handler().postDelayed(new Runnable() {
@@ -168,12 +156,10 @@ public class MapManager {
 
 				List<OverlayItem> listmap = new ArrayList<OverlayItem>();
 				for (int i = 0; i < jms_count; i++) {
-					int y = i * 4;
-					GeoPoint p1 = new GeoPoint(
-							(int) (Float.valueOf(jmsinfo_split_str[y + 3]) * 1E6),
-							(int) (Float.valueOf(jmsinfo_split_str[y + 2]) * 1E6));
-					OverlayItem item = new OverlayItem(p1,
-							jmsinfo_split_str[y], jmsinfo_split_str[y + 1]);
+					GeoPoint p1 = new GeoPoint((int) (jmsGps.get(i).la * 1E6),
+							(int) (jmsGps.get(i).lo * 1E6));
+					OverlayItem item = new OverlayItem(p1, jmsGps.get(i).name,
+							jmsGps.get(i).id);
 					listmap.add(item);
 				}
 				itemOverlay.addItem(listmap);
@@ -195,52 +181,57 @@ public class MapManager {
 
 		protected boolean onTap(int index) {
 			// 在此处理item点击事件
-//			System.out.println("item onTap: " + index);
-//			if (myLocation != null) {
-//				int i = myLocation.getLocationClient().requestLocation();
-//				switch (i) {
-//				case 0:
-//					System.out.println("正常");
-//					break;
-//				case 1:
-//					System.out.println("服务未启动");
-//					break;
-//				case 2:
-//					System.out.println("没有监听函数");
-//					break;
-//				case 6:
-//					System.out.println("请求间隔过短。 前后两次请求定位时间间隔不能小于1000ms");
-//					break;
-//				default:
-//					break;
-//				}
-			//pop demo
-//			//创建pop对象，注册点击事件监听接口
-//			PopupOverlay pop = new PopupOverlay(mMapView,new PopupClickListener() {                
-//			        @Override
-//			        public void onClickedPopup(int index) {
-//			                //在此处理pop点击事件，index为点击区域索引,点击区域最多可有三个
-//			        }
-//			});
-//			/**  准备pop弹窗资源，根据实际情况更改
-//			 *  弹出包含三张图片的窗口，可以传入三张图片、两张图片、一张图片。
-//			 *  弹出的窗口，会根据图片的传入顺序，组合成一张图片显示.
-//			 *  点击到不同的图片上时，回调函数会返回当前点击到的图片索引index
-//			 */
-//			Bitmap[] bmps = new Bitmap[3];
-//			try {
-//			bmps[0] = BitmapFactory.decodeStream(getAssets().open("marker1.png"));
-//			     bmps[1] = BitmapFactory.decodeStream(getAssets().open("marker2.png"));
-//			bmps[2] = BitmapFactory.decodeStream(getAssets().open("marker3.png"));
-//			} catch (IOException e) {
-//			         e.printStackTrace();
-//			}
-//			//弹窗弹出位置
-//			GeoPoint ptTAM = new GeoPoint((int)(39.915 * 1E6), (int) (116.404 * 1E6));
-//			//弹出pop,隐藏pop
-//			pop.showPopup(bmps, ptTAM, 32);
-//			//隐藏弹窗
-//			//  pop.hidePop();
+			// System.out.println("item onTap: " + index);
+			// if (myLocation != null) {
+			// int i = myLocation.getLocationClient().requestLocation();
+			// switch (i) {
+			// case 0:
+			// System.out.println("正常");
+			// break;
+			// case 1:
+			// System.out.println("服务未启动");
+			// break;
+			// case 2:
+			// System.out.println("没有监听函数");
+			// break;
+			// case 6:
+			// System.out.println("请求间隔过短。 前后两次请求定位时间间隔不能小于1000ms");
+			// break;
+			// default:
+			// break;
+			// }
+			// pop demo
+			// //创建pop对象，注册点击事件监听接口
+			// PopupOverlay pop = new PopupOverlay(mMapView,new
+			// PopupClickListener() {
+			// @Override
+			// public void onClickedPopup(int index) {
+			// //在此处理pop点击事件，index为点击区域索引,点击区域最多可有三个
+			// }
+			// });
+			// /** 准备pop弹窗资源，根据实际情况更改
+			// * 弹出包含三张图片的窗口，可以传入三张图片、两张图片、一张图片。
+			// * 弹出的窗口，会根据图片的传入顺序，组合成一张图片显示.
+			// * 点击到不同的图片上时，回调函数会返回当前点击到的图片索引index
+			// */
+			// Bitmap[] bmps = new Bitmap[3];
+			// try {
+			// bmps[0] =
+			// BitmapFactory.decodeStream(getAssets().open("marker1.png"));
+			// bmps[1] =
+			// BitmapFactory.decodeStream(getAssets().open("marker2.png"));
+			// bmps[2] =
+			// BitmapFactory.decodeStream(getAssets().open("marker3.png"));
+			// } catch (IOException e) {
+			// e.printStackTrace();
+			// }
+			// //弹窗弹出位置
+			// GeoPoint ptTAM = new GeoPoint((int)(39.915 * 1E6), (int) (116.404
+			// * 1E6));
+			// //弹出pop,隐藏pop
+			// pop.showPopup(bmps, ptTAM, 32);
+			// //隐藏弹窗
+			// // pop.hidePop();
 			return true;
 		}
 

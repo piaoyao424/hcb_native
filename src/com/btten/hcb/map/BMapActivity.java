@@ -1,5 +1,6 @@
 package com.btten.hcb.map;
 
+import java.util.ArrayList;
 import com.baidu.location.BDLocation;
 import com.baidu.mapapi.map.MapView;
 import com.btten.base.BaseActivity;
@@ -13,7 +14,7 @@ import android.os.Bundle;
 public class BMapActivity extends BaseActivity {
 	private MapView mMapView;
 	private MapManager mapManager;
-	private String[] jmsinfo_split_str;
+	private ArrayList<JmsGps> jmsGps = null;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -22,14 +23,11 @@ public class BMapActivity extends BaseActivity {
 		init();
 	}
 
+	@SuppressWarnings("unchecked")
 	private void init() {
 		mMapView = (MapView) findViewById(R.id.mapId_wangdian_map);
-
-		// 取出加盟商信息
-		Bundle bundle = this.getIntent().getExtras();
-		String jms_map_info_str = bundle.getString("KEY_JMSGPS");
-		jmsinfo_split_str = splitStrToStr2(jms_map_info_str);
-
+		mapManager = new MapManager(getBaseContext());
+		
 		// 取出个人坐标信息
 		double gps_la = VIPAccountManager.getInstance().getGpsla();
 		double gps_lo = VIPAccountManager.getInstance().getGpslo();
@@ -39,15 +37,18 @@ public class BMapActivity extends BaseActivity {
 		userGps.setLongitude(gps_lo);
 
 		// 初始化地图
+
 		mapManager.initMap(mMapView, userGps);
-		mapManager.initJMS(jmsinfo_split_str, BMapActivity.this);
-	}
 
-	private String[] splitStrToStr2(String info_str) {
-		String xiaofengefu = "\\@";
-		String[] temp_str = new String[255];
-
-		temp_str = info_str.split(xiaofengefu);
-		return temp_str;
+		try {
+			// 取出加盟商信息
+			Bundle bundle = this.getIntent().getExtras();
+			jmsGps = (ArrayList<JmsGps>) (bundle.get("KEY_JMSGPS"));
+			if (jmsGps != null) {
+				mapManager.initJMS(jmsGps, BMapActivity.this);
+			}
+		} catch (Exception e) {
+			System.out.println(e.toString());
+		}
 	}
 }

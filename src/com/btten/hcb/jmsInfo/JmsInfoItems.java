@@ -22,6 +22,8 @@ public class JmsInfoItems extends BaseJsonItem {
 				item.jscope = convert.getString("JSCOPE");
 				item.address = convert.getString("ADDRESS");
 				item.phone = convert.getString("PHONE");
+				item.gps_lo = convert.getDouble("GPS_LO");
+				item.gps_la = convert.getDouble("GPS_LA");
 				item.commentNum = Integer.valueOf(convert
 						.getString("COMMENTNUM"));
 				item.star = Integer.valueOf(convert.getString("STAR"));

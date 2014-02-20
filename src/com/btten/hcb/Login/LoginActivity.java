@@ -46,13 +46,7 @@ public class LoginActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.login_activity);
 		setCurrentTitle("会员登录");
-		setBackKeyListner(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				onBackPressed();
-			}
-		});
+		setBackKeyListner(true);
 
 		init();
 		initPersonalInfo();

@@ -36,7 +36,7 @@ public class RegistActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.register_activity);
 		setCurrentTitle("注册");
-		setBackKeyListner(backListener);
+		setBackKeyListner(true);
 		init();
 	}
 
@@ -51,14 +51,6 @@ public class RegistActivity extends BaseActivity {
 		verifyCode_btn = (Button) findViewById(R.id.regiter_button_verifycode);
 		verifyCode_btn.setOnClickListener(requestCodeListener);
 	}
-
-	OnClickListener backListener = new OnClickListener() {
-
-		@Override
-		public void onClick(View v) {
-			onBackPressed();
-		}
-	};
 
 	ProgressDialog progress;
 	OnClickListener listener = new OnClickListener() {

@@ -36,13 +36,7 @@ public class CardActiveActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.card_active_activity);
 		setCurrentTitle("卡激活");
-		setBackKeyListner(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				onBackPressed();
-			}
-		});
+		setBackKeyListner(true);
 		init();
 	}
 

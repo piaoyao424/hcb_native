@@ -120,9 +120,9 @@ public class BaseActivity extends Activity {
 	 * @param listener
 	 *            返回按钮监听
 	 */
-	public void setBackKeyListner(OnClickListener listener) {
+	public void setBackKeyListner(boolean isWork) {
 		backKeyImageButton = (ImageButton) findViewById(R.id.back_key_imagebutton);
-		if (listener != null) {
+		if (isWork) {
 			backKeyImageButton.setVisibility(View.VISIBLE);
 			backKeyImageButton.setOnClickListener((new OnClickListener() {
 

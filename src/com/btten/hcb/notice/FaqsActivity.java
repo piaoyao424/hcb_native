@@ -21,13 +21,7 @@ public class FaqsActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.faqs_activity);
 		initView();
-		setBackKeyListner(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				onBackPressed();
-			}
-		});
+		setBackKeyListner(true);
 	}
 
 	public void initView() {

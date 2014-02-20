@@ -28,13 +28,7 @@ public class NoticeInfoActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.notice_base_activity);
 		initView();
-		setBackKeyListner(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				onBackPressed();
-			}
-		});
+		setBackKeyListner(true);
 	}
 
 	private void initView() {

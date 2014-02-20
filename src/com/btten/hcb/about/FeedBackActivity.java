@@ -23,22 +23,23 @@ public class FeedBackActivity extends BaseActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-//		setContentView(R.layout.about_us_feedback);
-		
+		// setContentView(R.layout.about_us_feedback);
+
 		setCurrentTitle("意见反馈");
-		setBackKeyListner(backListener);
+		setBackKeyListner(true);
 		init();
 	}
 
 	private void init() {
 
-//		feedbk_txt = (EditText) findViewById(R.id.feedbk_txt);
-//
-//		ok_btn = (Button) findViewById(R.id.ok_btn);
-//		ok_btn.setOnClickListener(okClick);
-//		imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-//
-//		cancel_btn = (Button) findViewById(R.id.cancel_btn);
+		// feedbk_txt = (EditText) findViewById(R.id.feedbk_txt);
+		//
+		// ok_btn = (Button) findViewById(R.id.ok_btn);
+		// ok_btn.setOnClickListener(okClick);
+		// imm = (InputMethodManager)
+		// getSystemService(Context.INPUT_METHOD_SERVICE);
+		//
+		// cancel_btn = (Button) findViewById(R.id.cancel_btn);
 		cancel_btn.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -108,15 +109,6 @@ public class FeedBackActivity extends BaseActivity {
 		closeSoftInput();
 		super.onBackPressed();
 	}
-
-	OnClickListener backListener = new OnClickListener() {
-
-		@Override
-		public void onClick(View v) {
-			// TODO Auto-generated method stub
-			onBackPressed();
-		}
-	};
 
 	public void closeSoftInput() {
 		InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);

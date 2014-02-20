@@ -26,52 +26,11 @@ import com.umeng.analytics.MobclickAgent;
 
 public class HcbAPP extends Application {
 	static HcbAPP mainApp;
-	static BMapManager mMapManager = null;
 
 	public HcbAPP() {
 		mainApp = this;
 		MsgCenter.getInstance();
 		Log.setOutputPath(Log.SDCARD_LOG_PATH, Log.SYS_LOG, 0);
-	}
-
-	public void init() {
-		try {
-			// 初始化地图
-			mMapManager = new BMapManager(this);
-			System.out.println("创建管理器完毕");
-			// mMapManager.init("7a9f319132726cc4a02b7089636374bc",
-			// new myMKGeneralListener());
-			mMapManager.init("DmFGGSGzxVcVse0wRjrmSC4n",
-					new myMKGeneralListener());
-		} catch (Exception e) {
-			// TODO: handle exception
-			e.printStackTrace();
-			System.out.println(e.getMessage());
-		}
-	}
-
-	private class myMKGeneralListener implements MKGeneralListener {
-
-		@Override
-		public void onGetNetworkState(int arg0) {
-			// TODO Auto-generated method stub
-			Toast.makeText(mainApp.getBaseContext(), "网络不通", Toast.LENGTH_SHORT)
-					.show();
-		}
-
-		@Override
-		public void onGetPermissionState(int arg0) {
-			// TODO Auto-generated method stub
-			String str = " ";
-			if (arg0 == 300) {
-				str = "无法建立与百度地图服务端的连接!";
-			}
-			if (arg0 == 200) {
-				str = "百度地图服务端数据错误，无法解析认证服务端返回数据!";
-			}
-			Toast.makeText(mainApp.getBaseContext(), "授权异常" + str,
-					Toast.LENGTH_SHORT).show();
-		}
 	}
 
 	public static HcbAPP getInstance() {
@@ -224,20 +183,10 @@ public class HcbAPP extends Application {
 		return android.os.Build.VERSION.RELEASE;
 	}
 
-	public static BMapManager getBMapManager() {
-		return mMapManager;
-	}
-
 	@Override
 	public void onTerminate() {
 
-		if (mMapManager == null) {
-
-		} else {
-			mMapManager.destroy();
-			mMapManager = null;
-		}
 		super.onTerminate();
 	}
-	
+
 }

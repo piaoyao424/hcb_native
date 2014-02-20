@@ -247,6 +247,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
+                android:divider="@color/tab_gray"
                 android:scrollbars="none" />
         </LinearLayout>
     </ScrollView>

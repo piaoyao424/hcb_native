@@ -171,17 +171,13 @@ public class HomeActivity extends BaseActivity {
 
 	@Override
 	public void onBackPressed() {
-		new AlertDialog.Builder(this)
-				.setTitle("提示")
-				.setMessage("退出惠车宝？")
+		new AlertDialog.Builder(this).setTitle("提示").setMessage("退出惠车宝？")
 				.setPositiveButton("确定", new DialogInterface.OnClickListener() {
 
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
 						CallTaxiNotification.getInstance().ExitApp();
-						if (LocationClientService.getInstance().getMapManager() != null)
-							LocationClientService.getInstance().getMapManager()
-									.destroy();
+						LocationClientService.getInstance().destroy();
 						ClearAllActivity();
 						finish();
 					}

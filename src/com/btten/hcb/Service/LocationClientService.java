@@ -67,7 +67,8 @@ public class LocationClientService {
 			public void onReceiveLocation(BDLocation arg0) {
 				if (arg0 != null) {
 					location = arg0;
-					VIPAccountManager.getInstance().setGps(arg0.getLatitude(),arg0.getLatitude());
+					VIPAccountManager.getInstance().setGps(arg0.getLatitude(),
+							arg0.getLongitude());
 				}
 			}
 		};
@@ -139,5 +140,13 @@ public class LocationClientService {
 			update.interrupt();
 
 		update = null;
+	}
+
+	public void destroy() {
+		if (BDMapManager != null) {
+			BDMapManager.stop();
+			BDMapManager.destroy();
+		}
+
 	}
 }

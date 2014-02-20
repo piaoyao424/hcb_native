@@ -25,7 +25,7 @@ public class RecentActivity extends BaseActivity implements OnScrollListener{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.recent_activity);
 		setCurrentTitle("近期活动");
-		setBackKeyListner(backListener);
+		setBackKeyListner(true);
 		//setRefreshKeyListner(refreshListener);
 		
 		init();
@@ -86,15 +86,6 @@ public class RecentActivity extends BaseActivity implements OnScrollListener{
 	@Override
 	public void onScrollStateChanged(AbsListView view, int scrollState) {
 	}
-	
-	OnClickListener backListener = new OnClickListener() {
-		
-		@Override
-		public void onClick(View v) {
-			// TODO Auto-generated method stub
-			onBackPressed();
-		}
-	};
 	
 	OnClickListener refreshListener = new OnClickListener() {
 		

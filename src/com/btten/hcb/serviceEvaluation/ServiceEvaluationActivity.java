@@ -36,7 +36,7 @@ public class ServiceEvaluationActivity extends BaseActivity {
 		txt_jmsName = (TextView) findViewById(R.id.evaluation_service_jmsname);
 		tRatingBar = (RatingBar) findViewById(R.id.evaluation_service_ratingbar);
 
-		setBackKeyListner(listener);
+		setBackKeyListner(true);
 
 		Bundle bundle = this.getIntent().getExtras();
 		jmsID = bundle.getString("KEY_JID");
@@ -49,9 +49,6 @@ public class ServiceEvaluationActivity extends BaseActivity {
 		@Override
 		public void onClick(View v) {
 			switch (v.getId()) {
-			case R.id.back_key_imagebutton:
-				onBackPressed();
-				break;
 			case R.id.map_key_imagebutton:
 				break;
 			}

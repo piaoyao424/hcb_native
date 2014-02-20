@@ -3,6 +3,7 @@ package com.btten.hcb.search;
 import java.util.ArrayList;
 import java.util.List;
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +16,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.btten.hcb.account.VIPAccountManager;
+import com.btten.hcb.jmsInfo.JmsInfoActivity;
+import com.btten.hcb.map.BMapActivity;
+import com.btten.hcb.map.JmsGps;
 import com.btten.hcbvip.R;
 import com.btten.base.BaseActivity;
 import com.btten.network.NetSceneBase;
@@ -65,7 +69,7 @@ public class SearchActivity extends BaseActivity {
 		txt_criteria = (TextView) findViewById(R.id.saleslist_txt_criteria);
 		txt_criteria.setOnClickListener(listener);
 
-		setBackKeyListner(listener);
+		setBackKeyListner(true);
 		setMapKeyListner(listener);
 	}
 
@@ -112,10 +116,24 @@ public class SearchActivity extends BaseActivity {
 				txt_criteria.setBackgroundResource(R.color.orange_deep);
 				clearOtherListView(linear_criteria);
 				break;
-			case R.id.back_key_imagebutton:
-				onBackPressed();
-				break;
 			case R.id.map_key_imagebutton:
+				Intent intent = new Intent(SearchActivity.this,
+						BMapActivity.class);
+
+				// 初始化加盟商GPS信息
+				ArrayList<JmsGps> list_jmsgps = new ArrayList<JmsGps>();
+
+				for (int i = 0; i < searchResultItems.size(); i++) {
+					JmsGps jmsGps = new JmsGps();
+					jmsGps.id = searchResultItems.get(i).jid;
+					jmsGps.name = searchResultItems.get(i).jname;
+					jmsGps.la = searchResultItems.get(i).gps_la;
+					jmsGps.lo = searchResultItems.get(i).gps_lo;
+					list_jmsgps.add(jmsGps);
+				}
+
+				intent.putExtra("KEY_JMSGPS", list_jmsgps);
+				startActivity(intent);
 				break;
 			}
 		}
@@ -219,7 +237,6 @@ public class SearchActivity extends BaseActivity {
 			}
 			break;
 		default:
-
 			break;
 		}
 		showJmsList(sItems);

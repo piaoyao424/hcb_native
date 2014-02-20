@@ -18,13 +18,16 @@ import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.btten.base.BaseActivity;
+import com.btten.hcb.map.BMapActivity;
+import com.btten.hcb.map.JmsGps;
 import com.btten.hcbvip.R;
 import com.btten.network.NetSceneBase;
 import com.btten.network.OnSceneCallBack;
+import com.btten.vincenttools.CallTelephone;
 
 public class JmsInfoActivity extends BaseActivity {
 
-	private String jid, mobile;
+	private JmsInfoItem jmsInfo;
 	private List<JmsInfoSaleMenuItem> groupArray;// 组列表
 	private List<List<JmsInfoSaleMenuItem>> childArray;// 子列表
 	private ExpandableListView expandableListView;
@@ -69,17 +72,20 @@ public class JmsInfoActivity extends BaseActivity {
 
 		expandableListView = (ExpandableListView) findViewById(R.id.jmsinfo_explv);
 		expandableListView.setGroupIndicator(null);
-		expandableListView.setOnChildClickListener(onChildClickListener);
+		// expandableListView.setOnChildClickListener(onChildClickListener);
+
+		setBackKeyListner(true);
 	}
 
 	private void initdate() {
+		jmsInfo = new JmsInfoItem();
 		groupArray = new ArrayList<JmsInfoSaleMenuItem>();
 		childArray = new ArrayList<List<JmsInfoSaleMenuItem>>();
 
 		Bundle bundle = this.getIntent().getExtras();
-		jid = bundle.getString("KEY_GGID");
+		jmsInfo.id = bundle.getString("KEY_GGID");
 
-		new JmsInfoScene().doScene(callBack, jid);
+		new JmsInfoScene().doScene(callBack, jmsInfo.id);
 		ShowRunning();
 	}
 
@@ -89,29 +95,45 @@ public class JmsInfoActivity extends BaseActivity {
 		public void onClick(View v) {
 			switch (v.getId()) {
 			case R.id.jmsinfo_relative_address:
+				Intent intent = new Intent(JmsInfoActivity.this,
+						BMapActivity.class);
 
+				// 初始化加盟商GPS信息
+				JmsGps jmsGps = new JmsGps();
+
+				jmsGps.id = jmsInfo.id;
+				jmsGps.name = jmsInfo.jname;
+				jmsGps.la = jmsInfo.gps_la;
+				jmsGps.lo = jmsInfo.gps_lo;
+
+				ArrayList<JmsGps> list_jmsgps = new ArrayList<JmsGps>();
+				list_jmsgps.add(jmsGps);
+
+				intent.putExtra("KEY_JMSGPS", list_jmsgps);
+				startActivity(intent);
 				break;
 			case R.id.jmsinfo_relative_phone:
-
+				new CallTelephone(JmsInfoActivity.this, jmsInfo.phone,
+						jmsInfo.jname).call();
 				break;
 			default:
 				break;
 			}
 		}
 	};
-	OnChildClickListener onChildClickListener = new OnChildClickListener() {
-
-		@Override
-		public boolean onChildClick(ExpandableListView parent, View v,
-				int groupPosition, int childPosition, long id) {
-			String itemid = childArray.get(groupPosition).get(childPosition).id;
-			Intent intent = new Intent(JmsInfoActivity.this,
-					JmsInfoActivity.class);
-			intent.putExtra("KEY_ITEMID", itemid);
-			startActivity(intent);
-			return false;
-		}
-	};
+	// OnChildClickListener onChildClickListener = new OnChildClickListener() {
+	//
+	// @Override
+	// public boolean onChildClick(ExpandableListView parent, View v,
+	// int groupPosition, int childPosition, long id) {
+	// String itemid = childArray.get(groupPosition).get(childPosition).id;
+	// Intent intent = new Intent(JmsInfoActivity.this,
+	// JmsInfoActivity.class);
+	// intent.putExtra("KEY_ITEMID", itemid);
+	// startActivity(intent);
+	// return false;
+	// }
+	// };
 
 	OnSceneCallBack callBack = new OnSceneCallBack() {
 
@@ -123,13 +145,14 @@ public class JmsInfoActivity extends BaseActivity {
 			txt_commentNum.setText(items.item.commentNum + "人评价");
 			txt_address.setText(items.item.address);
 			txt_phone.setText(items.item.phone);
+			jmsInfo = items.item;
 
 			ratingBar.setRating(items.item.star);
 			imageLoader.displayImage(items.item.images1, imageView1);
 			imageLoader.displayImage(items.item.images2, imageView2);
 
 			HideProgress();
-			new JmsInfoSaleMenuScene().doScene(callBackSaleMenu, jid);
+			new JmsInfoSaleMenuScene().doScene(callBackSaleMenu, jmsInfo.id);
 		}
 
 		@Override
@@ -288,7 +311,7 @@ public class JmsInfoActivity extends BaseActivity {
 
 		@Override
 		public boolean isChildSelectable(int groupPosition, int childPosition) {
-			return true;
+			return false;
 		}
 	}
 }

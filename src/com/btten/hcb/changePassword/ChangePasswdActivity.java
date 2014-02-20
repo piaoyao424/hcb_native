@@ -46,7 +46,7 @@ public class ChangePasswdActivity extends BaseActivity {
 		setContentView(R.layout.change_password_activity);
 
 		setCurrentTitle("修改密码");
-		setBackKeyListner(backListener);
+		setBackKeyListner(true);
 		init();
 	}
 
@@ -61,14 +61,6 @@ public class ChangePasswdActivity extends BaseActivity {
 		setting = getSharedPreferences("calltaxicfg", MODE_PRIVATE);
 
 	}
-
-	OnClickListener backListener = new OnClickListener() {
-
-		@Override
-		public void onClick(View v) {
-			onBackPressed();
-		}
-	};
 
 	OnClickListener listener = new OnClickListener() {
 
@@ -166,9 +158,8 @@ public class ChangePasswdActivity extends BaseActivity {
 					// 关闭位置
 					if (LocationClientService.getInstance().isStarted())
 						LocationClientService.getInstance().stop();
-					if (LocationClientService.getInstance().getMapManager() != null)
-						LocationClientService.getInstance().getMapManager()
-								.destroy();
+					LocationClientService.getInstance().destroy();
+					
 					CallTaxiNotification.getInstance().LogoutApp();
 					startActivity((new Intent(ChangePasswdActivity.this,
 							LoginActivity.class)));
