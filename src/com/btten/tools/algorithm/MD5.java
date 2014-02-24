@@ -1,10 +1,11 @@
 package com.btten.tools.algorithm;
 
+import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 /**
- * <div class="en">MD5 digest wrapper</div>
- * <div class="zh_CN">MD5计算封装</div>
+ * <div class="en">MD5 digest wrapper</div> <div class="zh_CN">MD5计算封装</div>
  * 
  * @author kirozhao
  */
@@ -22,7 +23,8 @@ public final class MD5 {
 	 * @return md5 result in string format
 	 */
 	public final static String getMessageDigest(byte[] buffer) {
-		char hexDigits[] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f' };
+		char hexDigits[] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+				'a', 'b', 'c', 'd', 'e', 'f' };
 		try {
 			MessageDigest mdTemp = MessageDigest.getInstance("MD5");
 			mdTemp.update(buffer);
@@ -57,5 +59,33 @@ public final class MD5 {
 		} catch (Exception e) {
 			return null;
 		}
+	}
+
+	/**
+	 * MD5 加密
+	 */
+	public static String getMD5Str(String str) {
+		MessageDigest messageDigest = null;
+		try {
+			messageDigest = MessageDigest.getInstance("MD5");
+			messageDigest.reset();
+			messageDigest.update(str.getBytes("UTF-8"));
+		} catch (NoSuchAlgorithmException e) {
+			System.out.println("NoSuchAlgorithmException caught!");
+			System.exit(-1);
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		byte[] byteArray = messageDigest.digest();
+		StringBuffer md5StrBuff = new StringBuffer();
+
+		for (int i = 0; i < byteArray.length; i++) {
+			if (Integer.toHexString(0xFF & byteArray[i]).length() == 1)
+				md5StrBuff.append("0").append(
+						Integer.toHexString(0xFF & byteArray[i]));
+			else
+				md5StrBuff.append(Integer.toHexString(0xFF & byteArray[i]));
+		}
+		return md5StrBuff.toString();
 	}
 }

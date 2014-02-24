@@ -2,7 +2,7 @@ package com.btten.hcb.tools;
 
 import android.util.Log;
 
-import com.btten.hcb.account.VIPAccountManager;
+import com.btten.hcb.account.VIPInfoManager;
 import com.btten.model.BaseJsonItem;
 import com.btten.network.NomalJsonSceneBase;
 import com.btten.network.OnSceneCallBack;
@@ -21,8 +21,8 @@ public class CallTaxiNetScene extends NomalJsonSceneBase {
 		targetUrl = UrlFactory.GetUrlNew(
 				"CallTaxi",
 				 action,
-				"userid", VIPAccountManager.getInstance().getUserid(),
-				"phone", VIPAccountManager.getInstance().getUserPhone(),
+				"userid", VIPInfoManager.getInstance().getUserid(),
+				"phone", VIPInfoManager.getInstance().getUserPhone(),
 				"needtime", time,
 				"start", start,
 				"dest", end);

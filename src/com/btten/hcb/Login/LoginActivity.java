@@ -2,10 +2,8 @@ package com.btten.hcb.login;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -18,23 +16,22 @@ import android.widget.EditText;
 import android.widget.Toast;
 import com.btten.hcbvip.R;
 import com.btten.base.BaseActivity;
-import com.btten.hcb.Service.CallTaxiNotification;
-import com.btten.hcb.Service.LocationClientService;
-import com.btten.hcb.account.VIPAccountManager;
-import com.btten.hcb.homeActivity.HomeActivity;
+import com.btten.hcb.MyHcbActivity;
+import com.btten.hcb.account.VIPInfoManager;
 import com.btten.msgcenter.MsgCenter;
 import com.btten.msgcenter.MsgConst;
 import com.btten.network.NetConst;
 import com.btten.network.NetSceneBase;
 import com.btten.network.OnSceneCallBack;
+import com.btten.tools.algorithm.MD5;
 
 public class LoginActivity extends BaseActivity {
 
 	Button bt_loginButton = null;
 	EditText editText_name = null;
 	EditText editText_password = null;
-	// 加盟商配置信息
-	SharedPreferences jmsSetting = null;
+	// 配置信息
+	SharedPreferences Setting = null;
 	String nameStr = null;
 	String pwdStr = null;
 	boolean boxIsChecked = false;
@@ -73,12 +70,12 @@ public class LoginActivity extends BaseActivity {
 	};
 
 	private void initPersonalInfo() {
-		jmsSetting = getSharedPreferences("jmscfg", MODE_PRIVATE);
-		boxIsChecked = jmsSetting.getBoolean("rememberPWD", false);
+		Setting = getSharedPreferences("cfg", MODE_PRIVATE);
+		boxIsChecked = Setting.getBoolean("rememberPWD", false);
 
-		nameStr = jmsSetting.getString("nameStr", "");
+		nameStr = Setting.getString("nameStr", "");
 		if (boxIsChecked) {
-			pwdStr = jmsSetting.getString("pwdStr", "");
+			pwdStr = Setting.getString("pwdStr", "");
 		} else {
 			pwdStr = "";
 		}
@@ -86,7 +83,7 @@ public class LoginActivity extends BaseActivity {
 
 	private void savePersonalInfo() {
 
-		jmsSetting.edit().putBoolean("rememberPWD", true)
+		Setting.edit().putBoolean("rememberPWD", true)
 				.putString("nameStr", nameStr).putString("pwdStr", pwdStr)
 				.commit();
 
@@ -100,7 +97,7 @@ public class LoginActivity extends BaseActivity {
 		pwdStr = editText_password.getText().toString().trim();
 
 		if (nameStr.length() <= 0) {
-			Toast.makeText(this, "请输入加盟商手机号", Toast.LENGTH_SHORT).show();
+			Toast.makeText(this, "请输入手机号", Toast.LENGTH_SHORT).show();
 			return;
 		} else if (!isPhone(nameStr)) {
 			Toast.makeText(this, "无效的手机号", Toast.LENGTH_SHORT).show();
@@ -114,6 +111,7 @@ public class LoginActivity extends BaseActivity {
 			return;
 		}
 
+		pwdStr = MD5.getMD5Str(pwdStr);
 		ShowProgress("登录中", "请稍候……");
 
 		loginScene = new LoginScene();
@@ -123,7 +121,7 @@ public class LoginActivity extends BaseActivity {
 
 	private boolean isPhone(String name) {
 		Pattern p = Pattern
-				.compile("^((13[0-9])|(15[^4,\\D])|(18[0,5-9]))\\d{8}$");
+				.compile("^((13[0-9])|(15[^4,\\D])|(18[0-9]))\\d{8}$");
 		Matcher m = p.matcher(name);
 		return m.matches();
 	}
@@ -151,10 +149,10 @@ public class LoginActivity extends BaseActivity {
 			HideProgress();
 			savePersonalInfo();
 
-			LoginResultItems items = (LoginResultItems) data;
-			LoginResultItem item = items.item;
-			VIPAccountManager.getInstance().SetInfo(nameStr, item.username,
-					item.userid, nameStr);
+			LoginResult items = (LoginResult) data;
+			LoginItem item = items.item;
+			VIPInfoManager.getInstance().SetInfo(nameStr, item.userid, nameStr,
+					null);
 
 			MsgCenter.getInstance().PostMsg(MsgConst.LOGIN_SUCCESS, this);
 
@@ -173,9 +171,8 @@ public class LoginActivity extends BaseActivity {
 				@Override
 				public void run() {
 					startActivity((new Intent(LoginActivity.this,
-							HomeActivity.class)));
+							MyHcbActivity.class)));
 					finish();
-					BaseActivity.ClearOtherActivity();
 				}
 			}, 200);
 		}

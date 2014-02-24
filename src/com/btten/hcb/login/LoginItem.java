@@ -1,6 +1,6 @@
 package com.btten.hcb.login;
 
-public class LoginResultItem {
+public class LoginItem {
 	public String username;
 	public String userid;
 	public String phone;

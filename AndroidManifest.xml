@@ -98,7 +98,7 @@
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
-        
+
         <!-- 服务条款 -->
         <activity
             android:name="com.btten.hcb.regist.RegistTermsActivity"
@@ -141,6 +141,11 @@
             android:name="com.btten.hcb.MyHcbActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait" />
+        <!-- 我的账户 -->
+        <activity
+            android:name="com.btten.hcb.account.MyAccountActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
 
         <!-- 常见问题 列表 -->
         <activity
@@ -159,7 +164,7 @@
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
-         
+
         <!-- 加盟商 -->
         <activity
             android:name="com.btten.joinshop.JoinShopActivity"

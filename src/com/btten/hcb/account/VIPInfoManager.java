@@ -5,7 +5,7 @@ import com.btten.tools.Util;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-public class VIPAccountManager {
+public class VIPInfoManager {
 
 	private static final String PREFS_NAME = "user_info";
 	private static final String UID_KEY = "userid";
@@ -87,7 +87,6 @@ public class VIPAccountManager {
 	 * 获取缓存的用户手机号
 	 */
 	public String getUserPhone() {
-
 		return userphone;
 	}
 
@@ -119,10 +118,10 @@ public class VIPAccountManager {
 		return nickname;
 	}
 
-	public void SetInfo(String username, String userid, String nickname,
+	public void SetInfo(String username, String userid, String phone,
 			String userimage) {
 		this.username = username;
-		this.nickname = nickname;
+		this.userphone = phone;
 		this.userid = userid;
 		this.userimage = userimage;
 
@@ -140,7 +139,7 @@ public class VIPAccountManager {
 		editor.commit();
 	}
 
-	private VIPAccountManager() {
+	private VIPInfoManager() {
 		SharedPreferences jmsUserInfo = HcbAPP.getInstance()
 				.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
 		userid = jmsUserInfo.getString(UID_KEY, "");
@@ -152,11 +151,11 @@ public class VIPAccountManager {
 		usertype = jmsUserInfo.getInt(USERTYPE_KEY, 5);
 	}
 
-	private static VIPAccountManager instance;
+	private static VIPInfoManager instance;
 
-	public static VIPAccountManager getInstance() {
+	public static VIPInfoManager getInstance() {
 		if (instance == null) {
-			instance = new VIPAccountManager();
+			instance = new VIPInfoManager();
 		}
 		return instance;
 	}

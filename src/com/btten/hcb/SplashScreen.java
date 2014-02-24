@@ -2,11 +2,11 @@ package com.btten.hcb;
 
 import com.btten.base.BaseActivity;
 import com.btten.hcb.SplashScreen;
-import com.btten.hcb.Service.LocationClientService;
-import com.btten.hcb.account.VIPAccountManager;
+import com.btten.hcb.account.VIPInfoManager;
 import com.btten.hcb.homeActivity.HomeActivity;
 import com.btten.hcb.login.LoginActivity;
 import com.btten.hcb.login.LoginScene;
+import com.btten.hcb.map.LocationClientService;
 import com.btten.hcbvip.R;
 import com.btten.network.NetSceneBase;
 import com.btten.network.OnSceneCallBack;
@@ -38,7 +38,7 @@ public class SplashScreen extends BaseActivity {
 //		float density = metric.density; // 屏幕密度（0.75 / 1.0 / 1.5）
 //		int densityDpi = metric.densityDpi; // 屏幕密度DPI（120 / 160 / 240）
 		
-		VIPAccountManager.getInstance().setScreenWidth(width);
+		VIPInfoManager.getInstance().setScreenWidth(width);
 	}
 
 	Intent intent = null;
@@ -54,8 +54,8 @@ public class SplashScreen extends BaseActivity {
 				// overridePendingTransition(R.anim.in_right_left,
 				// R.anim.out_right_left);
 				// } else {
-				if (VIPAccountManager.getInstance().IsLogin()) {
-					SharedPreferences settings = getSharedPreferences("jmscfg",
+				if (VIPInfoManager.getInstance().IsLogin()) {
+					SharedPreferences settings = getSharedPreferences("cfg",
 							MODE_PRIVATE);
 					String nameStr = settings.getString("nameStr", "");
 					String pwdStr = settings.getString("pwdStr", "");

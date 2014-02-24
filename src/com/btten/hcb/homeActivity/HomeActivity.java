@@ -5,8 +5,8 @@ import java.util.List;
 import com.btten.base.BaseActivity;
 import com.btten.hcb.MyHcbActivity;
 import com.btten.hcb.Service.CallTaxiNotification;
-import com.btten.hcb.Service.LocationClientService;
-import com.btten.hcb.account.VIPAccountManager;
+import com.btten.hcb.account.VIPInfoManager;
+import com.btten.hcb.map.LocationClientService;
 import com.btten.hcb.publicNotice.PublicNoticeInfoActivity;
 import com.btten.hcb.search.SearchActivity;
 import com.btten.hcbvip.R;
@@ -57,7 +57,7 @@ public class HomeActivity extends BaseActivity {
 		textView = (NotifyTextView) findViewById(R.id.homeview_textview);
 		container = (ViewContainer) findViewById(R.id.homeview_container);
 		// 设置动态长宽
-		int screenWidth = VIPAccountManager.getInstance().getScreenWidth();
+		int screenWidth = VIPInfoManager.getInstance().getScreenWidth();
 		LinearLayout layout = (LinearLayout) findViewById(R.id.homeview_linear);
 		container.setLayoutParams(new LinearLayout.LayoutParams(screenWidth,
 				screenWidth / 2));

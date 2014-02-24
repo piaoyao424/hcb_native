@@ -27,7 +27,7 @@ public class LoginScene extends NomalJsonSceneBase {
 
 	@Override
 	protected BaseJsonItem CreateJsonItems() {
-		return new LoginResultItems();
+		return new LoginResult();
 	}
 
 }

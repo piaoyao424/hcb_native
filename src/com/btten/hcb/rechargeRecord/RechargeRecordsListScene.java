@@ -1,7 +1,7 @@
 package com.btten.hcb.rechargeRecord;
 
 import android.util.Log;
-import com.btten.hcb.account.VIPAccountManager;
+import com.btten.hcb.account.VIPInfoManager;
 import com.btten.model.BaseJsonItem;
 import com.btten.network.NomalJsonSceneBase;
 import com.btten.network.OnSceneCallBack;
@@ -16,7 +16,7 @@ public class RechargeRecordsListScene extends NomalJsonSceneBase {
 	public void doscene(OnSceneCallBack callBack, String month, String year) {
 		SetCallBack(callBack);
 		targetUrl = UrlFactory.GetUrlNew("JmsInfo", "getSaleAccountHistory",
-				"vid", VIPAccountManager.getInstance().getUserid(), "start",
+				"vid", VIPInfoManager.getInstance().getUserid(), "start",
 				month, "end", year);
 		Log.i("url", targetUrl);
 		ThreadPoolUtils.execute(this);

@@ -19,13 +19,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import com.btten.base.BaseActivity;
 import com.btten.hcb.Service.CallTaxiNotification;
-import com.btten.hcb.Service.LocationClientService;
-import com.btten.hcb.account.VIPAccountManager;
+import com.btten.hcb.account.VIPInfoManager;
 import com.btten.hcb.login.LoginActivity;
+import com.btten.hcb.map.LocationClientService;
 import com.btten.hcbvip.R;
 import com.btten.network.NetConst;
 import com.btten.network.NetSceneBase;
 import com.btten.network.OnSceneCallBack;
+import com.btten.tools.algorithm.MD5;
 
 public class ChangePasswdActivity extends BaseActivity {
 	EditText et_oldpwd, et_newpwd, et_pwdAgain;
@@ -36,12 +37,9 @@ public class ChangePasswdActivity extends BaseActivity {
 	ChangePwdScene chgScene;
 	// 弹出信息
 	ProgressDialog progress;
-	// 保存本地的信息
-	SharedPreferences setting = null;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.change_password_activity);
 
@@ -57,16 +55,12 @@ public class ChangePasswdActivity extends BaseActivity {
 
 		btn_tijiao = (Button) findViewById(R.id.changePw_button);
 		btn_tijiao.setOnClickListener(listener);
-
-		setting = getSharedPreferences("calltaxicfg", MODE_PRIVATE);
-
 	}
 
 	OnClickListener listener = new OnClickListener() {
 
 		@Override
 		public void onClick(View v) {
-			// TODO Auto-generated method stub
 			switch (v.getId()) {
 			case R.id.changePw_button:
 				doTijiao();
@@ -103,6 +97,9 @@ public class ChangePasswdActivity extends BaseActivity {
 			Alert("两次输入的密码不一致！");
 			return false;
 		}
+
+		strOldPwd = MD5.getMD5Str(strOldPwd);
+		strNewPwd = MD5.getMD5Str(strNewPwd);
 		return true;
 	}
 
@@ -116,11 +113,9 @@ public class ChangePasswdActivity extends BaseActivity {
 
 		if (judge()) {
 			ShowProgress("提交数据中", "请稍候……");
-			System.out.println("userid + OldPwd + NewPwd : "
-					+ VIPAccountManager.getInstance().getUserid() + " + "
-					+ strOldPwd + " + " + strNewPwd);
-			chgScene = new ChangePwdScene();
-			chgScene.doChangePwdScene(saveBankCallBack, strOldPwd, strNewPwd);
+
+			new ChangePwdScene().doChangePwdScene(saveBankCallBack, strOldPwd,
+					strNewPwd);
 		}
 	}
 
@@ -138,32 +133,27 @@ public class ChangePasswdActivity extends BaseActivity {
 	OnSceneCallBack saveBankCallBack = new OnSceneCallBack() {
 		@Override
 		public void OnSuccess(Object data, NetSceneBase<?> netScene) {
-			// TODO Auto-generated method stub
 			HideProgress();
 			ShowProgress("密码修改成功", "请重新登录!");
-			// 清空密码
-			setting.edit().putString("pwdStr", "").commit();
-			// TODO 返回成功后跳转到登录页面
+
 			new Handler().postDelayed(new Runnable() {
 				@Override
 				public void run() {
-					// TODO Auto-generated method stub
-
 					// 清除缓存，
 					ClearOtherActivity();
 					clearTemp();
 					// 注销到登录页面
-					VIPAccountManager.getInstance().Logout();
+					VIPInfoManager.getInstance().Logout();
 
 					// 关闭位置
 					if (LocationClientService.getInstance().isStarted())
 						LocationClientService.getInstance().stop();
 					LocationClientService.getInstance().destroy();
-					
+
 					CallTaxiNotification.getInstance().LogoutApp();
 					startActivity((new Intent(ChangePasswdActivity.this,
 							LoginActivity.class)));
-					BaseActivity.ClearOtherActivity();
+					finish();
 				}
 			}, 200);
 
@@ -171,7 +161,6 @@ public class ChangePasswdActivity extends BaseActivity {
 
 		@Override
 		public void OnFailed(int status, String info, NetSceneBase<?> netScene) {
-			// TODO Auto-generated method stub
 			HideProgress();
 			ErrorAlert(status, info);
 

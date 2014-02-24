@@ -17,7 +17,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 import com.btten.base.BaseActivity;
 import com.btten.hcb.Service.CallTaxiNotification;
-import com.btten.hcb.account.VIPAccountManager;
+import com.btten.hcb.account.VIPInfoManager;
 import com.btten.hcb.homeActivity.HomeActivity;
 import com.btten.hcbvip.R;
 import com.btten.msgcenter.MsgCenter;
@@ -252,7 +252,7 @@ public class RegistActivity extends BaseActivity {
 			Toast.makeText(RegistActivity.this, "注册成功", 1000).show();
 			RegistResultItems items = (RegistResultItems) data;
 			RegistResultItem item = items.item;
-			VIPAccountManager.getInstance().SetInfo(item.username, item.userid,
+			VIPInfoManager.getInstance().SetInfo(item.username, item.userid,
 					"", "");
 			MsgCenter.getInstance().PostMsg(MsgConst.REGIST_SUCCESS, this);
 

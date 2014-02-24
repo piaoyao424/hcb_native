@@ -11,24 +11,24 @@ public class UrlFactory {
 	public static final String rootUrl_short = "http://www.huichebo.com/";
 	public static final String rootUrl = "http://www.huichebo.com/mobile.php";
 
-	public static String GetUrlOld(String data, String... args) {
-		String result = UrlFactory.rootUrl;
-		result += ("?" + "ostype" + "=" + "" + 1);
-		result += ("&" + "version" + "=" + "" + HcbAPP.getInstance()
-				.GetVersionCode());
-
-		result += ("&" + "mod" + "=" + "" + data);
-		if (args == null || args.length <= 0)
-			return result;
-
-		int count = args.length / 2;
-		for (int i = 0; i < count; i++) {
-			String argvalue = URLEncoder.encode(args[i * 2 + 1]);
-			result += ("&" + args[i * 2] + "=" + argvalue);
-		}
-
-		return result;
-	}
+//	public static String GetUrlOld(String data, String... args) {
+//		String result = UrlFactory.rootUrl;
+//		result += ("?" + "ostype" + "=" + "" + 1);
+//		result += ("&" + "version" + "=" + "" + HcbAPP.getInstance()
+//				.GetVersionCode());
+//
+//		result += ("&" + "mod" + "=" + "" + data);
+//		if (args == null || args.length <= 0)
+//			return result;
+//
+//		int count = args.length / 2;
+//		for (int i = 0; i < count; i++) {
+//			String argvalue = URLEncoder.encode(args[i * 2 + 1]);
+//			result += ("&" + args[i * 2] + "=" + argvalue);
+//		}
+//
+//		return result;
+//	}
 
 //	public static final String javaRoot = "http://www.huichebo.com:8088/hcbweb";
 	//服务器 java积分查询用 连张文军

@@ -15,7 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.btten.hcb.account.VIPAccountManager;
+import com.btten.hcb.account.VIPInfoManager;
 import com.btten.hcb.jmsInfo.JmsInfoActivity;
 import com.btten.hcb.map.BMapActivity;
 import com.btten.hcb.map.JmsGps;
@@ -77,7 +77,7 @@ public class SearchActivity extends BaseActivity {
 	private void initData() {
 		Bundle bundle = this.getIntent().getExtras();
 		menuID = bundle.getString("KEY_MENUID");
-		areaID = VIPAccountManager.getInstance().getAreaID();
+		areaID = VIPInfoManager.getInstance().getAreaID();
 
 		doArea();
 		doCriteria();
@@ -141,7 +141,7 @@ public class SearchActivity extends BaseActivity {
 
 	private void doArea() {
 		ShowProgress("加载地区数据", "请稍候……");
-		new SearchScene().doAreaScene(AreacallBack, VIPAccountManager
+		new SearchScene().doAreaScene(AreacallBack, VIPInfoManager
 				.getInstance().getAreaID());
 	}
 
@@ -149,7 +149,7 @@ public class SearchActivity extends BaseActivity {
 
 		ShowProgress("加载销售列表", "请稍候……");
 
-		new SearchScene().doSalesListScene(SalesListcallBack, VIPAccountManager
+		new SearchScene().doSalesListScene(SalesListcallBack, VIPInfoManager
 				.getInstance().getUserid());
 	}
 

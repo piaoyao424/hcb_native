@@ -2,7 +2,7 @@ package com.btten.hcb.search;
 
 import android.util.Log;
 
-import com.btten.hcb.account.VIPAccountManager;
+import com.btten.hcb.account.VIPInfoManager;
 import com.btten.model.BaseJsonItem;
 import com.btten.network.NomalJsonSceneBase;
 import com.btten.network.OnSceneCallBack;
@@ -42,9 +42,9 @@ public class SearchScene extends NomalJsonSceneBase {
 		Flag = 2;
 		targetUrl = UrlFactory.GetUrlNew("JmsInfo", "getJmsList",
 				"areaID", areaID, "itemID", itemID, "gpsla",
-				String.valueOf(VIPAccountManager.getInstance().getGpsla()),
+				String.valueOf(VIPInfoManager.getInstance().getGpsla()),
 				"gpslo",
-				String.valueOf(VIPAccountManager.getInstance().getGpslo()));
+				String.valueOf(VIPInfoManager.getInstance().getGpslo()));
 		ThreadPoolUtils.execute(this);
 		Log.i(TAG, targetUrl);
 	}

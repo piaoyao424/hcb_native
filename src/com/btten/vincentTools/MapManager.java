@@ -24,9 +24,9 @@ import com.baidu.mapapi.search.MKTransitRouteResult;
 import com.baidu.mapapi.search.MKWalkingRouteResult;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
 import com.btten.hcb.HcbAPP;
-import com.btten.hcb.Service.LocationClientService;
 import com.btten.hcb.jmsInfo.JmsInfoItem;
 import com.btten.hcb.map.JmsGps;
+import com.btten.hcb.map.LocationClientService;
 import com.btten.hcbvip.R;
 
 import android.app.Activity;

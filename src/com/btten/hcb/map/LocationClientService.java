@@ -1,4 +1,4 @@
-package com.btten.hcb.Service;
+package com.btten.hcb.map;
 
 import android.widget.Toast;
 
@@ -10,7 +10,7 @@ import com.baidu.mapapi.BMapManager;
 import com.baidu.mapapi.MKGeneralListener;
 import com.btten.hcb.HcbAPP;
 import com.btten.hcb.Service.core.JmsMapManager;
-import com.btten.hcb.account.VIPAccountManager;
+import com.btten.hcb.account.VIPInfoManager;
 
 public class LocationClientService {
 	private BMapManager BDMapManager = null;
@@ -67,7 +67,7 @@ public class LocationClientService {
 			public void onReceiveLocation(BDLocation arg0) {
 				if (arg0 != null) {
 					location = arg0;
-					VIPAccountManager.getInstance().setGps(arg0.getLatitude(),
+					VIPInfoManager.getInstance().setGps(arg0.getLatitude(),
 							arg0.getLongitude());
 				}
 			}

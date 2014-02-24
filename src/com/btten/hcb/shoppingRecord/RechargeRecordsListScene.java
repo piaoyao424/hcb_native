@@ -1,4 +1,4 @@
-package com.btten.hcb.pointRecord;
+package com.btten.hcb.shoppingRecord;
 
 import android.util.Log;
 import com.btten.hcb.account.VIPInfoManager;
@@ -8,8 +8,8 @@ import com.btten.network.OnSceneCallBack;
 import com.btten.network.ThreadPoolUtils;
 import com.btten.network.UrlFactory;
 
-public class PointRecordsListScene extends NomalJsonSceneBase {
-	public PointRecordsListScene() {
+public class RechargeRecordsListScene extends NomalJsonSceneBase {
+	public RechargeRecordsListScene() {
 		super();
 	}
 
@@ -24,7 +24,7 @@ public class PointRecordsListScene extends NomalJsonSceneBase {
 
 	@Override
 	protected BaseJsonItem CreateJsonItems() {
-		return new PointRecordsListResult();
+		return new RechargeRecordsListResult();
 	}
 
 }

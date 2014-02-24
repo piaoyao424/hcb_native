@@ -49,6 +49,7 @@ public class NoticeInfoActivity extends BaseActivity {
 			switch (NoticeID) {
 			// 布局文件跟一般的常见问题不一样，单独加载
 			case POINTSEXCHANGE:
+				setCurrentTitle("积分兑换");
 				view = inflater.inflate(R.layout.notice_points_exchange_layout,
 						null);
 

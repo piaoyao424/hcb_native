@@ -11,7 +11,7 @@ import com.btten.tools.CommonConvert;
 import com.btten.tools.Log;
 
 public class ServiceEvaluationResultItems extends BaseJsonItem {
-	private static String TAG = "LoginResultItems";
+	private static String TAG = "LoginResult";
 	public String jmsName;
 	public float star;
 	public ServiceEvaluationResultItem[] items = null;

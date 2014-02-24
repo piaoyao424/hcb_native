@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import com.baidu.location.BDLocation;
 import com.baidu.mapapi.map.MapView;
 import com.btten.base.BaseActivity;
-import com.btten.hcb.account.VIPAccountManager;
+import com.btten.hcb.account.VIPInfoManager;
 import com.btten.hcb.map.BMapActivity;
 import com.btten.hcbvip.R;
 import com.btten.vincenttools.MapManager;
@@ -29,8 +29,8 @@ public class BMapActivity extends BaseActivity {
 		mapManager = new MapManager(getBaseContext());
 		
 		// 取出个人坐标信息
-		double gps_la = VIPAccountManager.getInstance().getGpsla();
-		double gps_lo = VIPAccountManager.getInstance().getGpslo();
+		double gps_la = VIPInfoManager.getInstance().getGpsla();
+		double gps_lo = VIPInfoManager.getInstance().getGpslo();
 
 		BDLocation userGps = new BDLocation();
 		userGps.setLatitude(gps_la);

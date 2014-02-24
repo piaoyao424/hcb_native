@@ -7,13 +7,13 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import com.btten.hcb.HcbAPP;
-import com.btten.hcb.account.VIPAccountManager;
+import com.btten.hcb.account.VIPInfoManager;
 import com.btten.model.BaseJsonItem;
 import com.btten.tools.CommonConvert;
 import com.btten.tools.Log;
 
 public class SearchResultItems extends BaseJsonItem {
-	private static String TAG = "LoginResultItems";
+	private static String TAG = "LoginResult";
 	// 0区域请求1商品列表2加盟商列表
 	private int Flag = 0;
 	public SearchResultItem_area[] areaItems = null;
@@ -41,7 +41,7 @@ public class SearchResultItems extends BaseJsonItem {
 					areaItems = new SearchResultItem_area[lenth + 1];
 
 					SearchResultItem_area temp = new SearchResultItem_area();
-					temp.areaID = VIPAccountManager.getInstance().getAreaID();
+					temp.areaID = VIPInfoManager.getInstance().getAreaID();
 					temp.areaName = "全市";
 					temp.areaUpID = "0";
 					areaItems[0] = temp;

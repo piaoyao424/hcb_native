@@ -15,6 +15,8 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.btten.hcb.Service.CallTaxiNotification;
+import com.btten.hcb.account.VIPInfoManager;
+import com.btten.hcb.login.LoginActivity;
 import com.btten.hcbvip.R;
 import com.btten.network.NetConst;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -287,4 +289,15 @@ public class BaseActivity extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 
+	public Boolean IsLogin() {
+		if (VIPInfoManager.getInstance().IsLogin()) {
+			return true;
+		} else {
+			Intent intent = new Intent(this, LoginActivity.class);
+			startActivity(intent);
+			this.finish();
+			return false;
+		}
+
+	}
 }
