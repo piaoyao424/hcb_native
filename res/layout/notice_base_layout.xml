@@ -7,8 +7,8 @@
     android:orientation="vertical" >
 
     <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:background="@null"
         android:fadingEdge="none"
         android:scrollbars="none" >
@@ -20,7 +20,7 @@
 
             <TextView
                 android:id="@+id/notice_base_title"
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:gravity="center_horizontal"
@@ -30,7 +30,7 @@
 
             <TextView
                 android:id="@+id/notice_base_content"
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="19.5dp"
                 android:layout_marginRight="19.5dp"

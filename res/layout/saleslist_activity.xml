@@ -16,7 +16,7 @@
         <TextView
             android:id="@+id/saleslist_txt_area"
             android:layout_width="0dp"
-            android:layout_height="fill_parent"
+            android:layout_height="match_parent"
             android:layout_marginRight="1dp"
             android:layout_weight="1"
             android:background="@color/orange"
@@ -30,7 +30,7 @@
         <TextView
             android:id="@+id/saleslist_txt_list"
             android:layout_width="0dp"
-            android:layout_height="fill_parent"
+            android:layout_height="match_parent"
             android:layout_marginRight="1dp"
             android:layout_weight="1"
             android:background="@color/orange"
@@ -44,7 +44,7 @@
         <TextView
             android:id="@+id/saleslist_txt_criteria"
             android:layout_width="0dp"
-            android:layout_height="fill_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/orange"
             android:drawableRight="@drawable/triangle_white"
@@ -56,14 +56,14 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:orientation="vertical" >
 
         <LinearLayout
             android:id="@+id/saleslist_linear_area"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:gravity="center_vertical"
@@ -72,7 +72,7 @@
 
             <ListView
                 android:id="@+id/saleslist_lv_area"
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/nomal_shape"
                 android:cacheColorHint="@android:color/transparent"
@@ -83,7 +83,7 @@
 
         <LinearLayout
             android:id="@+id/saleslist_linear_list"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:baselineAligned="true"
@@ -101,7 +101,7 @@
 
                 <ListView
                     android:id="@+id/saleslist_lv_salesmenu"
-                    android:layout_width="fill_parent"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     
                     android:cacheColorHint="@android:color/transparent"
@@ -120,7 +120,7 @@
 
                 <ListView
                     android:id="@+id/saleslist_lv_salesitems"
-                    android:layout_width="fill_parent"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/nomal_shape"
                     android:cacheColorHint="@android:color/transparent"
@@ -132,7 +132,7 @@
 
         <LinearLayout
             android:id="@+id/saleslist_linear_criteria"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:gravity="center_vertical"
@@ -140,7 +140,7 @@
 
             <ListView
                 android:id="@+id/saleslist_lv_criteria"
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/nomal_shape"
                 android:cacheColorHint="@android:color/transparent"
@@ -151,7 +151,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/light_gray"
         android:gravity="center_vertical"
@@ -159,7 +159,7 @@
 
         <ListView
             android:id="@+id/saleslist_lv_jmsinfo"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/nomal_shape"
             android:cacheColorHint="@android:color/transparent"

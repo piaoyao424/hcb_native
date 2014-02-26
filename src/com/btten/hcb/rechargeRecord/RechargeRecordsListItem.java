@@ -18,7 +18,7 @@ public class RechargeRecordsListItem extends ListItemBase {
 	public String dayStr;
 
 	public RechargeRecordsListItem() {
-		layoutId = R.layout.recharge_records_listitem;
+		layoutId = R.layout.recharge_record_listitem;
 	}
 
 	@Override

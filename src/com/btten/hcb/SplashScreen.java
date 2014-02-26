@@ -11,6 +11,8 @@ import com.btten.hcbvip.R;
 import com.btten.network.NetSceneBase;
 import com.btten.network.OnSceneCallBack;
 import com.umeng.analytics.MobclickAgent;
+import com.umeng.update.UmengUpdateAgent;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -26,6 +28,8 @@ public class SplashScreen extends BaseActivity {
 		MobclickAgent.onError(this);
 		// 更新配置
 		MobclickAgent.updateOnlineConfig(this);
+		UmengUpdateAgent.setUpdateOnlyWifi(false);
+
 		// 打开GPS
 		LocationClientService.getInstance().start();
 
@@ -34,10 +38,10 @@ public class SplashScreen extends BaseActivity {
 		DisplayMetrics metric = new DisplayMetrics();
 		getWindowManager().getDefaultDisplay().getMetrics(metric);
 		int width = metric.widthPixels; // 屏幕宽度（像素）
-//		int height = metric.heightPixels; // 屏幕高度（像素）
-//		float density = metric.density; // 屏幕密度（0.75 / 1.0 / 1.5）
-//		int densityDpi = metric.densityDpi; // 屏幕密度DPI（120 / 160 / 240）
-		
+		// int height = metric.heightPixels; // 屏幕高度（像素）
+		// float density = metric.density; // 屏幕密度（0.75 / 1.0 / 1.5）
+		// int densityDpi = metric.densityDpi; // 屏幕密度DPI（120 / 160 / 240）
+
 		VIPInfoManager.getInstance().setScreenWidth(width);
 	}
 
@@ -65,35 +69,21 @@ public class SplashScreen extends BaseActivity {
 						@Override
 						public void OnSuccess(Object data,
 								NetSceneBase<?> netScene) {
-							intent = new Intent(SplashScreen.this,
-									HomeActivity.class);
-							startActivity(intent);
-							finish();
-							overridePendingTransition(R.anim.in_right_left,
-									R.anim.out_right_left);
 						}
 
 						@Override
 						public void OnFailed(int status, String info,
 								NetSceneBase<?> netScene) {
-							intent = new Intent(SplashScreen.this,
-									LoginActivity.class);
-							startActivity(intent);
-							finish();
-							overridePendingTransition(R.anim.in_right_left,
-									R.anim.out_right_left);
 						}
 					}, nameStr, pwdStr);
 
-				} else {
-					// intent = new Intent(SplashScreen.this,
-					// LoginActivity.class);
-					intent = new Intent(SplashScreen.this, HomeActivity.class);
-					startActivity(intent);
-					finish();
-					overridePendingTransition(R.anim.in_right_left,
-							R.anim.out_right_left);
 				}
+
+				intent = new Intent(SplashScreen.this, HomeActivity.class);
+				startActivity(intent);
+				finish();
+				overridePendingTransition(R.anim.in_right_left,
+						R.anim.out_right_left);
 				// }
 			}
 		}, 2000);

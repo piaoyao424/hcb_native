@@ -23,11 +23,12 @@ public class PointRecordsActivity extends BaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.point_records);
+		setContentView(R.layout.point_record);
 		init();
 	}
 
 	public void init() {
+		setCurrentTitle("积分记录");
 		// 初始化时间按钮
 		startDate = (WheelShow) findViewById(R.id.point_records_start_time);
 		endDate = (WheelShow) findViewById(R.id.point_records_end_time);
@@ -38,7 +39,7 @@ public class PointRecordsActivity extends BaseActivity {
 		btn_chaxun.setOnClickListener(listener);
 
 		listView = (ListView) findViewById(R.id.point_records_list);
-		setCurrentTitle("积分记录");
+		setBackKeyListner(true);
 	}
 
 	OnClickListener listener = new OnClickListener() {

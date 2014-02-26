@@ -42,13 +42,9 @@ public class HomeActivity extends BaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
-		UmengUpdateAgent.setUpdateOnlyWifi(false);
-		UmengUpdateAgent.update(this);
-
 		setContentView(R.layout.homeview);
 		initView();
-
+		UmengUpdateAgent.update(this);
 		new TitleNoticeScene().doScene(callBack);
 	}
 

@@ -2,45 +2,36 @@ package com.btten.hcb.serviceEvaluation;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-
-import android.R.integer;
-
 import com.btten.hcb.HcbAPP;
 import com.btten.model.BaseJsonItem;
 import com.btten.tools.CommonConvert;
 import com.btten.tools.Log;
 
-public class ServiceEvaluationResultItems extends BaseJsonItem {
+public class ServiceEvaluationResult extends BaseJsonItem {
 	private static String TAG = "LoginResult";
-	public String jmsName;
-	public float star;
-	public ServiceEvaluationResultItem[] items = null;
+	public ServiceEvaluationItem[] items = null;
 
 	@Override
 	public boolean CreateFromJson(JSONObject result) {
 		try {
-			this.star = result.getInt("STAR");
-			this.jmsName = result.getString("JMSNAME");
+			this.status = result.getInt("STATUS");
+			this.info = result.getString("INFO");
 
 			// 有数据
-			if (status == 1 && !result.isNull("DATA")) {
-
-				this.status = result.getInt("STATUS");
-				this.info = result.getString("INFO");
+			if (status == 1 ) {
 
 				JSONArray jsonArray = result.getJSONArray("DATA");
 				int lenth = jsonArray.length();
-				items = new ServiceEvaluationResultItem[lenth];
+				items = new ServiceEvaluationItem[lenth];
 
 				for (int i = 0; i < lenth; ++i) {
-					ServiceEvaluationResultItem temp = new ServiceEvaluationResultItem();
+					ServiceEvaluationItem temp = new ServiceEvaluationItem();
 					CommonConvert convert = new CommonConvert(
 							jsonArray.getJSONObject(i));
 
-					temp.VipName = convert.getString("VIPNAME");
-					temp.content = convert.getString("CONTENT");
-					temp.star = convert.getInt("STAR");
-					temp.status = convert.getInt("STATUS");
+					temp.VipName = convert.getString("F1_4006");
+					temp.content = convert.getString("F4_4223");
+					temp.star = convert.getInt("F5_4223");
 					items[i] = temp;
 				}
 			}

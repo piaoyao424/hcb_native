@@ -1,9 +1,6 @@
 package com.btten.hcb.serviceEvaluation;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -16,44 +13,42 @@ public class ServiceEvaluationActivity extends BaseActivity {
 	private ListView lv_evaluation;
 	private TextView txt_jmsName;
 	private RatingBar tRatingBar;
-	private String jmsID;
+	private String jmsID, jname;
+	private float jstar;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.evaluation_service_list_item);
+		setContentView(R.layout.evaluation_service_activity);
 
+		initData();
 		initView();
 
 		ShowProgress("查询中", "请稍候……");
+
 		new ServiceEvaluationScene().doServiceEvaluationListScene(
 				SearchcallBack, jmsID);
 	}
 
 	// 初始化控件
 	private void initView() {
+		setCurrentTitle("服务评价");
 		lv_evaluation = (ListView) findViewById(R.id.evaluation_service_list);
 		txt_jmsName = (TextView) findViewById(R.id.evaluation_service_jmsname);
 		tRatingBar = (RatingBar) findViewById(R.id.evaluation_service_ratingbar);
 
-		setBackKeyListner(true);
+		txt_jmsName.setText(jname);
+		tRatingBar.setRating(jstar);
 
-		Bundle bundle = this.getIntent().getExtras();
-		jmsID = bundle.getString("KEY_JID");
+		setBackKeyListner(true);
 	}
 
-	// txt监听
-	OnClickListener listener = new OnClickListener() {
-
-		@SuppressLint("ResourceAsColor")
-		@Override
-		public void onClick(View v) {
-			switch (v.getId()) {
-			case R.id.map_key_imagebutton:
-				break;
-			}
-		}
-	};
+	private void initData() {
+		Bundle bundle = this.getIntent().getExtras();
+		jmsID = bundle.getString("KEY_JID");
+		jname = bundle.getString("KEY_JNAME");
+		jstar = bundle.getFloat("KEY_JSTAR");
+	}
 
 	// 查询回调
 	OnSceneCallBack SearchcallBack = new OnSceneCallBack() {
@@ -68,9 +63,7 @@ public class ServiceEvaluationActivity extends BaseActivity {
 			ServiceEvaluationListAdapter adapter = new ServiceEvaluationListAdapter(
 					ServiceEvaluationActivity.this);
 
-			ServiceEvaluationResultItem[] sItems = ((ServiceEvaluationResultItems) data).items;
-			txt_jmsName.setText(((ServiceEvaluationResultItems) data).jmsName);
-			tRatingBar.setRating(((ServiceEvaluationResultItems) data).star);
+			ServiceEvaluationItem[] sItems = ((ServiceEvaluationResult) data).items;
 			lv_evaluation.setAdapter(adapter);
 
 			adapter.setItems(sItems);

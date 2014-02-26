@@ -8,8 +8,8 @@ import com.btten.network.OnSceneCallBack;
 import com.btten.network.ThreadPoolUtils;
 import com.btten.network.UrlFactory;
 
-public class RechargeRecordsListScene extends NomalJsonSceneBase {
-	public RechargeRecordsListScene() {
+public class ShoppingRecordsListScene extends NomalJsonSceneBase {
+	public ShoppingRecordsListScene() {
 		super();
 	}
 
@@ -24,7 +24,7 @@ public class RechargeRecordsListScene extends NomalJsonSceneBase {
 
 	@Override
 	protected BaseJsonItem CreateJsonItems() {
-		return new RechargeRecordsListResult();
+		return new ShoppingRecordsListResult();
 	}
 
 }

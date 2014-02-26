@@ -53,7 +53,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_margin="20dp"
             android:background="@color/white"
@@ -61,13 +61,13 @@
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="fill_parent"
+                android:layout_height="match_parent"
                 android:layout_weight="0.5" >
 
                 <EditText
                     android:id="@+id/cardactive_edittext_verifycode"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:background="@drawable/edittext_bg"
                     android:hint="输入验证码"
                     android:paddingLeft="10dp"
@@ -78,7 +78,7 @@
             <Button
                 android:id="@+id/cardactive_button_verifycode"
                 android:layout_width="0dp"
-                android:layout_height="fill_parent"
+                android:layout_height="match_parent"
                 android:layout_marginLeft="5dp"
                 android:layout_weight="0.5"
                 android:background="@drawable/edittext_bg"

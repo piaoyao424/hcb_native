@@ -6,7 +6,7 @@ import android.util.Log;
 import com.btten.model.BaseJsonItem;
 import com.btten.tools.CommonConvert;
 
-public class RoadRescueMenuItems extends BaseJsonItem {
+public class RoadRescueMenuResult extends BaseJsonItem {
 	private JSONArray jsonArray = null;
 	public RoadRescueMenuItem[] items = null;
 

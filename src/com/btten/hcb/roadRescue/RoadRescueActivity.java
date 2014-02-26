@@ -41,12 +41,12 @@ public class RoadRescueActivity extends BaseActivity {
 	}
 
 	private void initView() {
+		setCurrentTitle("道路救援");
 		expandableListView = (ExpandableListView) findViewById(R.id.jmsinfo_explv);
 		expandableListView.setGroupIndicator(null);
 		expandableListView.setAdapter(new MyExpandableListViewAdapter(
 				RoadRescueActivity.this));
 		expandableListView.setOnChildClickListener(onChildClickListener);
-		setCurrentTitle("网点详情");
 	}
 
 	private void initdate() {
@@ -74,7 +74,7 @@ public class RoadRescueActivity extends BaseActivity {
 
 		@Override
 		public void OnSuccess(Object data, NetSceneBase<?> netScene) {
-			RoadRescueMenuItems items = (RoadRescueMenuItems) data;
+			RoadRescueMenuResult items = (RoadRescueMenuResult) data;
 			for (RoadRescueMenuItem item : items.items) {
 				if (item.upid.equals("0")) {
 					groupArray.add(item);

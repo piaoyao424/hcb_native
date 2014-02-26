@@ -10,13 +10,13 @@
         layout="@layout/top_title_bar" />
 
     <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:fadingEdge="none"
         android:scrollbars="none" >
 
         <LinearLayout
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="15dp" >
@@ -46,7 +46,7 @@
             </LinearLayout>
 
             <View
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="0.5dp"
                 android:background="#C3C3C3" />
 
@@ -68,13 +68,13 @@
                 <ImageView
                     android:id="@+id/myaccount_activity_level"
                     android:layout_width="wrap_content"
-                    android:layout_height="fill_parent"
+                    android:layout_height="match_parent"
                     android:contentDescription="@string/ImageDescription"
-                    android:src="@drawable/viplevel02" />
+                    android:src="@drawable/viplevel01" />
             </LinearLayout>
 
             <View
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="0.5dp"
                 android:background="#C3C3C3" />
 
@@ -124,7 +124,7 @@
                     <Button
                         android:id="@+id/myaccount_activity_button_charge"
                         android:layout_width="0dp"
-                        android:layout_height="fill_parent"
+                        android:layout_height="match_parent"
                         android:layout_margin="10dp"
                         android:layout_weight="0.3"
                         android:background="@drawable/button_bg"
@@ -137,7 +137,7 @@
                     <Button
                         android:id="@+id/myaccount_activity_button_charge_record"
                         android:layout_width="0dp"
-                        android:layout_height="fill_parent"
+                        android:layout_height="match_parent"
                         android:layout_margin="10dp"
                         android:layout_weight="0.3"
                         android:background="@drawable/button_bg"
@@ -149,14 +149,14 @@
 
                     <View
                         android:layout_width="0dp"
-                        android:layout_height="fill_parent"
+                        android:layout_height="match_parent"
                         android:layout_margin="10dp"
                         android:layout_weight="0.3" />
                 </LinearLayout>
             </LinearLayout>
 
             <View
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="0.5dp"
                 android:background="#C3C3C3" />
 
@@ -206,7 +206,7 @@
                     <Button
                         android:id="@+id/myaccount_activity_button_exchange"
                         android:layout_width="0dp"
-                        android:layout_height="fill_parent"
+                        android:layout_height="match_parent"
                         android:layout_margin="10dp"
                         android:layout_weight="0.3"
                         android:background="@drawable/button_bg"
@@ -219,20 +219,20 @@
                     <Button
                         android:id="@+id/myaccount_activity_button_exchangerecord"
                         android:layout_width="0dp"
-                        android:layout_height="fill_parent"
+                        android:layout_height="match_parent"
                         android:layout_margin="10dp"
                         android:layout_weight="0.3"
                         android:background="@drawable/button_bg"
                         android:paddingBottom="5dp"
                         android:paddingTop="5dp"
-                        android:text="兑换记录"
+                        android:text="积分记录"
                         android:textColor="@color/main_text_color"
                         android:textSize="16sp" />
 
                     <Button
                         android:id="@+id/myaccount_activity_button_exchangerole"
                         android:layout_width="0dp"
-                        android:layout_height="fill_parent"
+                        android:layout_height="match_parent"
                         android:layout_margin="10dp"
                         android:layout_weight="0.3"
                         android:background="@drawable/button_bg"
@@ -245,8 +245,9 @@
             </LinearLayout>
 
             <ImageView
-                android:layout_width="fill_parent"
-                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="-20dp"
                 android:scaleType="fitStart"
                 android:src="@drawable/ad_001" />
         </LinearLayout>

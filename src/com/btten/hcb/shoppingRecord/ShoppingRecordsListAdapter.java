@@ -5,9 +5,9 @@ import android.app.Activity;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class RechargeRecordsListAdapter extends ListItemAdapter {
+public class ShoppingRecordsListAdapter extends ListItemAdapter {
 
-	public RechargeRecordsListAdapter(Activity context) {
+	public ShoppingRecordsListAdapter(Activity context) {
 		super(context);
 	}
 

@@ -6,7 +6,7 @@ import android.widget.TextView;
 import com.btten.base.ListItemBase;
 import com.btten.hcbvip.R;
 
-public class ServiceEvaluationResultItem extends ListItemBase {
+public class ServiceEvaluationItem extends ListItemBase {
 	public String content;
 	public String VipName;
 	public int star;
@@ -16,7 +16,7 @@ public class ServiceEvaluationResultItem extends ListItemBase {
 	public TextView txtViewContent = null;
 	public RatingBar ratingStar = null;
 
-	public ServiceEvaluationResultItem() {
+	public ServiceEvaluationItem() {
 		layoutId = R.layout.evaluation_service_list_item;
 	}
 

@@ -1,25 +1,25 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/notice_pointsexchange_layout"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@null"
     android:orientation="vertical" >
 
     <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="20dp" >
 
         <LinearLayout
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="28dp"
             android:gravity="center"
             android:orientation="horizontal" >
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
+                android:layout_height="match_parent"
                 android:gravity="center_vertical"
                 android:text="请登录惠车宝官方网站："
                 android:textColor="@color/main_text_color"
@@ -28,7 +28,7 @@
             <ImageView
                 android:id="@+id/notice_pointsexchange_gohome"
                 android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
+                android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
                 android:contentDescription="@string/ImageDescription"
                 android:scaleType="fitStart"
@@ -37,7 +37,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:orientation="horizontal" >
@@ -45,7 +45,7 @@
             <TextView
                 android:id="@+id/notice_pointsecchange_phone"
                 android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
+                android:layout_height="match_parent"
                 android:gravity="left"
                 android:lineSpacingExtra="10dp"
                 android:text="登陆后进行积分兑换。如有疑问请查询惠车宝官方网站说明，或致电    400-660-2020"

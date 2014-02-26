@@ -5,7 +5,7 @@ import com.btten.hcbvip.R;
 import android.view.View;
 import android.widget.TextView;
 
-public class RechargeRecordsListItem extends ListItemBase {
+public class ShoppingRecordsListItem extends ListItemBase {
 
 	class ViewChild {
 		public TextView tv_date;
@@ -17,8 +17,8 @@ public class RechargeRecordsListItem extends ListItemBase {
 	public String gotPoints;
 	public String dayStr;
 
-	public RechargeRecordsListItem() {
-		layoutId = R.layout.recharge_records_listitem;
+	public ShoppingRecordsListItem() {
+		layoutId = R.layout.recharge_record_listitem;
 	}
 
 	@Override

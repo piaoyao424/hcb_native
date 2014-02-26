@@ -24,7 +24,7 @@
 
             <TextView
                 android:id="@+id/tvId_gonggao_title"
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="16dp"
                 android:textColor="@color/main_text_color"

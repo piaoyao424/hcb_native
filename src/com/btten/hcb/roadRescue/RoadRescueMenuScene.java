@@ -10,7 +10,7 @@ import com.umeng.common.Log;
 public class RoadRescueMenuScene extends NomalJsonSceneBase {
 	@Override
 	protected BaseJsonItem CreateJsonItems() {
-		return new RoadRescueMenuItems();
+		return new RoadRescueMenuResult();
 	}
 
 	public void doScene(OnSceneCallBack callBack)

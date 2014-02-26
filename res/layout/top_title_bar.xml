@@ -26,7 +26,7 @@
     <ImageButton
         android:id="@+id/map_key_imagebutton"
         android:layout_width="wrap_content"
-        android:layout_height="fill_parent"
+        android:layout_height="match_parent"
         android:layout_alignParentRight="true"
         android:background="@null"
         android:padding="5dp"

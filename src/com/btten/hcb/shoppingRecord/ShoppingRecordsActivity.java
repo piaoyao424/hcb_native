@@ -13,7 +13,7 @@ import com.btten.hcbvip.R;
 import com.btten.network.NetSceneBase;
 import com.btten.network.OnSceneCallBack;
 
-public class RechargeRecordsActivity extends BaseActivity {
+public class ShoppingRecordsActivity extends BaseActivity {
 	private Button btn_chaxun;
 	private String begin;
 	private String end;
@@ -24,22 +24,22 @@ public class RechargeRecordsActivity extends BaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.recharge_records);
+		setContentView(R.layout.shopping_record);
 		init();
 	}
 
 	public void init() {
+		setCurrentTitle("我的消费");
 		// 初始化时间按钮
-		startDate = (WheelShow) findViewById(R.id.point_records_start_time);
-		endDate = (WheelShow) findViewById(R.id.point_records_end_time);
+		startDate = (WheelShow) findViewById(R.id.shopping_record_start_time);
+		endDate = (WheelShow) findViewById(R.id.shopping_record_end_time);
 		startDate.initDateTimePicker(listener, true);
 		endDate.initDateTimePicker(listener, false);
 
-		btn_chaxun = (Button) findViewById(R.id.point_records_button);
+		btn_chaxun = (Button) findViewById(R.id.shopping_record_button);
 		btn_chaxun.setOnClickListener(listener);
 
-		listView = (ListView) findViewById(R.id.point_records_list);
-		setCurrentTitle("充值记录");
+		listView = (ListView) findViewById(R.id.shopping_record_list);
 	}
 
 	OnClickListener listener = new OnClickListener() {
@@ -52,7 +52,7 @@ public class RechargeRecordsActivity extends BaseActivity {
 			case R.id.point_records_end_time:
 			case R.id.point_records_button:
 				if (requireData()) {
-					new RechargeRecordsListScene()
+					new ShoppingRecordsListScene()
 							.doscene(callBack, begin, end);
 					ShowRunning();
 				}
@@ -81,7 +81,7 @@ public class RechargeRecordsActivity extends BaseActivity {
 
 		if (Integer.parseInt(startString.toString()) > Integer
 				.parseInt(endString.toString())) {
-			RechargeRecordsActivity.this.Alert("结束日期不能小于开始日期！");
+			ShoppingRecordsActivity.this.Alert("结束日期不能小于开始日期！");
 			return false;
 		}
 		begin += " 00:00:00";
@@ -99,23 +99,23 @@ public class RechargeRecordsActivity extends BaseActivity {
 		@Override
 		public void OnSuccess(Object data, NetSceneBase<?> netScene) {
 			HideProgress();
-			RechargeRecordsListResult items = (RechargeRecordsListResult) data;
-			RechargeRecordsListAdapter adapter = new RechargeRecordsListAdapter(
-					RechargeRecordsActivity.this);
+			ShoppingRecordsListResult items = (ShoppingRecordsListResult) data;
+			ShoppingRecordsListAdapter adapter = new ShoppingRecordsListAdapter(
+					ShoppingRecordsActivity.this);
 
 			adapter.setItems(items.items);
 			listView.setAdapter(adapter);
 
 			LayoutInflater layoutInflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
 			View mFooterView = layoutInflater.inflate(
-					R.layout.recharge_records_list_footer, null);
+					R.layout.recharge_record_list_footer, null);
 			TextView textView = (TextView) mFooterView
 					.findViewById(R.id.recharge_records_list_footer_totle);
 			textView.setText(String.valueOf(items.Points));
 
 			listView.addFooterView(mFooterView);
 			if (items.items.length == 0)
-				RechargeRecordsActivity.this.Alert("没有数据！");
+				ShoppingRecordsActivity.this.Alert("没有数据！");
 
 		}
 	};

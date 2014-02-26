@@ -8,7 +8,7 @@
     <include layout="@layout/top_title_bar" />
 
     <LinearLayout
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="@drawable/date_choice_shape"
         android:baselineAligned="false"
@@ -46,7 +46,7 @@
         <Button
             android:id="@+id/point_records_button"
             android:layout_width="0dp"
-            android:layout_height="fill_parent"
+            android:layout_height="match_parent"
             android:layout_marginLeft="5dp"
             android:layout_weight="2"
             android:background="@color/orange"
@@ -60,8 +60,8 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:background="@color/white"
@@ -71,8 +71,8 @@
         android:paddingTop="5dp" >
 
         <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:background="@color/white"
             android:orientation="horizontal"
             android:padding="10dp" >
@@ -97,14 +97,14 @@
         </LinearLayout>
 
         <View
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/light_gray" />
 
         <ListView
             android:id="@+id/point_records_list"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_marginBottom="5dp"
             android:background="@color/white"
             android:cacheColorHint="@android:color/transparent"

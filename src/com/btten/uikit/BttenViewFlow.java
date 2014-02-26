@@ -293,11 +293,9 @@ public class BttenViewFlow extends AdapterView<BaseAdapter> {
 		public void onChanged() {
 			BttenViewFlow.this.removeAllViewsInLayout();
 
-			// TODO Auto-generated method stub
-
 			for (int i = 0; i < mAdapter.getCount(); i++) {
-				LayoutParams lp = new LayoutParams(LayoutParams.FILL_PARENT,
-						LayoutParams.FILL_PARENT);
+				LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT,
+						LayoutParams.MATCH_PARENT);
 				BttenViewFlow.this.addViewInLayout(
 						mAdapter.getView(i, null, BttenViewFlow.this), i, lp);
 			}

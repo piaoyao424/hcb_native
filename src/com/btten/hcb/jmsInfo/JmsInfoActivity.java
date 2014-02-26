@@ -13,12 +13,14 @@ import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.btten.base.BaseActivity;
 import com.btten.hcb.map.BMapActivity;
 import com.btten.hcb.map.JmsGps;
+import com.btten.hcb.serviceEvaluation.ServiceEvaluationActivity;
 import com.btten.hcbvip.R;
 import com.btten.network.NetSceneBase;
 import com.btten.network.OnSceneCallBack;
@@ -35,6 +37,7 @@ public class JmsInfoActivity extends BaseActivity {
 	private RatingBar ratingBar;
 	private ImageView imageView1, imageView2;
 	private RelativeLayout address_layout, phone_layout;
+	private LinearLayout starLinearLayout;
 
 	class ExpandableListItemHolder { // 定义一个内部类，用于保存listitem的3个子视图引用
 		TextView txt_Name;
@@ -47,7 +50,7 @@ public class JmsInfoActivity extends BaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.jmsinfo_avtivity);
+		setContentView(R.layout.jmsinfo_activity);
 
 		initdate();
 		initView();
@@ -68,10 +71,11 @@ public class JmsInfoActivity extends BaseActivity {
 		address_layout.setOnClickListener(clickListener);
 		phone_layout = (RelativeLayout) findViewById(R.id.jmsinfo_relative_phone);
 		phone_layout.setOnClickListener(clickListener);
+		starLinearLayout = (LinearLayout) findViewById(R.id.jmsinfo_activity_star_layout);
+		starLinearLayout.setOnClickListener(clickListener);
 
 		expandableListView = (ExpandableListView) findViewById(R.id.jmsinfo_explv);
 		expandableListView.setGroupIndicator(null);
-		// expandableListView.setOnChildClickListener(onChildClickListener);
 
 		setBackKeyListner(true);
 	}
@@ -89,13 +93,13 @@ public class JmsInfoActivity extends BaseActivity {
 	}
 
 	OnClickListener clickListener = new OnClickListener() {
+		Intent intent;
 
 		@Override
 		public void onClick(View v) {
 			switch (v.getId()) {
 			case R.id.jmsinfo_relative_address:
-				Intent intent = new Intent(JmsInfoActivity.this,
-						BMapActivity.class);
+				intent = new Intent(JmsInfoActivity.this, BMapActivity.class);
 
 				// 初始化加盟商GPS信息
 				JmsGps jmsGps = new JmsGps();
@@ -115,24 +119,20 @@ public class JmsInfoActivity extends BaseActivity {
 				new CallTelephone(JmsInfoActivity.this, jmsInfo.phone,
 						jmsInfo.jname).call();
 				break;
+			case R.id.jmsinfo_activity_star_layout:
+				intent = new Intent(JmsInfoActivity.this,
+						ServiceEvaluationActivity.class);
+				intent.putExtra("KEY_JID", jmsInfo.id);
+				intent.putExtra("KEY_JNAME", jmsInfo.jname);
+				intent.putExtra("KEY_JSTAR", ratingBar.getRating());
+				startActivity(intent);
+				break;
+
 			default:
 				break;
 			}
 		}
 	};
-	// OnChildClickListener onChildClickListener = new OnChildClickListener() {
-	//
-	// @Override
-	// public boolean onChildClick(ExpandableListView parent, View v,
-	// int groupPosition, int childPosition, long id) {
-	// String itemid = childArray.get(groupPosition).get(childPosition).id;
-	// Intent intent = new Intent(JmsInfoActivity.this,
-	// JmsInfoActivity.class);
-	// intent.putExtra("KEY_ITEMID", itemid);
-	// startActivity(intent);
-	// return false;
-	// }
-	// };
 
 	OnSceneCallBack callBack = new OnSceneCallBack() {
 

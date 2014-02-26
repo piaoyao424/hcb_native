@@ -1,9 +1,7 @@
 package com.btten.hcb.serviceEvaluation;
 
 import com.btten.base.ListItemAdapter;
-import com.btten.hcb.jmsInfo.JmsInfoActivity;
 import android.app.Activity;
-import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,9 +38,7 @@ public class ServiceEvaluationListAdapter extends ListItemAdapter {
 
 		@Override
 		public void onClick(View v) {
-			/*Intent intent = new Intent(context, JmsInfoActivity.class);
-			intent.putExtra("KEY_GGID", ((SearchResultItem) items[index]).jid);
-			context.startActivity(intent);*/
+		 
 		}
 	}
 }

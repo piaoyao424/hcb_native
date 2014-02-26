@@ -24,7 +24,7 @@ public class RechargeRecordsActivity extends BaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.recharge_records);
+		setContentView(R.layout.recharge_record);
 		init();
 	}
 
@@ -108,7 +108,7 @@ public class RechargeRecordsActivity extends BaseActivity {
 
 			LayoutInflater layoutInflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
 			View mFooterView = layoutInflater.inflate(
-					R.layout.recharge_records_list_footer, null);
+					R.layout.recharge_record_list_footer, null);
 			TextView textView = (TextView) mFooterView
 					.findViewById(R.id.recharge_records_list_footer_totle);
 			textView.setText(String.valueOf(items.Points));

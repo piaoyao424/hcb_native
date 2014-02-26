@@ -1,8 +1,6 @@
 package com.btten.hcb.serviceEvaluation;
 
 import android.util.Log;
-
-import com.btten.hcb.account.VIPInfoManager;
 import com.btten.model.BaseJsonItem;
 import com.btten.network.NomalJsonSceneBase;
 import com.btten.network.OnSceneCallBack;
@@ -16,17 +14,19 @@ public class ServiceEvaluationScene extends NomalJsonSceneBase {
 		super();
 	}
 
-	public void doServiceEvaluationListScene(OnSceneCallBack callBack, String JID) {
+	public void doServiceEvaluationListScene(OnSceneCallBack callBack,
+			String JID) {
 
 		SetCallBack(callBack);
-		targetUrl = UrlFactory.GetUrlNew("PublicNotice", "getItems");
+		targetUrl = UrlFactory.GetUrlNew("JmsInfo", "getCommentaryHistory",
+				"jid", JID, "page", "1");
 		ThreadPoolUtils.execute(this);
 		Log.i(TAG, targetUrl);
 	}
 
 	@Override
 	protected BaseJsonItem CreateJsonItems() {
-		return new ServiceEvaluationResultItems();
+		return new ServiceEvaluationResult();
 	}
 
 }

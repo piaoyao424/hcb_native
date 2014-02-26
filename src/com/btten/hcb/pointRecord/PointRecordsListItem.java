@@ -22,7 +22,7 @@ public class PointRecordsListItem extends ListItemBase {
 	public String type;
 
 	public PointRecordsListItem() {
-		layoutId = R.layout.point_records_listitem;
+		layoutId = R.layout.point_record_listitem;
 	}
 
 	@Override

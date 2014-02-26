@@ -21,6 +21,7 @@ import com.btten.hcbvip.R;
 import com.btten.network.NetConst;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.umeng.analytics.MobclickAgent;
+import com.umeng.update.UmengUpdateAgent;
 
 public class BaseActivity extends Activity {
 

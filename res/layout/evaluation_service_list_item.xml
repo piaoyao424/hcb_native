@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
             android:orientation="horizontal"
-            android:paddingLeft="10dp" >
+            android:paddingLeft="5dp" >
 
             <TextView
                 android:layout_width="wrap_content"
@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
             android:orientation="horizontal"
-            android:paddingLeft="10dp" >
+            android:paddingLeft="5dp" >
 
             <TextView
                 android:layout_width="wrap_content"
@@ -53,7 +53,7 @@
                 android:id="@+id/evaluation_service_listitem_ratingbar"
                 style="@android:attr/ratingBarStyleSmall"
                 android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
+                android:layout_height="match_parent"
                 android:isIndicator="true"
                 android:max="100"
                 android:numStars="5"
@@ -64,7 +64,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
         android:orientation="vertical"

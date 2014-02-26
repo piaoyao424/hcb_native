@@ -8,11 +8,11 @@ import com.btten.model.BaseJsonItem;
 import com.btten.tools.CommonConvert;
 import com.btten.tools.Log;
 
-public class RechargeRecordsListResult extends BaseJsonItem {
+public class ShoppingRecordsListResult extends BaseJsonItem {
 	private static String TAG = "MyConsumeResult";
 	private JSONArray jsonArray = null;
 	public float Points = 0;
-	public RechargeRecordsListItem[] items;
+	public ShoppingRecordsListItem[] items;
 
 	@Override
 	public boolean CreateFromJson(JSONObject result) {
@@ -24,10 +24,10 @@ public class RechargeRecordsListResult extends BaseJsonItem {
 			if (this.status == 1 && !result.isNull("DATA")) {
 				this.jsonArray = result.getJSONArray("DATA");
 
-				items = new RechargeRecordsListItem[this.jsonArray.length()];
-				RechargeRecordsListItem temp;
+				items = new ShoppingRecordsListItem[this.jsonArray.length()];
+				ShoppingRecordsListItem temp;
 				for (int i = 0; i < items.length; ++i) {
-					temp = new RechargeRecordsListItem();
+					temp = new ShoppingRecordsListItem();
 					CommonConvert convert = new CommonConvert(
 							this.jsonArray.getJSONObject(i));
 
