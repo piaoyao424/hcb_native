@@ -12,7 +12,7 @@ public class PublicNoticeInfoScene extends NomalJsonSceneBase {
 		super();
 	}
 
-	public void doscene(OnSceneCallBack callBack, String ggid) {
+	public void doScene(OnSceneCallBack callBack, String ggid) {
 		SetCallBack(callBack);
 		targetUrl = UrlFactory.GetUrlNew("PublicNotice",
 										 "getPublicNoticeDetail",
@@ -24,7 +24,7 @@ public class PublicNoticeInfoScene extends NomalJsonSceneBase {
 
 	@Override
 	protected BaseJsonItem CreateJsonItems() {
-		return new PublicNoticeInfoItems();
+		return new PublicNoticeInfoResult();
 	}
 
 }

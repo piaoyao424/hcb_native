@@ -126,6 +126,12 @@
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait" />
 
+        <!-- 公告列表 -->
+        <activity
+            android:name="com.btten.hcb.publicNotice.PublicNoticeListActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+
         <!-- 公告内容 -->
         <activity
             android:name="com.btten.hcb.publicNotice.PublicNoticeInfoActivity"

@@ -8,22 +8,24 @@ import android.util.Log;
 import com.btten.model.BaseJsonItem;
 import com.btten.tools.CommonConvert;
 
-public class PublicNoticeInfoItems extends BaseJsonItem {
+public class PublicNoticeInfoResult extends BaseJsonItem {
 	private static String TAG = "MyGGContentItemsItems";
 	private JSONArray jsonArray = null;
 	PublicNoticeInfoItem item;
 
 	@Override
 	public boolean CreateFromJson(JSONObject result) {
-		
+
 		item = new PublicNoticeInfoItem();
 		try {
 			this.status = result.getInt("STATUS");
 			this.info = result.getString("INFO");
-			
+
 			if (this.status == 1) {
 				CommonConvert convert = new CommonConvert(result);
 				item.content = convert.getString("F3_4230");
+				item.date = convert.getString("F4_4230");
+				item.title = convert.getString("F2_4230");
 			}
 		} catch (Exception ex) {
 			this.status = -1;

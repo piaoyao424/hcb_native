@@ -1,6 +1,6 @@
 package com.btten.hcb.publicNotice;
 
 public class PublicNoticeInfoItem {
-	String content,date,biaoti,id,name,title;
+	String content,date,id,title;
 	public int status;
 }

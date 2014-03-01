@@ -40,11 +40,9 @@ public class PublicNoticeListAdapter extends ListItemAdapter {
 
 		@Override
 		public void onClick(View v) {
-			// TODO Auto-generated method stub
 			Intent intent = new Intent(context, PublicNoticeInfoActivity.class);
-			intent.putExtra("KEY_GGID", ((PublicNoticeListItem) items[index]).id);
-			intent.putExtra("KEY_DATE", ((PublicNoticeListItem) items[index]).date);
-			intent.putExtra("KEY_TITLE", ((PublicNoticeListItem) items[index]).title);
+			intent.putExtra("KEY_GGID",
+					((PublicNoticeListItem) items[index]).id);
 			context.startActivity(intent);
 		}
 	}

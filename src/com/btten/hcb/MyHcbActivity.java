@@ -23,6 +23,7 @@ import com.btten.hcb.login.LoginActivity;
 import com.btten.hcb.map.LocationClientService;
 import com.btten.hcb.notice.FaqsActivity;
 import com.btten.hcb.notice.NoticeInfoActivity;
+import com.btten.hcb.publicNotice.PublicNoticeListActivity;
 import com.btten.hcb.register.RegistActivity;
 import com.btten.hcbvip.R;
 
@@ -124,7 +125,7 @@ public class MyHcbActivity extends BaseActivity {
 				break;
 			// 惠车宝公告
 			case R.id.myhcb_relative_notices:
-				intent = new Intent(MyHcbActivity.this, LoginActivity.class);
+				intent = new Intent(MyHcbActivity.this, PublicNoticeListActivity.class);
 				break;
 			// 关于我们
 			case R.id.myhcb_relative_about_us:

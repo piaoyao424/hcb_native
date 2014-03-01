@@ -8,9 +8,9 @@ import android.util.Log;
 import com.btten.model.BaseJsonItem;
 import com.btten.tools.CommonConvert;
 
-public class PublicNoticeListItems extends BaseJsonItem {
+public class PublicNoticeListResult extends BaseJsonItem {
 	private JSONArray jsonArray = null;
-	public PublicNoticeListItem[] item = null;
+	public PublicNoticeListItem[] items = null;
 
 	@Override
 	public boolean CreateFromJson(JSONObject result) {
@@ -20,7 +20,7 @@ public class PublicNoticeListItems extends BaseJsonItem {
 			if (this.status == 1 && !result.isNull("DATA")) {
 				jsonArray = result.getJSONArray("DATA");
 				int length = jsonArray.length();
-				item = new PublicNoticeListItem[length];
+				items = new PublicNoticeListItem[length];
 				for (int i = 0; i < length; i++) {
 					JSONObject obj = jsonArray.getJSONObject(i);
 					CommonConvert convert = new CommonConvert(obj);
@@ -28,7 +28,7 @@ public class PublicNoticeListItems extends BaseJsonItem {
 					temp.title = convert.getString("F2_4230");
 					temp.id = convert.getString("F1_4230");
 					temp.date = convert.getString("F4_4230");
-					item[i] = temp;
+					items[i] = temp;
 				}
 			}
 		} catch (Exception ex) {

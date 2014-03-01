@@ -1,22 +1,17 @@
 package com.btten.hcb.publicNotice;
 
 import android.os.Bundle;
-import android.widget.Button;
 import android.widget.TextView;
-
 import com.btten.hcbvip.R;
 import com.btten.base.BaseActivity;
 import com.btten.network.NetSceneBase;
 import com.btten.network.OnSceneCallBack;
-import com.btten.tools.Util;
 
 public class PublicNoticeInfoActivity extends BaseActivity {
 
-	private TextView tv_ggconten_biaoti;
-	private TextView tv_ggconten_riqi;
-	private TextView tv_ggconten_neirong;
-	private TextView tv_ggconten_name;
-	PublicNoticeInfoScene ggScene = null;
+	private TextView tv_ggconten_title;
+	private TextView tv_ggconten_date;
+	private TextView tv_ggconten_content;
 	String ggId = "";
 
 	@Override
@@ -24,28 +19,24 @@ public class PublicNoticeInfoActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.gonggaocontent_activity);
 		setCurrentTitle("公告信息");
+		setBackKeyListner(true);
 
 		init();
 	}
 
 	private void init() {
 
-		tv_ggconten_biaoti = (TextView) findViewById(R.id.tvId_ggconten_biaoti);
-		tv_ggconten_riqi = (TextView) findViewById(R.id.tvId_ggconten_riqi);
-		tv_ggconten_neirong = (TextView) findViewById(R.id.tvId_ggconten_neirong);
-		tv_ggconten_name = (TextView) findViewById(R.id.tvId_ggconten_name);
+		tv_ggconten_title = (TextView) findViewById(R.id.tvId_ggconten_biaoti);
+		tv_ggconten_date = (TextView) findViewById(R.id.tvId_ggconten_riqi);
+		tv_ggconten_content = (TextView) findViewById(R.id.tvId_ggconten_neirong);
 
-		// 取得当前登录的用户的userid
 		Bundle bundle = this.getIntent().getExtras();
 		ggId = bundle.getString("KEY_GGID");
-		tv_ggconten_biaoti.setText(bundle.getString("KEY_TITLE"));
-		tv_ggconten_riqi.setText(bundle.getString("KEY_DATE"));
 		DoRequest();
 	}
 
 	private void DoRequest() {
-		ggScene = new PublicNoticeInfoScene();
-		ggScene.doscene(callBack, ggId);
+		new PublicNoticeInfoScene().doScene(callBack, ggId);
 		ShowRunning();
 	}
 
@@ -53,10 +44,10 @@ public class PublicNoticeInfoActivity extends BaseActivity {
 
 		@Override
 		public void OnSuccess(Object data, NetSceneBase<?> netScene) {
-			PublicNoticeInfoItems items = (PublicNoticeInfoItems) data;
-
-			tv_ggconten_neirong.setText(items.item.content);
-			tv_ggconten_name.setText("惠车宝");
+			PublicNoticeInfoResult items = (PublicNoticeInfoResult) data;
+			tv_ggconten_title.setText(items.item.title);
+			tv_ggconten_date.setText(items.item.date);
+			tv_ggconten_content.setText(ToDBC(items.item.content));
 			HideProgress();
 			return;
 		}
@@ -74,7 +65,7 @@ public class PublicNoticeInfoActivity extends BaseActivity {
 	 * @param input
 	 * @return
 	 */
-	public static String ToDBC(String input) {
+	private static String ToDBC(String input) {
 		char[] c = input.toCharArray();
 		for (int i = 0; i < c.length; i++) {
 			if (c[i] == 12288) {

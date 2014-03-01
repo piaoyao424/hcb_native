@@ -9,80 +9,49 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_marginBottom="3dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginTop="3dp"
-        android:orientation="horizontal" >
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="vertical" >
 
         <TextView
             android:id="@+id/tvId_ggconten_biaoti"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:gravity="center"
-            android:text=""
+            android:text="惠车宝与加盟商结算事宜"
             android:textColor="@color/black"
-            android:textSize="18sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_marginBottom="3dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginTop="3dp"
-        android:orientation="horizontal" >
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/tvId_ggconten_riqi"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:gravity="center"
-            android:text=""
-            android:textColor="@color/red"
-            android:textSize="18sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dip"
-        android:layout_marginBottom="3dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginTop="3dp"
-        android:layout_weight="1"
-        android:orientation="horizontal" >
+            android:text="2013-12-12"
+            android:textColor="@color/orange"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/tvId_ggconten_neirong"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:gravity="center|left"
             android:singleLine="false"
-            android:text=""
+            android:text="很长一段话很长一段话很长一段话很长一段话很长一段话很长一段话很长一段话很长一段话很长一段话很长一段话很长一段话很长一段话很长一段话很长一段话很长一段话很长一段话很长一段话很长一段话"
             android:textColor="@color/black"
             android:textSize="18sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_marginBottom="3dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginTop="3dp"
-        android:orientation="horizontal" >
 
         <TextView
-            android:id="@+id/tvId_ggconten_name"
             android:layout_width="match_parent"
-            android:layout_height="25dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
             android:gravity="right"
-            android:text="@string/app_name"
-            android:textColor="@color/red"
-            android:textSize="18sp" />
+            android:text="惠车宝"
+            android:textColor="@color/orange"
+            android:textSize="16sp" />
     </LinearLayout>
 
 </LinearLayout>
