@@ -27,10 +27,10 @@ public class FeedBackActivity extends BaseActivity {
 
 		setCurrentTitle("意见反馈");
 		setBackKeyListner(true);
-		init();
+		initView();
 	}
 
-	private void init() {
+	public void initView() {
 
 		// feedbk_txt = (EditText) findViewById(R.id.feedbk_txt);
 		//

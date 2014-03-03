@@ -12,12 +12,14 @@ import com.btten.network.OnSceneCallBack;
 
 public class DetailActivity extends BaseActivity {
 
+	TextView title, time, end, content;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_detail);
 		setBackKeyListner(true);
-		init();
+		initView();
 	}
 
 	@Override
@@ -29,13 +31,7 @@ public class DetailActivity extends BaseActivity {
 		detailScene.doScene(detailCallBack, id);
 	}
 
-	public void OnViewShow() {
-
-	};
-
-	TextView title, time, end, content;
-
-	public void init() {
+	public void initView() {
 		title = (TextView) findViewById(R.id.activity_detail_title);
 		time = (TextView) findViewById(R.id.activity_detail_time);
 		end = (TextView) findViewById(R.id.activity_detail_end);

@@ -21,9 +21,8 @@ import com.btten.hcbvip.R;
 import com.btten.network.NetConst;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.umeng.analytics.MobclickAgent;
-import com.umeng.update.UmengUpdateAgent;
 
-public class BaseActivity extends Activity {
+public abstract class BaseActivity extends Activity {
 
 	protected ImageLoader imageLoader = ImageLoader.getInstance();
 	/**
@@ -68,7 +67,7 @@ public class BaseActivity extends Activity {
 		if (mActivityList.size() <= 0)
 			return;
 		int size = mActivityList.size();
-		for (int i = 0; i < size; ++i)
+		for (int i = 0; i < size; i++)
 			mActivityList.get(i).finish();
 	}
 
@@ -86,7 +85,7 @@ public class BaseActivity extends Activity {
 	protected void onResume() {
 		super.onResume();
 		MobclickAgent.onResume(this);
-
+		initView();
 	}
 
 	protected void onPause() {
@@ -301,4 +300,6 @@ public class BaseActivity extends Activity {
 		}
 
 	}
+
+	public abstract void initView();
 }

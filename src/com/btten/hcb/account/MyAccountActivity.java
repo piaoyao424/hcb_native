@@ -13,13 +13,14 @@ import com.btten.hcb.cardActive.CardActiveActivity;
 import com.btten.hcb.notice.NoticeInfoActivity;
 import com.btten.hcb.pointRecord.PointRecordsActivity;
 import com.btten.hcb.rechargeRecord.RechargeRecordsActivity;
+import com.btten.hcb.shoppingRecord.ShoppingRecordsActivity;
 import com.btten.hcbvip.R;
 import com.btten.network.NetSceneBase;
 import com.btten.network.OnSceneCallBack;
 
 public class MyAccountActivity extends BaseActivity {
-	private Button btn_recharge, btn_rechangeRecord, btn_exchange,
-			btn_pointRecord, btn_exchangeRole;
+	private Button btn_recharge, btn_rechangeRecord, btn_shoppingrecord,
+			btn_exchange, btn_pointRecord, btn_exchangeRole;
 	private TextView txt_name, txt_hb, txt_point;
 	private ImageView levelView;
 	private int[] imageSrc = { R.drawable.viplevel01, R.drawable.viplevel02,
@@ -43,11 +44,13 @@ public class MyAccountActivity extends BaseActivity {
 		btn_recharge.setOnClickListener(listener);
 		btn_rechangeRecord = (Button) findViewById(R.id.myaccount_activity_button_charge_record);
 		btn_rechangeRecord.setOnClickListener(listener);
+		btn_shoppingrecord = (Button) findViewById(R.id.myaccount_activity_button_shopping_record);
+		btn_shoppingrecord.setOnClickListener(listener);
 		btn_exchange = (Button) findViewById(R.id.myaccount_activity_button_exchange);
 		btn_exchange.setOnClickListener(listener);
-		btn_pointRecord = (Button) findViewById(R.id.myaccount_activity_button_exchangerecord);
+		btn_pointRecord = (Button) findViewById(R.id.myaccount_activity_button_point_record);
 		btn_pointRecord.setOnClickListener(listener);
-		btn_exchangeRole = (Button) findViewById(R.id.myaccount_activity_button_exchangerole);
+		btn_exchangeRole = (Button) findViewById(R.id.myaccount_activity_button_exchange_role);
 		btn_exchangeRole.setOnClickListener(listener);
 
 		txt_name = (TextView) findViewById(R.id.myaccount_activity_name);
@@ -71,17 +74,21 @@ public class MyAccountActivity extends BaseActivity {
 				intent = new Intent(MyAccountActivity.this,
 						RechargeRecordsActivity.class);
 				break;
+			case R.id.myaccount_activity_button_shopping_record:
+				intent = new Intent(MyAccountActivity.this,
+						ShoppingRecordsActivity.class);
+				break;
 			case R.id.myaccount_activity_button_exchange:
 				intent = new Intent(MyAccountActivity.this,
 						NoticeInfoActivity.class);
 				intent.putExtra(NoticeInfoActivity.KEY_NOTICEID,
 						NoticeInfoActivity.POINTSEXCHANGE);
 				break;
-			case R.id.myaccount_activity_button_exchangerecord:
+			case R.id.myaccount_activity_button_point_record:
 				intent = new Intent(MyAccountActivity.this,
 						PointRecordsActivity.class);
 				break;
-			case R.id.myaccount_activity_button_exchangerole:
+			case R.id.myaccount_activity_button_exchange_role:
 				intent = new Intent(MyAccountActivity.this,
 						NoticeInfoActivity.class);
 				intent.putExtra(NoticeInfoActivity.KEY_NOTICEID,

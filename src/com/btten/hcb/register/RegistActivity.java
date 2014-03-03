@@ -37,10 +37,10 @@ public class RegistActivity extends BaseActivity {
 		setContentView(R.layout.register_activity);
 		setCurrentTitle("注册");
 		setBackKeyListner(true);
-		init();
+		initView();
 	}
 
-	private void init() {
+	public void initView() {
 		phoneNum = (EditText) findViewById(R.id.register_name);
 		pwd = (EditText) findViewById(R.id.register_pwd);
 		pwdAgain = (EditText) findViewById(R.id.register_re_pwd);

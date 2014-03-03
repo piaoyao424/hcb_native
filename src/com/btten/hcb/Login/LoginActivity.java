@@ -4,7 +4,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
@@ -16,7 +15,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 import com.btten.hcbvip.R;
 import com.btten.base.BaseActivity;
-import com.btten.hcb.MyHcbActivity;
 import com.btten.hcb.account.VIPInfoManager;
 import com.btten.msgcenter.MsgCenter;
 import com.btten.msgcenter.MsgConst;
@@ -45,16 +43,16 @@ public class LoginActivity extends BaseActivity {
 		setCurrentTitle("会员登录");
 		setBackKeyListner(true);
 
-		init();
-		initPersonalInfo();
+		initView();
 	}
 
-	private void init() {
+	public void initView() {
 		bt_loginButton = (Button) findViewById(R.id.login_button);
 		bt_loginButton.setOnClickListener(listener);
 
 		editText_name = (EditText) findViewById(R.id.login_name);
 		editText_password = (EditText) findViewById(R.id.login_pwd);
+		initPersonalInfo();
 	}
 
 	OnClickListener listener = new OnClickListener() {
@@ -170,8 +168,7 @@ public class LoginActivity extends BaseActivity {
 
 				@Override
 				public void run() {
-					startActivity((new Intent(LoginActivity.this,
-							MyHcbActivity.class)));
+					setResult(RESULT_OK);
 					finish();
 				}
 			}, 200);

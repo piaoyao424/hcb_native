@@ -24,7 +24,7 @@ public class RoadRescuePhoneActivity extends BaseActivity {
 		initView();
 	}
 
-	private void initView() {
+	public void initView() {
 		txtViewJmsName = (TextView) findViewById(R.id.road_rescue_phone_name);
 		btCall = (Button) findViewById(R.id.road_rescue_phone_button);
 		btCall.setOnClickListener(clickListener);

@@ -31,7 +31,7 @@ public class NoticeInfoActivity extends BaseActivity {
 		setBackKeyListner(true);
 	}
 
-	private void initView() {
+	public void initView() {
 		setCurrentTitle("常见问题");
 		Bundle bundle = getIntent().getExtras();
 		int NoticeID = bundle.getInt(KEY_NOTICEID);

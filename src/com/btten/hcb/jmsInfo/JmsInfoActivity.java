@@ -56,7 +56,7 @@ public class JmsInfoActivity extends BaseActivity {
 		initView();
 	}
 
-	private void initView() {
+	public void initView() {
 		setCurrentTitle("网点详情");
 		txt_jname = (TextView) findViewById(R.id.jmsinfo_jname);
 		txt_scope = (TextView) findViewById(R.id.jmsinfo_scope);

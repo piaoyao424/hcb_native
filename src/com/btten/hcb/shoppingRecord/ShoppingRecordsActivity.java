@@ -25,10 +25,10 @@ public class ShoppingRecordsActivity extends BaseActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.shopping_record);
-		init();
+		initView();
 	}
 
-	public void init() {
+	public void initView() {
 		setCurrentTitle("我的消费");
 		// 初始化时间按钮
 		startDate = (WheelShow) findViewById(R.id.shopping_record_start_time);

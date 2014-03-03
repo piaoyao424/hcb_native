@@ -49,7 +49,7 @@ public class SearchActivity extends BaseActivity {
 	}
 
 	// 初始化控件
-	private void initView() {
+	public void initView() {
 		lv_area = (ListView) findViewById(R.id.saleslist_lv_area);
 		lv_salesmenu = (ListView) findViewById(R.id.saleslist_lv_salesmenu);
 		lv_salesitems = (ListView) findViewById(R.id.saleslist_lv_salesitems);

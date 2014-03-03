@@ -24,10 +24,10 @@ public class PointRecordsActivity extends BaseActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.point_record);
-		init();
+		initView();
 	}
 
-	public void init() {
+	public void initView() {
 		setCurrentTitle("积分记录");
 		// 初始化时间按钮
 		startDate = (WheelShow) findViewById(R.id.point_records_start_time);

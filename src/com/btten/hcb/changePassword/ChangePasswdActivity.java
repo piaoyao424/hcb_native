@@ -45,10 +45,11 @@ public class ChangePasswdActivity extends BaseActivity {
 
 		setCurrentTitle("修改密码");
 		setBackKeyListner(true);
-		init();
+		IsLogin();
+		initView();
 	}
 
-	private void init() {
+	public void initView() {
 		et_oldpwd = (EditText) findViewById(R.id.changePw_oldPw);
 		et_newpwd = (EditText) findViewById(R.id.changePw_newPwd);
 		et_pwdAgain = (EditText) findViewById(R.id.changePw_newPwd_Re);

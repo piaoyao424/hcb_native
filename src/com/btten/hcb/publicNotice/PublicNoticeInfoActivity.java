@@ -21,10 +21,10 @@ public class PublicNoticeInfoActivity extends BaseActivity {
 		setCurrentTitle("公告信息");
 		setBackKeyListner(true);
 
-		init();
+		initView();
 	}
 
-	private void init() {
+	public void initView() {
 
 		tv_ggconten_title = (TextView) findViewById(R.id.tvId_ggconten_biaoti);
 		tv_ggconten_date = (TextView) findViewById(R.id.tvId_ggconten_riqi);

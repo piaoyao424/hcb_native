@@ -14,10 +14,10 @@ public class WelcomActivity extends BaseActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.welcomeactivity);
-		init();
+		initView();
 	}
 
-	private void init() {
+	public void initView() {
 		BttenFlipper viewFlow = (BttenFlipper) findViewById(R.id.viewFlow);
 		viewFlow.setBackgroundColor(android.graphics.Color.TRANSPARENT);
 		viewFlow.setAdapter(new ViewFlowAdapter(this));

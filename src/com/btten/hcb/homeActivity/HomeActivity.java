@@ -43,9 +43,9 @@ public class HomeActivity extends BaseActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.homeview);
-		initView();
 		UmengUpdateAgent.update(this);
-		new TitleNoticeScene().doScene(callBack);
+
+		initView();
 	}
 
 	// 初始化控件
@@ -65,6 +65,7 @@ public class HomeActivity extends BaseActivity {
 			imageview.setOnClickListener(clickListener);
 			imageViewArray.add(imageview);
 		}
+		new TitleNoticeScene().doScene(callBack);
 	}
 
 	OnClickListener clickListener = new OnClickListener() {
@@ -175,7 +176,7 @@ public class HomeActivity extends BaseActivity {
 						CallTaxiNotification.getInstance().ExitApp();
 						LocationClientService.getInstance().destroy();
 						ClearAllActivity();
-						finish();
+						System.exit(0);
 					}
 				})
 				.setNegativeButton("取消", new DialogInterface.OnClickListener() {

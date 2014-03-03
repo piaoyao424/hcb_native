@@ -18,10 +18,10 @@ public class PublicNoticeListActivity extends BaseActivity {
 		setContentView(R.layout.publicnotice_activity);
 		setCurrentTitle("公告信息");
 		setBackKeyListner(true);
-		init();
+		initView();
 	}
 
-	private void init() {
+	public void initView() {
 
 		lv = (ListView) findViewById(R.id.publicnotice_activity_lv);
 		DoRequest();

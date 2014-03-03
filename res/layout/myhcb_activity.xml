@@ -67,28 +67,9 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/myhcb_relative_changepw"
+                    android:id="@+id/myhcb_relative_activation"
                     style="@style/aboutus_relative_style"
                     android:layout_marginBottom="1dp" >
-
-                    <ImageView
-                        style="@style/aboutus_ico_style"
-                        android:contentDescription="@string/ImageDescription"
-                        android:src="@drawable/login_pw" >
-                    </ImageView>
-
-                    <TextView
-                        style="@style/aboutus_text_style"
-                        android:text="修改密码" />
-
-                    <ImageView
-                        style="@style/aboutus_image_style"
-                        android:contentDescription="@string/ImageDescription" />
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:id="@+id/myhcb_relative_activation"
-                    style="@style/aboutus_relative_style" >
 
                     <ImageView
                         style="@style/aboutus_ico_style"
@@ -99,6 +80,25 @@
                     <TextView
                         style="@style/aboutus_text_style"
                         android:text="卡片激活" />
+
+                    <ImageView
+                        style="@style/aboutus_image_style"
+                        android:contentDescription="@string/ImageDescription" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/myhcb_relative_shopping"
+                    style="@style/aboutus_relative_style" >
+
+                    <ImageView
+                        style="@style/aboutus_ico_style"
+                        android:contentDescription="@string/ImageDescription"
+                        android:src="@drawable/ico_cart" >
+                    </ImageView>
+
+                    <TextView
+                        style="@style/aboutus_text_style"
+                        android:text="购买洗车卡" />
 
                     <ImageView
                         style="@style/aboutus_image_style"
@@ -196,7 +196,8 @@
 
                 <RelativeLayout
                     android:id="@+id/myhcb_relative_points_record"
-                    style="@style/aboutus_relative_style" >
+                    style="@style/aboutus_relative_style"
+                    android:layout_marginBottom="1dp" >
 
                     <ImageView
                         style="@style/aboutus_ico_style"
@@ -207,6 +208,25 @@
                     <TextView
                         style="@style/aboutus_text_style"
                         android:text="积分记录" />
+
+                    <ImageView
+                        style="@style/aboutus_image_style"
+                        android:contentDescription="@string/ImageDescription" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/myhcb_relative_changepw"
+                    style="@style/aboutus_relative_style" >
+
+                    <ImageView
+                        style="@style/aboutus_ico_style"
+                        android:contentDescription="@string/ImageDescription"
+                        android:src="@drawable/ico_open" >
+                    </ImageView>
+
+                    <TextView
+                        style="@style/aboutus_text_style"
+                        android:text="修改密码" />
 
                     <ImageView
                         style="@style/aboutus_image_style"

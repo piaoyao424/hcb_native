@@ -20,14 +20,14 @@ public class BMapActivity extends BaseActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.bmap_activity);
-		init();
+		initView();
 	}
 
 	@SuppressWarnings("unchecked")
-	private void init() {
+	public void initView() {
 		mMapView = (MapView) findViewById(R.id.mapId_wangdian_map);
 		mapManager = new MapManager(getBaseContext());
-		
+
 		// 取出个人坐标信息
 		double gps_la = VIPInfoManager.getInstance().getGpsla();
 		double gps_lo = VIPInfoManager.getInstance().getGpslo();

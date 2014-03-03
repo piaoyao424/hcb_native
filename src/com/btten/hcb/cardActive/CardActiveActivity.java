@@ -37,10 +37,10 @@ public class CardActiveActivity extends BaseActivity {
 		setContentView(R.layout.card_active_activity);
 		setCurrentTitle("卡激活");
 		setBackKeyListner(true);
-		init();
+		initView();
 	}
 
-	private void init() {
+	public void initView() {
 		phoneNum = (EditText) findViewById(R.id.cardactive_phone);
 		pwd = (EditText) findViewById(R.id.cardactive_pwd);
 		cardNum = (EditText) findViewById(R.id.cardactive_num);

@@ -31,7 +31,7 @@ public class ServiceEvaluationActivity extends BaseActivity {
 	}
 
 	// 初始化控件
-	private void initView() {
+	public void initView() {
 		setCurrentTitle("服务评价");
 		lv_evaluation = (ListView) findViewById(R.id.evaluation_service_list);
 		txt_jmsName = (TextView) findViewById(R.id.evaluation_service_jmsname);

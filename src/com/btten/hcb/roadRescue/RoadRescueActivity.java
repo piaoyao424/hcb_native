@@ -35,23 +35,18 @@ public class RoadRescueActivity extends BaseActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.road_rescue_activity);
-
-		initdate();
+		groupArray = new ArrayList<RoadRescueMenuItem>();
+		childArray = new ArrayList<List<RoadRescueMenuItem>>();
 		initView();
 	}
 
-	private void initView() {
+	public void initView() {
 		setCurrentTitle("道路救援");
 		expandableListView = (ExpandableListView) findViewById(R.id.jmsinfo_explv);
 		expandableListView.setGroupIndicator(null);
 		expandableListView.setAdapter(new MyExpandableListViewAdapter(
 				RoadRescueActivity.this));
 		expandableListView.setOnChildClickListener(onChildClickListener);
-	}
-
-	private void initdate() {
-		groupArray = new ArrayList<RoadRescueMenuItem>();
-		childArray = new ArrayList<List<RoadRescueMenuItem>>();
 
 		ShowRunning();
 	}

@@ -25,10 +25,10 @@ public class RechargeRecordsActivity extends BaseActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.recharge_record);
-		init();
+		initView();
 	}
 
-	public void init() {
+	public void initView() {
 		// 初始化时间按钮
 		startDate = (WheelShow) findViewById(R.id.point_records_start_time);
 		endDate = (WheelShow) findViewById(R.id.point_records_end_time);

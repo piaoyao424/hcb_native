@@ -43,11 +43,11 @@ public class MyHcbActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.myhcb_activity);
 		initView();
-		setBackKeyListner(true);
 	}
 
 	public void initView() {
 		setCurrentTitle("我的惠车宝");
+		setBackKeyListner(true);
 
 		Button tButton = (Button) findViewById(R.id.myhcb_button);
 		tButton.setOnClickListener(clickListener);
@@ -65,10 +65,13 @@ public class MyHcbActivity extends BaseActivity {
 			list_rela.get(0).setVisibility(View.GONE);
 			// 注册
 			list_rela.get(1).setVisibility(View.GONE);
+			tButton.setVisibility(View.VISIBLE);
 		} else {
-			// 修改密码
-			list_rela.get(3).setVisibility(View.GONE);
 			tButton.setVisibility(View.GONE);
+			// 登陆
+			list_rela.get(0).setVisibility(View.VISIBLE);
+			// 注册
+			list_rela.get(1).setVisibility(View.VISIBLE);
 		}
 	}
 
@@ -125,7 +128,8 @@ public class MyHcbActivity extends BaseActivity {
 				break;
 			// 惠车宝公告
 			case R.id.myhcb_relative_notices:
-				intent = new Intent(MyHcbActivity.this, PublicNoticeListActivity.class);
+				intent = new Intent(MyHcbActivity.this,
+						PublicNoticeListActivity.class);
 				break;
 			// 关于我们
 			case R.id.myhcb_relative_about_us:
@@ -140,7 +144,6 @@ public class MyHcbActivity extends BaseActivity {
 					@Override
 					public void run() {
 						// 清除缓存，
-						ClearOtherActivity();
 						clearTemp();
 						// 注销到登录页面
 						VIPInfoManager.getInstance().Logout();
@@ -148,12 +151,11 @@ public class MyHcbActivity extends BaseActivity {
 						// 关闭位置
 						if (LocationClientService.getInstance().isStarted())
 							LocationClientService.getInstance().stop();
-						LocationClientService.getInstance().destroy();
 
 						CallTaxiNotification.getInstance().LogoutApp();
+						ClearAllActivity();
 						startActivity((new Intent(MyHcbActivity.this,
 								HomeActivity.class)));
-						ClearAllActivity();
 					}
 				}, 200);
 				break;
@@ -193,4 +195,5 @@ public class MyHcbActivity extends BaseActivity {
 		} else if (file.isFile())
 			file.delete();
 	}
+
 }
