@@ -25,6 +25,7 @@ import com.btten.hcb.notice.FaqsActivity;
 import com.btten.hcb.notice.NoticeInfoActivity;
 import com.btten.hcb.publicNotice.PublicNoticeListActivity;
 import com.btten.hcb.register.RegistActivity;
+import com.btten.hcb.userInfo.UserInfoActivity;
 import com.btten.hcbvip.R;
 
 public class MyHcbActivity extends BaseActivity {
@@ -37,19 +38,21 @@ public class MyHcbActivity extends BaseActivity {
 			R.id.myhcb_relative_faqs, R.id.myhcb_relative_notices,
 			R.id.myhcb_relative_about_us };
 	List<RelativeLayout> list_rela = new ArrayList<RelativeLayout>();
+	Button tButton;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.myhcb_activity);
 		initView();
+		initDate();
 	}
 
 	public void initView() {
 		setCurrentTitle("我的惠车宝");
 		setBackKeyListner(true);
 
-		Button tButton = (Button) findViewById(R.id.myhcb_button);
+		tButton = (Button) findViewById(R.id.myhcb_button);
 		tButton.setOnClickListener(clickListener);
 
 		RelativeLayout tmpLayout = null;
@@ -58,20 +61,6 @@ public class MyHcbActivity extends BaseActivity {
 			tmpLayout = (RelativeLayout) findViewById(relativeID[i]);
 			tmpLayout.setOnClickListener(clickListener);
 			list_rela.add(tmpLayout);
-		}
-
-		if (VIPInfoManager.getInstance().IsLogin()) {
-			// 登陆
-			list_rela.get(0).setVisibility(View.GONE);
-			// 注册
-			list_rela.get(1).setVisibility(View.GONE);
-			tButton.setVisibility(View.VISIBLE);
-		} else {
-			tButton.setVisibility(View.GONE);
-			// 登陆
-			list_rela.get(0).setVisibility(View.VISIBLE);
-			// 注册
-			list_rela.get(1).setVisibility(View.VISIBLE);
 		}
 	}
 
@@ -109,7 +98,7 @@ public class MyHcbActivity extends BaseActivity {
 				break;
 			// 我的信息
 			case R.id.myhcb_relative_baseinfo:
-				intent = new Intent(MyHcbActivity.this, LoginActivity.class);
+				intent = new Intent(MyHcbActivity.this, UserInfoActivity.class);
 				break;
 			// 积分兑换
 			case R.id.myhcb_relative_exchange:
@@ -153,7 +142,7 @@ public class MyHcbActivity extends BaseActivity {
 							LocationClientService.getInstance().stop();
 
 						CallTaxiNotification.getInstance().LogoutApp();
-						ClearAllActivity();
+						HcbAPP.getInstance().ClearAllActivity();
 						startActivity((new Intent(MyHcbActivity.this,
 								HomeActivity.class)));
 					}
@@ -194,6 +183,24 @@ public class MyHcbActivity extends BaseActivity {
 			}
 		} else if (file.isFile())
 			file.delete();
+	}
+
+	@Override
+	public void initDate() {
+		// TODO Auto-generated method stub
+		if (VIPInfoManager.getInstance().IsLogin()) {
+			// 登陆
+			list_rela.get(0).setVisibility(View.GONE);
+			// 注册
+			list_rela.get(1).setVisibility(View.GONE);
+			tButton.setVisibility(View.VISIBLE);
+		} else {
+			tButton.setVisibility(View.GONE);
+			// 登陆
+			list_rela.get(0).setVisibility(View.VISIBLE);
+			// 注册
+			list_rela.get(1).setVisibility(View.VISIBLE);
+		}
 	}
 
 }

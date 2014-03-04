@@ -77,4 +77,10 @@ public class PublicNoticeInfoActivity extends BaseActivity {
 		}
 		return new String(c);
 	}
+
+	@Override
+	public void initDate() {
+		// TODO Auto-generated method stub
+		
+	}
 }

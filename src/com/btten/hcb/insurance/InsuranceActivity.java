@@ -116,4 +116,10 @@ public class InsuranceActivity extends BaseActivity {
 		public void onNothingSelected(AdapterView<?> arg0) {
 		}
 	}
+
+	@Override
+	public void initDate() {
+		// TODO Auto-generated method stub
+		
+	}
 }

@@ -43,4 +43,10 @@ public class RoadRescuePhoneActivity extends BaseActivity {
 			new CallTelephone(RoadRescuePhoneActivity.this, phoneNum, jname);
 		}
 	};
+
+	@Override
+	public void initDate() {
+		// TODO Auto-generated method stub
+		
+	}
 }

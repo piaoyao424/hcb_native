@@ -5,8 +5,8 @@ import android.util.Log;
 import com.btten.model.BaseJsonItem;
 import com.btten.tools.CommonConvert;
 
-public class UserInfoItems extends BaseJsonItem {
-	public JmsInfoItem item = null;
+public class UserInfoResult extends BaseJsonItem {
+	public UserInfoItem item = null;
 
 	@Override
 	public boolean CreateFromJson(JSONObject result) {
@@ -14,21 +14,22 @@ public class UserInfoItems extends BaseJsonItem {
 			this.status = result.getInt("STATUS");
 			this.info = result.getString("INFO");
 			if (this.status == 1) {
-				item = new JmsInfoItem();
+				item = new UserInfoItem();
 				CommonConvert convert = new CommonConvert(result);
 
 				item.id = convert.getString("ID");
-				item.jname = convert.getString("JNAME");
-				item.jscope = convert.getString("JSCOPE");
+				item.province = convert.getString("JNAME");
+				item.city = convert.getString("JSCOPE");
+				item.area = convert.getString("GPS_LO");
+				item.car_model = convert.getString("GPS_LA");
+				item.car_Num =  convert.getString("COMMENTNUM");
+				item.car_date =  convert.getString("STAR");
+				item.email = convert.getString("IMAGES1");
+				item.username = convert.getString("IMAGES2");
 				item.address = convert.getString("ADDRESS");
 				item.phone = convert.getString("PHONE");
-				item.gps_lo = convert.getDouble("GPS_LO");
-				item.gps_la = convert.getDouble("GPS_LA");
-				item.commentNum = Integer.valueOf(convert
-						.getString("COMMENTNUM"));
-				item.star = Integer.valueOf(convert.getString("STAR"));
-				item.images1 = convert.getString("IMAGES1");
-				item.images2 = convert.getString("IMAGES2");
+				item.consignee = convert.getString("PHONE");
+				item.gerder = convert.getInt("GERDER");
 			}
 		} catch (Exception ex) {
 			this.status = -1;

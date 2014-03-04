@@ -32,9 +32,7 @@ public class MyAccountActivity extends BaseActivity {
 		setContentView(R.layout.account_activity);
 		setBackKeyListner(true);
 		initView();
-		if (IsLogin()) {
-			new MyAccountScene().doscene(callBack);
-		}
+		initDate();
 	}
 
 	public void initView() {
@@ -129,4 +127,12 @@ public class MyAccountActivity extends BaseActivity {
 			}
 		}
 	};
+
+	@Override
+	public void initDate() {
+		// TODO Auto-generated method stub
+		if (IsLogin()) {
+			new MyAccountScene().doscene(callBack);
+		}
+	}
 }

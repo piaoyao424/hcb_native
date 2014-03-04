@@ -113,4 +113,10 @@ public class PointRecordsActivity extends BaseActivity {
 
 		}
 	};
+
+	@Override
+	public void initDate() {
+		// TODO Auto-generated method stub
+		
+	}
 }

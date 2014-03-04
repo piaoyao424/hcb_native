@@ -87,7 +87,6 @@ public class SplashScreen extends BaseActivity {
 		return isfirststart;
 	}
 
-	@Override
 	public void initView() {
 		// TODO Auto-generated method stub
 		// 打开GPS
@@ -103,5 +102,11 @@ public class SplashScreen extends BaseActivity {
 		// int densityDpi = metric.densityDpi; // 屏幕密度DPI（120 / 160 / 240）
 
 		VIPInfoManager.getInstance().setScreenWidth(width);
+	}
+
+	@Override
+	public void initDate() {
+		// TODO Auto-generated method stub
+		
 	}
 }

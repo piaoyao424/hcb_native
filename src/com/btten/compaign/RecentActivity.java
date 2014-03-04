@@ -96,4 +96,10 @@ public class RecentActivity extends BaseActivity implements OnScrollListener {
 			scene.doScene(RecentActivity.this.mainCallBack, "" + (page = 1));
 		}
 	};
+
+	@Override
+	public void initDate() {
+		// TODO Auto-generated method stub
+		
+	}
 }

@@ -51,4 +51,10 @@ public class BMapActivity extends BaseActivity {
 			System.out.println(e.toString());
 		}
 	}
+
+	@Override
+	public void initDate() {
+		// TODO Auto-generated method stub
+		
+	}
 }

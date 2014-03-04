@@ -406,4 +406,10 @@ public class SearchActivity extends BaseActivity {
 			HideProgress();
 		}
 	};
+
+	@Override
+	public void initDate() {
+		// TODO Auto-generated method stub
+		
+	}
 }

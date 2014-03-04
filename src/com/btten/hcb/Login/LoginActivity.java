@@ -52,7 +52,6 @@ public class LoginActivity extends BaseActivity {
 
 		editText_name = (EditText) findViewById(R.id.login_name);
 		editText_password = (EditText) findViewById(R.id.login_pwd);
-		initPersonalInfo();
 	}
 
 	OnClickListener listener = new OnClickListener() {
@@ -174,4 +173,10 @@ public class LoginActivity extends BaseActivity {
 			}, 200);
 		}
 	};
+
+	@Override
+	public void initDate() {
+		// TODO Auto-generated method stub
+		initPersonalInfo();
+	}
 }

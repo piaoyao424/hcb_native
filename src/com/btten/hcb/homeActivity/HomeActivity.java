@@ -3,12 +3,14 @@ package com.btten.hcb.homeActivity;
 import java.util.ArrayList;
 import java.util.List;
 import com.btten.base.BaseActivity;
+import com.btten.hcb.HcbAPP;
 import com.btten.hcb.MyHcbActivity;
 import com.btten.hcb.Service.CallTaxiNotification;
 import com.btten.hcb.account.VIPInfoManager;
 import com.btten.hcb.map.LocationClientService;
 import com.btten.hcb.publicNotice.PublicNoticeInfoActivity;
 import com.btten.hcb.search.SearchActivity;
+import com.btten.hcb.vehicleLife.VehicleLifeActivity;
 import com.btten.hcbvip.R;
 import com.btten.network.NetSceneBase;
 import com.btten.network.OnSceneCallBack;
@@ -98,6 +100,7 @@ public class HomeActivity extends BaseActivity {
 			case R.id.homeview_weizhangchaxun:
 				break;
 			case R.id.homeview_rencheshenghuo:
+				intent = new Intent(HomeActivity.this, VehicleLifeActivity.class);
 				break;
 			case R.id.homeview_xichemeirong:
 				cid = "20002";
@@ -175,8 +178,8 @@ public class HomeActivity extends BaseActivity {
 					public void onClick(DialogInterface dialog, int which) {
 						CallTaxiNotification.getInstance().ExitApp();
 						LocationClientService.getInstance().destroy();
-						ClearAllActivity();
-						System.exit(0);
+						HcbAPP.getInstance().exit();
+						 
 					}
 				})
 				.setNegativeButton("取消", new DialogInterface.OnClickListener() {
@@ -186,5 +189,11 @@ public class HomeActivity extends BaseActivity {
 						dialog.dismiss();
 					}
 				}).show();
+	}
+
+	@Override
+	public void initDate() {
+		// TODO Auto-generated method stub
+		
 	}
 }

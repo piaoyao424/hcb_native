@@ -79,4 +79,10 @@ public class FaqsActivity extends BaseActivity {
 			startActivity(intent);
 		}
 	};
+
+	@Override
+	public void initDate() {
+		// TODO Auto-generated method stub
+		
+	}
 }

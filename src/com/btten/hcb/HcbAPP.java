@@ -2,6 +2,7 @@ package com.btten.hcb;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Map;
 import android.annotation.SuppressLint;
@@ -10,9 +11,6 @@ import android.app.Application;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.util.DisplayMetrics;
-import android.widget.Toast;
-import com.baidu.mapapi.BMapManager;
-import com.baidu.mapapi.MKGeneralListener;
 import com.btten.base.BaseActivity;
 import com.btten.msgcenter.MsgCenter;
 import com.btten.tools.Log;
@@ -25,7 +23,8 @@ import com.nostra13.universalimageloader.utils.StorageUtils;
 import com.umeng.analytics.MobclickAgent;
 
 public class HcbAPP extends Application {
-	static HcbAPP mainApp;
+	public static HcbAPP mainApp;
+	public static ArrayList<Activity> mActivityList = new ArrayList<Activity>();
 
 	public HcbAPP() {
 		mainApp = this;
@@ -70,7 +69,7 @@ public class HcbAPP extends Application {
 	}
 
 	public int GetDpType() {
-		Activity top = BaseActivity.GetTopActivity();
+		Activity top = GetTopActivity();
 		if (top == null)
 			return 1;
 
@@ -87,7 +86,7 @@ public class HcbAPP extends Application {
 
 	// 上报错误
 	public static void ReportError(String error) {
-		Activity topactivity = BaseActivity.GetTopActivity();
+		Activity topactivity = GetTopActivity();
 		if (topactivity == null)
 			return;
 		MobclickAgent.reportError(topactivity, error);
@@ -185,8 +184,42 @@ public class HcbAPP extends Application {
 
 	@Override
 	public void onTerminate() {
-
+		System.out.println("程序退出了");
 		super.onTerminate();
 	}
 
+	// 得到最新的Activity
+	public static Activity GetTopActivity() {
+		if (HcbAPP.mActivityList.size() <= 0)
+			return null;
+		return HcbAPP.mActivityList.get(HcbAPP.mActivityList.size() - 1);
+	}
+
+	/**
+	 * 清空Activity缓存
+	 */
+	public void ClearAllActivity() {
+		if (HcbAPP.mActivityList.size() <= 0)
+			return;
+		for (int i = 0; i < HcbAPP.mActivityList.size(); ++i) {
+			HcbAPP.mActivityList.get(i).finish();
+		}
+		HcbAPP.mActivityList.clear();
+	}
+
+	/**
+	 * 清空页面缓存，保留当前activity
+	 */
+	public void ClearOtherActivity() {
+		if (HcbAPP.mActivityList.size() <= 0)
+			return;
+		int size = HcbAPP.mActivityList.size();
+		for (int i = 0; i < size - 1; i++)
+			HcbAPP.mActivityList.get(i).finish();
+	}
+
+	public void exit() {
+		ClearAllActivity();
+		System.exit(0);
+	}
 }

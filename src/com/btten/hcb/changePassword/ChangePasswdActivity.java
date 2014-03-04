@@ -18,6 +18,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import com.btten.base.BaseActivity;
+import com.btten.hcb.HcbAPP;
 import com.btten.hcb.Service.CallTaxiNotification;
 import com.btten.hcb.account.VIPInfoManager;
 import com.btten.hcb.login.LoginActivity;
@@ -141,7 +142,7 @@ public class ChangePasswdActivity extends BaseActivity {
 				@Override
 				public void run() {
 					// 清除缓存，
-					ClearOtherActivity();
+					HcbAPP.getInstance().ClearOtherActivity();
 					clearTemp();
 					// 注销到登录页面
 					VIPInfoManager.getInstance().Logout();
@@ -190,7 +191,6 @@ public class ChangePasswdActivity extends BaseActivity {
 	}
 
 	private void clearFiles(File file) {
-		// TODO Auto-generated method stub
 		if (file.isDirectory()) {
 			File temp = null;
 			File[] files = file.listFiles();
@@ -204,41 +204,9 @@ public class ChangePasswdActivity extends BaseActivity {
 	}
 
 	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		if (item.getGroupId() == 0 && item.getItemId() == 0)
-			new AlertDialog.Builder(this)
-					.setMessage("退出惠车宝？")
-					.setPositiveButton("确定",
-							new DialogInterface.OnClickListener() {
-
-								@Override
-								public void onClick(DialogInterface dialog,
-										int which) {
-
-									if (LocationClientService.getInstance()
-											.isStarted())
-										LocationClientService.getInstance()
-												.stop();
-									if (LocationClientService.getInstance()
-											.getMapManager() != null)
-										LocationClientService.getInstance()
-												.getMapManager().destroy();
-
-									CallTaxiNotification.getInstance()
-											.ExitApp();
-									ClearAllActivity();
-									System.exit(0);
-								}
-							})
-					.setNegativeButton("取消",
-							new DialogInterface.OnClickListener() {
-
-								@Override
-								public void onClick(DialogInterface dialog,
-										int which) {
-									dialog.dismiss();
-								}
-							}).show();
-		return super.onOptionsItemSelected(item);
+	public void initDate() {
+		// TODO Auto-generated method stub
+		
 	}
+
 }

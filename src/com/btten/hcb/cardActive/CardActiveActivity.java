@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import com.btten.base.BaseActivity;
+import com.btten.hcb.HcbAPP;
 import com.btten.hcb.Service.CallTaxiNotification;
 import com.btten.hcb.account.VIPInfoManager;
 import com.btten.hcb.homeActivity.HomeActivity;
@@ -275,7 +276,7 @@ public class CardActiveActivity extends BaseActivity {
 				public void run() {
 					startActivity((new Intent(CardActiveActivity.this,
 							HomeActivity.class)));
-					ClearOtherActivity();
+					HcbAPP.getInstance().ClearOtherActivity();
 				}
 			}, 200);
 		}
@@ -304,5 +305,11 @@ public class CardActiveActivity extends BaseActivity {
 			count.interrupt();
 
 		super.onPause();
+	}
+
+	@Override
+	public void initDate() {
+		// TODO Auto-generated method stub
+		
 	}
 }

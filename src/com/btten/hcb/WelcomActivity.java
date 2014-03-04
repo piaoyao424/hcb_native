@@ -39,4 +39,10 @@ public class WelcomActivity extends BaseActivity {
 
 		return isfirststart;
 	}
+
+	@Override
+	public void initDate() {
+		// TODO Auto-generated method stub
+		
+	}
 }

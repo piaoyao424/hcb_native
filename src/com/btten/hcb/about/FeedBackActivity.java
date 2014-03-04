@@ -116,4 +116,10 @@ public class FeedBackActivity extends BaseActivity {
 			imm.hideSoftInputFromWindow(feedbk_txt.getWindowToken(),
 					InputMethodManager.HIDE_NOT_ALWAYS);
 	}
+
+	@Override
+	public void initDate() {
+		// TODO Auto-generated method stub
+		
+	}
 }

@@ -84,4 +84,10 @@ public class DetailActivity extends BaseActivity {
 			ErrorAlert(status, info);
 		}
 	};
+
+	@Override
+	public void initDate() {
+		// TODO Auto-generated method stub
+		
+	}
 }

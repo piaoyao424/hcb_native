@@ -157,6 +157,11 @@
             android:name="com.btten.hcb.account.MyAccountActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait" />
+        <!-- 我的信息 -->
+        <activity
+            android:name="com.btten.hcb.userInfo.UserInfoActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
 
         <!-- 常见问题 列表 -->
         <activity
@@ -232,6 +237,12 @@
             android:name="com.btten.sendGift.SendGiftActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait" />
+         <!-- 人车生活 -->
+        <activity
+            android:name="com.btten.hcb.vehicleLife.VehicleLifeActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+
         <!-- 积分记录 -->
         <activity
             android:name="com.btten.hcb.pointRecord.PointRecordsActivity"

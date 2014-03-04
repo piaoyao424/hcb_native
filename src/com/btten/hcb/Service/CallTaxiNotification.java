@@ -40,7 +40,6 @@ public class CallTaxiNotification {
 	}
 
 	private PendingIntent getPendIntent() {
-		// TODO Auto-generated method stub
 		Intent intent = null;
 		try {
 			intent = new Intent(HcbAPP.getInstance(),
@@ -50,7 +49,6 @@ public class CallTaxiNotification {
 			intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 			intent.addFlags(Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -65,17 +63,8 @@ public class CallTaxiNotification {
 	}
 
 	private String getState() {
-		// TODO Auto-generated method stub
-		/*String state = null;
-		String loginState = null;*/
 		String driverState = null;
 		
-		/*if (VIPInfoManager.getInstance().IsLogin()){
-			loginState = "已登录";
-		}
-		else{
-			loginState = "未登录";
-		}*/
 		JmsMapManager manager = JmsMapManager.getInstance();
 		if (manager.GetIsDriver()){
 			String typeStr = "";
@@ -134,11 +123,6 @@ public class CallTaxiNotification {
 		tickerText = TITLE + ":" + "已经退出接单";
 		showNotification();
 	}
-
-	/*
-	 * public void StartApp(){ tickerText = TITLE + ":"+"启动";
-	 * showNotification(); }
-	 */
 
 	public void ExitApp() {
 		tickerText = TITLE + ":" + "退出";

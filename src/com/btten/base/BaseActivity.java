@@ -1,6 +1,5 @@
 package com.btten.base;
 
-import java.util.ArrayList;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -14,9 +13,11 @@ import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.btten.hcb.HcbAPP;
 import com.btten.hcb.Service.CallTaxiNotification;
 import com.btten.hcb.account.VIPInfoManager;
 import com.btten.hcb.login.LoginActivity;
+import com.btten.hcb.map.LocationClientService;
 import com.btten.hcbvip.R;
 import com.btten.network.NetConst;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -38,54 +39,23 @@ public abstract class BaseActivity extends Activity {
 	 */
 	protected TextView titleTextView = null;
 
-	private static ArrayList<Activity> mActivityList = new ArrayList<Activity>();
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		CrashReportHandler.attach(this);
-		mActivityList.add(this);
+		HcbAPP.mActivityList.add(this);
 	}
 
 	@Override
 	protected void onDestroy() {
+		HcbAPP.mActivityList.remove(this);
 		super.onDestroy();
-		mActivityList.remove(this);
-	}
-
-	// 得到顶部分的Activity
-	public static Activity GetTopActivity() {
-		if (mActivityList.size() <= 0)
-			return null;
-		return mActivityList.get(mActivityList.size() - 1);
-	}
-
-	/**
-	 * 清空Activity缓存
-	 */
-	public static void ClearAllActivity() {
-		if (mActivityList.size() <= 0)
-			return;
-		int size = mActivityList.size();
-		for (int i = 0; i < size; i++)
-			mActivityList.get(i).finish();
-	}
-
-	/**
-	 * 清空页面缓存，保留当前activity
-	 */
-	public static void ClearOtherActivity() {
-		if (mActivityList.size() <= 0)
-			return;
-		int size = mActivityList.size();
-		for (int i = 0; i < size - 1; ++i)
-			mActivityList.get(i).finish();
 	}
 
 	protected void onResume() {
 		super.onResume();
 		MobclickAgent.onResume(this);
-		initView();
+		initDate();
 	}
 
 	protected void onPause() {
@@ -130,7 +100,7 @@ public abstract class BaseActivity extends Activity {
 
 				@Override
 				public void onClick(View v) {
-					onBackPressed();
+					finish();
 				}
 			}));
 		} else {
@@ -272,8 +242,9 @@ public abstract class BaseActivity extends Activity {
 										int which) {
 									CallTaxiNotification.getInstance()
 											.ExitApp();
-									ClearAllActivity();
-									System.exit(0);
+									LocationClientService.getInstance()
+											.destroy();
+									HcbAPP.getInstance().exit();
 								}
 							})
 					.setNegativeButton("取消",
@@ -301,5 +272,5 @@ public abstract class BaseActivity extends Activity {
 
 	}
 
-	public abstract void initView();
+	public abstract void initDate();
 }

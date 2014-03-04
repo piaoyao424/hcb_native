@@ -1,54 +1,55 @@
 package com.btten.hcb.userInfo;
 
-import java.util.ArrayList;
-import java.util.List;
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Paint;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup;
-import android.widget.BaseExpandableListAdapter;
-import android.widget.ExpandableListView;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RatingBar;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import android.widget.EditText;
+import android.widget.RadioGroup;
+import android.widget.RadioGroup.OnCheckedChangeListener;
 import com.btten.base.BaseActivity;
-import com.btten.hcb.map.BMapActivity;
-import com.btten.hcb.map.JmsGps;
-import com.btten.hcb.serviceEvaluation.ServiceEvaluationActivity;
 import com.btten.hcbvip.R;
 import com.btten.network.NetSceneBase;
 import com.btten.network.OnSceneCallBack;
-import com.btten.vincenttools.CallTelephone;
 
 public class UserInfoActivity extends BaseActivity {
 
-	private TextView txt_jname, txt_scope, txt_commentNum, txt_address,
-			txt_phone;
+	private EditText et_province, et_city, et_area, et_model, et_carNum,
+			et_date, et_email, et_username, et_addr, et_phone, et_consignee;
+	private RadioGroup rdgrp;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.jmsinfo_activity);
-
+		setContentView(R.layout.userifo_activity);
+		setBackKeyListner(true);
 		initView();
+		IsLogin();
 	}
 
 	public void initView() {
-		setCurrentTitle("网点详情");
-		txt_jname = (TextView) findViewById(R.id.jmsinfo_jname);
-		txt_scope = (TextView) findViewById(R.id.jmsinfo_scope);
-		txt_commentNum = (TextView) findViewById(R.id.jmsinfo_numstar);
-		txt_address = (TextView) findViewById(R.id.jmsinfo_address);
-		txt_phone = (TextView) findViewById(R.id.jmsinfo_phone);
+		setCurrentTitle("我的信息");
+		et_model = (EditText) findViewById(R.id.userinfo_model);
+		et_carNum = (EditText) findViewById(R.id.userinfo_carnum);
+		et_date = (EditText) findViewById(R.id.userinfo_date);
+		et_email = (EditText) findViewById(R.id.userinfo_email);
+		et_username = (EditText) findViewById(R.id.userinfo_username);
+		et_addr = (EditText) findViewById(R.id.userinfo_addr);
+		et_phone = (EditText) findViewById(R.id.userinfo_phone);
+		et_consignee = (EditText) findViewById(R.id.userinfo_consignee);
+		rdgrp = (RadioGroup) findViewById(R.id.userinfo_gerder_group);
+		rdgrp.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 
-		setBackKeyListner(true);
-		new JmsInfoScene().doScene(callBack, jmsInfo.id);
+			@Override
+			public void onCheckedChanged(RadioGroup group, int checkedId) {
+				// 根据用户勾选的单选按钮来动态改变tip字符串的值
+				String tip = checkedId == R.id.userinfo_gerder_male ? "您的性别是男人"
+						: "您的性别是女人";
+
+			}
+		});
+
+		// new JmsInfoScene().doScene(callBack, jmsInfo.id);
 	}
 
 	OnClickListener clickListener = new OnClickListener() {
@@ -83,5 +84,11 @@ public class UserInfoActivity extends BaseActivity {
 			ErrorAlert(status, info);
 		}
 	};
+
+	@Override
+	public void initDate() {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

@@ -147,6 +147,9 @@ public class LocationClientService {
 			BDMapManager.stop();
 			BDMapManager.destroy();
 		}
+		if (client != null) {
+			client.stop();
+		}
 
 	}
 }

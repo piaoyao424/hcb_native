@@ -700,11 +700,27 @@ public final class R {
         public static final int umeng_update_id_cancel=0x7f0b0181;
         public static final int umeng_update_id_ok=0x7f0b0180;
         public static final int umeng_update_wifi_indicator=0x7f0b017e;
+        public static final int userinfo_addr=0x7f0b018d;
+        public static final int userinfo_area=0x7f0b0184;
+        public static final int userinfo_carnum=0x7f0b0186;
+        public static final int userinfo_city=0x7f0b0183;
+        public static final int userinfo_consignee=0x7f0b018e;
+        public static final int userinfo_date=0x7f0b0187;
+        public static final int userinfo_email=0x7f0b0189;
+        public static final int userinfo_gerder_female=0x7f0b018c;
+        public static final int userinfo_gerder_group=0x7f0b018a;
+        public static final int userinfo_gerder_male=0x7f0b018b;
+        public static final int userinfo_model=0x7f0b0185;
+        public static final int userinfo_phone=0x7f0b018f;
+        public static final int userinfo_province=0x7f0b0182;
+        public static final int userinfo_username=0x7f0b0188;
+        public static final int vehicle_life_gridview=0x7f0b0190;
+        public static final int vehicle_life_item_txt=0x7f0b0191;
         public static final int verifycode_edittext=0x7f0b00a8;
         public static final int verifycode_imageview=0x7f0b00a9;
         public static final int verifycode_layout=0x7f0b00a7;
-        public static final int viewFlow=0x7f0b0183;
-        public static final int welcome_button=0x7f0b0182;
+        public static final int viewFlow=0x7f0b0193;
+        public static final int welcome_button=0x7f0b0192;
         public static final int year=0x7f0b016c;
     }
     public static final class layout {
@@ -806,8 +822,10 @@ public final class R {
         public static final int umeng_common_download_notification=0x7f03005f;
         public static final int umeng_update_dialog=0x7f030060;
         public static final int userifo_activity=0x7f030061;
-        public static final int welcome_button=0x7f030062;
-        public static final int welcomeactivity=0x7f030063;
+        public static final int vehicle_life_activity=0x7f030062;
+        public static final int vehicle_life_item=0x7f030063;
+        public static final int welcome_button=0x7f030064;
+        public static final int welcomeactivity=0x7f030065;
     }
     public static final class raw {
         public static final int sent=0x7f050000;

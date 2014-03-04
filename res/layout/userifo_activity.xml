@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/light_gray"
     android:orientation="vertical" >
 
     <include layout="@layout/top_title_bar" />
@@ -15,9 +15,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="20dp"
             android:gravity="center_vertical"
-            android:orientation="vertical" >
+            android:orientation="vertical"
+            android:padding="10dp" >
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -46,417 +46,433 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@color/light_gray" >
+                android:layout_height="0.5dp"
+                android:background="@color/gray" >
             </View>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:orientation="horizontal"
-                android:paddingBottom="5dp"
-                android:paddingTop="5dp" >
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical"
+                android:paddingRight="10dp" >
 
                 <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" >
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:orientation="horizontal"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp" >
 
-                    <Spinner
-                        android:id="@+id/insurance_year"
+                    <LinearLayout
                         android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_gravity="left"
-                        android:layout_weight="1"
-                        android:background="@drawable/nomal_shape"
-                        android:prompt="@string/choiceyear"
-                        android:visibility="visible" >
-                    </Spinner>
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" >
+
+                        <Spinner
+                            android:id="@+id/userinfo_province"
+                            android:layout_width="0dp"
+                            android:layout_height="30dp"
+                            android:layout_gravity="left"
+                            android:layout_weight="1"
+                            android:background="@drawable/nomal_shape"
+                            android:prompt="@string/choiceyear" >
+                        </Spinner>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="2dp"
+                            android:paddingRight="2dp"
+                            android:singleLine="true"
+                            android:text="省"
+                            android:textColor="@color/text_gray"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" >
+
+                        <Spinner
+                            android:id="@+id/userinfo_city"
+                            android:layout_width="0dp"
+                            android:layout_height="30dp"
+                            android:layout_gravity="left"
+                            android:layout_weight="1"
+                            android:background="@drawable/nomal_shape"
+                            android:prompt="@string/choiceyear" >
+                        </Spinner>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:gravity="right"
+                            android:paddingLeft="2dp"
+                            android:paddingRight="2dp"
+                            android:singleLine="true"
+                            android:text="市"
+                            android:textColor="@color/text_gray"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" >
+
+                        <Spinner
+                            android:id="@+id/userinfo_area"
+                            android:layout_width="0dp"
+                            android:layout_height="30dp"
+                            android:layout_gravity="left"
+                            android:layout_weight="1"
+                            android:background="@drawable/nomal_shape"
+                            android:prompt="@string/choiceyear" >
+                        </Spinner>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:gravity="right"
+                            android:paddingLeft="2dp"
+                            android:paddingRight="2dp"
+                            android:singleLine="true"
+                            android:text="区"
+                            android:textColor="@color/text_gray"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp" >
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
+                        android:layout_weight="3"
+                        android:gravity="right"
+                        android:singleLine="true"
+                        android:text="车型:"
+                        android:textColor="@color/text_gray"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/userinfo_model"
+                        android:layout_width="0dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="8"
+                        android:background="@drawable/nomal_shape"
                         android:gravity="center_vertical"
+                        android:paddingLeft="10dp"
                         android:singleLine="true"
-                        android:text="省"
+                        android:text="大众大众"
                         android:textColor="@color/text_gray"
-                        android:textSize="16sp" />
+                        android:textSize="14sp" />
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" >
-
-                    <Spinner
-                        android:id="@+id/insurance_mouth"
-                        android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        android:layout_gravity="left"
-                        android:layout_marginLeft="10dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/nomal_shape"
-                        android:prompt="@string/choiceyear"
-                        android:visibility="visible" >
-                    </Spinner>
+                    android:orientation="horizontal"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp" >
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
+                        android:layout_weight="3"
                         android:gravity="right"
                         android:singleLine="true"
-                        android:text="市"
+                        android:text="车牌号:"
                         android:textColor="@color/text_gray"
-                        android:textSize="16sp" />
-                </LinearLayout>
+                        android:textSize="14sp" />
 
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" >
-
-                    <Spinner
-                        android:id="@+id/insurance_mouth"
+                    <EditText
+                        android:id="@+id/userinfo_carnum"
                         android:layout_width="0dp"
                         android:layout_height="30dp"
-                        android:layout_gravity="left"
-                        android:layout_marginLeft="10dp"
-                        android:layout_weight="1"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="8"
                         android:background="@drawable/nomal_shape"
-                        android:prompt="@string/choiceyear"
-                        android:visibility="visible" >
-                    </Spinner>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:gravity="right"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="10dp"
                         android:singleLine="true"
-                        android:text="区"
+                        android:text="R52134"
                         android:textColor="@color/text_gray"
-                        android:textSize="16sp" />
+                        android:textSize="14sp" />
                 </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingBottom="5dp"
-                android:paddingTop="5dp" >
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:gravity="right"
-                    android:singleLine="true"
-                    android:text="车型:"
-                    android:textColor="@color/text_gray"
-                    android:textSize="14sp" />
-
-                <EditText
-                    android:id="@+id/insurance_city"
-                    android:layout_width="0dp"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_weight="8"
-                    android:background="@drawable/nomal_shape"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="10dp"
-                    android:singleLine="true"
-                    android:text="武汉"
-                    android:textColor="@color/text_gray"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="5dp"
-                android:paddingTop="5dp" >
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:gravity="right"
-                    android:singleLine="true"
-                    android:text="车牌号:"
-                    android:textColor="@color/text_gray"
-                    android:textSize="14sp" />
-
-                <EditText
-                    android:id="@+id/insurance_city"
-                    android:layout_width="0dp"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_weight="8"
-                    android:background="@drawable/nomal_shape"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="10dp"
-                    android:singleLine="true"
-                    android:text="武汉"
-                    android:textColor="@color/text_gray"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingBottom="5dp"
-                android:paddingTop="5dp" >
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:gravity="right"
-                    android:singleLine="true"
-                    android:text="购车时间:"
-                    android:textColor="@color/text_gray"
-                    android:textSize="14sp" />
-
-                <EditText
-                    android:id="@+id/insurance_car_number"
-                    android:layout_width="0dp"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_weight="8"
-                    android:background="@drawable/nomal_shape"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="10dp"
-                    android:singleLine="true"
-                    android:text="R52134"
-                    android:textColor="@color/text_gray"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingBottom="5dp"
-                android:paddingTop="5dp" >
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:gravity="right"
-                    android:singleLine="true"
-                    android:text="姓名:"
-                    android:textColor="@color/text_gray"
-                    android:textSize="14sp" />
-
-                <EditText
-                    android:id="@+id/insurance_email"
-                    android:layout_width="0dp"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_weight="8"
-                    android:background="@drawable/nomal_shape"
-                    android:gravity="center_vertical"
-                    android:inputType="textEmailAddress"
-                    android:paddingLeft="10dp"
-                    android:singleLine="true"
-                    android:text="zhangwenjun424@126.com"
-                    android:textColor="@color/text_gray"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingBottom="5dp"
-                android:paddingTop="5dp" >
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:gravity="right"
-                    android:singleLine="true"
-                    android:text="邮箱:"
-                    android:textColor="@color/text_gray"
-                    android:textSize="14sp" />
-
-                <EditText
-                    android:id="@+id/insurance_email"
-                    android:layout_width="0dp"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_weight="8"
-                    android:background="@drawable/nomal_shape"
-                    android:gravity="center_vertical"
-                    android:inputType="textEmailAddress"
-                    android:paddingLeft="10dp"
-                    android:singleLine="true"
-                    android:text="zhangwenjun424@126.com"
-                    android:textColor="@color/text_gray"
-                    android:textSize="14sp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingBottom="5dp"
-                android:paddingTop="5dp" >
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:gravity="right"
-                    android:singleLine="true"
-                    android:text="性别:"
-                    android:textColor="@color/text_gray"
-                    android:textSize="14sp" />
 
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="8"
-                    android:paddingLeft="5dp" >
+                    android:orientation="horizontal"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp" >
 
-                    <Spinner
-                        android:id="@+id/insurance_mouth"
+                    <TextView
                         android:layout_width="0dp"
-                        android:layout_height="40dp"
-                        android:layout_gravity="left"
-                        android:layout_marginLeft="10dp"
-                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:gravity="right"
+                        android:singleLine="true"
+                        android:text="购车时间:"
+                        android:textColor="@color/text_gray"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/userinfo_date"
+                        android:layout_width="0dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="8"
                         android:background="@drawable/nomal_shape"
-                        android:prompt="@string/choiceyear"
-                        android:visibility="visible" >
-                    </Spinner>
+                        android:gravity="center_vertical"
+                        android:paddingLeft="10dp"
+                        android:singleLine="true"
+                        android:text="2014-03-04"
+                        android:textColor="@color/text_gray"
+                        android:textSize="14sp" />
                 </LinearLayout>
-            </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingBottom="5dp"
-                android:paddingTop="5dp" >
-
-                <TextView
-                    android:layout_width="0dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:gravity="right"
-                    android:singleLine="true"
-                    android:text="收货地址:"
-                    android:textColor="@color/text_gray"
-                    android:textSize="14sp" />
-
-                <EditText
-                    android:id="@+id/insurance_mobile"
-                    android:layout_width="0dp"
-                    android:layout_height="40dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_weight="8"
-                    android:background="@drawable/nomal_shape"
                     android:gravity="center_vertical"
-                    android:inputType="phone"
-                    android:paddingLeft="10dp"
-                    android:singleLine="true"
-                    android:text="14072105643"
-                    android:textColor="@color/text_gray"
-                    android:textSize="14sp" />
-            </LinearLayout>
+                    android:orientation="horizontal"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp" >
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingBottom="5dp"
-                android:paddingTop="5dp" >
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:gravity="right"
+                        android:singleLine="true"
+                        android:text="姓名:"
+                        android:textColor="@color/text_gray"
+                        android:textSize="14sp" />
 
-                <TextView
-                    android:layout_width="0dp"
+                    <EditText
+                        android:id="@+id/userinfo_username"
+                        android:layout_width="0dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="8"
+                        android:background="@drawable/nomal_shape"
+                        android:gravity="center_vertical"
+                        android:inputType="textEmailAddress"
+                        android:paddingLeft="10dp"
+                        android:singleLine="true"
+                        android:text="不知道"
+                        android:textColor="@color/text_gray"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:gravity="right"
-                    android:singleLine="true"
-                    android:text="收货人姓名:"
-                    android:textColor="@color/text_gray"
-                    android:textSize="14sp" />
-
-                <EditText
-                    android:id="@+id/insurance_mobile"
-                    android:layout_width="0dp"
-                    android:layout_height="40dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_weight="8"
-                    android:background="@drawable/nomal_shape"
                     android:gravity="center_vertical"
-                    android:inputType="phone"
-                    android:paddingLeft="10dp"
-                    android:singleLine="true"
-                    android:text="14072105643"
-                    android:textColor="@color/text_gray"
-                    android:textSize="14sp" />
-            </LinearLayout>
+                    android:orientation="horizontal"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp" >
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingBottom="5dp"
-                android:paddingTop="5dp" >
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:gravity="right"
+                        android:singleLine="true"
+                        android:text="邮箱:"
+                        android:textColor="@color/text_gray"
+                        android:textSize="14sp" />
 
-                <TextView
-                    android:layout_width="0dp"
+                    <EditText
+                        android:id="@+id/userinfo_email"
+                        android:layout_width="0dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="8"
+                        android:background="@drawable/nomal_shape"
+                        android:gravity="center_vertical"
+                        android:inputType="textEmailAddress"
+                        android:paddingLeft="10dp"
+                        android:singleLine="true"
+                        android:text="zhangwenjun424@126.com"
+                        android:textColor="@color/text_gray"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp" >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:gravity="right"
+                        android:singleLine="true"
+                        android:text="性别:"
+                        android:textColor="@color/text_gray"
+                        android:textSize="14sp" />
+
+                    <RadioGroup
+                        android:id="@+id/userinfo_gerder_group"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="8"
+                        android:orientation="horizontal" >
+
+                        <RadioButton
+                            android:id="@+id/userinfo_gerder_male"
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+                            android:text="男"
+                            android:textColor="@color/main_text_color" />
+
+                        <RadioButton
+                            android:id="@+id/userinfo_gerder_female"
+                            android:layout_width="80dp"
+                            android:layout_height="wrap_content"
+                            android:text="女"
+                            android:textColor="@color/main_text_color" />
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:gravity="right"
-                    android:singleLine="true"
-                    android:text="收货人电话:"
-                    android:textColor="@color/text_gray"
-                    android:textSize="14sp" />
-
-                <EditText
-                    android:id="@+id/insurance_mobile"
-                    android:layout_width="0dp"
-                    android:layout_height="40dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_weight="8"
-                    android:background="@drawable/nomal_shape"
                     android:gravity="center_vertical"
-                    android:inputType="phone"
-                    android:paddingLeft="10dp"
-                    android:singleLine="true"
-                    android:text="14072105643"
-                    android:textColor="@color/text_gray"
-                    android:textSize="14sp" />
-            </LinearLayout>
+                    android:orientation="horizontal"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp" >
 
-            <Button
-                android:id="@+id/insurance_button"
-                android:layout_width="140dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
-                android:background="@color/orange"
-                android:padding="10dp"
-                android:text="快速报价"
-                android:textColor="#FFFFFF"
-                android:textSize="20sp" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:gravity="right"
+                        android:singleLine="true"
+                        android:text="收货地址:"
+                        android:textColor="@color/text_gray"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/userinfo_addr"
+                        android:layout_width="0dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="8"
+                        android:background="@drawable/nomal_shape"
+                        android:gravity="center_vertical"
+                        android:inputType="phone"
+                        android:paddingLeft="10dp"
+                        android:singleLine="true"
+                        android:text="武汉武汉武汉"
+                        android:textColor="@color/text_gray"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp" >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:gravity="right"
+                        android:singleLine="true"
+                        android:text="收货人:"
+                        android:textColor="@color/text_gray"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/userinfo_consignee"
+                        android:layout_width="0dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="8"
+                        android:background="@drawable/nomal_shape"
+                        android:gravity="center_vertical"
+                        android:inputType="phone"
+                        android:paddingLeft="10dp"
+                        android:singleLine="true"
+                        android:text="万万万"
+                        android:textColor="@color/text_gray"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp" >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:gravity="right"
+                        android:singleLine="true"
+                        android:text="联系电话:"
+                        android:textColor="@color/text_gray"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/userinfo_phone"
+                        android:layout_width="0dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="8"
+                        android:background="@drawable/nomal_shape"
+                        android:gravity="center_vertical"
+                        android:inputType="phone"
+                        android:paddingLeft="10dp"
+                        android:singleLine="true"
+                        android:text="14072105643"
+                        android:textColor="@color/text_gray"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/insurance_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="20dp"
+                    android:background="@color/orange"
+                    android:padding="5dp"
+                    android:text="保存"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp" />
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 

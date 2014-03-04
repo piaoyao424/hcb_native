@@ -10,7 +10,7 @@ import com.umeng.common.Log;
 public class UserInfoScene extends NomalJsonSceneBase {
 	@Override
 	protected BaseJsonItem CreateJsonItems() {
-		return new TitleNoticeItems();
+		return new UserInfoResult();
 	}
 
 	public void doScene(OnSceneCallBack callBack)

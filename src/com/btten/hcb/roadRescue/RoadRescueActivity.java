@@ -207,4 +207,10 @@ public class RoadRescueActivity extends BaseActivity {
 			return true;
 		}
 	}
+
+	@Override
+	public void initDate() {
+		// TODO Auto-generated method stub
+		
+	}
 }

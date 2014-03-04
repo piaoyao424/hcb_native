@@ -313,4 +313,10 @@ public class JmsInfoActivity extends BaseActivity {
 			return false;
 		}
 	}
+
+	@Override
+	public void initDate() {
+		// TODO Auto-generated method stub
+		
+	}
 }

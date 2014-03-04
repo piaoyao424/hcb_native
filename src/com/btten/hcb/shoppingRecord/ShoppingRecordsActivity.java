@@ -119,4 +119,10 @@ public class ShoppingRecordsActivity extends BaseActivity {
 
 		}
 	};
+
+	@Override
+	public void initDate() {
+		// TODO Auto-generated method stub
+		
+	}
 }
