@@ -1,14 +1,13 @@
-package com.btten.hcb.buddhist;
+package com.btten.hcb.carKnowledge;
 
 import org.json.JSONObject;
 
 import android.util.Log;
 
 import com.btten.model.BaseJsonItem;
-import com.btten.tools.CommonConvert;
 
-public class BuddhistInfoResult extends BaseJsonItem {
-	BuddhistListItem item;
+public class CarKnowledgeInfoResult extends BaseJsonItem {
+	CarKnowledgeListItem item;
 
 	@Override
 	public boolean CreateFromJson(JSONObject result) {
@@ -18,11 +17,11 @@ public class BuddhistInfoResult extends BaseJsonItem {
 			this.info = result.getString("INFO");
 
 			if (this.status == 1) {
-				CommonConvert convert = new CommonConvert(result);
-				item = new BuddhistListItem();
-				item.content = convert.getString("F3_4230");
-				item.date = convert.getString("F4_4230");
-				item.title = convert.getString("F2_4230");
+				item = new CarKnowledgeListItem();
+				item.title = result.getString("F2_4230");
+				item.id = result.getString("F1_4230");
+				item.image = result.getString("F4_4230");
+				item.content = result.getString("F4_4230");
 			}
 		} catch (Exception ex) {
 			this.status = -1;

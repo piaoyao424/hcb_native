@@ -1,4 +1,4 @@
-package com.btten.hcb.homeActivity;
+package com.btten.hcb.carKnowledge;
 
 import com.btten.model.BaseJsonItem;
 import com.btten.network.NomalJsonSceneBase;
@@ -7,17 +7,16 @@ import com.btten.network.ThreadPoolUtils;
 import com.btten.network.UrlFactory;
 import com.umeng.common.Log;
 
-public class TitleNoticeScene extends NomalJsonSceneBase {
+public class CarKnowledgeListScene extends NomalJsonSceneBase {
 	@Override
 	protected BaseJsonItem CreateJsonItems() {
-		return new TitleNoticeResult();
+		return new CarKnowledgeListResult();
 	}
 
-	public void doScene(OnSceneCallBack callBack)
-	{
+	public void doScene(OnSceneCallBack callBack) {
 		SetCallBack(callBack);
-		targetUrl = UrlFactory.GetUrlNew("PublicNotice","getPublicNoticeMaster"
-				);
+		targetUrl = UrlFactory.GetUrlNew("PublicNotice",
+				"getPublicNoticeMaster");
 		System.out.println(targetUrl);
 		Log.d("url", targetUrl);
 		ThreadPoolUtils.execute(this);

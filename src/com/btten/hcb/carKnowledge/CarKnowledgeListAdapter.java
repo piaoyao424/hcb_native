@@ -1,6 +1,7 @@
-package com.btten.hcb.buddhist;
+package com.btten.hcb.carKnowledge;
 
 import com.btten.hcbvip.R;
+import com.nostra13.universalimageloader.core.ImageLoader;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -9,14 +10,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-public class BuddhistListAdapter extends BaseAdapter {
-	View view = null;
+public class CarKnowledgeListAdapter extends BaseAdapter {
 	Activity context = null;
-	private BuddhistListItem[] items;
+	CarKnowledgeListItem[] items;
 
-	public BuddhistListAdapter(Activity context, BuddhistListItem[] items) {
+	public CarKnowledgeListAdapter(Activity context,
+			CarKnowledgeListItem[] items) {
 		this.context = context;
 		this.items = items;
 	}
@@ -30,13 +33,16 @@ public class BuddhistListAdapter extends BaseAdapter {
 			vHolder = new ViewHolder();
 			inflater = (LayoutInflater) context
 					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-			convertView = inflater.inflate(R.layout.buddhist_list_item, null);
+			convertView = inflater.inflate(R.layout.carknowledge_list_item,
+					null);
 			vHolder.txtTitle = (TextView) convertView
-					.findViewById(R.id.buddhist_list_item_title);
+					.findViewById(R.id.carknowledge_list_item_title);
 			vHolder.txtContent = (TextView) convertView
-					.findViewById(R.id.buddhist_list_item_content);
-			vHolder.txtDate = (TextView) convertView
-					.findViewById(R.id.buddhist_list_item_date);
+					.findViewById(R.id.carknowledge_list_item_content);
+			vHolder.imageView = (ImageView) convertView
+					.findViewById(R.id.carknowledge_list_item_image);
+			vHolder.btnSubmit = (Button) convertView
+					.findViewById(R.id.carknowledge_list_item_button);
 			convertView.setTag(vHolder);
 		} else {
 			vHolder = (ViewHolder) convertView.getTag();
@@ -44,9 +50,10 @@ public class BuddhistListAdapter extends BaseAdapter {
 
 		vHolder.txtTitle.setText(items[position].title);
 		vHolder.txtContent.setText(items[position].content);
-		vHolder.txtDate.setText(items[position].date);
 
-		convertView.setOnClickListener(new adapterListner(position));
+		vHolder.btnSubmit.setOnClickListener(new adapterListner(position));
+		ImageLoader.getInstance().displayImage(items[position].image,
+				vHolder.imageView);
 
 		return convertView;
 	}
@@ -60,7 +67,7 @@ public class BuddhistListAdapter extends BaseAdapter {
 
 		@Override
 		public void onClick(View v) {
-			Intent intent = new Intent(context, BuddhistInfoActivity.class);
+			Intent intent = new Intent(context, CarKnowledgeInfoActivity.class);
 			intent.putExtra("KEY_ID", items[index].id);
 			context.startActivity(intent);
 		}
@@ -68,23 +75,22 @@ public class BuddhistListAdapter extends BaseAdapter {
 
 	@Override
 	public int getCount() {
-		// TODO Auto-generated method stub
-		return 0;
+		return items.length;
 	}
 
 	@Override
 	public Object getItem(int position) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public long getItemId(int position) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	class ViewHolder {
-		TextView txtTitle, txtContent, txtDate;
+		TextView txtTitle, txtContent;
+		ImageView imageView;
+		Button btnSubmit;
 	}
 }

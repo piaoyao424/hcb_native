@@ -7,8 +7,8 @@ import com.btten.hcb.HcbAPP;
 import com.btten.hcb.MyHcbActivity;
 import com.btten.hcb.Service.CallTaxiNotification;
 import com.btten.hcb.account.VIPInfoManager;
+import com.btten.hcb.buddhist.BuddhistInfoActivity;
 import com.btten.hcb.map.LocationClientService;
-import com.btten.hcb.publicNotice.PublicNoticeInfoActivity;
 import com.btten.hcb.search.SearchActivity;
 import com.btten.hcb.vehicleLife.VehicleLifeActivity;
 import com.btten.hcbvip.R;
@@ -128,7 +128,7 @@ public class HomeActivity extends BaseActivity {
 
 		@Override
 		public void OnSuccess(Object data, NetSceneBase<?> netScene) {
-			TitleNoticeItems items = (TitleNoticeItems) data;
+			TitleNoticeResult items = (TitleNoticeResult) data;
 			initNotifyText(items.item[0].title, items.item[0].id);
 			return;
 		}
@@ -164,8 +164,8 @@ public class HomeActivity extends BaseActivity {
 	 * @param titleid
 	 */
 	public void disPlayNoticeContent(Context context, String titleid) {
-		Intent intent = new Intent(context, PublicNoticeInfoActivity.class);
-		intent.putExtra("KEY_GGID", titleid);
+		Intent intent = new Intent(context, BuddhistInfoActivity.class);
+		intent.putExtra("KEY_ID", titleid);
 		startActivity(intent);
 	}
 

@@ -10,26 +10,20 @@ import com.btten.network.OnSceneCallBack;
 public class BuddhistListActivity extends BaseActivity {
 
 	private ListView lv;
-	private PublicNoticeListAdapter adapter;
+	private BuddhistListAdapter adapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.publicnotice_activity);
-		setCurrentTitle("公告信息");
+		setContentView(R.layout.buddhist_activity);
+		setCurrentTitle("每日一禅");
 		setBackKeyListner(true);
 		initView();
 	}
 
 	public void initView() {
-
-		lv = (ListView) findViewById(R.id.publicnotice_activity_lv);
-		DoRequest();
-		adapter = new PublicNoticeListAdapter(this);
-	}
-
-	private void DoRequest() {
-		new PublicNoticeListScene().doScene(callBack);
+		lv = (ListView) findViewById(R.id.buddhist_activity_lv);
+		new BuddhistListScene().doScene(callBack);
 		ShowRunning();
 	}
 
@@ -37,8 +31,9 @@ public class BuddhistListActivity extends BaseActivity {
 
 		@Override
 		public void OnSuccess(Object data, NetSceneBase<?> netScene) {
-			PublicNoticeListResult items = (PublicNoticeListResult) data;
-			adapter.setItems(items.items);
+			BuddhistListResult items = (BuddhistListResult) data;
+			adapter = new BuddhistListAdapter(BuddhistListActivity.this,
+					items.items);
 			lv.setAdapter(adapter);
 			HideProgress();
 			return;
@@ -54,7 +49,7 @@ public class BuddhistListActivity extends BaseActivity {
 	@Override
 	public void initDate() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

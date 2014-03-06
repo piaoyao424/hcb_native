@@ -2,6 +2,8 @@ package com.btten.hcb.buddhist;
 
 import android.os.Bundle;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.btten.hcbvip.R;
 import com.btten.base.BaseActivity;
 import com.btten.network.NetSceneBase;
@@ -9,16 +11,16 @@ import com.btten.network.OnSceneCallBack;
 
 public class BuddhistInfoActivity extends BaseActivity {
 
-	private TextView tv_ggconten_title;
-	private TextView tv_ggconten_date;
-	private TextView tv_ggconten_content;
-	String ggId = "";
+	private TextView txtTitle;
+	private TextView txtDate;
+	private TextView txtContent;
+	String id = "";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.gonggaocontent_activity);
-		setCurrentTitle("公告信息");
+		setContentView(R.layout.buddhist_info_activity);
+		setCurrentTitle("每日一禅");
 		setBackKeyListner(true);
 
 		initView();
@@ -26,28 +28,29 @@ public class BuddhistInfoActivity extends BaseActivity {
 
 	public void initView() {
 
-		tv_ggconten_title = (TextView) findViewById(R.id.tvId_ggconten_biaoti);
-		tv_ggconten_date = (TextView) findViewById(R.id.tvId_ggconten_riqi);
-		tv_ggconten_content = (TextView) findViewById(R.id.tvId_ggconten_neirong);
+		txtTitle = (TextView) findViewById(R.id.buddhist_info_title);
+		txtDate = (TextView) findViewById(R.id.buddhist_info_date);
+		txtContent = (TextView) findViewById(R.id.buddhist_info_content);
 
 		Bundle bundle = this.getIntent().getExtras();
-		ggId = bundle.getString("KEY_GGID");
-		DoRequest();
-	}
+		id = bundle.getString("KEY_ID");
+		if (id == null) {
+			Toast.makeText(this, "数据异常，请联系惠车宝！", Toast.LENGTH_SHORT).show();
+		} else {
+			new BuddhistInfoScene().doScene(callBack, id);
+			ShowRunning();
+		}
 
-	private void DoRequest() {
-		new PublicNoticeInfoScene().doScene(callBack, ggId);
-		ShowRunning();
 	}
 
 	OnSceneCallBack callBack = new OnSceneCallBack() {
 
 		@Override
 		public void OnSuccess(Object data, NetSceneBase<?> netScene) {
-			PublicNoticeInfoResult items = (PublicNoticeInfoResult) data;
-			tv_ggconten_title.setText(items.item.title);
-			tv_ggconten_date.setText(items.item.date);
-			tv_ggconten_content.setText(ToDBC(items.item.content));
+			BuddhistInfoResult items = (BuddhistInfoResult) data;
+			txtTitle.setText(items.item.title);
+			txtDate.setText(items.item.date);
+			txtContent.setText(ToDBC(items.item.content));
 			HideProgress();
 			return;
 		}
@@ -81,6 +84,6 @@ public class BuddhistInfoActivity extends BaseActivity {
 	@Override
 	public void initDate() {
 		// TODO Auto-generated method stub
-		
+
 	}
 }
