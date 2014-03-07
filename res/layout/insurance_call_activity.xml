@@ -1,0 +1,617 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_gray"
+    android:orientation="vertical" >
+
+    <include layout="@layout/top_title_bar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/insurance_call_linear_95512"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_margin="10dp"
+                android:background="@color/light_gray"
+                android:orientation="horizontal"
+                android:paddingTop="10dp" >
+
+                <LinearLayout
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/nomal_shape" >
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/ImageDescription"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/insurance_logo_1" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingTop="10dp" >
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="25dp"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="10dp"
+                            android:text="中国平安"
+                            android:textColor="@color/black"
+                            android:textSize="16sp" >
+                        </TextView>
+
+                        <LinearLayout
+                            android:layout_width="75dp"
+                            android:layout_height="25dp"
+                            android:layout_alignParentRight="true"
+                            android:background="@drawable/demand_pub_btn"
+                            android:orientation="horizontal" >
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="match_parent"
+                                android:contentDescription="@string/ImageDescription"
+                                android:src="@drawable/tel_gray" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="center_vertical"
+                                android:padding="2dp"
+                                android:text="拨打电话"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+                        android:layout_marginTop="10dp"
+                        android:paddingLeft="30dp"
+                        android:text="95512"
+                        android:textColor="@color/main_text_color"
+                        android:textSize="14sp" >
+                    </TextView>
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@color/gray" />
+
+            <LinearLayout
+                android:id="@+id/insurance_call_linear_95518"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_margin="10dp"
+                android:background="@color/light_gray"
+                android:orientation="horizontal"
+                android:paddingTop="10dp" >
+
+                <LinearLayout
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/nomal_shape" >
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/ImageDescription"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/insurance_logo_2" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingTop="10dp" >
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="25dp"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="10dp"
+                            android:text="中国人保"
+                            android:textColor="@color/black"
+                            android:textSize="16sp" >
+                        </TextView>
+
+                        <LinearLayout
+                            android:layout_width="75dp"
+                            android:layout_height="25dp"
+                            android:layout_alignParentRight="true"
+                            android:background="@drawable/demand_pub_btn"
+                            android:orientation="horizontal" >
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="match_parent"
+                                android:contentDescription="@string/ImageDescription"
+                                android:src="@drawable/tel_gray" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="center_vertical"
+                                android:padding="2dp"
+                                android:text="拨打电话"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+                        android:layout_marginTop="10dp"
+                        android:paddingLeft="30dp"
+                        android:text="95518"
+                        android:textColor="@color/main_text_color"
+                        android:textSize="14sp" >
+                    </TextView>
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@color/gray" />
+
+            <LinearLayout
+                android:id="@+id/insurance_call_linear_95585"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_margin="10dp"
+                android:background="@color/light_gray"
+                android:orientation="horizontal"
+                android:paddingTop="10dp" >
+
+                <LinearLayout
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/nomal_shape" >
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/ImageDescription"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/insurance_logo_3" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingTop="10dp" >
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="25dp"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="10dp"
+                            android:text="中华联合"
+                            android:textColor="@color/black"
+                            android:textSize="16sp" >
+                        </TextView>
+
+                        <LinearLayout
+                            android:layout_width="75dp"
+                            android:layout_height="25dp"
+                            android:layout_alignParentRight="true"
+                            android:background="@drawable/demand_pub_btn"
+                            android:orientation="horizontal" >
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="match_parent"
+                                android:contentDescription="@string/ImageDescription"
+                                android:src="@drawable/tel_gray" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="center_vertical"
+                                android:padding="2dp"
+                                android:text="拨打电话"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+                        android:layout_marginTop="10dp"
+                        android:paddingLeft="30dp"
+                        android:text="95585"
+                        android:textColor="@color/main_text_color"
+                        android:textSize="14sp" >
+                    </TextView>
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@color/gray" />
+
+            <LinearLayout
+                android:id="@+id/insurance_call_linear_95505"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_margin="10dp"
+                android:background="@color/light_gray"
+                android:orientation="horizontal"
+                android:paddingTop="10dp" >
+
+                <LinearLayout
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/nomal_shape" >
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/ImageDescription"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/insurance_logo_4" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingTop="10dp" >
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="25dp"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="10dp"
+                            android:text="天安保险"
+                            android:textColor="@color/black"
+                            android:textSize="16sp" >
+                        </TextView>
+
+                        <LinearLayout
+                            android:layout_width="75dp"
+                            android:layout_height="25dp"
+                            android:layout_alignParentRight="true"
+                            android:background="@drawable/demand_pub_btn"
+                            android:orientation="horizontal" >
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="match_parent"
+                                android:contentDescription="@string/ImageDescription"
+                                android:src="@drawable/tel_gray" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="center_vertical"
+                                android:padding="2dp"
+                                android:text="拨打电话"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+                        android:layout_marginTop="10dp"
+                        android:paddingLeft="30dp"
+                        android:text="95505"
+                        android:textColor="@color/main_text_color"
+                        android:textSize="14sp" >
+                    </TextView>
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@color/gray" />
+
+            <LinearLayout
+                android:id="@+id/insurance_call_linear_95500"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_margin="10dp"
+                android:background="@color/light_gray"
+                android:orientation="horizontal"
+                android:paddingTop="10dp" >
+
+                <LinearLayout
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/nomal_shape" >
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/ImageDescription"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/insurance_logo_5" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingTop="10dp" >
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="25dp"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="10dp"
+                            android:text="太平洋保险"
+                            android:textColor="@color/black"
+                            android:textSize="16sp" >
+                        </TextView>
+
+                        <LinearLayout
+                            android:layout_width="75dp"
+                            android:layout_height="25dp"
+                            android:layout_alignParentRight="true"
+                            android:background="@drawable/demand_pub_btn"
+                            android:orientation="horizontal" >
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="match_parent"
+                                android:contentDescription="@string/ImageDescription"
+                                android:src="@drawable/tel_gray" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="center_vertical"
+                                android:padding="2dp"
+                                android:text="拨打电话"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+                        android:layout_marginTop="10dp"
+                        android:paddingLeft="30dp"
+                        android:text="95500"
+                        android:textColor="@color/main_text_color"
+                        android:textSize="14sp" >
+                    </TextView>
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@color/gray" />
+
+            <LinearLayout
+                android:id="@+id/insurance_call_linear_95556"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_margin="10dp"
+                android:background="@color/light_gray"
+                android:orientation="horizontal"
+                android:paddingTop="10dp" >
+
+                <LinearLayout
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/nomal_shape" >
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/ImageDescription"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/insurance_logo_6" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingTop="10dp" >
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="25dp"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="10dp"
+                            android:text="华安保险"
+                            android:textColor="@color/black"
+                            android:textSize="16sp" >
+                        </TextView>
+
+                        <LinearLayout
+                            android:layout_width="75dp"
+                            android:layout_height="25dp"
+                            android:layout_alignParentRight="true"
+                            android:background="@drawable/demand_pub_btn"
+                            android:orientation="horizontal" >
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="match_parent"
+                                android:contentDescription="@string/ImageDescription"
+                                android:src="@drawable/tel_gray" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="center_vertical"
+                                android:padding="2dp"
+                                android:text="拨打电话"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+                        android:layout_marginTop="10dp"
+                        android:paddingLeft="30dp"
+                        android:text="95556"
+                        android:textColor="@color/main_text_color"
+                        android:textSize="14sp" >
+                    </TextView>
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@color/gray" />
+
+            <LinearLayout
+                android:id="@+id/insurance_call_linear_95590"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_margin="10dp"
+                android:background="@color/light_gray"
+                android:orientation="horizontal"
+                android:paddingTop="10dp" >
+
+                <LinearLayout
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/nomal_shape" >
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/ImageDescription"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/insurance_logo_7" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingTop="10dp" >
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="25dp"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="10dp"
+                            android:text="大地保险"
+                            android:textColor="@color/black"
+                            android:textSize="16sp" >
+                        </TextView>
+
+                        <LinearLayout
+                            android:layout_width="75dp"
+                            android:layout_height="25dp"
+                            android:layout_alignParentRight="true"
+                            android:background="@drawable/demand_pub_btn"
+                            android:orientation="horizontal" >
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="match_parent"
+                                android:contentDescription="@string/ImageDescription"
+                                android:src="@drawable/tel_gray" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="center_vertical"
+                                android:padding="2dp"
+                                android:text="拨打电话"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+                        android:layout_marginTop="10dp"
+                        android:paddingLeft="30dp"
+                        android:text="95590"
+                        android:textColor="@color/main_text_color"
+                        android:textSize="14sp" >
+                    </TextView>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
