@@ -89,7 +89,7 @@ public class BookListAdapter extends BaseAdapter {
 		return 0;
 	}
 
-	class ViewHolder {
+	public class ViewHolder {
 		TextView txtTitle, txtAuthor, txtSynopsis;
 		ImageView imageView;
 		Button btnSubmit;
