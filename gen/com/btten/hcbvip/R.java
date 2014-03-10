@@ -911,10 +911,11 @@ public final class R {
         public static final int umeng_common_download_notification=0x7f03006e;
         public static final int umeng_update_dialog=0x7f03006f;
         public static final int userifo_activity=0x7f030070;
-        public static final int vehicle_life_activity=0x7f030071;
-        public static final int vehicle_life_item=0x7f030072;
-        public static final int welcome_button=0x7f030073;
-        public static final int welcomeactivity=0x7f030074;
+        public static final int vehicle_info_activity=0x7f030071;
+        public static final int vehicle_life_activity=0x7f030072;
+        public static final int vehicle_life_item=0x7f030073;
+        public static final int welcome_button=0x7f030074;
+        public static final int welcomeactivity=0x7f030075;
     }
     public static final class raw {
         public static final int sent=0x7f050000;

@@ -1,0 +1,43 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+	android:paddingTop="10dp"
+	android:paddingBottom="10dp"
+	android:paddingLeft="25dp"
+	android:paddingRight="25dp"
+    android:orientation="vertical" >
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="35dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="丁小龙"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:text="2013-12-9 9:36"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+    </LinearLayout>
+	<TextView
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:text="我也想去旅游了，要不要辞职"
+		android:textColor="@color/dark_grey"
+		android:textSize="14sp" />
+	<TextView
+	    android:layout_width="fill_parent"
+	    android:layout_height="35dp"
+	    android:gravity="bottom|right"
+	    android:text="回复（3）"
+	    android:textColor="@color/dark_grey"
+	    android:textSize="14sp" /> 
+</LinearLayout>

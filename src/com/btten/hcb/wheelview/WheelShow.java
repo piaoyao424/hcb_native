@@ -233,8 +233,6 @@ public class WheelShow extends TextView implements OnClickListener {
 			this.setText((wv_year.getCurrentItem() + START_YEAR) + "-"
 					+ decimal.format((wv_month.getCurrentItem() + 1)) + "-"
 					+ decimal.format((wv_day.getCurrentItem() + 1)));
-			// + decimal.format(wv_hours.getCurrentItem()) + ":"
-			// + decimal.format(wv_mins.getCurrentItem()));
 
 			if (listener != null)
 				listener.onClick(this);
@@ -276,11 +274,6 @@ public class WheelShow extends TextView implements OnClickListener {
 			}
 		}
 		wv_day.setCurrentItem(day - 1);
-		/*
-		 * int hour = calendar.get(Calendar.HOUR_OF_DAY); int minute =
-		 * calendar.get(Calendar.MINUTE);
-		 */
-
 		dialog.show();
 	}
 }

@@ -1,0 +1,194 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/light_blue"
+    android:orientation="vertical" >
+    <LinearLayout
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:paddingTop="10dp"
+    	android:paddingBottom="10dp"
+    	android:paddingLeft="25dp"
+    	android:paddingRight="25dp"
+    	android:orientation="vertical" >
+		<LinearLayout
+			android:layout_width="fill_parent"
+			android:layout_height="30dp"
+			android:gravity="center_vertical"
+			android:orientation="horizontal" >
+			<TextView
+			    android:layout_width="80dp"
+			    android:layout_height="wrap_content"
+			    android:text="活动类别："
+			    android:textColor="@color/black"
+			    android:textSize="14sp" />
+			<TextView
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:text="旅游"
+			    android:textColor="@color/dark_grey"
+			    android:textSize="14sp"
+			    android:singleLine="true" />
+        </LinearLayout>
+		<LinearLayout
+			android:layout_width="fill_parent"
+			android:layout_height="30dp"
+			android:gravity="center_vertical"
+			android:orientation="horizontal" >
+			<TextView
+			    android:layout_width="80dp"
+			    android:layout_height="wrap_content"
+			    android:text="活动名称："
+			    android:textColor="@color/black"
+			    android:textSize="14sp" />
+			<TextView
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:text="海水、阳光、沙滩-三亚-海口自助休闲游"
+			    android:textColor="@color/dark_grey"
+			    android:textSize="14sp"
+			    android:singleLine="true" />
+        </LinearLayout>
+		<LinearLayout
+			android:layout_width="fill_parent"
+			android:layout_height="30dp"
+			android:gravity="center_vertical"
+			android:orientation="horizontal" >
+			<TextView
+			    android:layout_width="80dp"
+			    android:layout_height="wrap_content"
+			    android:text="活动地点："
+			    android:textColor="@color/black"
+			    android:textSize="14sp" />
+			<TextView
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:text="宜昌-三亚-海口"
+			    android:textColor="@color/dark_grey"
+			    android:textSize="14sp"
+			    android:singleLine="true" />
+        </LinearLayout>
+		<LinearLayout
+			android:layout_width="fill_parent"
+			android:layout_height="30dp"
+			android:gravity="center_vertical"
+			android:orientation="horizontal" >
+			<TextView
+			    android:layout_width="80dp"
+			    android:layout_height="wrap_content"
+			    android:text="时        间："
+			    android:textColor="@color/black"
+			    android:textSize="14sp" />
+			<TextView
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:text="2013-12-9至2013-12-15共6天"
+			    android:textColor="@color/dark_grey"
+			    android:textSize="14sp"
+			    android:singleLine="true" />
+        </LinearLayout>
+    </LinearLayout>   
+	<TextView
+		android:layout_width="fill_parent"
+		android:layout_height="35dp"
+		android:gravity="center"
+		android:background="@color/gray"
+		android:text="活动安排"
+		android:textColor="@color/black"
+		android:textSize="16dp" />
+    <LinearLayout
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:paddingTop="10dp"
+    	android:paddingBottom="10dp"
+    	android:paddingLeft="25dp"
+    	android:paddingRight="25dp"
+    	android:orientation="vertical" >
+		<LinearLayout
+			android:layout_width="fill_parent"
+			android:layout_height="30dp"
+			android:gravity="center_vertical"
+			android:orientation="horizontal" >
+			<TextView
+			    android:layout_width="80dp"
+			    android:layout_height="wrap_content"
+			    android:text="第二天"
+			    android:textColor="@color/black"
+			    android:textSize="14sp" />
+			<TextView
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:text="2013-12-8"
+			    android:textColor="@color/dark_grey"
+			    android:textSize="14sp"
+			    android:singleLine="true" />
+        </LinearLayout>
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="25dp"
+			android:gravity="center_vertical"
+			android:text="早8：00大厅集合出发"
+			android:textColor="@color/dark_grey"
+			android:textSize="14sp" />
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="30dp"
+			android:gravity="top"
+			android:text="游天涯海角"
+			android:textColor="@color/dark_grey"
+			android:textSize="14sp"
+			android:singleLine="true" />
+		<Button
+		    android:layout_width="80dp"
+		    android:layout_height="30dp"
+		    android:text="添加照片"
+		    android:textSize="12sp"
+		    android:textColor="@color/dark_grey" />
+    </LinearLayout>   
+	<TextView
+		android:layout_width="fill_parent"
+		android:layout_height="35dp"
+		android:gravity="center"
+		android:background="@color/gray"
+		android:text="活动参与方式及注意事项"
+		android:textColor="@color/black"
+		android:textSize="16dp" />
+	<LinearLayout
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:paddingTop="10dp"
+    	android:paddingBottom="10dp"
+    	android:paddingLeft="25dp"
+    	android:paddingRight="25dp"
+    	android:orientation="vertical" >
+		<TextView
+			android:layout_width="80dp"
+			android:layout_height="30dp"
+			android:gravity="center_vertical"
+			android:text="游玩建议："
+			android:textColor="@color/black"
+			android:textSize="14sp" />
+		<TextView
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:text="1、春季和秋季前往海南的北方游客，南北有温差，由于一下飞机就很热，最好是穿两件"
+			android:textColor="@color/dark_grey"
+			android:textSize="14sp" />
+    </LinearLayout>
+	<LinearLayout
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:paddingTop="20dp"
+    	android:paddingBottom="5dp"
+    	android:paddingLeft="25dp"
+    	android:paddingRight="25dp" >
+		<TextView
+			android:layout_width="fill_parent"
+			android:layout_height="35dp"
+			android:gravity="center"
+			android:background="@color/orange"
+			android:text="发  布"
+			android:textColor="@color/white"
+			android:textSize="16sp" />
+    </LinearLayout>    
+</LinearLayout>

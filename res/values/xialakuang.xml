@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string-array name="month">
         <item>01月</item>
         <item>02月</item>
@@ -15,5 +14,4 @@
         <item>11月</item>
         <item>12月</item>
     </string-array>
-
 </resources>

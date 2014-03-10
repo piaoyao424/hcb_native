@@ -1,0 +1,147 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+    <Spinner
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+		android:paddingTop="10dp"
+		android:paddingBottom="10dp"
+		android:paddingLeft="25dp"
+		android:paddingRight="25dp"
+    	android:orientation="vertical" >
+    	<LinearLayout
+    	    android:layout_width="fill_parent"
+    	    android:layout_height="30dp"
+			android:paddingLeft="10dp"
+			android:paddingRight="10dp"
+			android:gravity="center_vertical"
+    	    android:background="@drawable/duihuan_t_bg"
+    	    android:orientation="horizontal" >
+    	    <TextView
+            	android:layout_width="wrap_content"
+            	android:layout_height="wrap_content"
+        		android:layout_marginRight="5dp"
+				android:text="兑换时间："
+				android:textColor="@color/black"
+				android:textSize="13sp" />
+    	    <TextView
+            	android:layout_width="wrap_content"
+            	android:layout_height="wrap_content"
+				android:text="2013-9-18 18：30"
+				android:textColor="@color/dark_grey"
+				android:textSize="13sp" />    	    
+    	</LinearLayout>
+        <LinearLayout
+        	android:layout_width="fill_parent"
+        	android:layout_height="wrap_content"
+			android:paddingLeft="10dp"
+			android:paddingRight="10dp"
+    	    android:background="@drawable/duihuan_bg"
+    	    android:orientation="vertical" >
+    		<LinearLayout
+    	    	android:layout_width="fill_parent"
+    	    	android:layout_height="30dp"
+				android:gravity="bottom"
+    	    	android:orientation="horizontal" >
+    	    	<TextView
+            		android:layout_width="wrap_content"
+            		android:layout_height="wrap_content"
+					android:text="兑换商品信息："
+					android:textColor="@color/black"
+					android:textSize="13sp" />
+    	    	<TextView
+            		android:layout_width="wrap_content"
+            		android:layout_height="wrap_content"
+					android:text="手电筒"
+					android:textColor="@color/dark_grey"
+					android:textSize="13sp" />    	    
+    		</LinearLayout>
+    		<LinearLayout
+    	    	android:layout_width="fill_parent"
+    	    	android:layout_height="35dp"
+				android:paddingTop="5dp"
+				android:gravity="top"
+    	    	android:orientation="horizontal" >
+    	    	<TextView
+            		android:layout_width="wrap_content"
+            		android:layout_height="wrap_content"
+					android:text="使用积分："
+					android:textColor="@color/black"
+					android:textSize="13sp" />
+    	    	<TextView
+            		android:layout_width="wrap_content"
+            		android:layout_height="wrap_content"
+					android:text="800分"
+					android:textColor="@color/dark_grey"
+					android:textSize="13sp" />    	    
+    		</LinearLayout>
+    		<LinearLayout
+    	    	android:layout_width="fill_parent"
+    	    	android:layout_height="1px"
+    	    	android:background="@color/gray_nine" />
+    		<LinearLayout
+    	    	android:layout_width="fill_parent"
+    	    	android:layout_height="30dp"
+				android:gravity="bottom"
+    	    	android:orientation="horizontal" >
+    	    	<TextView
+            		android:layout_width="wrap_content"
+            		android:layout_height="wrap_content"
+					android:text="领取兑换商品加盟店："
+					android:textColor="@color/black"
+					android:textSize="13sp" />
+    	    	<TextView
+            		android:layout_width="wrap_content"
+            		android:layout_height="wrap_content"
+					android:text="雅士汽车服务会所"
+					android:textColor="@color/dark_grey"
+					android:textSize="13sp" />    	    
+    		</LinearLayout>
+    		<LinearLayout
+    	    	android:layout_width="fill_parent"
+    	    	android:layout_height="35dp"
+				android:paddingTop="5dp"
+				android:gravity="top"
+    	    	android:orientation="horizontal" >
+    	    	<TextView
+            		android:layout_width="wrap_content"
+            		android:layout_height="wrap_content"
+					android:text="地址："
+					android:textColor="@color/black"
+					android:textSize="13sp" />
+    	    	<TextView
+            		android:layout_width="wrap_content"
+            		android:layout_height="wrap_content"
+					android:text="宜昌市东山开发区发展大道120号"
+					android:textColor="@color/dark_grey"
+					android:textSize="13sp" />    	    
+    		</LinearLayout>
+    		<LinearLayout
+    	    	android:layout_width="fill_parent"
+    	    	android:layout_height="1px"
+    	    	android:background="@color/gray_nine" />
+    		<LinearLayout
+    	    	android:layout_width="fill_parent"
+    	    	android:layout_height="45dp"
+				android:gravity="center_vertical"
+    	    	android:orientation="horizontal" >
+    	    	<TextView
+            		android:layout_width="wrap_content"
+            		android:layout_height="wrap_content"
+					android:text="联系电话："
+					android:textColor="@color/black"
+					android:textSize="13sp" />
+    	    	<TextView
+            		android:layout_width="wrap_content"
+            		android:layout_height="wrap_content"
+					android:text="13989653236"
+					android:textColor="@color/dark_grey"
+					android:textSize="13sp" />    	    
+    		</LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

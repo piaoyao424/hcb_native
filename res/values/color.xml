@@ -25,5 +25,8 @@
     <color name="popwindow_text">#626262</color>
     <color name="popwindow_selector">#c5ecfe</color>
     <color name="transparent">#00000000</color>
+    <color name="dark_grey">#666666</color>
+    <color name="gray_nine">#999999</color>
+    <color name="light_blue">#ecf0f1</color>
 
 </resources>

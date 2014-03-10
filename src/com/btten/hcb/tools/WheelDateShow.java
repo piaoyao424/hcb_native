@@ -59,7 +59,6 @@ public class WheelDateShow extends TextView implements OnClickListener {
 
 			@Override
 			public void onDismiss(DialogInterface dialog) {
-				// TODO Auto-generated method stub
 				if (isShowed) {
 					WheelDateShow.this.setClickable(true);
 					isShowed = false;
@@ -221,7 +220,6 @@ public class WheelDateShow extends TextView implements OnClickListener {
 
 	@Override
 	public void onClick(View v) {
-		// TODO Auto-generated method stub
 		switch (v.getId()) {
 		case R.id.reserve_datetime_sure:
 			String parten = "00";
