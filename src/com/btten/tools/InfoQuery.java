@@ -18,8 +18,6 @@ import android.telephony.TelephonyManager;
 
 public class InfoQuery {
 	private final static String TAG = "InfoQuery";
-	
-   
 
 	 //判断网络是否可用，目前对3G和WIFI可用。后续版本若需对网络细化，直接使用checkNetConnectType接口
 	 public static Boolean checkNetWorkUsable(Context contextW)
@@ -244,4 +242,23 @@ public class InfoQuery {
 		        return false;
 		    }
 	 }
+	 
+		/***
+		 * 半角转换为全角
+		 * 
+		 * @param input
+		 * @return
+		 */
+		public static String ToDBC(String input) {
+			char[] c = input.toCharArray();
+			for (int i = 0; i < c.length; i++) {
+				if (c[i] == 12288) {
+					c[i] = (char) 32;
+					continue;
+				}
+				if (c[i] > 65280 && c[i] < 65375)
+					c[i] = (char) (c[i] - 65248);
+			}
+			return new String(c);
+		}
 }

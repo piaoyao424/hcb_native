@@ -27,6 +27,9 @@
     <color name="transparent">#00000000</color>
     <color name="dark_grey">#666666</color>
     <color name="gray_nine">#999999</color>
+    <color name="logo_blue">#7fb7f2</color>
+    <color name="logo_orange">#ecb074</color>
     <color name="light_blue">#ecf0f1</color>
+    <color name="dark_blue">#5e8ac7</color>
 
 </resources>

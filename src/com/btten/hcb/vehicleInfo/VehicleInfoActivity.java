@@ -1,6 +1,6 @@
 package com.btten.hcb.vehicleInfo;
 
-//保险模块
+//车辆模块
 import java.util.Calendar;
 import android.os.Bundle;
 import android.view.View;

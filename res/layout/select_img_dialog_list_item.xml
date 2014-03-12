@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:background="@drawable/listview_item_bg"
+    android:gravity="center_vertical"
+    android:padding="5dp" >
+
+    <ImageView
+        android:id="@+id/select_img_dialog_list_image"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="5dp"
+        android:scaleType="fitCenter" />
+
+    <TextView
+        android:id="@+id/select_img_dialog_list_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/select_img_dialog_list_image"
+        android:singleLine="true"
+        android:text="标题"
+        android:textColor="@color/black"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/select_img_dialog_list_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/select_img_dialog_list_title"
+        android:text="（10）"
+        android:textColor="@color/gray"
+        android:textSize="14sp" />
+
+    <ImageView
+        android:id="@+id/design_list_arrow"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/cotent_more_icon" />
+
+</RelativeLayout>
