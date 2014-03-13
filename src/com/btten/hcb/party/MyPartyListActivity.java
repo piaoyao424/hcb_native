@@ -1,51 +1,37 @@
-package com.btten.hcb.peccancy;
+package com.btten.hcb.party;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
-import com.btten.hcb.vehicleInfo.VehicleInfoActivity;
+import android.widget.TextView;
+
 import com.btten.hcbvip.R;
 import com.btten.base.BaseActivity;
 import com.btten.network.NetSceneBase;
 import com.btten.network.OnSceneCallBack;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
-public class PeccancyActivity extends BaseActivity {
+public class MyPartyListActivity extends BaseActivity {
+
 	private ListView lv;
-	private Button button;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.peccancy_activity);
-		setCurrentTitle("违章查询");
+		setContentView(R.layout.my_party);
+		setCurrentTitle("我发起的活动");
 		setBackKeyListner(true);
 		initView();
 	}
 
 	public void initView() {
-
-		button = (Button) findViewById(R.id.peccancy_activity_linear);
-		button.setOnClickListener(clickListener);
-		lv = (ListView) findViewById(R.id.peccancy_activity_lv);
-		DoRequest();
-	}
-
-	OnClickListener clickListener = new OnClickListener() {
-
-		@Override
-		public void onClick(View v) {
-			Intent intent = new Intent(PeccancyActivity.this,
-					VehicleInfoActivity.class);
-			intent.putExtra("KEY_ID", "");
-			startActivity(intent);
-		}
-	};
-
-	private void DoRequest() {
-		new PeccancyListScene().doScene(callBack);
+		 
+		lv = (ListView) findViewById(R.id.my_party_lv);
+		new MyPartyListScene().doScene(callBack);
 		ShowRunning();
 	}
 
@@ -53,9 +39,10 @@ public class PeccancyActivity extends BaseActivity {
 
 		@Override
 		public void OnSuccess(Object data, NetSceneBase<?> netScene) {
-			PeccancyListResult item = (PeccancyListResult) data;
-			PeccancyListAdapter adapter = new PeccancyListAdapter(
-					PeccancyActivity.this, item.items);
+			MyPartyListResult item = (MyPartyListResult) data;
+
+			MyPartyListAdapter adapter = new MyPartyListAdapter(
+					MyPartyListActivity.this, item.items);
 			lv.setAdapter(adapter);
 			HideProgress();
 			return;
@@ -70,6 +57,7 @@ public class PeccancyActivity extends BaseActivity {
 
 	@Override
 	public void initDate() {
+		// TODO Auto-generated method stub
 
 	}
 

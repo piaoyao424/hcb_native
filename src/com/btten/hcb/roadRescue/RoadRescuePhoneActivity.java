@@ -40,7 +40,7 @@ public class RoadRescuePhoneActivity extends BaseActivity {
 
 		@Override
 		public void onClick(View v) {
-			new CallTelephone(RoadRescuePhoneActivity.this, phoneNum, jname);
+			new CallTelephone(RoadRescuePhoneActivity.this, phoneNum, jname).call();
 		}
 	};
 

@@ -67,7 +67,7 @@ public class InsuranceCallActivity extends BaseActivity {
 			default:
 				break;
 			}
-			new CallTelephone(InsuranceCallActivity.this, phone, name);
+			new CallTelephone(InsuranceCallActivity.this, phone, name).call();
 		}
 	};
 

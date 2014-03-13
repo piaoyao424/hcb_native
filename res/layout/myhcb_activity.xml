@@ -216,7 +216,8 @@
 
                 <RelativeLayout
                     android:id="@+id/myhcb_relative_changepw"
-                    style="@style/aboutus_relative_style" >
+                    style="@style/aboutus_relative_style"
+                    android:layout_marginBottom="1dp" >
 
                     <ImageView
                         style="@style/aboutus_ico_style"
@@ -227,6 +228,25 @@
                     <TextView
                         style="@style/aboutus_text_style"
                         android:text="修改密码" />
+
+                    <ImageView
+                        style="@style/aboutus_image_style"
+                        android:contentDescription="@string/ImageDescription" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/myhcb_relative_myparty"
+                    style="@style/aboutus_relative_style" >
+
+                    <ImageView
+                        style="@style/aboutus_ico_style"
+                        android:contentDescription="@string/ImageDescription"
+                        android:src="@drawable/ico_myparty" >
+                    </ImageView>
+
+                    <TextView
+                        style="@style/aboutus_text_style"
+                        android:text="我发起的活动" />
 
                     <ImageView
                         style="@style/aboutus_image_style"
