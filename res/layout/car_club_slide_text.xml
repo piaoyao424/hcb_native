@@ -1,0 +1,15 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="75dp"
+    android:layout_height="30dp"
+    android:gravity="center_vertical" >
+
+    <TextView
+        android:id="@+id/car_club_slide_text"
+        android:layout_width="75dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="旅游"
+        android:textColor="@color/main_text_color"
+        android:textSize="14sp" />
+
+</LinearLayout>

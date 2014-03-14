@@ -3,6 +3,7 @@ package com.btten.hcb;
 import com.btten.base.BaseActivity;
 import com.btten.hcb.SplashScreen;
 import com.btten.hcb.account.VIPInfoManager;
+import com.btten.hcb.carClub.CarClubListActivity;
 import com.btten.hcb.homeActivity.HomeActivity;
 import com.btten.hcb.login.LoginActivity;
 import com.btten.hcb.login.LoginScene;
@@ -68,6 +69,8 @@ public class SplashScreen extends BaseActivity {
 				}
 
 				intent = new Intent(SplashScreen.this, HomeActivity.class);
+				// intent = new Intent(SplashScreen.this,
+				// CarClubListActivity.class);
 				startActivity(intent);
 				finish();
 				overridePendingTransition(R.anim.in_right_left,
@@ -107,6 +110,6 @@ public class SplashScreen extends BaseActivity {
 	@Override
 	public void initDate() {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

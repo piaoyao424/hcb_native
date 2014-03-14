@@ -147,6 +147,11 @@
             android:name="com.btten.hcb.jmsInfo.JmsInfoActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait" />
+        <!-- 车友会 -->
+        <activity
+            android:name="com.btten.hcb.carClub.CarClubListActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
         <!-- 我的惠车宝 -->
         <activity
             android:name="com.btten.hcb.MyHcbActivity"
@@ -237,7 +242,7 @@
             android:name="com.btten.sendGift.SendGiftActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait" />
-         <!-- 人车生活 -->
+        <!-- 人车生活 -->
         <activity
             android:name="com.btten.hcb.vehicleLife.VehicleLifeActivity"
             android:configChanges="orientation|keyboardHidden"

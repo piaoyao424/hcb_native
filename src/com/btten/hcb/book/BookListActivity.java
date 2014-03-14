@@ -39,10 +39,6 @@ public class BookListActivity extends BaseActivity {
 		button = (Button) findViewById(R.id.book_list_button);
 
 		lv = (ListView) findViewById(R.id.booklist_activity_lv);
-		DoRequest();
-	}
-
-	private void DoRequest() {
 		new BookListScene().doScene(callBack);
 		ShowRunning();
 	}

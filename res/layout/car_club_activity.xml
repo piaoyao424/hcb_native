@@ -1,0 +1,90 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_blue"
+    android:orientation="vertical" >
+
+    <include layout="@layout/top_title_bar" />
+
+    <HorizontalScrollView
+        android:id="@+id/car_club_horizontalScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="#33b5e5"
+        android:fadingEdge="@null"
+        android:paddingBottom="0.5dp"
+        android:scrollbars="none" >
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@color/white" >
+
+            <LinearLayout
+                android:id="@+id/car_club_linear"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/car_club_bottom_image"
+                android:layout_width="75dp"
+                android:layout_height="4dp"
+                android:layout_alignParentBottom="true"
+                android:background="#33b5e5"
+                android:contentDescription="@string/ImageDescription" />
+        </RelativeLayout>
+    </HorizontalScrollView>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp" >
+
+        <RadioGroup
+            android:id="@+id/car_club_radiogroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/light_blue"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp" >
+
+            <RadioButton
+                android:id="@+id/car_club_radiogoing"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginRight="20dp"
+                android:checked="true"
+                android:text="进行中"
+                android:textColor="@color/red" />
+
+            <RadioButton
+                android:id="@+id/car_club_radiostop"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="已结束"
+                android:textColor="@color/black" />
+        </RadioGroup>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray" />
+
+        <ListView
+            android:id="@+id/car_club_lv"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:cacheColorHint="#00000000"
+            android:divider="@color/gray"
+            android:dividerHeight="0.5dp"
+            android:listSelector="#00000000" />
+    </LinearLayout>
+
+</LinearLayout>
