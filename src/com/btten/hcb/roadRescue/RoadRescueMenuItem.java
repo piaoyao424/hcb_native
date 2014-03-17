@@ -6,4 +6,6 @@ public class RoadRescueMenuItem {
 	public String name;
 	public String oldprice;
 	public String newprice;
+	public String area;
+	public String phone;
 }

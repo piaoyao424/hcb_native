@@ -15,7 +15,7 @@ public class RoadRescueMenuResult extends BaseJsonItem {
 		try {
 			this.status = result.getInt("STATUS");
 			this.info = result.getString("INFO");
-			if (this.status == 1 && !result.isNull("DATA")) {
+			if (this.status == 1) {
 				jsonArray = result.getJSONArray("DATA");
 				int length = jsonArray.length();
 				items = new RoadRescueMenuItem[length];
@@ -29,7 +29,9 @@ public class RoadRescueMenuResult extends BaseJsonItem {
 					temp.name = convert.getString("NAME");
 					temp.oldprice = convert.getString("OLDPRICE");
 					temp.newprice = convert.getString("NEWPRICE");
-
+					temp.area = convert.getString("AREA");
+					temp.phone = convert.getString("PHONE");
+					
 					items[i] = temp;
 				}
 			}

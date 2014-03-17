@@ -15,9 +15,8 @@ public class CommissionListScene extends NomalJsonSceneBase {
 
 	public void doScene(OnSceneCallBack callBack) {
 		SetCallBack(callBack);
-		targetUrl = UrlFactory.GetUrlNew("PublicNotice",
-				"getPublicNoticeMaster");
-		System.out.println(targetUrl);
+		targetUrl = UrlFactory.GetUrlNew("JmsInfo",
+				"getJmsCommissionList");
 		Log.d("url", targetUrl);
 		ThreadPoolUtils.execute(this);
 	}

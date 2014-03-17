@@ -6,9 +6,15 @@ import com.btten.base.BaseActivity;
 import com.btten.hcb.HcbAPP;
 import com.btten.hcb.MyHcbActivity;
 import com.btten.hcb.Service.CallTaxiNotification;
+import com.btten.hcb.accident.AccidentActivity;
 import com.btten.hcb.account.VIPInfoManager;
 import com.btten.hcb.buddhist.BuddhistInfoActivity;
+import com.btten.hcb.carClub.CarClubListActivity;
+import com.btten.hcb.insurance.InsuranceActivity;
 import com.btten.hcb.map.LocationClientService;
+import com.btten.hcb.peccancy.PeccancyListActivity;
+import com.btten.hcb.rescue.RescueActivity;
+import com.btten.hcb.roadRescue.RoadRescueActivity;
 import com.btten.hcb.search.SearchActivity;
 import com.btten.hcb.vehicleLife.VehicleLifeActivity;
 import com.btten.hcbvip.R;
@@ -40,6 +46,7 @@ public class HomeActivity extends BaseActivity {
 	private ViewContainer container = null;
 	private List<ImageView> imageViewArray = new ArrayList<ImageView>();
 	private NotifyTextView textView = null;
+	private static String TYPE = "0";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +74,7 @@ public class HomeActivity extends BaseActivity {
 			imageview.setOnClickListener(clickListener);
 			imageViewArray.add(imageview);
 		}
-		new TitleNoticeScene().doScene(callBack);
+		new TitleNoticeScene().doScene(callBack, TYPE);
 	}
 
 	OnClickListener clickListener = new OnClickListener() {
@@ -87,20 +94,26 @@ public class HomeActivity extends BaseActivity {
 						Uri.parse(getString(R.string.homepage)));
 				break;
 			case R.id.homeview_cheliangbaoxian:
+				intent = new Intent(HomeActivity.this, InsuranceActivity.class);
 				break;
 			case R.id.homeview_wodehuichebao:
 				intent = new Intent(HomeActivity.this, MyHcbActivity.class);
 				break;
 			case R.id.homeview_daolujiuyuan:
+				intent = new Intent(HomeActivity.this, RoadRescueActivity.class);
 				break;
 			case R.id.homeview_jingcaihuodong:
+				intent = new Intent(HomeActivity.this, CarClubListActivity.class);
 				break;
 			case R.id.homeview_shiguchuli:
+				intent = new Intent(HomeActivity.this, AccidentActivity.class);
 				break;
 			case R.id.homeview_weizhangchaxun:
+				intent = new Intent(HomeActivity.this, PeccancyListActivity.class);
 				break;
 			case R.id.homeview_rencheshenghuo:
-				intent = new Intent(HomeActivity.this, VehicleLifeActivity.class);
+				intent = new Intent(HomeActivity.this,
+						VehicleLifeActivity.class);
 				break;
 			case R.id.homeview_xichemeirong:
 				cid = "20002";
@@ -179,7 +192,7 @@ public class HomeActivity extends BaseActivity {
 						CallTaxiNotification.getInstance().ExitApp();
 						LocationClientService.getInstance().destroy();
 						HcbAPP.getInstance().exit();
-						 
+
 					}
 				})
 				.setNegativeButton("取消", new DialogInterface.OnClickListener() {
@@ -194,6 +207,6 @@ public class HomeActivity extends BaseActivity {
 	@Override
 	public void initDate() {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

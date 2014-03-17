@@ -69,7 +69,7 @@ public class MyPartyListAdapter extends BaseAdapter {
 
 		@Override
 		public void onClick(View v) {
-			Intent intent = new Intent(context, PartyInfoActivity.class);
+			Intent intent = new Intent(context, MyPartyInfoActivity.class);
 			intent.putExtra("KEY_ID", items[index].id);
 			context.startActivity(intent);
 		}

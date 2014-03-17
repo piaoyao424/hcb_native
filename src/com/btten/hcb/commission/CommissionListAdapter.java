@@ -1,18 +1,15 @@
 package com.btten.hcb.commission;
 
-import com.btten.hcb.vehicleInfo.VehicleInfoActivity;
 import com.btten.hcbvip.R;
 import com.btten.vincenttools.CallTelephone;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.TextView;
 
 public class CommissionListAdapter extends BaseAdapter {

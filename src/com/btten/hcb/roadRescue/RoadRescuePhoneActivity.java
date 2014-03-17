@@ -32,7 +32,7 @@ public class RoadRescuePhoneActivity extends BaseActivity {
 
 		Bundle bundle = this.getIntent().getExtras();
 		phoneNum = bundle.getString("KEY_PHONE");
-		jname = bundle.getString("KEY_JNAME");
+		jname = bundle.getString("KEY_NAME");
 		txtViewJmsName.setText(jname);
 	}
 

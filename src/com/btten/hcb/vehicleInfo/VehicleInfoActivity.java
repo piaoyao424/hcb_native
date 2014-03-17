@@ -1,31 +1,34 @@
 package com.btten.hcb.vehicleInfo;
 
-//车辆模块
-import java.util.Calendar;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
+
 import com.btten.base.BaseActivity;
+import com.btten.hcb.wheelview.WheelShow;
 import com.btten.hcbvip.R;
 import com.btten.network.NetSceneBase;
 import com.btten.network.OnSceneCallBack;
 
 public class VehicleInfoActivity extends BaseActivity {
-	private static final String[] month_toserver = { "01", "02", "03", "04",
-			"05", "06", "07", "08", "09", "10", "11", "12", };
-	private Button btn_chaxun = null;
-	private String month_str = null;
-	private String year_str = null;
-	private ArrayAdapter<CharSequence> monthAdapter = null;
-	private ArrayAdapter<String> yearAdapter = null;
-	// 下拉框控制
-	private Spinner monthSpinner = null;
-	private Spinner yearSpinner = null;
+
+	private ArrayAdapter<CharSequence> cityAdapter = null;
+	private ArrayAdapter<CharSequence> typeAdapter = null;
+	private Spinner citySpinner = null;
+	private Spinner typeSpinner = null;
+	private Button btn_submit = null;
+	private Button btn_delete = null;
+	private TextView carNumFirst;
+	private EditText carNumSecond;
+	private WheelShow date;
+
+	int flag = 0;
+	String vehicleID = "";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -35,27 +38,47 @@ public class VehicleInfoActivity extends BaseActivity {
 	}
 
 	public void initView() {
-		yearSpinner = (Spinner) findViewById(R.id.insurance_year);
-		monthSpinner = (Spinner) findViewById(R.id.insurance_mouth);
+		citySpinner = (Spinner) findViewById(R.id.vehicle_info_city);
+		typeSpinner = (Spinner) findViewById(R.id.vehicle_info_type);
 
-		// 初始化列表页面
-		btn_chaxun = (Button) findViewById(R.id.insurance_button);
-		btn_chaxun.setOnClickListener(listener);
+		btn_submit = (Button) findViewById(R.id.vehicle_info_submit);
+		btn_submit.setOnClickListener(listener);
+		btn_delete = (Button) findViewById(R.id.vehicle_info_delete);
+		btn_delete.setOnClickListener(listener);
+
+		carNumFirst = (TextView) findViewById(R.id.vehicle_info_car_number_first);
+		carNumSecond = (EditText) findViewById(R.id.vehicle_info_car_number_second);
+
+		date = (WheelShow) findViewById(R.id.vehicle_info_date);
+		
 		setSpinner();
 	}
 
-	OnClickListener listener = new View.OnClickListener() {
+	OnClickListener listener = new OnClickListener() {
 
 		@Override
 		public void onClick(View v) {
-			doRequest();
-		}
-	};
+			ShowRunning();
+			switch (v.getId()) {
+			case R.id.vehicle_info_submit:
+				new VehicleInfoSubmitScene().doscene(submitCallBack, flag,
+						vehicleID, typeSpinner.getSelectedItem().toString(),
+						citySpinner.getSelectedItem().toString(), carNumFirst
+								.getText().toString()
+								+ carNumSecond.getText().toString().trim(),
+						 null, null, null);
+				break;
+			case R.id.vehicle_info_delete:
+				new VehicleInfoDeleteScene().doscene(submitCallBack,
+						citySpinner.getSelectedItem().toString());
+				break;
+			default:
+				break;
+			}
 
-	private void doRequest() {
-		ShowRunning();
-		new VehicleInfoScene().doscene(callBack, month_str);
-	}
+		}
+
+	};
 
 	OnSceneCallBack callBack = new OnSceneCallBack() {
 		@Override
@@ -72,50 +95,39 @@ public class VehicleInfoActivity extends BaseActivity {
 		}
 	};
 
+	OnSceneCallBack submitCallBack = new OnSceneCallBack() {
+
+		@Override
+		public void OnSuccess(Object data, NetSceneBase<?> netScene) {
+			HideProgress();
+
+			Alert("");
+		}
+
+		@Override
+		public void OnFailed(int status, String info, NetSceneBase<?> netScene) {
+			HideProgress();
+			ErrorAlert(status, info);
+		}
+	};
+
 	private void setSpinner() {
-		// 初始化年份
-		yearAdapter = new ArrayAdapter<String>(this, R.layout.spinnerlayout);
-		int year = Calendar.getInstance().get(Calendar.YEAR);
 
-		for (int i = 0; i < 20; i++) {
-			yearAdapter.add(String.valueOf(year - i));
-		}
-		yearAdapter.setDropDownViewResource(R.layout.spinnerlayout);
-		yearSpinner.setAdapter(yearAdapter);
-		yearSpinner.setOnItemSelectedListener(new SpinnerSelectedListener());
-		year_str = String.valueOf(year);
-		yearSpinner.setSelection(0, true);
-
-		// 初始化月份
+		// 初始化城市
 		// 将可选内容与ArrayAdapter连接起来
-		monthAdapter = ArrayAdapter.createFromResource(this, R.array.month,
+		cityAdapter = ArrayAdapter.createFromResource(this, R.array.city,
 				R.layout.spinnerlayout);
-		// 设置下拉列表的风格
-		monthAdapter.setDropDownViewResource(R.layout.spinnerlayout);
-		monthSpinner.setAdapter(monthAdapter);
-		// 添加事件Spinner事件监听
-		monthSpinner.setOnItemSelectedListener(new SpinnerSelectedListener());
-		// 设置默认值
-		month_str = month_toserver[Calendar.MONTH - 1 - 1];
-		monthSpinner.setSelection((Calendar.MONTH - 1 - 1), true);
-		
-		
-	}
+		cityAdapter.setDropDownViewResource(R.layout.spinnerlayout);
+		citySpinner.setAdapter(cityAdapter);
+		citySpinner.setSelection(0, true);
 
-	class SpinnerSelectedListener implements OnItemSelectedListener {
-
-		public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2,
-				long arg3) {
-			if (arg0.equals(monthSpinner)) {
-				month_str = month_toserver[arg2];
-			} else if (arg0.equals(yearSpinner)) {
-				year_str = String.valueOf((Calendar.getInstance().get(
-						Calendar.YEAR) - arg2));
-			}
-		}
-
-		public void onNothingSelected(AdapterView<?> arg0) {
-		}
+		// 初始化车型
+		// 将可选内容与ArrayAdapter连接起来
+		typeAdapter = ArrayAdapter.createFromResource(this, R.array.car_type,
+				R.layout.spinnerlayout);
+		typeAdapter.setDropDownViewResource(R.layout.spinnerlayout);
+		typeSpinner.setAdapter(typeAdapter);
+		typeSpinner.setSelection(0, true);
 	}
 
 	@Override

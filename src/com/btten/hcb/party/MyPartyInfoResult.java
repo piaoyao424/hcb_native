@@ -6,7 +6,7 @@ import android.util.Log;
 
 import com.btten.model.BaseJsonItem;
 
-public class PartyInfoResult extends BaseJsonItem {
+public class MyPartyInfoResult extends BaseJsonItem {
 	MyPartyListItem item;
 
 	@Override

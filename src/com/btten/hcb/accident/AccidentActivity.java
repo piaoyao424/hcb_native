@@ -1,12 +1,12 @@
 package com.btten.hcb.accident;
 
 import com.btten.base.BaseActivity;
+import com.btten.hcb.commission.CommissionActivity;
 import com.btten.hcb.insurance.InsuranceCallActivity;
-import com.btten.hcb.search.SearchActivity;
 import com.btten.hcbvip.R;
 import com.btten.vincenttools.CallTelephone;
+
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
@@ -44,13 +44,15 @@ public class AccidentActivity extends BaseActivity {
 				intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 				break;
 			case R.id.accident_judge_linear:
-
+				new CallTelephone(AccidentActivity.this, "122", "122").call();
 				break;
 			case R.id.accident_call_linear:
 				intent = new Intent(AccidentActivity.this,
 						InsuranceCallActivity.class);
 				break;
 			case R.id.accident_commission_linear:
+				intent = new Intent(AccidentActivity.this,
+						CommissionActivity.class);
 				break;
 			default:
 				break;

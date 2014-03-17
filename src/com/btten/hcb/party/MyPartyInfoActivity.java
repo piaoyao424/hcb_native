@@ -9,14 +9,14 @@ import com.btten.network.NetSceneBase;
 import com.btten.network.OnSceneCallBack;
 import com.btten.tools.InfoQuery;
 
-public class PartyInfoActivity extends BaseActivity {
+public class MyPartyInfoActivity extends BaseActivity {
 
 	private TextView txtTitle, txtType, txtAddr, txtDate, txtProcess, txtOther;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.party_info_activity);
+		setContentView(R.layout.myparty_info_activity);
 		setCurrentTitle("活动详情");
 		setBackKeyListner(true);
 
@@ -32,7 +32,7 @@ public class PartyInfoActivity extends BaseActivity {
 		txtDate = (TextView) findViewById(R.id.party_info_date);
 		txtOther = (TextView) findViewById(R.id.party_info_other);
 		Bundle bundle = this.getIntent().getExtras();
-		new PartyInfoScene().doScene(callBack, bundle.getString("KEY_ID"));
+		new MyPartyInfoScene().doScene(callBack, bundle.getString("KEY_ID"));
 		ShowRunning();
 	}
 
@@ -40,7 +40,7 @@ public class PartyInfoActivity extends BaseActivity {
 
 		@Override
 		public void OnSuccess(Object data, NetSceneBase<?> netScene) {
-			PartyInfoResult items = (PartyInfoResult) data;
+			MyPartyInfoResult items = (MyPartyInfoResult) data;
 
 			txtTitle.setText(items.item.title);
 			txtType.setText(items.item.type);

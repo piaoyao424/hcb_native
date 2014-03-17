@@ -41,9 +41,9 @@
                     android:textSize="14sp" />
 
                 <Spinner
-                    android:id="@+id/insurance_mouth"
+                    android:id="@+id/vehicle_info_type"
                     android:layout_width="0dp"
-                    android:layout_height="40dp"
+                    android:layout_height="35dp"
                     android:layout_gravity="left"
                     android:layout_marginLeft="10dp"
                     android:layout_weight="8.5"
@@ -70,19 +70,16 @@
                     android:textColor="@color/text_gray"
                     android:textSize="14sp" />
 
-                <EditText
-                    android:id="@+id/insurance_city"
+                <Spinner
+                    android:id="@+id/vehicle_info_city"
                     android:layout_width="0dp"
-                    android:layout_height="40dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_weight="8"
+                    android:layout_height="35dp"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="8.5"
                     android:background="@drawable/nomal_shape"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="10dp"
-                    android:singleLine="true"
-                    android:text="武汉"
-                    android:textColor="@color/text_gray"
-                    android:textSize="14sp" />
+                    android:prompt="@string/choiceyear" >
+                </Spinner>
             </LinearLayout>
 
             <LinearLayout
@@ -104,9 +101,9 @@
                     android:textSize="14sp" />
 
                 <TextView
-                    android:id="@+id/insurance_car_number"
+                    android:id="@+id/vehicle_info_car_number_first"
                     android:layout_width="0dp"
-                    android:layout_height="40dp"
+                    android:layout_height="35dp"
                     android:layout_marginLeft="2dp"
                     android:layout_weight="2.5"
                     android:background="@drawable/nomal_shape"
@@ -118,16 +115,50 @@
                     android:textSize="14sp" />
 
                 <EditText
-                    android:id="@+id/insurance_car_number"
+                    android:id="@+id/vehicle_info_car_number_second"
                     android:layout_width="0dp"
-                    android:layout_height="40dp"
+                    android:layout_height="35dp"
                     android:layout_marginLeft="2dp"
                     android:layout_weight="5"
                     android:background="@drawable/nomal_shape"
                     android:gravity="center_vertical"
                     android:paddingLeft="10dp"
                     android:singleLine="true"
-                    android:text="R52134"
+                    android:text="R5234"
+                    android:textColor="@color/text_gray"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp" >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:gravity="right"
+                    android:singleLine="true"
+                    android:text="车架号(后5位):"
+                    android:textColor="@color/text_gray"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/insurance_mobile"
+                    android:layout_width="0dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="8"
+                    android:background="@drawable/nomal_shape"
+                    android:gravity="center_vertical"
+                    android:inputType="phone"
+                    android:paddingLeft="10dp"
+                    android:singleLine="true"
+                    android:text="15072"
                     android:textColor="@color/text_gray"
                     android:textSize="14sp" />
             </LinearLayout>
@@ -178,9 +209,9 @@
                     android:textSize="14sp" />
 
                 <com.btten.hcb.wheelview.WheelShow
-                    android:id="@+id/insurance_mobile"
+                    android:id="@+id/vehicle_info_date"
                     android:layout_width="0dp"
-                    android:layout_height="40dp"
+                    android:layout_height="35dp"
                     android:layout_marginLeft="5dp"
                     android:layout_weight="6"
                     android:gravity="center_vertical"
@@ -210,9 +241,9 @@
                     android:textSize="14sp" />
 
                 <EditText
-                    android:id="@+id/insurance_mobile"
+                    android:id="@+id/vehicle_info_name"
                     android:layout_width="0dp"
-                    android:layout_height="40dp"
+                    android:layout_height="35dp"
                     android:layout_marginLeft="5dp"
                     android:layout_weight="8"
                     android:background="@drawable/nomal_shape"
@@ -244,9 +275,9 @@
                     android:textSize="14sp" />
 
                 <EditText
-                    android:id="@+id/insurance_mobile"
+                    android:id="@+id/vehicle_info_car_driverlicense"
                     android:layout_width="0dp"
-                    android:layout_height="40dp"
+                    android:layout_height="35dp"
                     android:layout_marginLeft="5dp"
                     android:layout_weight="8"
                     android:background="@drawable/nomal_shape"
@@ -278,9 +309,9 @@
                     android:textSize="14sp" />
 
                 <EditText
-                    android:id="@+id/insurance_email"
+                    android:id="@+id/vehicle_info_record"
                     android:layout_width="0dp"
-                    android:layout_height="40dp"
+                    android:layout_height="35dp"
                     android:layout_marginLeft="5dp"
                     android:layout_weight="8"
                     android:background="@drawable/nomal_shape"
@@ -302,7 +333,7 @@
                 android:paddingTop="5dp" >
 
                 <Button
-                    android:id="@+id/insurance_button"
+                    android:id="@+id/vehicle_info_submit"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
                     android:layout_gravity="center_horizontal"
@@ -312,7 +343,7 @@
                     android:padding="10dp"
                     android:text="保存"
                     android:textColor="#FFFFFF"
-                    android:textSize="18sp" />
+                    android:textSize="16sp" />
 
                 <View
                     android:layout_width="0dp"
@@ -320,7 +351,7 @@
                     android:layout_weight="0.1" />
 
                 <Button
-                    android:id="@+id/insurance_button"
+                    android:id="@+id/vehicle_info_delete"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
                     android:layout_gravity="center_horizontal"
@@ -330,7 +361,7 @@
                     android:padding="10dp"
                     android:text="删除车辆信息"
                     android:textColor="#FFFFFF"
-                    android:textSize="18sp" />
+                    android:textSize="16sp" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

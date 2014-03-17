@@ -1,4 +1,4 @@
-package com.btten.hcb.roadRescue;
+package com.btten.hcb.discuss;
 
 import com.btten.model.BaseJsonItem;
 import com.btten.network.NomalJsonSceneBase;
@@ -7,17 +7,17 @@ import com.btten.network.ThreadPoolUtils;
 import com.btten.network.UrlFactory;
 import com.umeng.common.Log;
 
-public class RoadRescueMenuScene extends NomalJsonSceneBase {
+public class DiscussListScene extends NomalJsonSceneBase {
 	@Override
 	protected BaseJsonItem CreateJsonItems() {
-		return new RoadRescueMenuResult();
+		return new DiscussListResult();
 	}
 
-	public void doScene(OnSceneCallBack callBack)
-	{
+	public void doScene(OnSceneCallBack callBack) {
 		SetCallBack(callBack);
-		targetUrl = UrlFactory.GetUrlNew("JmsInfo","getJmsRescueItemList"
-				);
+		targetUrl = UrlFactory.GetUrlNew("PublicNotice",
+				"getPublicNoticeMaster");
+		System.out.println(targetUrl);
 		Log.d("url", targetUrl);
 		ThreadPoolUtils.execute(this);
 	}

@@ -29,6 +29,8 @@ public class RoadRescueActivity extends BaseActivity {
 		TextView txt_newprice;
 		TextView txt_area;
 		String itemid;
+		String name;
+		String phone;
 	}
 
 	@Override
@@ -44,11 +46,9 @@ public class RoadRescueActivity extends BaseActivity {
 		setCurrentTitle("道路救援");
 		expandableListView = (ExpandableListView) findViewById(R.id.jmsinfo_explv);
 		expandableListView.setGroupIndicator(null);
-		expandableListView.setAdapter(new MyExpandableListViewAdapter(
-				RoadRescueActivity.this));
 		expandableListView.setOnChildClickListener(onChildClickListener);
-
 		ShowRunning();
+		new RoadRescueMenuScene().doScene(callBack);
 	}
 
 	OnChildClickListener onChildClickListener = new OnChildClickListener() {
@@ -56,16 +56,16 @@ public class RoadRescueActivity extends BaseActivity {
 		@Override
 		public boolean onChildClick(ExpandableListView parent, View v,
 				int groupPosition, int childPosition, long id) {
-			String itemid = childArray.get(groupPosition).get(childPosition).id;
 			Intent intent = new Intent(RoadRescueActivity.this,
-					RoadRescueActivity.class);
-			intent.putExtra("KEY_ITEMID", itemid);
+					RoadRescuePhoneActivity.class);
+			intent.putExtra("KEY_NAME", groupArray.get(groupPosition).name);
+			intent.putExtra("KEY_PHONE", groupArray.get(groupPosition).phone);
 			startActivity(intent);
 			return false;
 		}
 	};
 
-	OnSceneCallBack callBackSaleMenu = new OnSceneCallBack() {
+	OnSceneCallBack callBack = new OnSceneCallBack() {
 
 		@Override
 		public void OnSuccess(Object data, NetSceneBase<?> netScene) {
@@ -82,6 +82,9 @@ public class RoadRescueActivity extends BaseActivity {
 					childArray.add(tempchildArray);
 				}
 			}
+			expandableListView.setAdapter(new MyExpandableListViewAdapter(
+					RoadRescueActivity.this));
+			HideProgress();
 		}
 
 		@Override
@@ -112,12 +115,12 @@ public class RoadRescueActivity extends BaseActivity {
 		public View getChildView(int groupPosition, int childPosition,
 				boolean isLastChild, View convertView, ViewGroup parent) {
 
-			ExpandableListItemHolder holder = null; // 清空临时变量
-			if (convertView == null) { // 若行未初始化
-				// 通过flater初始化行视图
+			ExpandableListItemHolder holder = null;
+			if (convertView == null) {
+
 				convertView = mChildInflater.inflate(
 						R.layout.road_rescue_childs, null);
-				// 并将行视图的3个子视图引用放到tag中
+
 				holder = new ExpandableListItemHolder();
 				holder.txt_Name = (TextView) convertView
 						.findViewById(R.id.road_rescue_childs_name);
@@ -142,8 +145,9 @@ public class RoadRescueActivity extends BaseActivity {
 				holder.txt_newprice.setText(info.newprice);
 				holder.txt_oldprice.getPaint().setFlags(
 						Paint.STRIKE_THRU_TEXT_FLAG);
-				holder.txt_area.setText("获" + info.newprice + "分");
+				holder.txt_area.setText(info.area);
 				holder.itemid = info.id;
+				holder.phone = info.phone;
 			}
 			return convertView;
 		}
@@ -154,8 +158,6 @@ public class RoadRescueActivity extends BaseActivity {
 
 			ExpandableListItemHolder holder = null; // 清空临时变量holder
 			if (convertView == null) { // 判断view（即view是否已构建好）是否为空
-				// 若组视图为空，构建组视图。注意flate的使用，R.layout.browser_expandable_list_item代表了
-				// 已加载到内存的browser_expandable_list_item.xml文件
 				convertView = mGroupInflater.inflate(
 						R.layout.road_rescue_groups, null);
 				// 下面主要是取得组的各子视图，设置子视图的属性。用tag来保存各子视图的引用
@@ -163,7 +165,6 @@ public class RoadRescueActivity extends BaseActivity {
 				// 从view中取得textView
 				holder.txt_Name = (TextView) convertView
 						.findViewById(R.id.road_rescue_groups_txt_name);
-				;
 				convertView.setTag(holder);
 			} else { // 若view不为空，直接从view的tag属性中获得各子视图的引用
 				holder = (ExpandableListItemHolder) convertView.getTag();
@@ -211,6 +212,6 @@ public class RoadRescueActivity extends BaseActivity {
 	@Override
 	public void initDate() {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

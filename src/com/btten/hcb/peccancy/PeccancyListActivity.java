@@ -12,7 +12,7 @@ import com.btten.base.BaseActivity;
 import com.btten.network.NetSceneBase;
 import com.btten.network.OnSceneCallBack;
 
-public class PeccancyActivity extends BaseActivity {
+public class PeccancyListActivity extends BaseActivity {
 	private ListView lv;
 	private Button button;
 
@@ -30,24 +30,20 @@ public class PeccancyActivity extends BaseActivity {
 		button = (Button) findViewById(R.id.peccancy_activity_linear);
 		button.setOnClickListener(clickListener);
 		lv = (ListView) findViewById(R.id.peccancy_activity_lv);
-		DoRequest();
+		new PeccancyListScene().doScene(callBack);
+		ShowRunning();
 	}
 
 	OnClickListener clickListener = new OnClickListener() {
 
 		@Override
 		public void onClick(View v) {
-			Intent intent = new Intent(PeccancyActivity.this,
+			Intent intent = new Intent(PeccancyListActivity.this,
 					VehicleInfoActivity.class);
 			intent.putExtra("KEY_ID", "");
 			startActivity(intent);
 		}
 	};
-
-	private void DoRequest() {
-		new PeccancyListScene().doScene(callBack);
-		ShowRunning();
-	}
 
 	OnSceneCallBack callBack = new OnSceneCallBack() {
 
@@ -55,7 +51,7 @@ public class PeccancyActivity extends BaseActivity {
 		public void OnSuccess(Object data, NetSceneBase<?> netScene) {
 			PeccancyListResult item = (PeccancyListResult) data;
 			PeccancyListAdapter adapter = new PeccancyListAdapter(
-					PeccancyActivity.this, item.items);
+					PeccancyListActivity.this, item.items);
 			lv.setAdapter(adapter);
 			HideProgress();
 			return;

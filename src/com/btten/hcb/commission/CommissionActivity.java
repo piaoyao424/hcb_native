@@ -21,10 +21,6 @@ public class CommissionActivity extends BaseActivity {
 
 	public void initView() {
 		lv = (ListView) findViewById(R.id.commission_activity_lv);
-		DoRequest();
-	}
-
-	private void DoRequest() {
 		new CommissionListScene().doScene(callBack);
 		ShowRunning();
 	}

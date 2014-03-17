@@ -7,7 +7,7 @@ import com.btten.network.OnSceneCallBack;
 import com.btten.network.ThreadPoolUtils;
 import com.btten.network.UrlFactory;
 
-public class PartyInfoScene extends NomalJsonSceneBase {
+public class MyPartyInfoScene extends NomalJsonSceneBase {
 
 	public void doScene(OnSceneCallBack callBack, String id) {
 		SetCallBack(callBack);
@@ -19,7 +19,7 @@ public class PartyInfoScene extends NomalJsonSceneBase {
 
 	@Override
 	protected BaseJsonItem CreateJsonItems() {
-		return new PartyInfoResult();
+		return new MyPartyInfoResult();
 	}
 
 }

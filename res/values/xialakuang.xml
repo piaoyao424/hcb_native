@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string-array name="month">
         <item>01月</item>
         <item>02月</item>
@@ -14,4 +15,15 @@
         <item>11月</item>
         <item>12月</item>
     </string-array>
+    <string-array name="car_type">
+        <item>小型车</item>
+        <item>大型车</item>
+    </string-array>
+    <string-array name="city">
+        <item>武汉</item>
+        <item>宜昌</item>
+        <item>荆州</item>
+        <item>孝感</item>
+    </string-array>
+
 </resources>

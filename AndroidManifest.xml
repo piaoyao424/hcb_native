@@ -98,7 +98,43 @@
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
+        <!-- 保险首页 -->
+        <activity
+            android:name="com.btten.hcb.insurance.InsuranceActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <!-- 违章查询 -->
+        <activity
+            android:name="com.btten.hcb.peccancy.PeccancyListActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <!-- 违章查询明细 -->
+        <activity
+            android:name="com.btten.hcb.peccancy.PeccancyDetailActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
 
+        <!-- 紧急救援 -->
+        <activity
+            android:name="com.btten.hcb.rescue.RescueActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <!-- 道路救援 -->
+        <activity
+            android:name="com.btten.hcb.roadRescue.RoadRescueActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <!-- 道路救援呼叫页面 -->
+        <activity
+            android:name="com.btten.hcb.roadRescue.RoadRescuePhoneActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
         <!-- 服务条款 -->
         <activity
             android:name="com.btten.hcb.regist.RegistTermsActivity"
@@ -150,6 +186,21 @@
         <!-- 车友会 -->
         <activity
             android:name="com.btten.hcb.carClub.CarClubListActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <!-- 事故处理 -->
+        <activity
+            android:name="com.btten.hcb.accident.AccidentActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <!-- 联系保险公司 -->
+        <activity
+            android:name="com.btten.hcb.insurance.InsuranceCallActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <!-- 车务代办 -->
+        <activity
+            android:name="com.btten.hcb.commission.CommissionActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait" />
         <!-- 我的惠车宝 -->

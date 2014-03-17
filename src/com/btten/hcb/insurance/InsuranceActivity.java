@@ -48,14 +48,10 @@ public class InsuranceActivity extends BaseActivity {
 
 		@Override
 		public void onClick(View v) {
-			doRequest();
+			ShowRunning();
+			new InsuranceScene().doscene(callBack, month_str, year_str);
 		}
 	};
-
-	private void doRequest() {
-		ShowRunning();
-		new InsuranceScene().doscene(callBack, month_str, year_str);
-	}
 
 	OnSceneCallBack callBack = new OnSceneCallBack() {
 		@Override
@@ -106,7 +102,7 @@ public class InsuranceActivity extends BaseActivity {
 				long arg3) {
 			if (arg0.equals(monthSpinner)) {
 				month_str = month_toserver[arg2];
-				doRequest();
+
 			} else if (arg0.equals(yearSpinner)) {
 				year_str = String.valueOf((Calendar.getInstance().get(
 						Calendar.YEAR) - arg2));
@@ -120,6 +116,6 @@ public class InsuranceActivity extends BaseActivity {
 	@Override
 	public void initDate() {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

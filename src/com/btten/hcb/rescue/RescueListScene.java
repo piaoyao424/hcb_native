@@ -15,9 +15,8 @@ public class RescueListScene extends NomalJsonSceneBase {
 
 	public void doScene(OnSceneCallBack callBack) {
 		SetCallBack(callBack);
-		targetUrl = UrlFactory.GetUrlNew("PublicNotice",
-				"getPublicNoticeMaster");
-		System.out.println(targetUrl);
+		targetUrl = UrlFactory.GetUrlNew("JmsInfo",
+				"getJmsRescuePhoneList");
 		Log.d("url", targetUrl);
 		ThreadPoolUtils.execute(this);
 	}
