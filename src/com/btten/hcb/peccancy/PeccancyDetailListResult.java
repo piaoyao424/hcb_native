@@ -25,11 +25,12 @@ public class PeccancyDetailListResult extends BaseJsonItem {
 					JSONObject obj = jsonArray.getJSONObject(i);
 					CommonConvert convert = new CommonConvert(obj);
 					PeccancyDetailListItem temp = new PeccancyDetailListItem();
-					temp.date = convert.getString("F2_4230");
-					temp.id = convert.getString("F1_4230");
-					temp.content = convert.getString("F4_4230");
-					temp.point = convert.getString("F4_4230");
-					temp.money = convert.getString("F4_4230");
+					temp.date = convert.getString("F3_4251");
+					temp.id = convert.getString("ID");
+					temp.content = convert.getString("F5_4251");
+					temp.addr = convert.getString("F4_4251");
+					temp.point = convert.getString("F6_4251");
+					temp.money = convert.getString("F7_4251");
 					items[i] = temp;
 				}
 			}

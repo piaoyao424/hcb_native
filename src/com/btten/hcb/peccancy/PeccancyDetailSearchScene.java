@@ -8,17 +8,17 @@ import com.btten.network.ThreadPoolUtils;
 import com.btten.network.UrlFactory;
 import com.umeng.common.Log;
 
-public class PeccancyListScene extends NomalJsonSceneBase {
+public class PeccancyDetailSearchScene extends NomalJsonSceneBase {
 	@Override
 	protected BaseJsonItem CreateJsonItems() {
 		return new PeccancyListResult();
 	}
 
-	public void doScene(OnSceneCallBack callBack) {
+	public void doScene(OnSceneCallBack callBack, String vehicleid) {
 		SetCallBack(callBack);
-		targetUrl = UrlFactory.GetUrlNew("Peccancy", "getVehicleList", "vid",
-				VIPInfoManager.getInstance().getUserid());
-		System.out.println(targetUrl);
+		targetUrl = UrlFactory.GetUrlNew("Peccancy", "getVehiclePeccancy",
+				"vid", VIPInfoManager.getInstance().getUserid(), "vehicleid",
+				vehicleid);
 		Log.d("url", targetUrl);
 		ThreadPoolUtils.execute(this);
 	}

@@ -148,7 +148,7 @@
                     android:textSize="14sp" />
 
                 <EditText
-                    android:id="@+id/insurance_mobile"
+                    android:id="@+id/vehicle_info_frame"
                     android:layout_width="0dp"
                     android:layout_height="35dp"
                     android:layout_marginLeft="5dp"

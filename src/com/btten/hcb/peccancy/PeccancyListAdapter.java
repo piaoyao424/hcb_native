@@ -76,6 +76,7 @@ public class PeccancyListAdapter extends BaseAdapter {
 			case R.id.peccancy_item_search:
 				intent = new Intent(context, PeccancyDetailActivity.class);
 				intent.putExtra("KEY_ID", items[index].id);
+				intent.putExtra("KEY_DATE", items[index].checkDate);
 				break;
 
 			default:

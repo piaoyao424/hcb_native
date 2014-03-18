@@ -1,8 +1,11 @@
 package com.btten.hcb.vehicleInfo;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,6 +15,7 @@ import android.widget.TextView;
 import com.btten.base.BaseActivity;
 import com.btten.hcb.wheelview.WheelShow;
 import com.btten.hcbvip.R;
+import com.btten.model.BaseJsonItem;
 import com.btten.network.NetSceneBase;
 import com.btten.network.OnSceneCallBack;
 
@@ -24,21 +28,39 @@ public class VehicleInfoActivity extends BaseActivity {
 	private Button btn_submit = null;
 	private Button btn_delete = null;
 	private TextView carNumFirst;
-	private EditText carNumSecond;
+	private EditText carNumSecond, edtName, edtDriverLicense, edtRecord,
+			edtFrame;
 	private WheelShow date;
-
-	int flag = 0;
-	String vehicleID = "";
+	private String[] strCity;
+	private int flag = 0;
+	private String vehicleID = "";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.vehicle_info_activity);
 		initView();
+
+		Bundle bundle = getIntent().getExtras();
+		try {
+			// 编辑模式
+			vehicleID = bundle.getString("KEY_ID");
+			if (vehicleID == null || vehicleID.equals("")) {
+				throw new Exception();
+			}
+			flag = 0;
+			new VehicleInfoScene().doscene(callBack, vehicleID);
+		} catch (Exception e) {
+			// 新增模式
+			flag = 1;
+			vehicleID = "";
+		}
+		strCity = getResources().getStringArray(R.array.city);
 	}
 
 	public void initView() {
 		citySpinner = (Spinner) findViewById(R.id.vehicle_info_city);
+		citySpinner.setOnItemSelectedListener(lSelectedListener);
 		typeSpinner = (Spinner) findViewById(R.id.vehicle_info_type);
 
 		btn_submit = (Button) findViewById(R.id.vehicle_info_submit);
@@ -48,12 +70,40 @@ public class VehicleInfoActivity extends BaseActivity {
 
 		carNumFirst = (TextView) findViewById(R.id.vehicle_info_car_number_first);
 		carNumSecond = (EditText) findViewById(R.id.vehicle_info_car_number_second);
+		edtName = (EditText) findViewById(R.id.vehicle_info_name);
+		edtDriverLicense = (EditText) findViewById(R.id.vehicle_info_car_driverlicense);
+		edtRecord = (EditText) findViewById(R.id.vehicle_info_record);
+		edtFrame = (EditText) findViewById(R.id.vehicle_info_frame);
 
 		date = (WheelShow) findViewById(R.id.vehicle_info_date);
-		
+
 		setSpinner();
 	}
 
+	OnItemSelectedListener lSelectedListener = new OnItemSelectedListener() {
+
+		@Override
+		public void onItemSelected(AdapterView<?> parent, View view,
+				int position, long id) {
+			String city = parent.getItemAtPosition(position).toString();
+			if (city.equals("武汉")) {
+				carNumFirst.setText("鄂A");
+			} else if (city.equals("孝感")) {
+				carNumFirst.setText("鄂K");
+			} else if (city.equals("宜昌")) {
+				carNumFirst.setText("鄂E");
+			} else if (city.equals("荆州")) {
+				carNumFirst.setText("鄂D");
+			}
+		}
+
+		@Override
+		public void onNothingSelected(AdapterView<?> parent) {
+
+		}
+	};
+
+	@SuppressLint("DefaultLocale")
 	OnClickListener listener = new OnClickListener() {
 
 		@Override
@@ -65,12 +115,15 @@ public class VehicleInfoActivity extends BaseActivity {
 						vehicleID, typeSpinner.getSelectedItem().toString(),
 						citySpinner.getSelectedItem().toString(), carNumFirst
 								.getText().toString()
-								+ carNumSecond.getText().toString().trim(),
-						 null, null, null);
+								+ carNumSecond.getText().toString()
+										.toUpperCase().trim(), edtFrame
+								.getText().toString().trim(), date.getText()
+								.toString(), edtName.getText().toString()
+								.trim(), edtDriverLicense.getText().toString()
+								.trim(), edtRecord.getText().toString().trim());
 				break;
 			case R.id.vehicle_info_delete:
-				new VehicleInfoDeleteScene().doscene(submitCallBack,
-						citySpinner.getSelectedItem().toString());
+				new VehicleInfoDeleteScene().doscene(submitCallBack, vehicleID);
 				break;
 			default:
 				break;
@@ -91,7 +144,24 @@ public class VehicleInfoActivity extends BaseActivity {
 		public void OnSuccess(Object data, NetSceneBase<?> netScene) {
 			HideProgress();
 			VehicleInfoResult items = (VehicleInfoResult) data;
-			Alert(items.price);
+			for (int i = 0; i < strCity.length; i++) {
+				if (items.item.area.equals(strCity[i])) {
+					citySpinner.setSelection(i, true);
+				}
+			}
+
+			if (items.item.type.equals("小型车")) {
+				typeSpinner.setSelection(0, true);
+			} else if (items.item.type.equals("大型车")) {
+				typeSpinner.setSelection(1, true);
+			}
+			carNumSecond.setText(items.item.carNo.substring(items.item.carNo
+					.length() - 5));
+			edtName.setText(items.item.name);
+			edtDriverLicense.setText(items.item.drivingLicence);
+			edtRecord.setText(items.item.fileNo);
+			edtFrame.setText(items.item.frame);
+			date.setText(items.item.date);
 		}
 	};
 
@@ -100,8 +170,8 @@ public class VehicleInfoActivity extends BaseActivity {
 		@Override
 		public void OnSuccess(Object data, NetSceneBase<?> netScene) {
 			HideProgress();
-
-			Alert("");
+			Alert(((BaseJsonItem) data).info);
+			onBackPressed();
 		}
 
 		@Override

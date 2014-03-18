@@ -1,20 +1,21 @@
-package com.btten.hcb.vehicleInfo;
+package com.btten.hcb.peccancy;
 
 import org.json.JSONObject;
+import android.util.Log;
+
 import com.btten.model.BaseJsonItem;
 
-public class VehicleInfoSubmitResult extends BaseJsonItem {
+public class PeccancyDetailSearchResult extends BaseJsonItem {
 
 	@Override
 	public boolean CreateFromJson(JSONObject result) {
 		try {
-
 			this.status = result.getInt("STATUS");
 			this.info = result.getString("INFO");
- 
-		} catch (Exception e) {
+		} catch (Exception ex) {
 			this.status = -1;
-			this.info = e.toString();
+			this.info = ex.toString();
+			Log.d("gwjtag", info);
 			return false;
 		}
 		return true;

@@ -5,8 +5,9 @@ public class VehicleInfoItem {
 	String type;
 	String area;
 	String carNo;
-	String  date;
+	String date;
 	String name;
 	String drivingLicence;
 	String fileNo;
+	String frame;
 }
