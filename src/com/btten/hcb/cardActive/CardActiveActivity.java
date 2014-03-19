@@ -2,6 +2,7 @@ package com.btten.hcb.cardActive;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -72,7 +73,8 @@ public class CardActiveActivity extends BaseActivity {
 					@Override
 					public void OnSuccess(Object data, NetSceneBase<?> netScene) {
 						CardActiveScene scene = new CardActiveScene();
-						scene.doScence(callBack, strPhoneNum, strPwd);
+						scene.doScence(callBack, strPhoneNum, strCardNum + "@"
+								+ strPwd);
 					}
 
 					@Override
@@ -192,6 +194,7 @@ public class CardActiveActivity extends BaseActivity {
 	private static final int ONCHANG = 1001;
 	private static final int ONEND = 1010;
 
+	@SuppressLint("HandlerLeak")
 	Handler handler = new Handler() {
 
 		public void handleMessage(Message msg) {
@@ -246,14 +249,14 @@ public class CardActiveActivity extends BaseActivity {
 				progress = null;
 			}
 
-			Toast.makeText(CardActiveActivity.this, "注册成功", 1000).show();
-			CardActiveResultItems items = (CardActiveResultItems) data;
-			CardActiveResultItem item = items.item;
+			Toast.makeText(CardActiveActivity.this, "激活成功", 1000).show();
+			CardActiveResult items = (CardActiveResult) data;
+			CardActiveItem item = items.item;
 			VIPInfoManager.getInstance().SetInfo(item.username, item.userid,
 					"", "");
 			MsgCenter.getInstance().PostMsg(MsgConst.REGIST_SUCCESS, this);
 
-			SharedPreferences setting = getSharedPreferences("calltaxicfg",
+			SharedPreferences setting = getSharedPreferences("hcbcfg",
 					MODE_PRIVATE);
 			setting.edit().putBoolean("rememberPWD", false)
 					.putString("nameStr", strPhoneNum).putString("pwdStr", "")
@@ -310,6 +313,6 @@ public class CardActiveActivity extends BaseActivity {
 	@Override
 	public void initDate() {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

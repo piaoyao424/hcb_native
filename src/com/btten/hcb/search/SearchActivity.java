@@ -43,7 +43,7 @@ public class SearchActivity extends BaseActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.saleslist_activity);
-
+		setCurrentTitle("搜索");
 		initView();
 		initData();
 	}
@@ -78,7 +78,7 @@ public class SearchActivity extends BaseActivity {
 		Bundle bundle = this.getIntent().getExtras();
 		menuID = bundle.getString("KEY_MENUID");
 		areaID = VIPInfoManager.getInstance().getAreaID();
-
+		ShowRunning();
 		doArea();
 		doCriteria();
 	}
@@ -261,7 +261,7 @@ public class SearchActivity extends BaseActivity {
 		public void OnSuccess(Object data, NetSceneBase<?> netScene) {
 			List<String> data1 = new ArrayList<String>();
 
-			final SearchResultItem_area[] items = ((SearchResultItems) data).areaItems;
+			final SearchResultItem_area[] items = ((SearchResult) data).areaItems;
 
 			for (SearchResultItem_area item : items) {
 				data1.add(item.areaName);
@@ -304,7 +304,7 @@ public class SearchActivity extends BaseActivity {
 		public void OnSuccess(Object data, NetSceneBase<?> netScene) {
 
 			final List<String> menu = new ArrayList<String>();
-			final SearchResultItem_saleslist[] items = ((SearchResultItems) data).saleslist;
+			final SearchResultItem_saleslist[] items = ((SearchResult) data).saleslist;
 
 			for (SearchResultItem_saleslist item : items) {
 				if (item.itemUpID.equals("0")) {
@@ -401,7 +401,7 @@ public class SearchActivity extends BaseActivity {
 
 		@Override
 		public void OnSuccess(Object data, NetSceneBase<?> netScene) {
-			searchResultItems = ((SearchResultItems) data).items;
+			searchResultItems = ((SearchResult) data).items;
 			dosearch();
 			HideProgress();
 		}
@@ -410,6 +410,6 @@ public class SearchActivity extends BaseActivity {
 	@Override
 	public void initDate() {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

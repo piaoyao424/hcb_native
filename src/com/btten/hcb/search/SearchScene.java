@@ -51,7 +51,7 @@ public class SearchScene extends NomalJsonSceneBase {
 
 	@Override
 	protected BaseJsonItem CreateJsonItems() {
-		return new SearchResultItems(Flag);
+		return new SearchResult(Flag);
 	}
 
 }

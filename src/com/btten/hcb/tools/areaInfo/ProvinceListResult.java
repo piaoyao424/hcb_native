@@ -25,9 +25,17 @@ public class ProvinceListResult extends BaseJsonItem {
 					JSONObject obj = jsonArray.getJSONObject(i);
 					CommonConvert convert = new CommonConvert(obj);
 					ProvinceListItem temp = new ProvinceListItem();
-					temp.name = convert.getString("F2_4230");
-					temp.id = convert.getString("F1_4230");
-					items[i] = temp;
+					temp.name = convert.getString("NAME");
+					temp.id = convert.getString("ID");
+					// 过滤掉直辖市
+					if (temp.name.equals("北京")) {
+					} else if (temp.name.equals("上海")) {
+					} else if (temp.name.equals("重庆")) {
+					} else if (temp.name.equals("天津")) {
+					} else {
+						items[i] = temp;
+					}
+
 				}
 			}
 		} catch (Exception ex) {

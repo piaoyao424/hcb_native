@@ -3,9 +3,7 @@ package com.btten.hcb;
 import com.btten.base.BaseActivity;
 import com.btten.hcb.SplashScreen;
 import com.btten.hcb.account.VIPInfoManager;
-import com.btten.hcb.carClub.CarClubListActivity;
 import com.btten.hcb.homeActivity.HomeActivity;
-import com.btten.hcb.login.LoginActivity;
 import com.btten.hcb.login.LoginScene;
 import com.btten.hcb.map.LocationClientService;
 import com.btten.hcbvip.R;
@@ -69,21 +67,21 @@ public class SplashScreen extends BaseActivity {
 				}
 
 				intent = new Intent(SplashScreen.this, HomeActivity.class);
-				// intent = new Intent(SplashScreen.this,
-				// CarClubListActivity.class);
+//				 intent = new Intent(SplashScreen.this,
+//				 CarClubListActivity.class);
 				startActivity(intent);
 				finish();
 				overridePendingTransition(R.anim.in_right_left,
 						R.anim.out_right_left);
 				// }
 			}
-		}, 2000);
+		}, 1000);
 	}
 
 	private boolean IsFirstStart() {
 		boolean isfirststart = false;
 
-		SharedPreferences settings = getSharedPreferences("calltaxicfg",
+		SharedPreferences settings = getSharedPreferences("hcbcfg",
 				MODE_PRIVATE);
 		isfirststart = settings.getBoolean("IsFirstStart", true);
 

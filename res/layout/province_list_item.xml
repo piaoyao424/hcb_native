@@ -15,6 +15,7 @@
             android:text="北京" />
 
         <ImageView
+            android:id="@+id/province_list_item_image"
             style="@style/aboutus_image_style"
             android:contentDescription="@string/ImageDescription" />
     </RelativeLayout>

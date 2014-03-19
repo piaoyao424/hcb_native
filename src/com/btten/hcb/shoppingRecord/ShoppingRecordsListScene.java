@@ -13,11 +13,11 @@ public class ShoppingRecordsListScene extends NomalJsonSceneBase {
 		super();
 	}
 
-	public void doscene(OnSceneCallBack callBack, String month, String year) {
+	public void doscene(OnSceneCallBack callBack, String begin, String end) {
 		SetCallBack(callBack);
-		targetUrl = UrlFactory.GetUrlNew("JmsInfo", "getSaleAccountHistory",
-				"vid", VIPInfoManager.getInstance().getUserid(), "start",
-				month, "end", year);
+		targetUrl = UrlFactory.GetUrlNew("UserBaseInfo", "getExpense", "vid",
+				VIPInfoManager.getInstance().getUserid(), "begin", begin,
+				"end", end);
 		Log.i("url", targetUrl);
 		ThreadPoolUtils.execute(this);
 	}

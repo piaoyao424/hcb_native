@@ -62,7 +62,7 @@ public class InsuranceCallActivity extends BaseActivity {
 				break;
 			case R.id.insurance_call_linear_95590:
 				phone = "95590";
-				name = "太平洋保险";
+				name = "大地保险";
 				break;
 			default:
 				break;

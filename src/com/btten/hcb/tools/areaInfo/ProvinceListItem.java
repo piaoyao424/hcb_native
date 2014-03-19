@@ -1,5 +1,5 @@
 package com.btten.hcb.tools.areaInfo;
 
 public class ProvinceListItem {
-	String name, id;
+	String name, id, type;
 }

@@ -2,18 +2,18 @@
 <resources>
 
     <string-array name="month">
-        <item>01月</item>
-        <item>02月</item>
-        <item>03月</item>
-        <item>04月</item>
-        <item>05月</item>
-        <item>06月</item>
-        <item>07月</item>
-        <item>08月</item>
-        <item>09月</item>
-        <item>10月</item>
-        <item>11月</item>
-        <item>12月</item>
+        <item>01</item>
+        <item>02</item>
+        <item>03</item>
+        <item>04</item>
+        <item>05</item>
+        <item>06</item>
+        <item>07</item>
+        <item>08</item>
+        <item>09</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
     </string-array>
     <string-array name="car_type">
         <item>小型车</item>

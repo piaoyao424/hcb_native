@@ -66,7 +66,7 @@
                         android:textSize="14sp" />
 
                     <Spinner
-                        android:id="@+id/insurance_year"
+                        android:id="@+id/insurance_company"
                         android:layout_width="0dp"
                         android:layout_height="40dp"
                         android:layout_gravity="left"
@@ -220,28 +220,58 @@
                         android:layout_weight="8"
                         android:paddingLeft="5dp" >
 
-                        <Spinner
-                            android:id="@+id/insurance_year"
+                        <RelativeLayout
                             android:layout_width="0dp"
                             android:layout_height="40dp"
-                            android:layout_gravity="left"
-                            android:layout_weight="1"
-                            android:background="@drawable/nomal_shape"
-                            android:prompt="@string/choiceyear"
-                            android:visibility="visible" >
-                        </Spinner>
+                            android:layout_weight="1" >
 
-                        <Spinner
-                            android:id="@+id/insurance_mouth"
+                            <Spinner
+                                android:id="@+id/insurance_year"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="left"
+                                android:background="@drawable/nomal_shape"
+                                android:prompt="@string/choiceyear" >
+                            </Spinner>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginRight="5dp"
+                                android:gravity="center_vertical|right"
+                                android:singleLine="true"
+                                android:text="年"
+                                android:textColor="@color/text_gray"
+                                android:textSize="16sp" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
                             android:layout_width="0dp"
                             android:layout_height="40dp"
-                            android:layout_gravity="left"
-                            android:layout_marginLeft="10dp"
-                            android:layout_weight="1"
-                            android:background="@drawable/nomal_shape"
-                            android:prompt="@string/choiceyear"
-                            android:visibility="visible" >
-                        </Spinner>
+                            android:layout_weight="1" >
+
+                            <Spinner
+                                android:id="@+id/insurance_mouth"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="left"
+                                android:layout_marginLeft="10dp"
+                                android:background="@drawable/nomal_shape"
+                                android:prompt="@string/choicemonth" >
+                            </Spinner>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginRight="5dp"
+                                android:gravity="center_vertical|right"
+                                android:singleLine="true"
+                                android:text="月"
+                                android:textColor="@color/text_gray"
+                                android:textSize="16sp" />
+                        </RelativeLayout>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -320,7 +350,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="10dp"
                     android:background="@color/orange"
-                    android:padding="10dp"
+                    android:padding="5dp"
                     android:text="快速报价"
                     android:textColor="#FFFFFF"
                     android:textSize="20sp" />

@@ -39,12 +39,13 @@ public class RoadRescueActivity extends BaseActivity {
 		setContentView(R.layout.road_rescue_activity);
 		groupArray = new ArrayList<RoadRescueMenuItem>();
 		childArray = new ArrayList<List<RoadRescueMenuItem>>();
+		setBackKeyListner(true);
 		initView();
 	}
 
 	public void initView() {
 		setCurrentTitle("道路救援");
-		expandableListView = (ExpandableListView) findViewById(R.id.jmsinfo_explv);
+		expandableListView = (ExpandableListView) findViewById(R.id.road_rescue_explv);
 		expandableListView.setGroupIndicator(null);
 		expandableListView.setOnChildClickListener(onChildClickListener);
 		ShowRunning();

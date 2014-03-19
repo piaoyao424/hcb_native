@@ -257,7 +257,7 @@ public class RegistActivity extends BaseActivity {
 					"", "");
 			MsgCenter.getInstance().PostMsg(MsgConst.REGIST_SUCCESS, this);
 
-			SharedPreferences setting = getSharedPreferences("calltaxicfg",
+			SharedPreferences setting = getSharedPreferences("hcbcfg",
 					MODE_PRIVATE);
 			setting.edit().putBoolean("rememberPWD", false)
 					.putString("nameStr", strPhoneNum).putString("pwdStr", "")

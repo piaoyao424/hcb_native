@@ -38,11 +38,13 @@ public class ProvinceListAdapter extends BaseAdapter {
 
 		vHolder.txt_name.setText(items[position].name);
 		vHolder.id = items[position].id;
+		vHolder.name = items[position].name;
 		return convertView;
 	}
 
 	static class ViewHolder {
 		String id;
+		String name;
 		TextView txt_name;
 	}
 

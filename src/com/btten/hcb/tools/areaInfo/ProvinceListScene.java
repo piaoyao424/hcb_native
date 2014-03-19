@@ -13,11 +13,10 @@ public class ProvinceListScene extends NomalJsonSceneBase {
 		return new ProvinceListResult();
 	}
 
-	public void doScene(OnSceneCallBack callBack) {
+	public void doScene(OnSceneCallBack callBack, String id) {
 		SetCallBack(callBack);
-		targetUrl = UrlFactory.GetUrlNew("PublicNotice",
-				"getPublicNoticeMaster");
-		System.out.println(targetUrl);
+		targetUrl = UrlFactory.GetUrlNew("PublicNotice", "getAreaList", "id",
+				id);
 		Log.d("url", targetUrl);
 		ThreadPoolUtils.execute(this);
 	}

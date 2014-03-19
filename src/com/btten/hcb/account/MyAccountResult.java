@@ -16,10 +16,13 @@ public class MyAccountResult extends BaseJsonItem {
 			item = new MyAccountItem();
 			this.status = result.getInt("STATUS");
 			this.info = result.getString("INFO");
-			item.level = result.getString("LEVEL");
-			item.hbValue = result.getString("HBVALUE");
-			item.name = result.getString("NAME");
-			item.pointValue = result.getString("POINTVALUE");
+			if (this.status == 1) {
+				item.level = result.getString("LEVEL");
+				item.hbValue = result.getString("HBVALUE");
+				item.name = result.getString("NAME");
+				item.pointValue = result.getString("POINTVALUE");
+			}
+
 		} catch (Exception e) {
 			this.status = -1;
 			this.info = e.toString();

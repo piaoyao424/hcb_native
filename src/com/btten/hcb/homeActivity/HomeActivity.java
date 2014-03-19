@@ -13,7 +13,6 @@ import com.btten.hcb.carClub.CarClubListActivity;
 import com.btten.hcb.insurance.InsuranceActivity;
 import com.btten.hcb.map.LocationClientService;
 import com.btten.hcb.peccancy.PeccancyListActivity;
-import com.btten.hcb.rescue.RescueActivity;
 import com.btten.hcb.roadRescue.RoadRescueActivity;
 import com.btten.hcb.search.SearchActivity;
 import com.btten.hcb.vehicleLife.VehicleLifeActivity;
@@ -34,6 +33,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 public class HomeActivity extends BaseActivity {
 
@@ -53,7 +53,6 @@ public class HomeActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.homeview);
 		UmengUpdateAgent.update(this);
-
 		initView();
 	}
 
@@ -64,8 +63,6 @@ public class HomeActivity extends BaseActivity {
 		// 设置动态长宽
 		int screenWidth = VIPInfoManager.getInstance().getScreenWidth();
 		LinearLayout layout = (LinearLayout) findViewById(R.id.homeview_linear);
-		container.setLayoutParams(new LinearLayout.LayoutParams(screenWidth,
-				screenWidth / 2));
 		layout.setLayoutParams(new LinearLayout.LayoutParams(screenWidth,
 				screenWidth * 390 / 320));
 
@@ -103,13 +100,15 @@ public class HomeActivity extends BaseActivity {
 				intent = new Intent(HomeActivity.this, RoadRescueActivity.class);
 				break;
 			case R.id.homeview_jingcaihuodong:
-				intent = new Intent(HomeActivity.this, CarClubListActivity.class);
+				intent = new Intent(HomeActivity.this,
+						CarClubListActivity.class);
 				break;
 			case R.id.homeview_shiguchuli:
 				intent = new Intent(HomeActivity.this, AccidentActivity.class);
 				break;
 			case R.id.homeview_weizhangchaxun:
-				intent = new Intent(HomeActivity.this, PeccancyListActivity.class);
+				intent = new Intent(HomeActivity.this,
+						PeccancyListActivity.class);
 				break;
 			case R.id.homeview_rencheshenghuo:
 				intent = new Intent(HomeActivity.this,
@@ -143,7 +142,6 @@ public class HomeActivity extends BaseActivity {
 		public void OnSuccess(Object data, NetSceneBase<?> netScene) {
 			TitleNoticeResult items = (TitleNoticeResult) data;
 			initNotifyText(items.item[0].title, items.item[0].id);
-			return;
 		}
 
 		@Override

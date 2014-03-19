@@ -16,7 +16,7 @@ public class RegistScene extends NomalJsonSceneBase {
 	public void doScence(OnSceneCallBack oncallBack, String name, String pwd) {
 		SetCallBack(oncallBack);
 		targetUrl = UrlFactory
-				.GetUrlNew("DoRegister", "name", name, "pwd", pwd);
+				.GetUrlOld("DoRegister", "name", name, "pwd", pwd);
 		ThreadPoolUtils.execute(this);
 		Log.i("url", targetUrl);
 	}

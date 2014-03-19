@@ -33,7 +33,7 @@ public class WelcomActivity extends BaseActivity {
 	private boolean IsFirstStart() {
 		boolean isfirststart = true;
 
-		SharedPreferences settings = getSharedPreferences("calltaxicfg",
+		SharedPreferences settings = getSharedPreferences("hcbcfg",
 				MODE_PRIVATE);
 		isfirststart = settings.getBoolean("IsFirstStart", true);
 

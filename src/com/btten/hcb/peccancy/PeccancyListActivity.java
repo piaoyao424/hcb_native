@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import com.btten.hcb.vehicleInfo.VehicleInfoActivity;
 import com.btten.hcbvip.R;
@@ -14,7 +15,7 @@ import com.btten.network.OnSceneCallBack;
 
 public class PeccancyListActivity extends BaseActivity {
 	private ListView lv;
-	private Button button;
+	private LinearLayout button;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +28,7 @@ public class PeccancyListActivity extends BaseActivity {
 
 	public void initView() {
 
-		button = (Button) findViewById(R.id.peccancy_activity_linear);
+		button = (LinearLayout) findViewById(R.id.peccancy_activity_linear);
 		button.setOnClickListener(clickListener);
 		lv = (ListView) findViewById(R.id.peccancy_activity_lv);
 		new PeccancyListScene().doScene(callBack);

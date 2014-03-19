@@ -18,17 +18,17 @@ public class UserInfoResult extends BaseJsonItem {
 				CommonConvert convert = new CommonConvert(result);
 
 				item.id = convert.getString("ID");
-				item.province = convert.getString("JNAME");
-				item.city = convert.getString("JSCOPE");
-				item.area = convert.getString("GPS_LO");
-				item.car_model = convert.getString("GPS_LA");
-				item.car_Num =  convert.getString("COMMENTNUM");
-				item.car_date =  convert.getString("STAR");
-				item.email = convert.getString("IMAGES1");
-				item.username = convert.getString("IMAGES2");
-				item.address = convert.getString("ADDRESS");
-				item.phone = convert.getString("PHONE");
-				item.consignee = convert.getString("PHONE");
+				item.province = convert.getString("F1_4015_1");
+				item.city = convert.getString("F2_4015_1");
+				item.area = convert.getString("F3_4015_1");
+				item.provinceid = convert.getString("F1_4015");
+				item.cityid = convert.getString("F2_4015");
+				item.areaid = convert.getString("F3_4015");
+				item.email = convert.getString("EMAIL");
+				item.username = convert.getString("NAME");
+				item.address = convert.getString("F4_4015");
+				item.phone = convert.getString("F5_4015");
+				item.consignee = convert.getString("F6_4015");
 				item.gerder = convert.getInt("GERDER");
 			}
 		} catch (Exception ex) {

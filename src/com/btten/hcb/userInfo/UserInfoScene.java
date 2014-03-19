@@ -1,5 +1,6 @@
 package com.btten.hcb.userInfo;
 
+import com.btten.hcb.account.VIPInfoManager;
 import com.btten.model.BaseJsonItem;
 import com.btten.network.NomalJsonSceneBase;
 import com.btten.network.OnSceneCallBack;
@@ -13,12 +14,10 @@ public class UserInfoScene extends NomalJsonSceneBase {
 		return new UserInfoResult();
 	}
 
-	public void doScene(OnSceneCallBack callBack)
-	{
+	public void doScene(OnSceneCallBack callBack) {
 		SetCallBack(callBack);
-		targetUrl = UrlFactory.GetUrlNew("PublicNotice","getPublicNoticeMaster"
-				);
-		System.out.println(targetUrl);
+		targetUrl = UrlFactory.GetUrlNew("UserBaseInfo", "getBaseInfo", "vid",
+				VIPInfoManager.getInstance().getUserid());
 		Log.d("url", targetUrl);
 		ThreadPoolUtils.execute(this);
 	}

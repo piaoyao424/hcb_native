@@ -25,12 +25,12 @@ public class CommissionListResult extends BaseJsonItem {
 					JSONObject obj = jsonArray.getJSONObject(i);
 					CommonConvert convert = new CommonConvert(obj);
 					CommissionListItem temp = new CommissionListItem();
-					temp.jmsName = convert.getString("F2_4230");
-					temp.id = convert.getString("F1_4230");
-					temp.contacts = convert.getString("F4_4230");
-					temp.addr = convert.getString("F4_4230");
-					temp.phone = convert.getString("F4_4230");
-					temp.scope = convert.getString("F4_4230");
+					temp.jmsName = convert.getString("NAME");
+					temp.id = convert.getString("ID");
+					temp.contacts = convert.getString("CONTACTS");
+					temp.addr = convert.getString("ADDR");
+					temp.phone = convert.getString("PHONE");
+					temp.scope = convert.getString("SCOPE");
 					items[i] = temp;
 				}
 			}

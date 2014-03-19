@@ -7,16 +7,16 @@ import com.btten.network.ThreadPoolUtils;
 import com.btten.network.UrlFactory;
 import com.btten.tools.Log;
 
-public class CardActiveScene extends NomalJsonSceneBase{
+public class CardActiveScene extends NomalJsonSceneBase {
 	@Override
 	protected BaseJsonItem CreateJsonItems() {
-		return new CardActiveResultItems();
+		return new CardActiveResult();
 	}
-	public void doScence(OnSceneCallBack oncallBack,String name,String pwd){
+
+	public void doScence(OnSceneCallBack oncallBack, String name, String content) {
 		SetCallBack(oncallBack);
-		targetUrl=UrlFactory.GetUrlNew("DoRegister",
-									"name", name,
-									"pwd", pwd);
+		targetUrl = UrlFactory.GetUrlNew("Register", "activateCard", "name",
+				name, "content", content);
 		ThreadPoolUtils.execute(this);
 		Log.i("url", targetUrl);
 	}

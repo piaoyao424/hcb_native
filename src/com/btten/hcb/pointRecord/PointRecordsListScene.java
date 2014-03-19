@@ -13,11 +13,11 @@ public class PointRecordsListScene extends NomalJsonSceneBase {
 		super();
 	}
 
-	public void doscene(OnSceneCallBack callBack, String month, String year) {
+	public void doscene(OnSceneCallBack callBack, String start, String end) {
 		SetCallBack(callBack);
-		targetUrl = UrlFactory.GetUrlNew("JmsInfo", "getSaleAccountHistory",
+		targetUrl = UrlFactory.GetUrlNew("UserBaseInfo", "getPoints",
 				"vid", VIPInfoManager.getInstance().getUserid(), "start",
-				month, "end", year);
+				start, "end", end);
 		Log.i("url", targetUrl);
 		ThreadPoolUtils.execute(this);
 	}

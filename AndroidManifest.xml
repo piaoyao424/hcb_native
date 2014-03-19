@@ -151,6 +151,11 @@
             android:name="com.btten.goal.comment.IndividualCommentActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait" />
+        <!-- 我的消费，消费记录 -->
+        <activity
+            android:name="com.btten.hcb.shoppingRecord.ShoppingRecordsActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
         <!-- 发出的评价 -->
         <activity
             android:name="com.btten.goal.comment.SendCommActivity"
@@ -337,25 +342,20 @@
         <activity
             android:name="com.umeng.fb.ui.FeedbackConversation"
             android:configChanges="keyboard" />
-
         <service
             android:name="com.umeng.common.net.DownloadingService"
-            android:exported="true"
             android:process=":DownloadingService" >
         </service>
 
+        <activity
+            android:name="com.umeng.update.UpdateDialogActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+        </activity>
         <activity
             android:name="com.umeng.api.activity.OauthActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="unspecified"
             android:windowSoftInputMode="adjustResize" >
-        </activity>
-        <activity
-            android:name="com.umeng.api.activity.UpdateStatusActivity"
-            android:configChanges="orientation|keyboardHidden"
-            android:screenOrientation="unspecified"
-            android:theme="@style/Theme.IOSched"
-            android:windowSoftInputMode="stateVisible|adjustResize" >
         </activity>
 
         <meta-data

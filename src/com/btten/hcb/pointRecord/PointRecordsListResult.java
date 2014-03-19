@@ -21,10 +21,10 @@ public class PointRecordsListResult extends BaseJsonItem {
 			this.info = result.getString("INFO");
 
 			// 有数据
-			if (this.status == 1 && !result.isNull("DATA")) {
+			if (this.status == 1) {
 				this.jsonArray = result.getJSONArray("DATA");
 				this.remainPoints = result.getLong("REMAINPOINTS");
-				
+
 				items = new PointRecordsListItem[this.jsonArray.length()];
 				PointRecordsListItem temp;
 				for (int i = 0; i < items.length; ++i) {
@@ -32,11 +32,16 @@ public class PointRecordsListResult extends BaseJsonItem {
 					CommonConvert convert = new CommonConvert(
 							this.jsonArray.getJSONObject(i));
 
-					temp.dayStr = convert.getString("DAYTIME");
-					temp.gotPoints = convert.getString("GOTPOINTS");
-					temp.usedPoints = convert.getString("USEDPOINTS");
+					temp.dayStr = convert.getString("DATE");
 					temp.type = convert.getString("TYPE");
-
+					
+					if (temp.type.equals("兑换")) {
+						temp.gotPoints = "0";
+						temp.usedPoints = convert.getString("POINT");
+					} else {
+						temp.gotPoints = convert.getString("POINT");
+						temp.usedPoints = "0";
+					}
 					items[i] = temp;
 				}
 

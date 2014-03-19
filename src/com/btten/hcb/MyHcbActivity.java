@@ -23,8 +23,10 @@ import com.btten.hcb.login.LoginActivity;
 import com.btten.hcb.map.LocationClientService;
 import com.btten.hcb.notice.FaqsActivity;
 import com.btten.hcb.notice.NoticeInfoActivity;
+import com.btten.hcb.pointRecord.PointRecordsActivity;
 import com.btten.hcb.publicNotice.PublicNoticeListActivity;
 import com.btten.hcb.register.RegistActivity;
+import com.btten.hcb.shoppingRecord.ShoppingRecordsActivity;
 import com.btten.hcb.userInfo.UserInfoActivity;
 import com.btten.hcbvip.R;
 
@@ -92,9 +94,9 @@ public class MyHcbActivity extends BaseActivity {
 			case R.id.myhcb_relative_account:
 				intent = new Intent(MyHcbActivity.this, MyAccountActivity.class);
 				break;
-			// 我的消费
+			// 我的消费 
 			case R.id.myhcb_relative_shopping:
-				intent = new Intent(MyHcbActivity.this, LoginActivity.class);
+				intent = new Intent(MyHcbActivity.this, ShoppingRecordsActivity.class);
 				break;
 			// 我的信息
 			case R.id.myhcb_relative_baseinfo:
@@ -109,7 +111,7 @@ public class MyHcbActivity extends BaseActivity {
 				break;
 			// 积分记录
 			case R.id.myhcb_relative_points_record:
-				intent = new Intent(MyHcbActivity.this, LoginActivity.class);
+				intent = new Intent(MyHcbActivity.this, PointRecordsActivity.class);
 				break;
 			// 常见问题
 			case R.id.myhcb_relative_faqs:

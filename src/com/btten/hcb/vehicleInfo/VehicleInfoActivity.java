@@ -128,7 +128,6 @@ public class VehicleInfoActivity extends BaseActivity {
 			default:
 				break;
 			}
-
 		}
 
 	};

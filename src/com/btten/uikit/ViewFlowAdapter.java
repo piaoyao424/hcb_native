@@ -95,7 +95,7 @@ public class ViewFlowAdapter extends BaseAdapter {
 		boolean isfirststart = false;
 
 		SharedPreferences settings = context.getSharedPreferences(
-				"calltaxicfg", context.MODE_PRIVATE);
+				"hcbcfg", context.MODE_PRIVATE);
 		isfirststart = settings.getBoolean("IsFirstStart", true);
 
 		if (isfirststart)

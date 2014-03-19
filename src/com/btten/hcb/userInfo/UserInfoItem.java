@@ -6,9 +6,9 @@ public class UserInfoItem {
 	public String province;
 	public String city;
 	public String area;
-	public String car_model;
-	public String car_Num;
-	public String car_date;
+	public String provinceid;
+	public String cityid;
+	public String areaid;
 	public String email;
 	public String username;
 	public int gerder;

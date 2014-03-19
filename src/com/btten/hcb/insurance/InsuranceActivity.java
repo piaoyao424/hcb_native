@@ -31,6 +31,8 @@ public class InsuranceActivity extends BaseActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.insurance_main_activity);
+		setCurrentTitle("车辆保险");
+		setBackKeyListner(true);
 		initView();
 	}
 

@@ -68,6 +68,7 @@ public class MyAccountActivity extends BaseActivity {
 				intent = new Intent(MyAccountActivity.this,
 						CardActiveActivity.class);
 				break;
+				//未完成(20140319)
 			case R.id.myaccount_activity_button_charge_record:
 				intent = new Intent(MyAccountActivity.this,
 						RechargeRecordsActivity.class);

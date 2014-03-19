@@ -15,6 +15,9 @@ import com.btten.network.OnSceneCallBack;
 
 public class ProvinceInfoActivity extends BaseActivity {
 	private ListView lv;
+	private String areaName;
+	private String areaid;
+	private int type = 0;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +26,7 @@ public class ProvinceInfoActivity extends BaseActivity {
 		setCurrentTitle("城市信息");
 		setBackKeyListner(true);
 		initView();
-		Intent intentA = new Intent(this, ProvinceActivity.class);
+		Intent intentA = new Intent(this, ProvinceListActivity.class);
 		startActivityForResult(intentA, 1);
 	}
 
@@ -36,8 +39,9 @@ public class ProvinceInfoActivity extends BaseActivity {
 		switch (resultCode) { // resultCode为回传的标记
 		case 1:
 			Bundle b = data.getExtras(); // data为B中回传的Intent
-			new ProvinceInfoScene()
-					.doScene(callBack, b.getString("KEY_AREAID"));
+			areaid = b.getString("KEY_ID");
+			areaName = b.getString("KEY_NAME");
+			new ProvinceListScene().doScene(callBack, areaid);
 			ShowRunning();
 			break;
 		default:
@@ -49,9 +53,10 @@ public class ProvinceInfoActivity extends BaseActivity {
 
 		@Override
 		public void OnSuccess(Object data, NetSceneBase<?> netScene) {
-			ProvinceInfoResult item = (ProvinceInfoResult) data;
+			ProvinceListResult item = (ProvinceListResult) data;
 			ProvinceInfoAdapter adapter = new ProvinceInfoAdapter(
-					ProvinceInfoActivity.this, item.items);
+					ProvinceInfoActivity.this, item.items, type);
+			type++;
 			lv.setAdapter(adapter);
 			HideProgress();
 		}
@@ -68,14 +73,24 @@ public class ProvinceInfoActivity extends BaseActivity {
 		@Override
 		public void onItemClick(AdapterView<?> parent, View view, int position,
 				long id) {
-			BacktoActivity(((ViewHolder) view.getTag()).id);
+			areaid = areaid + "@" + ((ViewHolder) view.getTag()).id;
+			areaName = areaName + "@" + ((ViewHolder) view.getTag()).name;
+
+			if (type == 1) {
+				new ProvinceListScene().doScene(callBack,
+						((ViewHolder) view.getTag()).id);
+			} else if (type == 2) {
+				BacktoActivity();
+			}
+
 		}
 	};
 
 	// 回到前一个activity
-	private void BacktoActivity(String areaId) {
+	private void BacktoActivity() {
 		Intent intent = ProvinceInfoActivity.this.getIntent();
-		intent.putExtra("KEY_AREAID", areaId);
+		intent.putExtra("KEY_AREAID", areaid);
+		intent.putExtra("KEY_Name", areaName);
 		setResult(1, intent);
 		finish();
 	}
