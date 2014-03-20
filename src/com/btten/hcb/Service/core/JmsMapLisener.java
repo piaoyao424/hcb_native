@@ -1,7 +1,7 @@
-package com.btten.hcb.Service.core;
+package com.btten.hcb.service.core;
 
-import com.btten.hcb.Service.extmodel.AcceptInfo;
-import com.btten.hcb.Service.extmodel.CallTaxiInfo;
+import com.btten.hcb.service.extmodel.AcceptInfo;
+import com.btten.hcb.service.extmodel.CallTaxiInfo;
 import com.smartfoxserver.v2.entities.data.ISFSObject;
 
 public interface JmsMapLisener {

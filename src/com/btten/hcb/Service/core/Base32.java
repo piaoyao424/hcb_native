@@ -1,4 +1,4 @@
-package com.btten.hcb.Service.core;
+package com.btten.hcb.service.core;
 import java.util.HashMap;
 
 public class Base32 {

@@ -6,7 +6,7 @@ import android.os.Bundle;
 import com.btten.uikit.BttenFlipper;
 import com.btten.uikit.ViewFlowAdapter;
 import com.btten.base.BaseActivity;
-import com.btten.hcb.Service.CallTaxiNotification;
+import com.btten.hcb.service.CallTaxiNotification;
 import com.btten.hcbvip.R;
 
 public class WelcomActivity extends BaseActivity {

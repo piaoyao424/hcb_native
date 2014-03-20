@@ -10,6 +10,8 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
+import android.widget.TextView;
+
 import com.btten.base.BaseActivity;
 import com.btten.hcb.account.VIPInfoManager;
 import com.btten.hcb.tools.areaInfo.ProvinceInfoActivity;
@@ -21,8 +23,9 @@ import com.btten.network.OnSceneCallBack;
 public class UserInfoActivity extends BaseActivity {
 
 	private EditText et_email, et_username, et_addr, et_phone, et_consignee,
-			txt_usermobile, et_province, et_city, et_area;
+			et_province, et_city, et_area;
 	private RadioGroup rdgrp;
+	private TextView txt_usermobile;
 	private RadioButton sexMale, sexFemale;
 	private Button submit;
 	private LinearLayout layout;
@@ -33,14 +36,14 @@ public class UserInfoActivity extends BaseActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.userifo_activity);
+		IsLogin();
 		setBackKeyListner(true);
 		initView();
-		IsLogin();
 	}
 
 	public void initView() {
 		setCurrentTitle("我的信息");
-		txt_usermobile = (EditText) findViewById(R.id.userinfo_user_mobile);
+		txt_usermobile = (TextView) findViewById(R.id.userinfo_user_mobile);
 		txt_usermobile.setText(VIPInfoManager.getInstance().getUserPhone());
 		et_province = (EditText) findViewById(R.id.userinfo_province);
 		et_city = (EditText) findViewById(R.id.userinfo_city);

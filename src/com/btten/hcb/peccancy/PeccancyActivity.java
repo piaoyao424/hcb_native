@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import com.btten.hcb.vehicleInfo.VehicleInfoActivity;
 import com.btten.hcbvip.R;
@@ -13,9 +12,9 @@ import com.btten.base.BaseActivity;
 import com.btten.network.NetSceneBase;
 import com.btten.network.OnSceneCallBack;
 
-public class PeccancyListActivity extends BaseActivity {
+public class PeccancyActivity extends BaseActivity {
 	private ListView lv;
-	private LinearLayout button;
+	private Button button;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -28,24 +27,27 @@ public class PeccancyListActivity extends BaseActivity {
 
 	public void initView() {
 
-		button = (LinearLayout) findViewById(R.id.peccancy_activity_linear);
+		button = (Button) findViewById(R.id.peccancy_activity_linear);
 		button.setOnClickListener(clickListener);
 		lv = (ListView) findViewById(R.id.peccancy_activity_lv);
-		IsLogin();
-		new PeccancyListScene().doScene(callBack);
-		ShowRunning();
+		DoRequest();
 	}
 
 	OnClickListener clickListener = new OnClickListener() {
 
 		@Override
 		public void onClick(View v) {
-			Intent intent = new Intent(PeccancyListActivity.this,
+			Intent intent = new Intent(PeccancyActivity.this,
 					VehicleInfoActivity.class);
 			intent.putExtra("KEY_ID", "");
 			startActivity(intent);
 		}
 	};
+
+	private void DoRequest() {
+		new PeccancyListScene().doScene(callBack);
+		ShowRunning();
+	}
 
 	OnSceneCallBack callBack = new OnSceneCallBack() {
 
@@ -53,7 +55,7 @@ public class PeccancyListActivity extends BaseActivity {
 		public void OnSuccess(Object data, NetSceneBase<?> netScene) {
 			PeccancyListResult item = (PeccancyListResult) data;
 			PeccancyListAdapter adapter = new PeccancyListAdapter(
-					PeccancyListActivity.this, item.items);
+					PeccancyActivity.this, item.items);
 			lv.setAdapter(adapter);
 			HideProgress();
 			return;

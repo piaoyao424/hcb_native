@@ -1,7 +1,7 @@
 package com.btten.hcb.tools;
 
 import com.btten.hcbvip.R;
-import com.btten.hcb.Service.CallTaxiJumpWindow;
+import com.btten.hcb.service.CallTaxiJumpWindow;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;

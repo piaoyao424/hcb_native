@@ -48,9 +48,9 @@ public class CommissionListAdapter extends BaseAdapter {
 		}
 
 		vHolder.txtjmsName.setText(items[position].jmsName);
-		vHolder.txtAddr.setText(items[position].addr);
-		vHolder.txtcontacts.setText(items[position].contacts);
-		vHolder.txtPhone.setText(items[position].phone);
+		vHolder.txtAddr.setText("地址：" + items[position].addr);
+		vHolder.txtcontacts.setText("联系人：" + items[position].contacts);
+		vHolder.txtPhone.setText("联系电话" + items[position].phone);
 		vHolder.txtscope.setText("服务项目：" + items[position].scope);
 
 		convertView.setOnClickListener(new adapterListner(position));
@@ -66,7 +66,8 @@ public class CommissionListAdapter extends BaseAdapter {
 
 		@Override
 		public void onClick(View v) {
-			new CallTelephone(context, items[index].phone, items[index].jmsName).call();
+			new CallTelephone(context, items[index].phone, items[index].jmsName)
+					.call();
 		}
 	}
 

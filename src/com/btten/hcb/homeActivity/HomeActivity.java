@@ -5,7 +5,7 @@ import java.util.List;
 import com.btten.base.BaseActivity;
 import com.btten.hcb.HcbAPP;
 import com.btten.hcb.MyHcbActivity;
-import com.btten.hcb.Service.CallTaxiNotification;
+import com.btten.hcb.service.CallTaxiNotification;
 import com.btten.hcb.accident.AccidentActivity;
 import com.btten.hcb.account.VIPInfoManager;
 import com.btten.hcb.buddhist.BuddhistInfoActivity;
@@ -65,7 +65,8 @@ public class HomeActivity extends BaseActivity {
 		LinearLayout layout = (LinearLayout) findViewById(R.id.homeview_linear);
 		layout.setLayoutParams(new LinearLayout.LayoutParams(screenWidth,
 				screenWidth * 390 / 320));
-
+		container.setLayoutParams(new RelativeLayout.LayoutParams(screenWidth,
+				screenWidth / 2));
 		for (int i = 0; i < imageIntegers.length; i++) {
 			ImageView imageview = (ImageView) findViewById(imageIntegers[i]);
 			imageview.setOnClickListener(clickListener);

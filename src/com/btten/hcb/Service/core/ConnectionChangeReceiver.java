@@ -1,4 +1,4 @@
-package com.btten.hcb.Service.core;
+package com.btten.hcb.service.core;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

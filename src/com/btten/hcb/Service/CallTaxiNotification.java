@@ -1,10 +1,10 @@
-package com.btten.hcb.Service;
+package com.btten.hcb.service;
 
 
 import com.btten.hcbvip.R;
 import com.btten.hcb.HcbAPP;
-import com.btten.hcb.Service.core.DriverState;
-import com.btten.hcb.Service.core.JmsMapManager;
+import com.btten.hcb.service.core.DriverState;
+import com.btten.hcb.service.core.JmsMapManager;
 
 import android.app.Notification;
 import android.app.NotificationManager;

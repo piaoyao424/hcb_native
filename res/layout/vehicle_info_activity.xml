@@ -48,7 +48,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_weight="8.5"
                     android:background="@drawable/nomal_shape"
-                    android:prompt="@string/choiceyear" >
+                    android:prompt="@string/choicevehicletype" >
                 </Spinner>
             </LinearLayout>
 
@@ -78,7 +78,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_weight="8.5"
                     android:background="@drawable/nomal_shape"
-                    android:prompt="@string/choiceyear" >
+                    android:prompt="@string/choicecity" >
                 </Spinner>
             </LinearLayout>
 
@@ -124,7 +124,7 @@
                     android:gravity="center_vertical"
                     android:paddingLeft="10dp"
                     android:singleLine="true"
-                    android:text="R5234"
+                    android:text=""
                     android:textColor="@color/text_gray"
                     android:textSize="14sp" />
             </LinearLayout>
@@ -155,10 +155,10 @@
                     android:layout_weight="8"
                     android:background="@drawable/nomal_shape"
                     android:gravity="center_vertical"
-                    android:inputType="phone"
+                    android:inputType="number"
                     android:paddingLeft="10dp"
                     android:singleLine="true"
-                    android:text="15072"
+                    android:text=""
                     android:textColor="@color/text_gray"
                     android:textSize="14sp" />
             </LinearLayout>
@@ -208,18 +208,17 @@
                     android:textColor="@color/text_gray"
                     android:textSize="14sp" />
 
-                <com.btten.hcb.wheelview.WheelShow
-                    android:id="@+id/vehicle_info_date"
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="35dp"
                     android:layout_marginLeft="5dp"
                     android:layout_weight="6"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="10dp"
-                    android:singleLine="true"
-                    android:text="2013-01-02"
-                    android:textColor="@color/text_gray"
-                    android:textSize="14sp" />
+                    android:background="@drawable/nomal_shape" >
+
+                    <com.btten.hcb.wheelview.WheelShow
+                        android:id="@+id/vehicle_info_date"
+                        style="@style/date_button_style" />
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -251,7 +250,7 @@
                     android:inputType="phone"
                     android:paddingLeft="10dp"
                     android:singleLine="true"
-                    android:text="15072105643"
+                    android:text=""
                     android:textColor="@color/text_gray"
                     android:textSize="14sp" />
             </LinearLayout>
@@ -285,7 +284,7 @@
                     android:inputType="phone"
                     android:paddingLeft="10dp"
                     android:singleLine="true"
-                    android:text="15072105643"
+                    android:text=""
                     android:textColor="@color/text_gray"
                     android:textSize="14sp" />
             </LinearLayout>
@@ -319,7 +318,7 @@
                     android:inputType="textEmailAddress"
                     android:paddingLeft="10dp"
                     android:singleLine="true"
-                    android:text="hangwenjun424@126.com"
+                    android:text=""
                     android:textColor="@color/text_gray"
                     android:textSize="14sp" />
             </LinearLayout>
@@ -327,6 +326,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:paddingBottom="5dp"
@@ -358,6 +358,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_weight="1"
                     android:background="@color/gray_black"
+                    android:enabled="false"
                     android:padding="10dp"
                     android:text="删除车辆信息"
                     android:textColor="#FFFFFF"

@@ -9,7 +9,7 @@ import com.baidu.location.LocationClientOption;
 import com.baidu.mapapi.BMapManager;
 import com.baidu.mapapi.MKGeneralListener;
 import com.btten.hcb.HcbAPP;
-import com.btten.hcb.Service.core.JmsMapManager;
+import com.btten.hcb.service.core.JmsMapManager;
 import com.btten.hcb.account.VIPInfoManager;
 
 public class LocationClientService {

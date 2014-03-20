@@ -4,7 +4,6 @@ import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
-
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -12,15 +11,13 @@ import android.content.DialogInterface.OnDismissListener;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
-
 import com.btten.hcbvip.R;
 import com.btten.tools.Util;
 
-public class WheelShow extends TextView implements OnClickListener {
+public class WheelShow extends TextView {
 	private Context context;
 	private Dialog dialog;
 	private Calendar calendar;
@@ -47,7 +44,7 @@ public class WheelShow extends TextView implements OnClickListener {
 	private void init(Context context) {
 		this.context = context;
 		this.setClickable(true);
-		this.setOnClickListener(this);
+		this.setOnClickListener(clickListener);
 		dialog = new Dialog(context);
 		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
@@ -66,9 +63,9 @@ public class WheelShow extends TextView implements OnClickListener {
 	private WheelView wv_year;
 	private WheelView wv_month;
 	private WheelView wv_day;
-	
-	static public final long MillisDayX7 = 7*24*3600*1000;
-	
+
+	static public final long MillisDayX7 = 7 * 24 * 3600 * 1000;
+
 	// 添加大小月月份并将其转换为list,方便之后的判断
 	private String[] months_big = { "1", "3", "5", "7", "8", "10", "12" };
 	private String[] months_little = { "4", "6", "9", "11" };
@@ -89,9 +86,9 @@ public class WheelShow extends TextView implements OnClickListener {
 		DecimalFormat decimal = new DecimalFormat(parten);
 
 		if (start) {
-			this.setText(Util.formatUnixTime(System.currentTimeMillis()-MillisDayX7));
-			}
-		else {
+			this.setText(Util.formatUnixTime(System.currentTimeMillis()
+					- MillisDayX7));
+		} else {
 			// 设置日期的显示
 			this.setText(year + "-" + decimal.format(month + 1) + "-"
 					+ decimal.format(day));
@@ -213,40 +210,44 @@ public class WheelShow extends TextView implements OnClickListener {
 		Button btn_cancel = (Button) view
 				.findViewById(R.id.btn_datetime_cancel);
 		// 确定
-		btn_sure.setOnClickListener(this);
+		btn_sure.setOnClickListener(clickListener);
 		// 取消
-		btn_cancel.setOnClickListener(this);
+		btn_cancel.setOnClickListener(clickListener);
 
 		// 设置dialog的布局,并显示
 		dialog.setContentView(view);
 	}
 
-	@Override
-	public void onClick(View v) {
-		// TODO Auto-generated method stub
-		switch (v.getId()) {
-		case R.id.btn_datetime_sure:
-			// 如果是个数,则显示为"02"的样式
-			String parten = "00";
-			DecimalFormat decimal = new DecimalFormat(parten);
-			// 设置日期的显示
-			this.setText((wv_year.getCurrentItem() + START_YEAR) + "-"
-					+ decimal.format((wv_month.getCurrentItem() + 1)) + "-"
-					+ decimal.format((wv_day.getCurrentItem() + 1)));
+	OnClickListener clickListener = new OnClickListener() {
 
-			if (listener != null)
-				listener.onClick(this);
-			dialog.dismiss();
-			break;
-		case R.id.btn_datetime_cancel:
-			dialog.dismiss();
-			break;
+		@Override
+		public void onClick(View v) {
+			switch (v.getId()) {
+			case R.id.btn_datetime_sure:
+				// 如果是个数,则显示为"02"的样式
+				String parten = "00";
+				DecimalFormat decimal = new DecimalFormat(parten);
+				// 设置日期的显示
+				WheelShow.this.setText((wv_year.getCurrentItem() + START_YEAR)
+						+ "-" + decimal.format((wv_month.getCurrentItem() + 1))
+						+ "-" + decimal.format((wv_day.getCurrentItem() + 1)));
+				// + decimal.format(wv_hours.getCurrentItem()) + ":"
+				// + decimal.format(wv_mins.getCurrentItem()));
 
-		default:
-			show();
-			break;
+				if (listener != null)
+					listener.onClick(WheelShow.this);
+				dialog.dismiss();
+				break;
+			case R.id.btn_datetime_cancel:
+				dialog.dismiss();
+				break;
+
+			default:
+				show();
+				break;
+			}
 		}
-	}
+	};
 
 	private void show() {
 		isShowed = true;
@@ -274,6 +275,10 @@ public class WheelShow extends TextView implements OnClickListener {
 			}
 		}
 		wv_day.setCurrentItem(day - 1);
+		/*
+		 * int hour = calendar.get(Calendar.HOUR_OF_DAY); int minute =
+		 * calendar.get(Calendar.MINUTE);
+		 */
 		dialog.show();
 	}
 }

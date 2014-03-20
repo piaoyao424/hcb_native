@@ -1,4 +1,4 @@
-package com.btten.hcb.Service.extmodel;
+package com.btten.hcb.service.extmodel;
 
 import com.smartfoxserver.v2.protocol.serialization.SerializableSFSType;
 

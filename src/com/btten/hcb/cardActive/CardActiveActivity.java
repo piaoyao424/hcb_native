@@ -18,7 +18,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 import com.btten.base.BaseActivity;
 import com.btten.hcb.HcbAPP;
-import com.btten.hcb.Service.CallTaxiNotification;
+import com.btten.hcb.service.CallTaxiNotification;
 import com.btten.hcb.account.VIPInfoManager;
 import com.btten.hcb.homeActivity.HomeActivity;
 import com.btten.hcbvip.R;

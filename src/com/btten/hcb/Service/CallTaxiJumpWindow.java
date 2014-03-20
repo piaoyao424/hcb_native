@@ -1,4 +1,4 @@
-package com.btten.hcb.Service;
+package com.btten.hcb.service;
 
 
 import com.btten.hcb.SplashScreen;

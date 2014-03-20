@@ -19,7 +19,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import com.btten.base.BaseActivity;
 import com.btten.hcb.HcbAPP;
-import com.btten.hcb.Service.CallTaxiNotification;
+import com.btten.hcb.service.CallTaxiNotification;
 import com.btten.hcb.account.VIPInfoManager;
 import com.btten.hcb.login.LoginActivity;
 import com.btten.hcb.map.LocationClientService;

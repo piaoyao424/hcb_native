@@ -98,43 +98,7 @@
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
-        <!-- 保险首页 -->
-        <activity
-            android:name="com.btten.hcb.insurance.InsuranceActivity"
-            android:configChanges="orientation|keyboardHidden"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" />
-        <!-- 违章查询 -->
-        <activity
-            android:name="com.btten.hcb.peccancy.PeccancyListActivity"
-            android:configChanges="orientation|keyboardHidden"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" />
-        <!-- 违章查询明细 -->
-        <activity
-            android:name="com.btten.hcb.peccancy.PeccancyDetailActivity"
-            android:configChanges="orientation|keyboardHidden"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" />
 
-        <!-- 紧急救援 -->
-        <activity
-            android:name="com.btten.hcb.rescue.RescueActivity"
-            android:configChanges="orientation|keyboardHidden"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" />
-        <!-- 道路救援 -->
-        <activity
-            android:name="com.btten.hcb.roadRescue.RoadRescueActivity"
-            android:configChanges="orientation|keyboardHidden"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" />
-        <!-- 道路救援呼叫页面 -->
-        <activity
-            android:name="com.btten.hcb.roadRescue.RoadRescuePhoneActivity"
-            android:configChanges="orientation|keyboardHidden"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" />
         <!-- 服务条款 -->
         <activity
             android:name="com.btten.hcb.regist.RegistTermsActivity"
@@ -149,11 +113,6 @@
         <!-- 个人评价 -->
         <activity
             android:name="com.btten.goal.comment.IndividualCommentActivity"
-            android:configChanges="orientation|keyboardHidden"
-            android:screenOrientation="portrait" />
-        <!-- 我的消费，消费记录 -->
-        <activity
-            android:name="com.btten.hcb.shoppingRecord.ShoppingRecordsActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait" />
         <!-- 发出的评价 -->
@@ -191,21 +150,6 @@
         <!-- 车友会 -->
         <activity
             android:name="com.btten.hcb.carClub.CarClubListActivity"
-            android:configChanges="orientation|keyboardHidden"
-            android:screenOrientation="portrait" />
-        <!-- 事故处理 -->
-        <activity
-            android:name="com.btten.hcb.accident.AccidentActivity"
-            android:configChanges="orientation|keyboardHidden"
-            android:screenOrientation="portrait" />
-        <!-- 联系保险公司 -->
-        <activity
-            android:name="com.btten.hcb.insurance.InsuranceCallActivity"
-            android:configChanges="orientation|keyboardHidden"
-            android:screenOrientation="portrait" />
-        <!-- 车务代办 -->
-        <activity
-            android:name="com.btten.hcb.commission.CommissionActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait" />
         <!-- 我的惠车宝 -->
@@ -342,20 +286,25 @@
         <activity
             android:name="com.umeng.fb.ui.FeedbackConversation"
             android:configChanges="keyboard" />
+
         <service
             android:name="com.umeng.common.net.DownloadingService"
+            android:exported="true"
             android:process=":DownloadingService" >
         </service>
 
-        <activity
-            android:name="com.umeng.update.UpdateDialogActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
-        </activity>
         <activity
             android:name="com.umeng.api.activity.OauthActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="unspecified"
             android:windowSoftInputMode="adjustResize" >
+        </activity>
+        <activity
+            android:name="com.umeng.api.activity.UpdateStatusActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="unspecified"
+            android:theme="@style/Theme.IOSched"
+            android:windowSoftInputMode="stateVisible|adjustResize" >
         </activity>
 
         <meta-data

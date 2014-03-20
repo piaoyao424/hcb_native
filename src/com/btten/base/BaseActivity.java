@@ -14,7 +14,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.btten.hcb.HcbAPP;
-import com.btten.hcb.Service.CallTaxiNotification;
+import com.btten.hcb.service.CallTaxiNotification;
 import com.btten.hcb.account.VIPInfoManager;
 import com.btten.hcb.login.LoginActivity;
 import com.btten.hcb.map.LocationClientService;

@@ -33,12 +33,14 @@ public class VehicleInfoActivity extends BaseActivity {
 	private WheelShow date;
 	private String[] strCity;
 	private int flag = 0;
-	private String vehicleID = "";
+	private String vehicleID = null;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.vehicle_info_activity);
+		setCurrentTitle("车辆详情");
+		setBackKeyListner(true);
 		initView();
 
 		Bundle bundle = getIntent().getExtras();
@@ -49,6 +51,7 @@ public class VehicleInfoActivity extends BaseActivity {
 				throw new Exception();
 			}
 			flag = 0;
+			btn_delete.setEnabled(true);
 			new VehicleInfoScene().doscene(callBack, vehicleID);
 		} catch (Exception e) {
 			// 新增模式
@@ -76,7 +79,7 @@ public class VehicleInfoActivity extends BaseActivity {
 		edtFrame = (EditText) findViewById(R.id.vehicle_info_frame);
 
 		date = (WheelShow) findViewById(R.id.vehicle_info_date);
-
+		date.initDateTimePicker(null, true);
 		setSpinner();
 	}
 
@@ -123,7 +126,12 @@ public class VehicleInfoActivity extends BaseActivity {
 								.trim(), edtRecord.getText().toString().trim());
 				break;
 			case R.id.vehicle_info_delete:
-				new VehicleInfoDeleteScene().doscene(submitCallBack, vehicleID);
+				if (vehicleID == null) {
+
+				} else {
+					new VehicleInfoDeleteScene().doscene(submitCallBack,
+							vehicleID);
+				}
 				break;
 			default:
 				break;

@@ -18,6 +18,8 @@ public class InsuranceCallActivity extends BaseActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.insurance_call_activity);
+		setCurrentTitle("联系保险公司");
+		setBackKeyListner(true);
 		initView();
 	}
 

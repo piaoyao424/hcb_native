@@ -1,4 +1,4 @@
-package com.btten.hcb.Service.core;
+package com.btten.hcb.service.core;
 
 import java.util.ArrayList;
 
@@ -11,11 +11,11 @@ import sfs2x.client.requests.LoginRequest;
 
 import android.util.Log;
 
-import com.btten.hcb.Service.extmodel.AcceptInfo;
-import com.btten.hcb.Service.extmodel.CConst;
-import com.btten.hcb.Service.extmodel.CallTaxiInfo;
-import com.btten.hcb.Service.extmodel.MarkDriverInfo;
-import com.btten.hcb.Service.extmodel.TaxiPairInfo;
+import com.btten.hcb.service.extmodel.AcceptInfo;
+import com.btten.hcb.service.extmodel.CConst;
+import com.btten.hcb.service.extmodel.CallTaxiInfo;
+import com.btten.hcb.service.extmodel.MarkDriverInfo;
+import com.btten.hcb.service.extmodel.TaxiPairInfo;
 import com.smartfoxserver.v2.entities.data.ISFSObject;
 import com.smartfoxserver.v2.entities.data.SFSObject;
 import com.smartfoxserver.v2.exceptions.SFSException;

@@ -13,7 +13,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import com.btten.base.BaseActivity;
-import com.btten.hcb.Service.CallTaxiNotification;
+import com.btten.hcb.service.CallTaxiNotification;
 import com.btten.hcb.account.MyAccountActivity;
 import com.btten.hcb.account.VIPInfoManager;
 import com.btten.hcb.cardActive.CardActiveActivity;

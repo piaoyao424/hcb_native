@@ -18,7 +18,6 @@ public class PeccancyListScene extends NomalJsonSceneBase {
 		SetCallBack(callBack);
 		targetUrl = UrlFactory.GetUrlNew("Peccancy", "getVehicleList", "vid",
 				VIPInfoManager.getInstance().getUserid());
-		System.out.println(targetUrl);
 		Log.d("url", targetUrl);
 		ThreadPoolUtils.execute(this);
 	}
