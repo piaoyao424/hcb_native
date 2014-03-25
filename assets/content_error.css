@@ -1,0 +1,14 @@
+@charset "utf-8";
+/* CSS Document */
+.mycontent{
+	text-align:center;
+	padding:40% 20% 20%;
+	}
+.footer{
+	text-align:center;
+	padding:3% 0% 3% ;
+	}
+.mycontent img{
+	width:100%;
+	}
+

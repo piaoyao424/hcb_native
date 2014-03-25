@@ -17,7 +17,7 @@ public class TitleNoticeResult extends BaseJsonItem {
 		try {
 			this.status = result.getInt("STATUS");
 			this.info = result.getString("INFO");
-			if (this.status == 1 && !result.isNull("DATA")) {
+			if (this.status == 1 ) {
 				jsonArray = result.getJSONArray("DATA");
 				int length = jsonArray.length();
 				item = new TitleNoticeItem[length];

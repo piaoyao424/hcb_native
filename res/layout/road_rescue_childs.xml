@@ -19,7 +19,8 @@
             android:layout_weight="0.5"
             android:singleLine="true"
             android:text="小型车清洗"
-            android:textSize="16sp" />
+            android:textColor="@color/black"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/road_rescue_childs_oldprice"
@@ -27,6 +28,7 @@
             android:layout_height="match_parent"
             android:layout_weight="0.25"
             android:text="￥200"
+            android:textColor="@color/orange"
             android:textSize="16sp" />
 
         <TextView
@@ -35,15 +37,16 @@
             android:layout_height="match_parent"
             android:layout_weight="0.25"
             android:text="￥150"
+            android:textColor="@color/main_text_color"
             android:textSize="16sp" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
         android:background="@color/white"
         android:orientation="horizontal"
-        android:layout_marginTop="6dp"
         android:padding="2dp" >
 
         <TextView
@@ -51,7 +54,9 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.13"
+            android:singleLine="true"
             android:text="西陵区，伍家岗，开发区，夷陵区"
+            android:textColor="@color/main_text_color"
             android:textSize="14sp" />
     </LinearLayout>
 

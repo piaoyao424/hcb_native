@@ -4,16 +4,15 @@
     android:layout_height="wrap_content"
     android:background="@color/white"
     android:orientation="vertical"
-    android:padding="20dp" >
+    android:padding="10dp" >
 
     <TextView
         android:id="@+id/carknowledge_list_item_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="教你换机油"
-        android:textColor="@color/main_text_color"
-        android:textSize="16sp" />
+        android:textColor="@color/black"
+        android:textSize="20sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -44,7 +43,6 @@
         android:id="@+id/carknowledge_list_item_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="曼德拉亲自执手的唯一自传，记录了这位黑人领袖永不屈服的自由之路和永不放弃的波澜壮阔。。。。。。。。。"
         android:textColor="@color/main_text_color"
         android:textSize="16sp" />
 

@@ -14,32 +14,26 @@ import com.btten.network.OnSceneCallBack;
 public class BranchListActivity extends BaseActivity {
 
 	private ListView lv;
-	private TextView txtAuthor, txtTitle, txtSynopsis;
-	private ImageView imageView;
-	private Button button;
+	private TextView txtTitle;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.book_list_activity);
+		setContentView(R.layout.branch_activity);
 		setCurrentTitle("购买网点");
 		setBackKeyListner(true);
 		initView();
 	}
 
 	public void initView() {
-		txtAuthor = (TextView) findViewById(R.id.book_list_author);
-		txtTitle = (TextView) findViewById(R.id.book_list_title);
-		txtSynopsis = (TextView) findViewById(R.id.book_list_synopsis);
-		imageView = (ImageView) findViewById(R.id.book_list_image);
-		button = (Button) findViewById(R.id.book_list_button);
 
-		lv = (ListView) findViewById(R.id.booklist_activity_lv);
-		DoRequest();
-	}
-
-	private void DoRequest() {
-		new BranchListScene().doScene(callBack);
+		txtTitle = (TextView) findViewById(R.id.branch_activity_title);
+		lv = (ListView) findViewById(R.id.branch_activity_lv);
+		Bundle bundle = getIntent().getExtras();
+		txtTitle.setText(bundle.getString("KEY_NAME"));
+		String id = bundle.getString("KEY_ID");
+		
+		new BranchListScene().doScene(callBack,id);
 		ShowRunning();
 	}
 

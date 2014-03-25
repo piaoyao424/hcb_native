@@ -22,10 +22,9 @@ public class BranchListResult extends BaseJsonItem {
 					JSONObject obj = jsonArray.getJSONObject(i);
 					CommonConvert convert = new CommonConvert(obj);
 					BranchListItem temp = new BranchListItem();
-					temp.title = convert.getString("F2_4230");
-					temp.id = convert.getString("F1_4230");
-					temp.address = convert.getString("F4_4230");
-					temp.phone = convert.getString("F4_4230");
+					temp.title = convert.getString("F1_4007");
+					temp.address = convert.getString("F11_4007");
+					temp.phone = convert.getString("F13_4007");
 					items[i] = temp;
 				}
 			}

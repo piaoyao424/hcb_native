@@ -26,9 +26,10 @@
             android:layout_weight="4"
             android:background="@drawable/record_time_block_bg" >
 
-            <com.btten.hcb.wheelview.WheelShow
+            <com.btten.hcb.tools.wheelview.WheelShow
                 android:id="@+id/point_records_start_time"
-                style="@style/date_button_style" />
+                style="@style/date_button_style"
+                android:layout_weight="1" />
         </LinearLayout>
 
         <LinearLayout
@@ -38,9 +39,10 @@
             android:layout_weight="4"
             android:background="@drawable/record_time_block_bg" >
 
-            <com.btten.hcb.wheelview.WheelShow
+            <com.btten.hcb.tools.wheelview.WheelShow
                 android:id="@+id/point_records_end_time"
-                style="@style/date_button_style" />
+                style="@style/date_button_style"
+                android:layout_weight="1" />
         </LinearLayout>
 
         <Button
@@ -72,8 +74,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/white"
+            android:layout_height="wrap_content"
+            android:background="@drawable/nomal_shape"
             android:orientation="horizontal"
             android:padding="10dp" >
 
@@ -82,7 +84,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2.5"
                 android:gravity="center"
-                android:text="获得积分"
+                android:text="充值时间"
                 android:textColor="@color/black"
                 android:textSize="14sp" />
 
@@ -91,7 +93,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2.5"
                 android:gravity="center"
-                android:text="使用积分"
+                android:text="获得惠币"
                 android:textColor="@color/black"
                 android:textSize="14sp" />
         </LinearLayout>
@@ -112,4 +114,5 @@
             android:dividerHeight="1dp"
             android:scrollbars="@null" />
     </LinearLayout>
+
 </LinearLayout>

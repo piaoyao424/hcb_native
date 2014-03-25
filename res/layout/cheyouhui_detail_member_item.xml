@@ -1,0 +1,22 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="30dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal" >
+	<TextView
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:layout_weight="1"
+		android:gravity="center_vertical"
+		android:text="丁小龙"
+		android:textColor="@color/dark_grey"
+		android:textSize="12sp" />
+	<TextView
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:layout_weight="1"
+		android:gravity="right|center_vertical"
+		android:text="12345678901"
+		android:textColor="@color/dark_grey"
+		android:textSize="12sp" />    
+</LinearLayout>

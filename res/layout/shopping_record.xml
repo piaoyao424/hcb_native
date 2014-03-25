@@ -26,7 +26,7 @@
             android:layout_weight="4"
             android:background="@drawable/record_time_block_bg" >
 
-            <com.btten.hcb.wheelview.WheelShow
+            <com.btten.hcb.tools.wheelview.WheelShow
                 android:id="@+id/shopping_record_start_time"
                 style="@style/date_button_style" />
         </LinearLayout>
@@ -38,7 +38,7 @@
             android:layout_weight="4"
             android:background="@drawable/record_time_block_bg" >
 
-            <com.btten.hcb.wheelview.WheelShow
+            <com.btten.hcb.tools.wheelview.WheelShow
                 android:id="@+id/shopping_record_end_time"
                 style="@style/date_button_style" />
         </LinearLayout>

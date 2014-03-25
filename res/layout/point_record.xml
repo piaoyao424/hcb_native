@@ -9,7 +9,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="45dp"
         android:background="@drawable/date_choice_shape"
         android:baselineAligned="false"
         android:gravity="center_vertical"
@@ -26,9 +26,10 @@
             android:layout_weight="4"
             android:background="@drawable/record_time_block_bg" >
 
-            <com.btten.hcb.wheelview.WheelShow
+            <com.btten.hcb.tools.wheelview.WheelShow
                 android:id="@+id/point_records_start_time"
-                style="@style/date_button_style" />
+                style="@style/date_button_style"
+                android:layout_weight="1" />
         </LinearLayout>
 
         <LinearLayout
@@ -38,9 +39,10 @@
             android:layout_weight="4"
             android:background="@drawable/record_time_block_bg" >
 
-            <com.btten.hcb.wheelview.WheelShow
+            <com.btten.hcb.tools.wheelview.WheelShow
                 android:id="@+id/point_records_end_time"
-                style="@style/date_button_style" />
+                style="@style/date_button_style"
+                android:layout_weight="1" />
         </LinearLayout>
 
         <Button

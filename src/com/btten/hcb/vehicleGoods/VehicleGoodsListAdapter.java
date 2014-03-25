@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,7 +17,8 @@ public class VehicleGoodsListAdapter extends BaseAdapter {
 	Activity context = null;
 	VehicleGoodsListItem[] items;
 
-	public VehicleGoodsListAdapter(Activity context, VehicleGoodsListItem[] items) {
+	public VehicleGoodsListAdapter(Activity context,
+			VehicleGoodsListItem[] items) {
 		this.context = context;
 		this.items = items;
 	}
@@ -32,20 +32,24 @@ public class VehicleGoodsListAdapter extends BaseAdapter {
 			vHolder = new ViewHolder();
 			inflater = (LayoutInflater) context
 					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-			convertView = inflater.inflate(R.layout.book_list_item, null);
+			convertView = inflater.inflate(R.layout.vehicle_goods_list_item,
+					null);
 			vHolder.txtTitle = (TextView) convertView
-					.findViewById(R.id.book_list_item_title);
+					.findViewById(R.id.vehicleGoods_list_item_title);
+			vHolder.txtcontent = (TextView) convertView
+					.findViewById(R.id.vehicleGoods_list_item_content);
 			vHolder.imageView = (ImageView) convertView
-					.findViewById(R.id.book_list_item_image);
+					.findViewById(R.id.vehicleGoods_list_item_image);
 			convertView.setTag(vHolder);
 		} else {
 			vHolder = (ViewHolder) convertView.getTag();
 		}
 
 		vHolder.txtTitle.setText(items[position].title);
+		vHolder.txtcontent.setText(items[position].content);
 		ImageLoader.getInstance().displayImage(items[position].image1,
 				vHolder.imageView);
-
+		convertView.setOnClickListener(new adapterListner(position));
 		return convertView;
 	}
 
@@ -80,8 +84,7 @@ public class VehicleGoodsListAdapter extends BaseAdapter {
 	}
 
 	public class ViewHolder {
-		TextView txtTitle, txtAuthor, txtSynopsis;
+		TextView txtTitle, txtcontent;
 		ImageView imageView;
-		Button btnSubmit;
 	}
 }

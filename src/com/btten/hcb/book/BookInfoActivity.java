@@ -2,9 +2,10 @@ package com.btten.hcb.book;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -16,8 +17,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 
 public class BookInfoActivity extends BaseActivity {
 
-	private TextView txtAuthor, txtTitle, txtSynopsis, txtDate, txtPublisher,
-			txtExcerpt, txtPrice;
+	private TextView txtAuthor, txtTitle ;
 	private ImageView imageView;
 	private LinearLayout layout;
 
@@ -25,24 +25,16 @@ public class BookInfoActivity extends BaseActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.book_info_activity);
-		setCurrentTitle("详情");
+		setCurrentTitle("书推荐详情");
 		setBackKeyListner(true);
-
 		initView();
 	}
 
 	public void initView() {
-
-		txtAuthor = (TextView) findViewById(R.id.book_list_author);
-		txtTitle = (TextView) findViewById(R.id.book_list_title);
-		txtSynopsis = (TextView) findViewById(R.id.book_list_synopsis);
-		imageView = (ImageView) findViewById(R.id.book_list_image);
-		txtPrice = (TextView) findViewById(R.id.book_info_price);
-		txtExcerpt = (TextView) findViewById(R.id.book_info_excerpt);
-		txtDate = (TextView) findViewById(R.id.book_info_date);
-
+		txtAuthor = (TextView) findViewById(R.id.book_info_author);
+		txtTitle = (TextView) findViewById(R.id.book_info_title);
+		imageView = (ImageView) findViewById(R.id.book_info_image);
 		layout = (LinearLayout) findViewById(R.id.book_info_linearlayout);
-
 		Bundle bundle = this.getIntent().getExtras();
 		new BookInfoScene().doScene(callBack, bundle.getString("KEY_ID"));
 		ShowRunning();
@@ -54,13 +46,11 @@ public class BookInfoActivity extends BaseActivity {
 		public void OnSuccess(Object data, NetSceneBase<?> netScene) {
 			final BookInfoResult items = (BookInfoResult) data;
 
-			txtAuthor.setText(items.item.author);
+			// txtAuthor.setText(items.item.author);
+			txtAuthor.setMovementMethod(ScrollingMovementMethod.getInstance());// 滚动
+			txtAuthor.setText(Html.fromHtml(items.item.author));
+
 			txtTitle.setText(items.item.title);
-			txtSynopsis.setText(items.item.synopsis);
-			txtPrice.setText(items.item.date);
-			txtExcerpt.setText(items.item.excerpt);
-			txtDate.setText(items.item.date);
-			
 			ImageLoader.getInstance().displayImage(items.item.image, imageView);
 
 			layout.setOnClickListener(new OnClickListener() {

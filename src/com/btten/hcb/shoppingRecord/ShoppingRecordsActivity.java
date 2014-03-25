@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import com.btten.base.BaseActivity;
-import com.btten.hcb.wheelview.WheelShow;
+import com.btten.hcb.tools.wheelview.WheelShow;
 import com.btten.hcbvip.R;
 import com.btten.network.NetSceneBase;
 import com.btten.network.OnSceneCallBack;
@@ -33,8 +33,8 @@ public class ShoppingRecordsActivity extends BaseActivity {
 		// 初始化时间按钮
 		startDate = (WheelShow) findViewById(R.id.shopping_record_start_time);
 		endDate = (WheelShow) findViewById(R.id.shopping_record_end_time);
-		startDate.initDateTimePicker(listener, true);
-		endDate.initDateTimePicker(listener, false);
+		startDate.setMyOnClickListener(listener );
+		endDate.setMyOnClickListener(listener );
 
 		btn_chaxun = (Button) findViewById(R.id.shopping_record_button);
 		btn_chaxun.setOnClickListener(listener);

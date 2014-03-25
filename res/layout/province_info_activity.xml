@@ -19,7 +19,8 @@
             android:background="@color/white"
             android:cacheColorHint="@color/white"
             android:divider="@color/light_gray"
-            android:dividerHeight="2dp" />
+            android:dividerHeight="1dp"
+            android:scrollbars="none" />
     </LinearLayout>
 
 </LinearLayout>

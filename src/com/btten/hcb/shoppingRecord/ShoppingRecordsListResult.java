@@ -21,7 +21,7 @@ public class ShoppingRecordsListResult extends BaseJsonItem {
 			this.info = result.getString("INFO");
 
 			// 有数据
-			if (this.status == 1 && !result.isNull("DATA")) {
+			if (this.status == 1 ) {
 				this.jsonArray = result.getJSONArray("DATA");
 
 				items = new ShoppingRecordsListItem[this.jsonArray.length()];
@@ -30,11 +30,9 @@ public class ShoppingRecordsListResult extends BaseJsonItem {
 					temp = new ShoppingRecordsListItem();
 					CommonConvert convert = new CommonConvert(
 							this.jsonArray.getJSONObject(i));
-
 					temp.dayStr = convert.getString("DAYTIME");
 					temp.gotPoints = convert.getString("GOTPOINTS");
-
-					this.Points += convert.getDouble("GOTPOINTS");
+					
 					items[i] = temp;
 				}
 

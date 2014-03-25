@@ -6,6 +6,7 @@ import org.json.JSONObject;
 import android.util.Log;
 
 import com.btten.model.BaseJsonItem;
+import com.btten.network.UrlFactory;
 import com.btten.tools.CommonConvert;
 
 public class BookListResult extends BaseJsonItem {
@@ -25,11 +26,12 @@ public class BookListResult extends BaseJsonItem {
 					JSONObject obj = jsonArray.getJSONObject(i);
 					CommonConvert convert = new CommonConvert(obj);
 					BookListItem temp = new BookListItem();
-					temp.title = convert.getString("F2_4230");
-					temp.id = convert.getString("F1_4230");
-					temp.image = convert.getString("F4_4230");
-					temp.author = convert.getString("F4_4230");
-					temp.synopsis = convert.getString("F4_4230");
+					temp.title = "《" + convert.getString("F1_4416") + "》";
+					temp.id = convert.getString("AID");
+					temp.image = UrlFactory.rootUrl_short
+							+ convert.getString("F2_4416");
+					temp.author = "作者：" + convert.getString("F4_4416");
+					temp.synopsis = convert.getString("F6_4416");
 					items[i] = temp;
 				}
 			}

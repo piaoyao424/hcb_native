@@ -23,6 +23,7 @@ import com.btten.uikit.ViewContainer;
 import com.btten.vincenttools.CallTelephone;
 import com.btten.vincenttools.NotifyTextView;
 import com.umeng.update.UmengUpdateAgent;
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -64,7 +65,7 @@ public class HomeActivity extends BaseActivity {
 		int screenWidth = VIPInfoManager.getInstance().getScreenWidth();
 		LinearLayout layout = (LinearLayout) findViewById(R.id.homeview_linear);
 		layout.setLayoutParams(new LinearLayout.LayoutParams(screenWidth,
-				screenWidth * 390 / 320));
+				screenWidth * 400 / 320));
 		container.setLayoutParams(new RelativeLayout.LayoutParams(screenWidth,
 				screenWidth / 2));
 		for (int i = 0; i < imageIntegers.length; i++) {
@@ -142,7 +143,9 @@ public class HomeActivity extends BaseActivity {
 		@Override
 		public void OnSuccess(Object data, NetSceneBase<?> netScene) {
 			TitleNoticeResult items = (TitleNoticeResult) data;
-			initNotifyText(items.item[0].title, items.item[0].id);
+			if (items.item.length > 0) {
+				initNotifyText(items.item[0].title, items.item[0].id);
+			}
 		}
 
 		@Override
@@ -162,9 +165,16 @@ public class HomeActivity extends BaseActivity {
 		textView.setText(title);
 
 		textView.setOnClickListener(new OnClickListener() {
+
+			@SuppressLint("NewApi")
 			@Override
 			public void onClick(View v) {
-				disPlayNoticeContent(HomeActivity.this, titleid);
+				if (titleid == null || titleid.isEmpty()) {
+
+				} else {
+					disPlayNoticeContent(HomeActivity.this, titleid);
+				}
+
 			}
 		});
 	}

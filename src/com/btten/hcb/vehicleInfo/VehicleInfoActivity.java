@@ -2,6 +2,7 @@ package com.btten.hcb.vehicleInfo;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -13,7 +14,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.btten.base.BaseActivity;
-import com.btten.hcb.wheelview.WheelShow;
+import com.btten.hcb.tools.wheelview.WheelShow;
 import com.btten.hcbvip.R;
 import com.btten.model.BaseJsonItem;
 import com.btten.network.NetSceneBase;
@@ -79,7 +80,6 @@ public class VehicleInfoActivity extends BaseActivity {
 		edtFrame = (EditText) findViewById(R.id.vehicle_info_frame);
 
 		date = (WheelShow) findViewById(R.id.vehicle_info_date);
-		date.initDateTimePicker(null, true);
 		setSpinner();
 	}
 
@@ -178,7 +178,14 @@ public class VehicleInfoActivity extends BaseActivity {
 		public void OnSuccess(Object data, NetSceneBase<?> netScene) {
 			HideProgress();
 			Alert(((BaseJsonItem) data).info);
-			onBackPressed();
+			new Handler().postDelayed(new Runnable() {
+
+				@Override
+				public void run() {
+					onBackPressed();
+
+				}
+			}, 1000);
 		}
 
 		@Override

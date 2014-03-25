@@ -4,6 +4,7 @@ import org.json.JSONObject;
 
 import android.util.Log;
 import com.btten.model.BaseJsonItem;
+import com.btten.network.UrlFactory;
 
 public class VehicleGoodsInfoResult extends BaseJsonItem {
 	VehicleGoodsListItem item;
@@ -17,15 +18,15 @@ public class VehicleGoodsInfoResult extends BaseJsonItem {
 
 			if (this.status == 1) {
 				item = new VehicleGoodsListItem();
-				item.title = result.getString("F2_4230");
-				item.id = result.getString("F1_4230");
-				item.content = result.getString("F4_4230");
-				item.image1 = result.getString("F4_4230");
-				item.image2 = result.getString("F4_4230");
-				item.image3 = result.getString("F4_4230");
-				item.price = result.getString("F4_4230");
-				item.discount = result.getString("F4_4230");
-				item.type = result.getString("F4_4230");
+				item.title = result.getString("gname");
+				item.id = result.getString("gid");
+				item.content = result.getString("content");
+				item.image1 = UrlFactory.rootUrl_short
+						+ result.getString("img");
+				item.price = result.getString("price");
+				item.discount = result.getString("zk");
+				item.oldprice = result.getString("oprice");
+				item.type = result.getString("appliance");
 			}
 		} catch (Exception ex) {
 			this.status = -1;

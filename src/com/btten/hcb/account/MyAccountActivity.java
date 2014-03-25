@@ -13,7 +13,7 @@ import com.btten.hcb.cardActive.CardActiveActivity;
 import com.btten.hcb.notice.NoticeInfoActivity;
 import com.btten.hcb.pointRecord.PointRecordsActivity;
 import com.btten.hcb.rechargeRecord.RechargeRecordsActivity;
-import com.btten.hcb.shoppingRecord.ShoppingRecordsActivity;
+import com.btten.hcb.shoppingRecord.ShoppingRecordsListActivity;
 import com.btten.hcbvip.R;
 import com.btten.network.NetSceneBase;
 import com.btten.network.OnSceneCallBack;
@@ -75,7 +75,7 @@ public class MyAccountActivity extends BaseActivity {
 				break;
 			case R.id.myaccount_activity_button_shopping_record:
 				intent = new Intent(MyAccountActivity.this,
-						ShoppingRecordsActivity.class);
+						ShoppingRecordsListActivity.class);
 				break;
 			case R.id.myaccount_activity_button_exchange:
 				intent = new Intent(MyAccountActivity.this,

@@ -9,15 +9,18 @@ import com.btten.network.ThreadPoolUtils;
 import com.btten.network.UrlFactory;
 
 public class RechargeRecordsListScene extends NomalJsonSceneBase {
-	public RechargeRecordsListScene() {
-		super();
-	}
 
-	public void doscene(OnSceneCallBack callBack, String month, String year) {
+	public void doscene(OnSceneCallBack callBack, String begin, String end) {
 		SetCallBack(callBack);
-		targetUrl = UrlFactory.GetUrlNew("JmsInfo", "getSaleAccountHistory",
-				"vid", VIPInfoManager.getInstance().getUserid(), "start",
-				month, "end", year);
+		// targetUrl = UrlFactory.GetUrlNew("UserBaseInfo",
+		// "getHuibiRecordList",
+		// "vid", VIPInfoManager.getInstance().getUserid(), "begin",
+		// begin, "end", end);
+		targetUrl = UrlFactory.GetUrlNew("UserBaseInfo", "getHuibiRecordList",
+				"vid", "10001450", "begin",
+				begin, "end", end);
+		
+		
 		Log.i("url", targetUrl);
 		ThreadPoolUtils.execute(this);
 	}

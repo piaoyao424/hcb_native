@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.btten.hcbvip"
-    android:versionCode="16"
+    android:versionCode="12"
     android:versionName="Beta 1.0" >
 
     <uses-sdk
@@ -24,9 +24,7 @@
 
     <!-- 百度定位服务所需权限 -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-
     <permission android:name="android.permission.BAIDU_LOCATION_SERVICE" />
-
     <uses-permission android:name="android.permission.BAIDU_LOCATION_SERVICE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCES_MOCK_LOCATION" />
@@ -55,7 +53,6 @@
             android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -67,7 +64,7 @@
             android:process=":remote" />
         <!-- baidu end -->
 
-        <receiver android:name="com.btten.hcb.Service.core.ConnectionChangeReceiver" >
+        <receiver android:name="com.btten.hcb.service.core.ConnectionChangeReceiver" >
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
@@ -79,6 +76,12 @@
             android:name="com.btten.hcb.WelcomActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait" />
+        <!-- 欢迎页面 -->
+        <activity
+            android:name="com.btten.hcb.SplashScreenTest"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+
         <!-- 登录 -->
         <activity
             android:name="com.btten.hcb.login.LoginActivity"
@@ -98,10 +101,57 @@
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
+        <!-- 购买洗车卡 -->
+        <activity
+            android:name="com.btten.hcb.buyCard.BuyCardActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <!-- 支付宝跳转 -->
+        <activity
+            android:name="com.btten.hcb.buyCard.BuyCardWebActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
 
         <!-- 服务条款 -->
         <activity
             android:name="com.btten.hcb.regist.RegistTermsActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <!-- 书推荐 -->
+        <activity
+            android:name="com.btten.hcb.book.BookListActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <!-- 书推荐详情 -->
+        <activity
+            android:name="com.btten.hcb.book.BookInfoActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <!-- 车知识 -->
+        <activity
+            android:name="com.btten.hcb.vehicleKnowledge.CarKnowledgeListActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <!-- 车知识详情 -->
+        <activity
+            android:name="com.btten.hcb.vehicleKnowledge.CarKnowledgeInfoActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <!-- 车产品 -->
+        <activity
+            android:name="com.btten.hcb.vehicleGoods.VehicleGoodsListActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <!-- 车产品详情 -->
+        <activity
+            android:name="com.btten.hcb.vehicleGoods.VehicleGoodsInfoActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <!-- 购买网点 -->
+        <activity
+            android:name="com.btten.hcb.branch.BranchListActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait" />
         <!-- 主页 -->
@@ -131,6 +181,21 @@
             android:name="com.btten.hcb.publicNotice.PublicNoticeListActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait" />
+        <!-- 保险主页 -->
+        <activity
+            android:name="com.btten.hcb.insurance.InsuranceActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <!-- 联系保险 -->
+        <activity
+            android:name="com.btten.hcb.insurance.InsuranceCallActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <!-- 保险理赔流程 -->
+        <activity
+            android:name="com.btten.hcb.insuranceClaims.insuranceClaimsActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
 
         <!-- 公告内容 -->
         <activity
@@ -152,19 +217,67 @@
             android:name="com.btten.hcb.carClub.CarClubListActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait" />
+        <!-- 事故处理 -->
+        <activity
+            android:name="com.btten.hcb.accident.AccidentActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <!-- 违章查询 -->
+        <activity
+            android:name="com.btten.hcb.peccancy.PeccancyListActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <!-- 违章查询详情 -->
+        <activity
+            android:name="com.btten.hcb.peccancy.PeccancyDetailActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+
         <!-- 我的惠车宝 -->
         <activity
             android:name="com.btten.hcb.MyHcbActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait" />
+
+        <!-- 道路救援 -->
+        <activity
+            android:name="com.btten.hcb.roadRescue.RoadRescueActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <!-- 道路救援电话 -->
+        <activity
+            android:name="com.btten.hcb.roadRescue.RoadRescuePhoneActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+
         <!-- 我的账户 -->
         <activity
             android:name="com.btten.hcb.account.MyAccountActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait" />
+        <!-- 我的消费 -->
+        <activity
+            android:name="com.btten.hcb.shoppingRecord.ShoppingRecordsListActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <!-- 充值记录 -->
+        <activity
+            android:name="com.btten.hcb.rechargeRecord.RechargeRecordsActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
         <!-- 我的信息 -->
         <activity
             android:name="com.btten.hcb.userInfo.UserInfoActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <!-- 选择省份 -->
+        <activity
+            android:name="com.btten.hcb.tools.areaInfo.ProvinceListActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <!-- 选择市 -->
+        <activity
+            android:name="com.btten.hcb.tools.areaInfo.ProvinceInfoActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait" />
 
@@ -247,7 +360,11 @@
             android:name="com.btten.hcb.vehicleLife.VehicleLifeActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait" />
-
+        <!-- 车务代办 -->
+        <activity
+            android:name="com.btten.hcb.commission.CommissionActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
         <!-- 积分记录 -->
         <activity
             android:name="com.btten.hcb.pointRecord.PointRecordsActivity"
@@ -256,6 +373,11 @@
         <!-- 联系我们 -->
         <activity
             android:name="com.btten.about.ContactUsActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <!-- 车辆详情 -->
+        <activity
+            android:name="com.btten.hcb.vehicleInfo.VehicleInfoActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait" />
         <!-- 意见反馈 -->
@@ -275,7 +397,7 @@
 
         <!-- BACKGROUND SERVICE -->
         <service
-            android:name="com.btten.hcb.Service.JmsMapService"
+            android:name="com.btten.hcb.service.JmsMapService"
             android:enabled="true" />
         <!-- END OF SERVICE -->
 

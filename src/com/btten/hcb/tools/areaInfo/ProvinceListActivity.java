@@ -24,7 +24,7 @@ public class ProvinceListActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.province_activity);
 		setCurrentTitle("省份信息");
-		setBackKeyListner(true);
+		setBackKeyListner(false);
 		initView();
 	}
 
@@ -48,19 +48,19 @@ public class ProvinceListActivity extends BaseActivity {
 			switch (v.getId()) {
 			case R.id.province_relative_bj:
 				areaId = "1";
-				areaName = "北京";
+				areaName = "北京市";
 				break;
 			case R.id.province_relative_sh:
 				areaId = "9";
-				areaName = "上海";
+				areaName = "上海市";
 				break;
 			case R.id.province_relative_tj:
 				areaId = "2";
-				areaName = "天津";
+				areaName = "天津市";
 				break;
 			case R.id.province_relative_cq:
 				areaId = "22";
-				areaName = "重庆";
+				areaName = "重庆市";
 				break;
 			default:
 				break;

@@ -215,9 +215,10 @@
                     android:layout_weight="6"
                     android:background="@drawable/nomal_shape" >
 
-                    <com.btten.hcb.wheelview.WheelShow
+                    <com.btten.hcb.tools.wheelview.WheelShow
                         android:id="@+id/vehicle_info_date"
-                        style="@style/date_button_style" />
+                        style="@style/date_button_style"
+                        android:layout_weight="1" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -247,10 +248,8 @@
                     android:layout_weight="8"
                     android:background="@drawable/nomal_shape"
                     android:gravity="center_vertical"
-                    android:inputType="phone"
                     android:paddingLeft="10dp"
                     android:singleLine="true"
-                    android:text=""
                     android:textColor="@color/text_gray"
                     android:textSize="14sp" />
             </LinearLayout>
@@ -281,7 +280,6 @@
                     android:layout_weight="8"
                     android:background="@drawable/nomal_shape"
                     android:gravity="center_vertical"
-                    android:inputType="phone"
                     android:paddingLeft="10dp"
                     android:singleLine="true"
                     android:text=""

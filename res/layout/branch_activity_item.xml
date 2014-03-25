@@ -1,5 +1,5 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
+    android:layout_width="match_parent"
     android:layout_height="100dp"
 	android:paddingTop="10dp"
 	android:paddingBottom="10dp"
@@ -12,7 +12,6 @@
 		android:layout_width="fill_parent"
 		android:layout_height="35dp"
 		android:gravity="center_vertical"
-		android:text="①雅士汽车服务会所"
 		android:textStyle="bold"
 		android:textColor="@color/black"
 		android:textSize="18sp" />
@@ -21,15 +20,13 @@
 		android:layout_width="fill_parent"
 		android:layout_height="20dp"
 		android:gravity="center_vertical"
-		android:text="地址：宜昌市东山开发区发展大道120号"
 		android:textColor="@color/black"
 		android:textSize="14sp" /> 
 	<TextView
-	    android:id="@+id/branch_item_phoneF"
+	    android:id="@+id/branch_item_phone"
 		android:layout_width="fill_parent"
 		android:layout_height="20dp"
 		android:gravity="center_vertical"
-		android:text="联系电话：12345678901"
 		android:textColor="@color/black"
 		android:textSize="14sp" /> 
 </LinearLayout>

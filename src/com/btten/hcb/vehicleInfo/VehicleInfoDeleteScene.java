@@ -22,7 +22,7 @@ public class VehicleInfoDeleteScene extends NomalJsonSceneBase {
 
 	@Override
 	protected BaseJsonItem CreateJsonItems() {
-		return new VehicleInfoResult();
+		return new VehicleInfoDeleteResult();
 	}
 
 }

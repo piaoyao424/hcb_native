@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import com.btten.base.BaseActivity;
-import com.btten.hcb.wheelview.WheelShow;
+import com.btten.hcb.tools.wheelview.WheelShow;
 import com.btten.hcbvip.R;
 import com.btten.network.NetSceneBase;
 import com.btten.network.OnSceneCallBack;
@@ -20,11 +20,14 @@ public class RechargeRecordsActivity extends BaseActivity {
 	private WheelShow startDate;
 	private WheelShow endDate;
 	private ListView listView;
+	private TextView footTxt;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.recharge_record);
+		setCurrentTitle("充值记录");
+		setBackKeyListner(true);
 		initView();
 	}
 
@@ -32,14 +35,18 @@ public class RechargeRecordsActivity extends BaseActivity {
 		// 初始化时间按钮
 		startDate = (WheelShow) findViewById(R.id.point_records_start_time);
 		endDate = (WheelShow) findViewById(R.id.point_records_end_time);
-		startDate.initDateTimePicker(listener, true);
-		endDate.initDateTimePicker(listener, false);
-
+		startDate.setMyOnClickListener(listener);
+		endDate.setMyOnClickListener(listener);
 		btn_chaxun = (Button) findViewById(R.id.point_records_button);
 		btn_chaxun.setOnClickListener(listener);
-
 		listView = (ListView) findViewById(R.id.point_records_list);
-		setCurrentTitle("充值记录");
+
+		LayoutInflater layoutInflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+		View mFooterView = layoutInflater.inflate(
+				R.layout.recharge_record_list_footer, null);
+		footTxt = (TextView) mFooterView
+				.findViewById(R.id.recharge_records_list_footer_totle);
+		listView.addFooterView(mFooterView);
 	}
 
 	OnClickListener listener = new OnClickListener() {
@@ -105,15 +112,7 @@ public class RechargeRecordsActivity extends BaseActivity {
 
 			adapter.setItems(items.items);
 			listView.setAdapter(adapter);
-
-			LayoutInflater layoutInflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
-			View mFooterView = layoutInflater.inflate(
-					R.layout.recharge_record_list_footer, null);
-			TextView textView = (TextView) mFooterView
-					.findViewById(R.id.recharge_records_list_footer_totle);
-			textView.setText(String.valueOf(items.Points));
-
-			listView.addFooterView(mFooterView);
+			footTxt.setText(String.valueOf(items.Points) + "元");
 			if (items.items.length == 0)
 				RechargeRecordsActivity.this.Alert("没有数据！");
 
@@ -123,6 +122,6 @@ public class RechargeRecordsActivity extends BaseActivity {
 	@Override
 	public void initDate() {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

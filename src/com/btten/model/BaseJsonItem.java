@@ -6,7 +6,6 @@ import org.json.JSONObject;
 public abstract class BaseJsonItem {
 	public BaseJsonItem()
 	{
-		
 	}
 	public int status;
 	public String info;

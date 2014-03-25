@@ -2,8 +2,6 @@ package com.btten.hcb.peccancy;
 
 import com.btten.hcbvip.R;
 import com.btten.tools.InfoQuery;
-import com.btten.tools.Util;
-
 import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -39,9 +37,9 @@ public class PeccancyDetailListAdapter extends BaseAdapter {
 					.findViewById(R.id.peccancy_detail_item_addr);
 			vHolder.txtContent = (TextView) convertView
 					.findViewById(R.id.peccancy_detail_item_content);
-			vHolder.txtMoney = (Button) convertView
+			vHolder.txtMoney = (TextView) convertView
 					.findViewById(R.id.peccancy_detail_item_money);
-			vHolder.txtPoint = (Button) convertView
+			vHolder.txtPoint = (TextView) convertView
 					.findViewById(R.id.peccancy_detail_item_point);
 			convertView.setTag(vHolder);
 		} else {

@@ -40,7 +40,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:singleLine="true"
-                    android:text="13754023654"
+                    android:text=""
                     android:textColor="@color/text_gray"
                     android:textSize="14sp" />
             </LinearLayout>
@@ -63,6 +63,7 @@
                     android:id="@+id/userinfo_area_linear"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
+                    android:baselineAligned="false"
                     android:orientation="horizontal"
                     android:paddingBottom="5dp"
                     android:paddingTop="5dp" >
@@ -70,89 +71,96 @@
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1" >
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:orientation="horizontal" >
 
-                        <Spinner
+                        <TextView
                             android:id="@+id/userinfo_province"
                             android:layout_width="0dp"
                             android:layout_height="30dp"
-                            android:layout_gravity="left"
+                            android:layout_gravity="right"
                             android:layout_weight="1"
                             android:background="@drawable/nomal_shape"
-                            android:prompt="@string/choiceyear" >
-                        </Spinner>
+                            android:gravity="center"
+                            android:singleLine="true"
+                            android:textColor="@color/main_text_color"
+                            android:textSize="16sp" />
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
+                            android:layout_width="20dp"
+                            android:layout_height="30dp"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="2dp"
+                            android:layout_marginRight="2dp"
                             android:gravity="center_vertical"
-                            android:paddingLeft="2dp"
-                            android:paddingRight="2dp"
-                            android:singleLine="true"
                             android:text="省"
-                            android:textColor="@color/text_gray"
+                            android:textColor="@color/main_text_color"
                             android:textSize="16sp" />
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1" >
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:orientation="horizontal" >
 
-                        <Spinner
+                        <TextView
                             android:id="@+id/userinfo_city"
                             android:layout_width="0dp"
                             android:layout_height="30dp"
-                            android:layout_gravity="left"
                             android:layout_weight="1"
                             android:background="@drawable/nomal_shape"
-                            android:prompt="@string/choiceyear" >
-                        </Spinner>
+                            android:gravity="center"
+                            android:singleLine="true"
+                            android:textColor="@color/main_text_color"
+                            android:textSize="16sp" />
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="20dp"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
+                            android:layout_gravity="center"
                             android:gravity="right"
                             android:paddingLeft="2dp"
                             android:paddingRight="2dp"
                             android:singleLine="true"
                             android:text="市"
-                            android:textColor="@color/text_gray"
+                            android:textColor="@color/main_text_color"
                             android:textSize="16sp" />
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1" >
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:orientation="horizontal" >
 
-                        <Spinner
+                        <TextView
                             android:id="@+id/userinfo_area"
                             android:layout_width="0dp"
                             android:layout_height="30dp"
-                            android:layout_gravity="left"
                             android:layout_weight="1"
                             android:background="@drawable/nomal_shape"
-                            android:prompt="@string/choiceyear" >
-                        </Spinner>
+                            android:gravity="center"
+                            android:singleLine="true"
+                            android:textColor="@color/main_text_color"
+                            android:textSize="16sp" />
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="20dp"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
+                            android:layout_gravity="center"
                             android:gravity="right"
                             android:paddingLeft="2dp"
                             android:paddingRight="2dp"
                             android:singleLine="true"
                             android:text="区"
-                            android:textColor="@color/text_gray"
+                            android:textColor="@color/main_text_color"
                             android:textSize="16sp" />
                     </LinearLayout>
                 </LinearLayout>
-
-               
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -183,7 +191,7 @@
                         android:inputType="textEmailAddress"
                         android:paddingLeft="10dp"
                         android:singleLine="true"
-                        android:text="不知道"
+                        android:text=""
                         android:textColor="@color/text_gray"
                         android:textSize="14sp" />
                 </LinearLayout>
@@ -217,7 +225,7 @@
                         android:inputType="textEmailAddress"
                         android:paddingLeft="10dp"
                         android:singleLine="true"
-                        android:text="zhangwenjun424@126.com"
+                        android:text=""
                         android:textColor="@color/text_gray"
                         android:textSize="14sp" />
                 </LinearLayout>
@@ -295,7 +303,7 @@
                         android:inputType="phone"
                         android:paddingLeft="10dp"
                         android:singleLine="true"
-                        android:text="武汉武汉武汉"
+                        android:text=""
                         android:textColor="@color/text_gray"
                         android:textSize="14sp" />
                 </LinearLayout>
@@ -329,7 +337,7 @@
                         android:inputType="phone"
                         android:paddingLeft="10dp"
                         android:singleLine="true"
-                        android:text="万万万"
+                        android:text=""
                         android:textColor="@color/text_gray"
                         android:textSize="14sp" />
                 </LinearLayout>
@@ -363,7 +371,7 @@
                         android:inputType="phone"
                         android:paddingLeft="10dp"
                         android:singleLine="true"
-                        android:text="14072105643"
+                        android:text=""
                         android:textColor="@color/text_gray"
                         android:textSize="14sp" />
                 </LinearLayout>

@@ -6,9 +6,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
-
 import com.btten.base.BaseActivity;
-import com.btten.hcb.tools.areaInfo.ProvinceListAdapter.ViewHolder;
+import com.btten.hcb.tools.areaInfo.ProvinceInfoAdapter.ViewHolder;
 import com.btten.hcbvip.R;
 import com.btten.network.NetSceneBase;
 import com.btten.network.OnSceneCallBack;
@@ -16,7 +15,7 @@ import com.btten.network.OnSceneCallBack;
 public class ProvinceInfoActivity extends BaseActivity {
 	private ListView lv;
 	private String areaName;
-	private String areaid;
+	private String areaid = "";
 	private int type = 0;
 
 	@Override
@@ -73,24 +72,25 @@ public class ProvinceInfoActivity extends BaseActivity {
 		@Override
 		public void onItemClick(AdapterView<?> parent, View view, int position,
 				long id) {
-			areaid = areaid + "@" + ((ViewHolder) view.getTag()).id;
-			areaName = areaName + "@" + ((ViewHolder) view.getTag()).name;
 
+			ViewHolder holder = (ViewHolder) view.getTag();
+
+			areaid = areaid + "@" + holder.id;
+			areaName = areaName + "@" + holder.name;
+			
 			if (type == 1) {
-				new ProvinceListScene().doScene(callBack,
-						((ViewHolder) view.getTag()).id);
+				new ProvinceListScene().doScene(callBack, holder.id);
 			} else if (type == 2) {
 				BacktoActivity();
 			}
-
 		}
 	};
 
 	// 回到前一个activity
 	private void BacktoActivity() {
 		Intent intent = ProvinceInfoActivity.this.getIntent();
-		intent.putExtra("KEY_AREAID", areaid);
-		intent.putExtra("KEY_Name", areaName);
+		intent.putExtra("KEY_ID", areaid);
+		intent.putExtra("KEY_NAME", areaName);
 		setResult(1, intent);
 		finish();
 	}

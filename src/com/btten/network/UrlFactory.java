@@ -8,8 +8,29 @@ import com.btten.hcb.HcbAPP;
 
 public class UrlFactory {
 	//登录和连接用的域名 连许东
-	public static final String rootUrl_short = "http://www.huichebo.com/";
+	public static final String rootUrl_short = "http://www.huichebo.com";
 	public static final String rootUrl = "http://www.huichebo.com/mobile.php";
+	public static final String mobilerootUrl = "http://m.huichebo.com/interface.php";
+	
+	public static String GetUrlMobile(String data, String... args) {
+		String result = UrlFactory.mobilerootUrl;
+		result += ("?" + "ostype" + "=" + "" + 1);
+		result += ("&" + "version" + "=" + "" + HcbAPP.getInstance()
+				.GetVersionCode());
+
+		result += ("&" + "func" + "=" + "" + data);
+		if (args == null || args.length <= 0)
+			return result;
+
+		int count = args.length / 2;
+		for (int i = 0; i < count; i++) {
+			String argvalue = URLEncoder.encode(args[i * 2 + 1]);
+			result += ("&" + args[i * 2] + "=" + argvalue);
+		}
+
+		return result;
+	}	
+	
 
 	public static String GetUrlOld(String data, String... args) {
 		String result = UrlFactory.rootUrl;
@@ -30,9 +51,9 @@ public class UrlFactory {
 		return result;
 	}
 
-//	public static final String javaRoot = "http://www.huichebo.com:8088/hcbweb";
+	public static final String javaRoot = "http://www.huichebo.com:8088/hcbweb";
 	//服务器 java积分查询用 连张文军
-	public static final String javaRoot = "http://59.175.145.105:8088/hcbweb";
+//	public static final String javaRoot = "http://59.175.145.105:8088/hcbweb";
 
 	public static String GetUrlNew(String data, String action, String... args) {
 		String result = UrlFactory.javaRoot;

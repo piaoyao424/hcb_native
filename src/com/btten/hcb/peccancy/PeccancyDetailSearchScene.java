@@ -11,7 +11,7 @@ import com.umeng.common.Log;
 public class PeccancyDetailSearchScene extends NomalJsonSceneBase {
 	@Override
 	protected BaseJsonItem CreateJsonItems() {
-		return new PeccancyListResult();
+		return new PeccancyDetailSearchResult();
 	}
 
 	public void doScene(OnSceneCallBack callBack, String vehicleid) {

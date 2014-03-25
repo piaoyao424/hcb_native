@@ -15,9 +15,8 @@ public class BookListScene extends NomalJsonSceneBase {
 
 	public void doScene(OnSceneCallBack callBack) {
 		SetCallBack(callBack);
-		targetUrl = UrlFactory.GetUrlNew("PublicNotice",
-				"getPublicNoticeMaster");
-		System.out.println(targetUrl);
+		targetUrl = UrlFactory
+				.GetUrlMobile("carlife", "g", "book", "a", "list");
 		Log.d("url", targetUrl);
 		ThreadPoolUtils.execute(this);
 	}

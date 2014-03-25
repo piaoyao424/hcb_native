@@ -6,7 +6,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ListView;
 import com.btten.base.BaseActivity;
-import com.btten.hcb.wheelview.WheelShow;
+import com.btten.hcb.tools.wheelview.WheelShow;
 import com.btten.hcbvip.R;
 import com.btten.network.NetSceneBase;
 import com.btten.network.OnSceneCallBack;
@@ -31,8 +31,8 @@ public class ExchangeRecordActivity extends BaseActivity {
 		// 初始化时间按钮
 		startDate = (WheelShow) findViewById(R.id.point_records_start_time);
 		endDate = (WheelShow) findViewById(R.id.point_records_end_time);
-		startDate.initDateTimePicker(listener, true);
-		endDate.initDateTimePicker(listener, false);
+		startDate.setMyOnClickListener(listener);
+		endDate.setMyOnClickListener(listener);
 
 		btn_chaxun = (Button) findViewById(R.id.point_records_button);
 		btn_chaxun.setOnClickListener(listener);
@@ -99,7 +99,7 @@ public class ExchangeRecordActivity extends BaseActivity {
 			HideProgress();
 			ExchangeRecordResult item = (ExchangeRecordResult) data;
 			ExchangeRecordListAdapter adapter = new ExchangeRecordListAdapter(
-					ExchangeRecordActivity.this,item.items);
+					ExchangeRecordActivity.this, item.items);
 			listView.setAdapter(adapter);
 
 			if (item.items.length == 0)
@@ -110,6 +110,6 @@ public class ExchangeRecordActivity extends BaseActivity {
 	@Override
 	public void initDate() {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

@@ -23,6 +23,8 @@ public class AccidentActivity extends BaseActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.accident_activity);
+		setBackKeyListner(true);
+		setCurrentTitle("事故处理");
 		initView();
 	}
 

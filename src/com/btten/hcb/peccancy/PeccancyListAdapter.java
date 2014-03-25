@@ -48,7 +48,8 @@ public class PeccancyListAdapter extends BaseAdapter {
 		}
 
 		vHolder.txtCarNum.setText(items[position].carNum);
-		vHolder.txtCheckDate.setText(items[position].checkDate);
+		vHolder.txtCheckDate.setText("距下次车辆年检还有" + items[position].checkDate
+				+ "天");
 		vHolder.txtContent.setText("违章" + items[position].peccancyNum
 				+ " 次   罚款 " + items[position].money + " 元   扣"
 				+ items[position].point + "分");

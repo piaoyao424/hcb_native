@@ -20,7 +20,7 @@ public class RoadRescuePhoneActivity extends BaseActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.road_rescue_phone_activity);
-
+		setBackKeyListner(true);
 		initView();
 	}
 
@@ -40,13 +40,14 @@ public class RoadRescuePhoneActivity extends BaseActivity {
 
 		@Override
 		public void onClick(View v) {
-			new CallTelephone(RoadRescuePhoneActivity.this, phoneNum, jname).call();
+			new CallTelephone(RoadRescuePhoneActivity.this, phoneNum, jname)
+					.call();
 		}
 	};
 
 	@Override
 	public void initDate() {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

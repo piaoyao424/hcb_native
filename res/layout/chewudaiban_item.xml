@@ -1,0 +1,96 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+	android:paddingTop="10dp"
+	android:paddingBottom="10dp"
+	android:paddingLeft="20dp"
+	android:paddingRight="20dp"
+    android:orientation="vertical" >
+	<TextView
+		android:layout_width="fill_parent"
+		android:layout_height="30dp"
+		android:gravity="center_vertical"
+		android:text="南方车辆服务"
+		android:textColor="@color/black"
+		android:textSize="18sp" />
+	<TextView
+		android:layout_width="fill_parent"
+		android:layout_height="20dp"
+        android:gravity="center_vertical"
+		android:text="地址：宜昌市夜明珠58号（8号车站斜对面）"
+		android:textColor="@color/dark_grey"
+		android:textSize="14sp" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="25dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="联系电话：13985645633"
+            android:textColor="@color/dark_grey"
+            android:textSize="14sp" />
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2" >
+        	<TextView
+            	android:layout_width="80dp"
+            	android:layout_height="20dp"
+        		android:gravity="center"
+            	android:background="@color/light_gray"
+            	android:text="拨打电话"
+            	android:textColor="@color/black"
+            	android:textSize="12sp" />            
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="25dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="电话：0717-6906521"
+            android:textColor="@color/dark_grey"
+            android:textSize="14sp" />
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2" >
+        	<TextView
+            	android:layout_width="80dp"
+            	android:layout_height="20dp"
+        		android:gravity="center"
+            	android:background="@color/light_gray"
+            	android:text="拨打电话"
+            	android:textColor="@color/black"
+            	android:textSize="12sp" />            
+        </LinearLayout>
+    </LinearLayout>
+	<TextView
+		android:layout_width="fill_parent"
+		android:layout_height="20dp"
+        android:gravity="center_vertical"
+		android:text="联系人：毕小勇"
+		android:textColor="@color/dark_grey"
+		android:textSize="14sp" />
+	<TextView
+		android:layout_width="fill_parent"
+		android:layout_height="25dp"
+        android:gravity="center_vertical"
+		android:text="全国汽车道路救援服务"
+		android:textColor="@color/dark_grey"
+		android:textSize="14sp" />
+	<TextView
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+		android:text="服务项目：1.免费违章查询 2.代办违章罚款 3.上牌过户年审 4.提档转籍委托"
+		android:textColor="@color/dark_grey"
+		android:textSize="14sp" />
+</LinearLayout>

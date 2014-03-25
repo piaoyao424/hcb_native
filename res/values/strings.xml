@@ -10,6 +10,7 @@
     <string name="choicemonth">选择月份</string>
     <string name="choiceyear">选择年份</string>
     <string name="choicevehicletype">选择车辆类型</string>
+    <string name="choicebuycardtype">选中充值类型</string>
     <string name="choicecity">选择地区</string>
     <string name="chaxun"> 查询</string>
     <string name="date">日期</string>

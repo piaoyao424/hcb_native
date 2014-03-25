@@ -1,11 +1,17 @@
 package com.btten.hcb.vehicleGoods;
 
+import android.content.Intent;
+import android.graphics.Paint;
 import android.os.Bundle;
+import android.text.Html;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.btten.hcb.branch.BranchListActivity;
 import com.btten.hcbvip.R;
 import com.btten.base.BaseActivity;
 import com.btten.network.NetSceneBase;
@@ -14,14 +20,15 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 
 public class VehicleGoodsInfoActivity extends BaseActivity {
 
-	private TextView txtTitle, txtPrice, txtDiscount, txtType, txtContent;
-	private ImageView imageView1, imageView2, imageView3;
+	private TextView txtTitle, txtPrice, txtOldprice, txtDiscount, txtType,
+			txtContent;
+	private ImageView imageView1;
 	private Button button;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.book_info_activity);
+		setContentView(R.layout.vehicle_goods_info_activity);
 		setCurrentTitle("车产品详情");
 		setBackKeyListner(true);
 
@@ -29,16 +36,15 @@ public class VehicleGoodsInfoActivity extends BaseActivity {
 	}
 
 	public void initView() {
-		txtType = (TextView) findViewById(R.id.book_list_author);
-		txtTitle = (TextView) findViewById(R.id.book_list_title);
-		txtContent = (TextView) findViewById(R.id.book_list_synopsis);
-		txtPrice = (TextView) findViewById(R.id.book_info_price);
-		txtDiscount = (TextView) findViewById(R.id.book_info_excerpt);
+		txtType = (TextView) findViewById(R.id.vehicleGoods_info_class);
+		txtTitle = (TextView) findViewById(R.id.vehicleGoods_info_title);
+		txtContent = (TextView) findViewById(R.id.vehicleGoods_info_content);
+		txtPrice = (TextView) findViewById(R.id.vehicleGoods_info_newprice);
+		txtOldprice = (TextView) findViewById(R.id.vehicleGoods_info_oldprice);
+		txtDiscount = (TextView) findViewById(R.id.vehicleGoods_info_rate);
 
-		imageView1 = (ImageView) findViewById(R.id.book_list_image);
-		imageView2 = (ImageView) findViewById(R.id.book_list_image);
-		imageView3 = (ImageView) findViewById(R.id.book_list_image);
-		button = (Button) findViewById(R.id.vehicle_life_item_txt);
+		imageView1 = (ImageView) findViewById(R.id.vehicleGoods_info_image);
+		button = (Button) findViewById(R.id.vehicleGoods_info_button);
 
 		Bundle bundle = this.getIntent().getExtras();
 		new VehicleGoodsInfoScene().doScene(callBack,
@@ -54,16 +60,27 @@ public class VehicleGoodsInfoActivity extends BaseActivity {
 
 			txtType.setText(items.item.type);
 			txtTitle.setText(items.item.title);
-			txtContent.setText(ToDBC(items.item.content));
-			txtPrice.setText(items.item.price);
-			txtDiscount.setText(items.item.discount);
+			txtPrice.setText("￥" + items.item.price);
+			txtOldprice.setText("￥" + items.item.oldprice);
+			txtOldprice.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG);
+			txtDiscount.setText(items.item.discount + "折");
+
+			txtContent.setMovementMethod(ScrollingMovementMethod.getInstance());// 滚动
+			txtContent.setText(Html.fromHtml(items.item.content));
 
 			ImageLoader.getInstance().displayImage(items.item.image1,
 					imageView1);
-			ImageLoader.getInstance().displayImage(items.item.image2,
-					imageView2);
-			ImageLoader.getInstance().displayImage(items.item.image3,
-					imageView3);
+			button.setOnClickListener(new OnClickListener() {
+
+				@Override
+				public void onClick(View v) {
+					Intent intent = new Intent(VehicleGoodsInfoActivity.this,
+							BranchListActivity.class);
+					intent.putExtra("KEY_NAME", items.item.title);
+					intent.putExtra("KEY_ID", items.item.id);
+					startActivity(intent);
+				}
+			});
 			HideProgress();
 			return;
 		}
@@ -74,25 +91,6 @@ public class VehicleGoodsInfoActivity extends BaseActivity {
 			ErrorAlert(status, info);
 		}
 	};
-
-	/***
-	 * 半角转换为全角
-	 * 
-	 * @param input
-	 * @return
-	 */
-	private static String ToDBC(String input) {
-		char[] c = input.toCharArray();
-		for (int i = 0; i < c.length; i++) {
-			if (c[i] == 12288) {
-				c[i] = (char) 32;
-				continue;
-			}
-			if (c[i] > 65280 && c[i] < 65375)
-				c[i] = (char) (c[i] - 65248);
-		}
-		return new String(c);
-	}
 
 	@Override
 	public void initDate() {

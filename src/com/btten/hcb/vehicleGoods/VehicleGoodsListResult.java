@@ -3,6 +3,7 @@ package com.btten.hcb.vehicleGoods;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import com.btten.model.BaseJsonItem;
+import com.btten.network.UrlFactory;
 import com.btten.tools.CommonConvert;
 
 public class VehicleGoodsListResult extends BaseJsonItem {
@@ -22,9 +23,11 @@ public class VehicleGoodsListResult extends BaseJsonItem {
 					JSONObject obj = jsonArray.getJSONObject(i);
 					CommonConvert convert = new CommonConvert(obj);
 					VehicleGoodsListItem temp = new VehicleGoodsListItem();
-					temp.title = convert.getString("F2_4230");
-					temp.id = convert.getString("F1_4230");
-					temp.image1 = convert.getString("F4_4230");
+					temp.title = convert.getString("gname");
+					temp.id = convert.getString("gid");
+					temp.content = convert.getString("promotion");
+					temp.image1 = UrlFactory.rootUrl_short
+							+ convert.getString("img");
 					items[i] = temp;
 				}
 			}

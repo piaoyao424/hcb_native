@@ -3,6 +3,7 @@ package com.btten.hcb.roadRescue;
 import java.util.ArrayList;
 import java.util.List;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
@@ -100,6 +101,10 @@ public class RoadRescueActivity extends BaseActivity {
 		private LayoutInflater mGroupInflater; // 用于加载group的布局xml
 
 		public MyExpandableListViewAdapter(Activity activity) {
+			mChildInflater = (LayoutInflater) activity
+					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+			mGroupInflater = (LayoutInflater) activity
+					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		}
 
 		@Override
@@ -121,7 +126,6 @@ public class RoadRescueActivity extends BaseActivity {
 
 				convertView = mChildInflater.inflate(
 						R.layout.road_rescue_childs, null);
-
 				holder = new ExpandableListItemHolder();
 				holder.txt_Name = (TextView) convertView
 						.findViewById(R.id.road_rescue_childs_name);
@@ -157,23 +161,21 @@ public class RoadRescueActivity extends BaseActivity {
 		public View getGroupView(int groupPosition, boolean isExpanded,
 				View convertView, ViewGroup parent) {
 
-			ExpandableListItemHolder holder = null; // 清空临时变量holder
-			if (convertView == null) { // 判断view（即view是否已构建好）是否为空
+			ExpandableListItemHolder holder = null;
+
+			if (convertView == null) {
 				convertView = mGroupInflater.inflate(
 						R.layout.road_rescue_groups, null);
-				// 下面主要是取得组的各子视图，设置子视图的属性。用tag来保存各子视图的引用
 				holder = new ExpandableListItemHolder();
-				// 从view中取得textView
 				holder.txt_Name = (TextView) convertView
 						.findViewById(R.id.road_rescue_groups_txt_name);
 				convertView.setTag(holder);
-			} else { // 若view不为空，直接从view的tag属性中获得各子视图的引用
+			} else {
 				holder = (ExpandableListItemHolder) convertView.getTag();
 			}
-			// 对应于组索引的组数据（模型）
+
 			RoadRescueMenuItem info = groupArray.get(groupPosition);
 			if (info != null) {
-				// 根据模型值设置textview的文本
 				holder.txt_Name.setText(info.name);
 			}
 			return convertView;

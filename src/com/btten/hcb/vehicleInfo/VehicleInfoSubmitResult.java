@@ -8,10 +8,8 @@ public class VehicleInfoSubmitResult extends BaseJsonItem {
 	@Override
 	public boolean CreateFromJson(JSONObject result) {
 		try {
-
 			this.status = result.getInt("STATUS");
 			this.info = result.getString("INFO");
- 
 		} catch (Exception e) {
 			this.status = -1;
 			this.info = e.toString();

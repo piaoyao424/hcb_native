@@ -12,7 +12,6 @@ import com.btten.network.NetSceneBase;
 import com.btten.network.OnSceneCallBack;
 
 public class PeccancyDetailActivity extends BaseActivity {
-
 	private TextView txtCount, txtDate;
 	private ListView lv;
 	private String vehicleid;
@@ -24,7 +23,6 @@ public class PeccancyDetailActivity extends BaseActivity {
 		setContentView(R.layout.peccancy_detail);
 		setCurrentTitle("违章详情");
 		setBackKeyListner(true);
-
 		initView();
 	}
 
@@ -55,7 +53,7 @@ public class PeccancyDetailActivity extends BaseActivity {
 
 		@Override
 		public void OnSuccess(Object data, NetSceneBase<?> netScene) {
-			final PeccancyDetailListResult items = (PeccancyDetailListResult) data;
+			PeccancyDetailListResult items = (PeccancyDetailListResult) data;
 			PeccancyDetailListAdapter adapter = new PeccancyDetailListAdapter(
 					PeccancyDetailActivity.this, items.items);
 			lv.setAdapter(adapter);

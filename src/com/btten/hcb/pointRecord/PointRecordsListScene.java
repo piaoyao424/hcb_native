@@ -16,7 +16,7 @@ public class PointRecordsListScene extends NomalJsonSceneBase {
 	public void doscene(OnSceneCallBack callBack, String start, String end) {
 		SetCallBack(callBack);
 		targetUrl = UrlFactory.GetUrlNew("UserBaseInfo", "getPoints",
-				"vid", VIPInfoManager.getInstance().getUserid(), "start",
+				"vid", VIPInfoManager.getInstance().getUserid(), "begin",
 				start, "end", end);
 		Log.i("url", targetUrl);
 		ThreadPoolUtils.execute(this);

@@ -16,6 +16,7 @@ import com.btten.base.BaseActivity;
 import com.btten.hcb.service.CallTaxiNotification;
 import com.btten.hcb.account.MyAccountActivity;
 import com.btten.hcb.account.VIPInfoManager;
+import com.btten.hcb.buyCard.BuyCardActivity;
 import com.btten.hcb.cardActive.CardActiveActivity;
 import com.btten.hcb.changePassword.ChangePasswdActivity;
 import com.btten.hcb.homeActivity.HomeActivity;
@@ -26,7 +27,7 @@ import com.btten.hcb.notice.NoticeInfoActivity;
 import com.btten.hcb.pointRecord.PointRecordsActivity;
 import com.btten.hcb.publicNotice.PublicNoticeListActivity;
 import com.btten.hcb.register.RegistActivity;
-import com.btten.hcb.shoppingRecord.ShoppingRecordsActivity;
+import com.btten.hcb.shoppingRecord.ShoppingRecordsListActivity;
 import com.btten.hcb.userInfo.UserInfoActivity;
 import com.btten.hcbvip.R;
 
@@ -85,6 +86,10 @@ public class MyHcbActivity extends BaseActivity {
 				intent = new Intent(MyHcbActivity.this,
 						CardActiveActivity.class);
 				break;
+			// 购买洗车卡
+			case R.id.myhcb_relative_shopping:
+				intent = new Intent(MyHcbActivity.this, BuyCardActivity.class);
+				break;
 			// 修改密码
 			case R.id.myhcb_relative_changepw:
 				intent = new Intent(MyHcbActivity.this,
@@ -94,9 +99,10 @@ public class MyHcbActivity extends BaseActivity {
 			case R.id.myhcb_relative_account:
 				intent = new Intent(MyHcbActivity.this, MyAccountActivity.class);
 				break;
-			// 我的消费 
-			case R.id.myhcb_relative_shopping:
-				intent = new Intent(MyHcbActivity.this, ShoppingRecordsActivity.class);
+			// 我的消费
+			case R.id.myhcb_relative_shoprecord:
+				intent = new Intent(MyHcbActivity.this,
+						ShoppingRecordsListActivity.class);
 				break;
 			// 我的信息
 			case R.id.myhcb_relative_baseinfo:
@@ -111,7 +117,8 @@ public class MyHcbActivity extends BaseActivity {
 				break;
 			// 积分记录
 			case R.id.myhcb_relative_points_record:
-				intent = new Intent(MyHcbActivity.this, PointRecordsActivity.class);
+				intent = new Intent(MyHcbActivity.this,
+						PointRecordsActivity.class);
 				break;
 			// 常见问题
 			case R.id.myhcb_relative_faqs:

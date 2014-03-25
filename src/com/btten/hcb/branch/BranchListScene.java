@@ -13,11 +13,10 @@ public class BranchListScene extends NomalJsonSceneBase {
 		return new BranchListResult();
 	}
 
-	public void doScene(OnSceneCallBack callBack) {
+	public void doScene(OnSceneCallBack callBack, String id) {
 		SetCallBack(callBack);
-		targetUrl = UrlFactory.GetUrlNew("PublicNotice",
-				"getPublicNoticeMaster");
-		System.out.println(targetUrl);
+		targetUrl = UrlFactory.GetUrlMobile("carlife", "g", "cgood", "a",
+				"branch", "i", id);
 		Log.d("url", targetUrl);
 		ThreadPoolUtils.execute(this);
 	}

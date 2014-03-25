@@ -3,6 +3,7 @@ package com.btten.hcb.vehicleLife;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -12,6 +13,9 @@ import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 import com.btten.base.BaseActivity;
+import com.btten.hcb.book.BookListActivity;
+import com.btten.hcb.vehicleGoods.VehicleGoodsListActivity;
+import com.btten.hcb.vehicleKnowledge.CarKnowledgeListActivity;
 import com.btten.hcbvip.R;
 
 public class VehicleLifeActivity extends BaseActivity {
@@ -53,16 +57,20 @@ public class VehicleLifeActivity extends BaseActivity {
 					int position, long id) {
 				switch (position) {
 				case 0:
-					Toast.makeText(VehicleLifeActivity.this, "0",
-							Toast.LENGTH_SHORT).show();
+					Intent intent = new Intent(VehicleLifeActivity.this,
+							BookListActivity.class);
+					startActivity(intent);
 					break;
 				case 1:
-					Toast.makeText(VehicleLifeActivity.this,  "1",
-							Toast.LENGTH_SHORT).show();
+					intent = new Intent(VehicleLifeActivity.this,
+							CarKnowledgeListActivity.class);
+					startActivity(intent);
+
 					break;
 				case 2:
-					Toast.makeText(VehicleLifeActivity.this,  "2",
-							Toast.LENGTH_SHORT).show();
+					intent = new Intent(VehicleLifeActivity.this,
+							VehicleGoodsListActivity.class);
+					startActivity(intent);
 					break;
 				default:
 					break;

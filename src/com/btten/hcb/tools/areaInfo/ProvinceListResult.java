@@ -1,5 +1,8 @@
 package com.btten.hcb.tools.areaInfo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -20,7 +23,7 @@ public class ProvinceListResult extends BaseJsonItem {
 			if (this.status == 1) {
 				jsonArray = result.getJSONArray("DATA");
 				int length = jsonArray.length();
-				items = new ProvinceListItem[length];
+				List<ProvinceListItem> temps = new ArrayList<ProvinceListItem>();
 				for (int i = 0; i < length; i++) {
 					JSONObject obj = jsonArray.getJSONObject(i);
 					CommonConvert convert = new CommonConvert(obj);
@@ -28,15 +31,17 @@ public class ProvinceListResult extends BaseJsonItem {
 					temp.name = convert.getString("NAME");
 					temp.id = convert.getString("ID");
 					// 过滤掉直辖市
-					if (temp.name.equals("北京")) {
-					} else if (temp.name.equals("上海")) {
-					} else if (temp.name.equals("重庆")) {
-					} else if (temp.name.equals("天津")) {
+					if (temp.name.equals("北京市")) {
+					} else if (temp.name.equals("上海市")) {
+					} else if (temp.name.equals("重庆市")) {
+					} else if (temp.name.equals("天津市")) {
 					} else {
-						items[i] = temp;
+						temps.add(temp);
 					}
-
 				}
+
+				items = new ProvinceListItem[temps.size()];
+				items = temps.toArray(new ProvinceListItem[0]);
 			}
 		} catch (Exception ex) {
 			this.status = -1;
@@ -46,5 +51,4 @@ public class ProvinceListResult extends BaseJsonItem {
 		}
 		return true;
 	}
-
 }

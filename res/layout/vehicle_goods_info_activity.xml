@@ -8,7 +8,7 @@
     <include layout="@layout/top_title_bar" />
 
     <TextView
-        android:id="@+id/vehicleGoods_list_item_title"
+        android:id="@+id/vehicleGoods_info_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/gray"
@@ -30,12 +30,12 @@
             android:orientation="vertical" >
 
             <LinearLayout
-                android:id="@+id/book_info_linearlayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal" >
 
                 <ImageView
+                    android:id="@+id/vehicleGoods_info_image"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -57,7 +57,7 @@
                         android:textSize="16sp" />
 
                     <TextView
-                        android:id="@+id/book_info_author"
+                        android:id="@+id/vehicleGoods_info_class"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
@@ -79,27 +79,29 @@
                         android:orientation="horizontal" >
 
                         <TextView
-                            android:id="@+id/book_info_author"
+                            android:id="@+id/vehicleGoods_info_newprice"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
                             android:text="169"
-                            android:textColor="@color/main_text_color"
+                            android:textColor="@color/orange"
                             android:textSize="16sp" />
 
                         <TextView
-                            android:id="@+id/book_info_author"
+                            android:id="@+id/vehicleGoods_info_oldprice"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
                             android:layout_marginTop="5dp"
                             android:text="428："
                             android:textColor="@color/main_text_color"
                             android:textSize="16sp" />
 
                         <TextView
-                            android:id="@+id/book_info_author"
+                            android:id="@+id/vehicleGoods_info_rate"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
                             android:layout_marginTop="5dp"
                             android:text="3.9折"
                             android:textColor="@color/main_text_color"
@@ -107,7 +109,7 @@
                     </LinearLayout>
 
                     <Button
-                        android:id="@+id/changePw_button"
+                        android:id="@+id/vehicleGoods_info_button"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_marginTop="10dp"
@@ -132,44 +134,15 @@
                     android:layout_marginTop="5dp"
                     android:text="产品详情"
                     android:textColor="@color/black"
-                    android:textSize="16sp" />
+                    android:textSize="20sp" />
 
                 <TextView
-                    android:id="@+id/book_info_author"
+                    android:id="@+id/vehicleGoods_info_content"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text=" 乔氏全包脚垫，无异味，好角度，很好很好，很好很好，很好很好，很好很好，很好很好"
                     android:textColor="@color/main_text_color"
-                    android:textSize="14sp" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal" >
-
-                    <ImageView
-                        android:id="@+id/book_info_image"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:contentDescription="@string/ImageDescription"
-                        android:scaleType="fitCenter"
-                        android:src="@drawable/book_ad" />
-
-                    <View
-                        android:layout_width="5dp"
-                        android:layout_height="wrap_content" />
-
-                    <ImageView
-                        android:id="@+id/book_info_image"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:contentDescription="@string/ImageDescription"
-                        android:scaleType="fitCenter"
-                        android:src="@drawable/book_ad" />
-                </LinearLayout>
+                    android:textSize="18sp" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

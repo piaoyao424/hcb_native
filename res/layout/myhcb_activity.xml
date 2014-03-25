@@ -135,7 +135,7 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/myhcb_relative_shopping"
+                    android:id="@+id/myhcb_relative_shoprecord"
                     style="@style/aboutus_relative_style"
                     android:layout_marginBottom="1dp" >
 

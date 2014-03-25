@@ -165,7 +165,7 @@
             android:background="@drawable/record_time_block_bg" >
  
 
-            <com.btten.hcb.wheelview.WheelShow
+            <com.btten.hcb.tools.wheelview.WheelShow
                 android:id="@+id/mygoal_start_time"
                 style="@style/date_button_style"
                 android:layout_weight="7" />
@@ -181,7 +181,7 @@
 
    
 
-            <com.btten.hcb.wheelview.WheelShow
+            <com.btten.hcb.tools.wheelview.WheelShow
                 android:id="@+id/mygoal_end_time"
                 style="@style/date_button_style"
                 android:layout_weight="7" />

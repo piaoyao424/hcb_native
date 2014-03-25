@@ -9,9 +9,6 @@ import com.btten.network.ThreadPoolUtils;
 import com.btten.network.UrlFactory;
 
 public class ShoppingRecordsListScene extends NomalJsonSceneBase {
-	public ShoppingRecordsListScene() {
-		super();
-	}
 
 	public void doscene(OnSceneCallBack callBack, String begin, String end) {
 		SetCallBack(callBack);

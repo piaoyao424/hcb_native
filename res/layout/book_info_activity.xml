@@ -96,52 +96,6 @@
                 android:text="作者：哪儿顺*曼德拉"
                 android:textColor="@color/main_text_color"
                 android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/book_info_publisher"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="出版社：广西师范大学出版社"
-                android:textColor="@color/main_text_color"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/book_info_date"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="出版时间：2013-10-10"
-                android:textColor="@color/main_text_color"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/book_info_price"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="定价：79元"
-                android:textColor="@color/main_text_color"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/book_info_synopsis"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:lineSpacingExtra="5dp"
-                android:text="推荐理由：曼德拉亲自执手的唯一自传，记录了这位黑人领袖永不屈服的自由之路和永不放弃的波澜壮阔。。。"
-                android:textColor="@color/main_text_color"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/book_info_excerpt"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="摘录：自由"
-                android:textColor="@color/main_text_color"
-                android:textSize="16sp" />
         </LinearLayout>
     </ScrollView>
 
