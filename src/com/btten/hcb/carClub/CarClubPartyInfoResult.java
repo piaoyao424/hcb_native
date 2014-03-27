@@ -5,6 +5,7 @@ import org.json.JSONObject;
 import android.util.Log;
 
 import com.btten.model.BaseJsonItem;
+import com.btten.network.UrlFactory;
 
 public class CarClubPartyInfoResult extends BaseJsonItem {
 	CarClubListItem item;
@@ -18,27 +19,23 @@ public class CarClubPartyInfoResult extends BaseJsonItem {
 
 			if (this.status == 1) {
 				item = new CarClubListItem();
-				
-				item.title = result.getString("F2_4230");
-				item.id = result.getString("F1_4230");
-				
-				item.participantNum = result.getString("F4_4230");
-				item.totleNum = result.getString("F4_4230");
-				
-				item.startDate = result.getString("F4_4230");
-				item.totleDate = result.getString("F4_4230");
-				
-				item.content = result.getString("F4_4230");
-				item.other = result.getString("F4_4230");
-				item.processType = result.getInt("F4_4230");
-				item.partyType = result.getInt("F4_4230");
 
-				item.image = result.getString("F4_4230");
-				item.imageType = result.getInt("F4_4230");
-				
-				item.addr = result.getString("F4_4230");
-				item.initiator = result.getString("F4_4230");
-				
+				item.title = result.getString("wname");
+				item.id = result.getString("wid");
+				item.participantNum = result.getString("wapplypnum");
+				item.totleNum = result.getString("wpnum");
+				item.evalu = result.getString("wcomment");
+				item.startDate = result.getString("wstarttime");
+				item.totleDate = result.getString("sj");
+				item.content = result.getString("wdetail")
+						+ result.getString("witinerary");
+				item.other = result.getString("wprecautions");
+				item.partyType = result.getInt("cid");
+				item.image = UrlFactory.rootUrl_short + "/"
+						+ result.getString("attachment") + ".default.jpg";
+				item.imageType = result.getInt("wmarrow");
+				item.addr = result.getString("wplace");
+				item.initiator = result.getString("uname");
 			}
 		} catch (Exception ex) {
 			this.status = -1;

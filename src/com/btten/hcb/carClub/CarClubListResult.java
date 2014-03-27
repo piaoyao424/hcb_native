@@ -6,6 +6,7 @@ import org.json.JSONObject;
 import android.util.Log;
 
 import com.btten.model.BaseJsonItem;
+import com.btten.network.UrlFactory;
 import com.btten.tools.CommonConvert;
 
 public class CarClubListResult extends BaseJsonItem {
@@ -26,18 +27,19 @@ public class CarClubListResult extends BaseJsonItem {
 					CommonConvert convert = new CommonConvert(obj);
 					CarClubListItem temp = new CarClubListItem();
 
-					temp.title = convert.getString("F2_4230");
-					temp.id = convert.getString("F1_4230");
-					temp.image = convert.getString("F4_4230");
-					temp.imageType = convert.getInt("F2_4230");
-					temp.initiator = convert.getString("F1_4230");
-					temp.addr = convert.getString("F4_4230");
-					temp.startDate = convert.getString("F2_4230");
-					temp.totleDate = convert.getString("F1_4230");
-					temp.partyType = convert.getInt("F4_4230");
-					temp.totleNum = convert.getString("F2_4230");
-					temp.participantNum = convert.getString("F1_4230");
-					temp.processType = convert.getInt("F4_4230");
+					temp.title = convert.getString("wname");
+					temp.id = convert.getString("wid");
+					temp.image = UrlFactory.rootUrl_short + "/"
+							+ convert.getString("attachment") + ".thumb.jpg";
+					temp.imageType = convert.getInt("wmarrow");
+					temp.initiator = convert.getString("uname");
+					temp.addr = convert.getString("wplace");
+					temp.startDate = convert.getString("wstarttime");
+					temp.totleDate = convert.getString("sj");
+					temp.partyType = convert.getInt("cid");
+					temp.totleNum = convert.getString("wpnum");
+					temp.participantNum = convert.getString("wapplypnum");
+					temp.processType = convert.getInt("wzt");
 
 					items[i] = temp;
 				}

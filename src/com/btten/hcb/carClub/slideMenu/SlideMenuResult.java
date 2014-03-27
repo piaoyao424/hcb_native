@@ -25,8 +25,8 @@ public class SlideMenuResult extends BaseJsonItem {
 					CommonConvert convert = new CommonConvert(obj);
 					SlideMenuItem temp = new SlideMenuItem();
 
-					temp.title = convert.getString("F2_4230");
-					temp.id = convert.getString("F1_4230");
+					temp.title = convert.getString("cname");
+					temp.id = convert.getString("cid");
 
 					items[i] = temp;
 				}

@@ -22,11 +22,6 @@ public class CarClubListAdapter extends BaseAdapter {
 		this.items = items;
 	}
 
-	public void setItems(CarClubListItem[] items) {
-		this.items = items;
-		this.notifyAll();
-	}
-
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		ViewHolder vHolder;
@@ -38,22 +33,22 @@ public class CarClubListAdapter extends BaseAdapter {
 					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 			convertView = inflater.inflate(R.layout.car_club_list_item, null);
 			vHolder.txtTitle = (TextView) convertView
-					.findViewById(R.id.book_list_item_title);
+					.findViewById(R.id.car_club_list_item_title);
 			vHolder.txtAddr = (TextView) convertView
-					.findViewById(R.id.book_list_item_title);
+					.findViewById(R.id.car_club_list_item_addr);
 			vHolder.txtInitiator = (TextView) convertView
-					.findViewById(R.id.book_list_item_title);
+					.findViewById(R.id.car_club_list_item_initiator);
 			vHolder.txtDate = (TextView) convertView
-					.findViewById(R.id.book_list_item_title);
+					.findViewById(R.id.car_club_list_item_date);
 			vHolder.txtParticipantNum = (TextView) convertView
-					.findViewById(R.id.book_list_item_title);
+					.findViewById(R.id.car_club_list_item_participant);
 			vHolder.txtProcessType = (TextView) convertView
-					.findViewById(R.id.book_list_item_title);
+					.findViewById(R.id.car_club_list_item_processType);
 
 			vHolder.imageView = (ImageView) convertView
-					.findViewById(R.id.book_list_item_image);
+					.findViewById(R.id.car_club_list_item_image);
 			vHolder.imageViewType = (ImageView) convertView
-					.findViewById(R.id.book_list_item_image);
+					.findViewById(R.id.car_club_list_item_imageType);
 
 			convertView.setTag(vHolder);
 		} else {
@@ -70,10 +65,10 @@ public class CarClubListAdapter extends BaseAdapter {
 				+ items[position].totleNum + "人)");
 
 		switch (items[position].processType) {
-		case 0:
+		case 1:
 			vHolder.txtProcessType.setText("进行中...");
 			break;
-		case 1:
+		case 0:
 			vHolder.txtProcessType.setText("已结束...");
 			break;
 		default:
@@ -82,7 +77,13 @@ public class CarClubListAdapter extends BaseAdapter {
 
 		ImageLoader.getInstance().displayImage(items[position].image,
 				vHolder.imageView);
-		vHolder.imageViewType.setVisibility(View.GONE);
+		if (items[position].imageType == 1) {
+			vHolder.imageViewType.setVisibility(View.VISIBLE);
+		} else {
+			vHolder.imageViewType.setVisibility(View.GONE);
+		}
+
+		convertView.setOnClickListener(new adapterListner(position));
 		return convertView;
 	}
 
@@ -103,6 +104,9 @@ public class CarClubListAdapter extends BaseAdapter {
 
 	@Override
 	public int getCount() {
+		if (items == null || items.length < 1) {
+			return 0;
+		}
 		return items.length;
 	}
 

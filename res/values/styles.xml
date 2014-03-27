@@ -274,8 +274,8 @@
     </style>
 
     <style name="aboutus_image_style">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">20dp</item>
+        <item name="android:layout_height">20dp</item>
         <item name="android:src">@drawable/my_consume_arrow</item>
         <item name="android:scaleType">fitCenter</item>
         <item name="android:layout_margin">10dp</item>

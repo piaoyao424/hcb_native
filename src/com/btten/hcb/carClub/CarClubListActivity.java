@@ -1,5 +1,7 @@
 package com.btten.hcb.carClub;
 
+import java.util.ArrayList;
+import java.util.List;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
@@ -14,9 +16,10 @@ import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.btten.hcb.carClub.slideMenu.SlideMenuItem;
 import com.btten.hcb.carClub.slideMenu.SlideMenuResult;
 import com.btten.hcb.carClub.slideMenu.SlideMenuScene;
@@ -28,8 +31,10 @@ import com.btten.network.OnSceneCallBack;
 public class CarClubListActivity extends BaseActivity {
 	private ListView lv;
 	private String slideMenuID;
-	private int slideX = 0;
+	private int slideX = 0, processType = 1;
+	private CarClubListItem[] itemArray;
 	private RadioButton radioGoing, radioStop;
+	private CarClubListAdapter adapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +52,28 @@ public class CarClubListActivity extends BaseActivity {
 		lv = (ListView) findViewById(R.id.car_club_lv);
 		radioGoing = (RadioButton) findViewById(R.id.car_club_radiogoing);
 		radioStop = (RadioButton) findViewById(R.id.car_club_radiostop);
+		RadioGroup grp = (RadioGroup) findViewById(R.id.car_club_radiogroup);
+		grp.setOnCheckedChangeListener(listener);
+
 	}
+
+	OnCheckedChangeListener listener = new OnCheckedChangeListener() {
+
+		@Override
+		public void onCheckedChanged(RadioGroup group, int checkedId) {
+			switch (checkedId) {
+			case R.id.car_club_radiogoing:
+				processType = 1;
+				break;
+			case R.id.car_club_radiostop:
+				processType = 0;
+				break;
+			default:
+				break;
+			}
+			showList();
+		}
+	};
 
 	OnSceneCallBack slideMenuCallBack = new OnSceneCallBack() {
 
@@ -61,10 +87,10 @@ public class CarClubListActivity extends BaseActivity {
 
 		@Override
 		public void OnFailed(int status, String info, NetSceneBase<?> netScene) {
-			Toast.makeText(CarClubListActivity.this, "获取活动类别失败！",
-					Toast.LENGTH_SHORT).show();
-			finish();
 			HideProgress();
+			Alert("获取活动类别失败！");
+			finish();
+
 		}
 	};
 
@@ -73,9 +99,8 @@ public class CarClubListActivity extends BaseActivity {
 		@Override
 		public void OnSuccess(Object data, NetSceneBase<?> netScene) {
 			CarClubListResult item = (CarClubListResult) data;
-			CarClubListAdapter adapter = new CarClubListAdapter(
-					CarClubListActivity.this, item.items);
-			lv.setAdapter(adapter);
+			itemArray = item.items;
+			handler.sendEmptyMessage(1);
 			HideProgress();
 			return;
 		}
@@ -90,7 +115,6 @@ public class CarClubListActivity extends BaseActivity {
 	@Override
 	public void initDate() {
 		// TODO Auto-generated method stub
-
 	}
 
 	@SuppressLint("HandlerLeak")
@@ -100,17 +124,40 @@ public class CarClubListActivity extends BaseActivity {
 			// 目录加载完毕
 			case 0:
 				ShowRunning();
-				new CarClubListScene().doScene(partyCallBack, slideMenuID,
-						radioGoing.isChecked() ? 0 : 1);
+				new CarClubListScene().doScene(partyCallBack);
 				break;
 			case 1:
-
+				showList();
 				break;
 			default:
 				break;
 			}
 		};
 	};
+
+	// 根据类型显示列表
+	public void showList() {
+		List<CarClubListItem> tmpArray = new ArrayList<CarClubListItem>();
+
+		for (int i = 0; i < itemArray.length; i++) {
+			if (itemArray[i].partyType == Integer.valueOf(slideMenuID)) {
+				if (itemArray[i].processType == processType) {
+					tmpArray.add(itemArray[i]);
+				}
+			}
+		}
+
+		if (tmpArray.size() > 1) {
+			adapter = new CarClubListAdapter(CarClubListActivity.this,
+					tmpArray.toArray(new CarClubListItem[1]));
+			lv.setAdapter(adapter);
+		} else {
+			Alert("没有该分类的活动！");
+			adapter = new CarClubListAdapter(CarClubListActivity.this, null);
+			lv.setAdapter(adapter);
+		}
+
+	}
 
 	// 初始化活动目录
 	private void setSlideMenu(final SlideMenuItem[] items) {
@@ -148,7 +195,7 @@ public class CarClubListActivity extends BaseActivity {
 					_AnimationSet.setDuration(100);
 					mImageView.startAnimation(_AnimationSet);
 					hScrollView.scrollBy(1, 0);
-					handler.sendEmptyMessage(0);
+					handler.sendEmptyMessage(1);
 				}
 			});
 			menuLinerLayout.addView(view);

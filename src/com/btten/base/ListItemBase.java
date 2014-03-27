@@ -1,5 +1,6 @@
 package com.btten.base;
 
+import android.content.Context;
 import android.view.View;
 
 public abstract class ListItemBase {
@@ -9,7 +10,7 @@ public abstract class ListItemBase {
 	 * 
 	 * @param view
 	 */
-	public abstract void initView(View view);
+	public abstract void initView(View view ,Context context);
 
 	/**
 	 * 返回布局文件

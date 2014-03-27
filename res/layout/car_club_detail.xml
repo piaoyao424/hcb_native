@@ -4,19 +4,21 @@
     android:background="@color/light_blue"
     android:orientation="vertical" >
 
+    <include layout="@layout/top_title_bar" />
+
     <RelativeLayout
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="160dp" >
 
         <ImageView
             android:id="@+id/car_club_detail_ad_image"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:scaleType="fitXY"
             android:src="@drawable/adv1" />
 
         <LinearLayout
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_alignParentBottom="true"
             android:background="@drawable/drawing_pic_bg"
@@ -26,15 +28,16 @@
 
             <TextView
                 android:id="@+id/car_club_detail_title"
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="25dp"
                 android:gravity="bottom"
+                android:singleLine="true"
                 android:text="海水、阳光、沙滩-三亚-海口自助休闲游"
                 android:textColor="@color/white"
                 android:textSize="14sp" />
 
             <LinearLayout
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="25dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal" >
@@ -80,7 +83,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="35dp" >
+        android:layout_height="40dp" >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -159,7 +162,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="15dp"
-            android:text="联系方式联系方式联系方式联系方式联系方式联系方式联系方式联系方式联系方式联系方式联系方式联系方式联系方式联系方式联系方式联系方式联系方式联系方式联系方式联系方式联系方式联系方式联系方式联系方式联系方式联系方式联系方式联系方式联系方式联系方式联系方式联系方式联系方式联系方式联系方式联系方式联系方式联系方式联系方式联系方式"
             android:textColor="@color/black"
             android:textSize="14sp" />
     </LinearLayout>

@@ -10,10 +10,12 @@ import android.widget.BaseAdapter;
 public class ListItemAdapter extends BaseAdapter {
 	protected ListItemBase[] items = null;
 	protected LayoutInflater inflater = null;
+	protected Activity context = null;
 
 	public ListItemAdapter(Activity context) {
 		inflater = (LayoutInflater) context
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		this.context = context;
 	}
 
 	@Override
@@ -39,7 +41,7 @@ public class ListItemAdapter extends BaseAdapter {
 		if (convertView == null)
 			convertView = inflater.inflate(items[position].getItemLayout(),
 					null);
-		items[position].initView(convertView);
+		items[position].initView(convertView, context);
 		return convertView;
 	}
 

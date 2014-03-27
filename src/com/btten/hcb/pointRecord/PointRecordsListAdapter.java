@@ -16,7 +16,7 @@ public class PointRecordsListAdapter extends ListItemAdapter {
 		if (convertView == null)
 			convertView = inflater.inflate(items[position].getItemLayout(),
 					null);
-		items[position].initView(convertView);
+		items[position].initView(convertView, context);
 		return convertView;
 	}
 }

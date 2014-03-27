@@ -53,7 +53,6 @@ public class HomeActivity extends BaseActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.homeview);
-		UmengUpdateAgent.update(this);
 		initView();
 	}
 
@@ -93,8 +92,11 @@ public class HomeActivity extends BaseActivity {
 						Uri.parse(getString(R.string.homepage)));
 				break;
 			case R.id.homeview_cheliangbaoxian:
-				intent = new Intent(HomeActivity.this, InsuranceActivity.class);
-				break;
+				// intent = new Intent(HomeActivity.this,
+				// InsuranceActivity.class);
+				Alert("正在开发中，敬请期待");
+				return;
+//				break;
 			case R.id.homeview_wodehuichebao:
 				intent = new Intent(HomeActivity.this, MyHcbActivity.class);
 				break;
@@ -189,28 +191,6 @@ public class HomeActivity extends BaseActivity {
 		Intent intent = new Intent(context, BuddhistInfoActivity.class);
 		intent.putExtra("KEY_ID", titleid);
 		startActivity(intent);
-	}
-
-	@Override
-	public void onBackPressed() {
-		new AlertDialog.Builder(this).setTitle("提示").setMessage("退出惠车宝？")
-				.setPositiveButton("确定", new DialogInterface.OnClickListener() {
-
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						CallTaxiNotification.getInstance().ExitApp();
-						LocationClientService.getInstance().destroy();
-						HcbAPP.getInstance().exit();
-
-					}
-				})
-				.setNegativeButton("取消", new DialogInterface.OnClickListener() {
-
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						dialog.dismiss();
-					}
-				}).show();
 	}
 
 	@Override

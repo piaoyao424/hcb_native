@@ -24,7 +24,9 @@
 
     <!-- 百度定位服务所需权限 -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <permission android:name="android.permission.BAIDU_LOCATION_SERVICE" />
+
     <uses-permission android:name="android.permission.BAIDU_LOCATION_SERVICE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCES_MOCK_LOCATION" />
@@ -53,6 +55,7 @@
             android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -79,6 +82,11 @@
         <!-- 欢迎页面 -->
         <activity
             android:name="com.btten.hcb.SplashScreenTest"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <!-- 新首页 -->
+        <activity
+            android:name="com.btten.hcb.homeActivity.HomeFirstActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait" />
 
@@ -217,6 +225,11 @@
             android:name="com.btten.hcb.carClub.CarClubListActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait" />
+         <!-- 车友会详情 -->
+        <activity
+            android:name="com.btten.hcb.carClub.CarClubPartyInfoActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
         <!-- 事故处理 -->
         <activity
             android:name="com.btten.hcb.accident.AccidentActivity"
@@ -258,6 +271,11 @@
         <!-- 我的消费 -->
         <activity
             android:name="com.btten.hcb.shoppingRecord.ShoppingRecordsListActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait" />
+        <!-- 我的消费详情 -->
+        <activity
+            android:name="com.btten.hcb.shoppingRecord.ShoppingDetailActivity"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="portrait" />
         <!-- 充值记录 -->

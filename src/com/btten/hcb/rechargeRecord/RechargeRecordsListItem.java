@@ -2,6 +2,8 @@ package com.btten.hcb.rechargeRecord;
 
 import com.btten.base.ListItemBase;
 import com.btten.hcbvip.R;
+
+import android.content.Context;
 import android.view.View;
 import android.widget.TextView;
 
@@ -22,7 +24,7 @@ public class RechargeRecordsListItem extends ListItemBase {
 	}
 
 	@Override
-	public void initView(View view) {
+	public void initView(View view, Context context) {
 		Child.tv_date = (TextView) view
 				.findViewById(R.id.recharge_records_listitem_date);
 		Child.tv_gotpoints = (TextView) view
@@ -31,4 +33,5 @@ public class RechargeRecordsListItem extends ListItemBase {
 		Child.tv_date.setText(dayStr);
 		Child.tv_gotpoints.setText(gotPoints);
 	}
+
 }

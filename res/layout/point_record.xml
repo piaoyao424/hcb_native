@@ -93,7 +93,7 @@
                 android:layout_height="wrap_content"
                 android:layout_toLeftOf="@+id/point_records_fen"
                 android:gravity="center"
-                android:text="400"
+                android:text="0"
                 android:textColor="@color/orange"
                 android:textSize="18sp" />
 

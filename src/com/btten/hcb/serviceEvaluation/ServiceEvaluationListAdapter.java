@@ -24,7 +24,7 @@ public class ServiceEvaluationListAdapter extends ListItemAdapter {
 			convertView = inflater.inflate(items[position].getItemLayout(),
 					null);
 		}
-		items[position].initView(convertView);
+		items[position].initView(convertView, context);
 		convertView.setOnClickListener(new adapterListner(position));
 		return convertView;
 	}

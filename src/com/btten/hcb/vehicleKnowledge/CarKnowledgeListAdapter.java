@@ -84,7 +84,7 @@ public class CarKnowledgeListAdapter extends BaseAdapter {
 		return 0;
 	}
 
-	class ViewHolder {
+	public class ViewHolder {
 		TextView txtTitle, txtContent;
 		ImageView imageView;
 	}

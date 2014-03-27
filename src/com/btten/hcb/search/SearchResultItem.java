@@ -1,5 +1,6 @@
 package com.btten.hcb.search;
 
+import android.content.Context;
 import android.graphics.Paint;
 import android.view.View;
 import android.widget.RatingBar;
@@ -32,7 +33,7 @@ public class SearchResultItem extends ListItemBase {
 	}
 
 	@Override
-	public void initView(View view) {
+	public void initView(View view, Context context) {
 
 		for (int i = 0; i < 6; i++) {
 			TextView tmptxtView = (TextView) view.findViewById(txt_id[i]);

@@ -2,16 +2,16 @@ package com.btten.hcb.shoppingRecord;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-
-import com.btten.hcb.HcbAPP;
 import com.btten.model.BaseJsonItem;
 import com.btten.tools.CommonConvert;
 import com.btten.tools.Log;
 
-public class ShoppingRecordsListResult extends BaseJsonItem {
-	private static String TAG = "MyConsumeResult";
+public class ShoppingDetailResult extends BaseJsonItem {
 	private JSONArray jsonArray = null;
-	public ShoppingRecordsListItem[] items;
+	public double points = 0;
+	public double money = 0;
+	public String title, saleNum;
+	public ShoppingDetailItem[] items;
 
 	@Override
 	public boolean CreateFromJson(JSONObject result) {
@@ -22,26 +22,30 @@ public class ShoppingRecordsListResult extends BaseJsonItem {
 			// 有数据
 			if (this.status == 1) {
 				this.jsonArray = result.getJSONArray("DATA");
-				items = new ShoppingRecordsListItem[this.jsonArray.length()];
-				ShoppingRecordsListItem temp;
+				items = new ShoppingDetailItem[this.jsonArray.length()];
+				ShoppingDetailItem temp;
 				for (int i = 0; i < items.length; ++i) {
-					temp = new ShoppingRecordsListItem();
+					temp = new ShoppingDetailItem();
 					CommonConvert convert = new CommonConvert(
 							this.jsonArray.getJSONObject(i));
-					temp.date = convert.getString("TIME").substring(0,10);
+
+					temp.name = convert.getString("NAME");
 					temp.money = convert.getString("MONEY");
-					temp.count = convert.getString("COUNT");
-					temp.id = convert.getString("ID");
+
+					points += convert.getDouble("POINT");
+					money += convert.getDouble("MONEY");
 					items[i] = temp;
+					if (i == 1) {
+						title = convert.getString("JNAME");
+						saleNum = convert.getString("ID");
+					}
 				}
 			}
+
 		} catch (Exception e) {
 			this.status = -1;
 			this.info = e.toString();
-			HcbAPP.getInstance();
-			HcbAPP.ReportError(TAG + "error:\n" + e.toString() + "\nresult:\n"
-					+ result.toString());
-			Log.Exception(TAG, e);
+			Log.Exception("", e);
 			return false;
 		}
 		return true;

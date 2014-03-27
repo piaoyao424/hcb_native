@@ -4,6 +4,7 @@ package com.btten.hcb.publicNotice;
 import com.btten.hcbvip.R;
 import com.btten.base.ListItemBase;
 
+import android.content.Context;
 import android.view.View;
 import android.widget.TextView;
 
@@ -16,7 +17,7 @@ public class PublicNoticeListItem extends ListItemBase {
 	}
 
 	@Override
-	public void initView(View view) {
+	public void initView(View view, Context context) {
 		tv_title=(TextView)view.findViewById(R.id.tvId_gonggao_title);
 		tv_date=(TextView)view.findViewById(R.id.tvId_gonggao_date);
 		

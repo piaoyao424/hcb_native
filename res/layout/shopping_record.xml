@@ -28,7 +28,8 @@
 
             <com.btten.hcb.tools.wheelview.WheelShow
                 android:id="@+id/shopping_record_start_time"
-                style="@style/date_button_style" />
+                style="@style/date_button_style"
+                android:layout_weight="1" />
         </LinearLayout>
 
         <LinearLayout
@@ -40,7 +41,8 @@
 
             <com.btten.hcb.tools.wheelview.WheelShow
                 android:id="@+id/shopping_record_end_time"
-                style="@style/date_button_style" />
+                style="@style/date_button_style"
+                android:layout_weight="1" />
         </LinearLayout>
 
         <Button
@@ -78,4 +80,5 @@
             android:dividerHeight="1dp"
             android:scrollbars="@null" />
     </LinearLayout>
-</LinearLayout>
+
+</LinearLayout>

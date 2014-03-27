@@ -1,12 +1,10 @@
 package com.btten.hcb.shoppingRecord;
 
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.TextView;
 import com.btten.base.BaseActivity;
 import com.btten.hcb.tools.wheelview.WheelShow;
 import com.btten.hcbvip.R;
@@ -33,8 +31,8 @@ public class ShoppingRecordsListActivity extends BaseActivity {
 		// 初始化时间按钮
 		startDate = (WheelShow) findViewById(R.id.shopping_record_start_time);
 		endDate = (WheelShow) findViewById(R.id.shopping_record_end_time);
-		startDate.setMyOnClickListener(listener );
-		endDate.setMyOnClickListener(listener );
+		startDate.setMyOnClickListener(listener);
+		endDate.setMyOnClickListener(listener);
 
 		btn_chaxun = (Button) findViewById(R.id.shopping_record_button);
 		btn_chaxun.setOnClickListener(listener);
@@ -48,9 +46,9 @@ public class ShoppingRecordsListActivity extends BaseActivity {
 		public void onClick(View v) {
 			switch (v.getId()) {
 
-			case R.id.point_records_start_time:
-			case R.id.point_records_end_time:
-			case R.id.point_records_button:
+			case R.id.shopping_record_start_time:
+			case R.id.shopping_record_end_time:
+			case R.id.shopping_record_button:
 				if (requireData()) {
 					new ShoppingRecordsListScene()
 							.doscene(callBack, begin, end);
@@ -101,28 +99,16 @@ public class ShoppingRecordsListActivity extends BaseActivity {
 			HideProgress();
 			ShoppingRecordsListResult items = (ShoppingRecordsListResult) data;
 			ShoppingRecordsListAdapter adapter = new ShoppingRecordsListAdapter(
-					ShoppingRecordsListActivity.this);
-
-			adapter.setItems(items.items);
+					ShoppingRecordsListActivity.this, items.items);
 			listView.setAdapter(adapter);
-
-			LayoutInflater layoutInflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
-			View mFooterView = layoutInflater.inflate(
-					R.layout.recharge_record_list_footer, null);
-			TextView textView = (TextView) mFooterView
-					.findViewById(R.id.recharge_records_list_footer_totle);
-			textView.setText(String.valueOf(items.Points));
-
-			listView.addFooterView(mFooterView);
 			if (items.items.length == 0)
 				ShoppingRecordsListActivity.this.Alert("没有数据！");
-
 		}
 	};
 
 	@Override
 	public void initDate() {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

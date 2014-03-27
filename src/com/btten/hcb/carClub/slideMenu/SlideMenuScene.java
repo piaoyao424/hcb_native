@@ -11,8 +11,8 @@ public class SlideMenuScene extends NomalJsonSceneBase {
 
 	public void doScene(OnSceneCallBack callBack) {
 		SetCallBack(callBack);
-		targetUrl = UrlFactory.GetUrlNew("PublicNotice",
-				"getPublicNoticeDetail");
+		targetUrl = UrlFactory.GetUrlMobile("club", "g", "club", "a",
+				"category");
 		Log.i("url", targetUrl);
 		ThreadPoolUtils.execute(this);
 	}

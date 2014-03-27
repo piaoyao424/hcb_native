@@ -14,6 +14,7 @@ import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import com.btten.base.BaseActivity;
+import com.btten.hcb.tools.areaInfo.ProvinceListScene;
 import com.btten.hcbvip.R;
 import com.btten.network.NetSceneBase;
 import com.btten.network.OnSceneCallBack;
@@ -179,6 +180,21 @@ public class BuyCardActivity extends BaseActivity {
 			Alert("请选择合适的充值类型！");
 		}
 
+	}
+
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if (requestCode == 1) {
+			switch (resultCode) { // resultCode为回传的标记
+			case 0:
+				Alert("支付失败，请重新提交！");
+				break;
+			case 1:
+				finish();
+				break;
+			default:
+				break;
+			}
+		}
 	}
 
 	private void calculateTotleMoney() {

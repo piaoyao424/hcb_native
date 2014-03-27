@@ -36,10 +36,10 @@ public class MyHcbActivity extends BaseActivity {
 	int[] relativeID = { R.id.myhcb_relative_login,
 			R.id.myhcb_relative_register, R.id.myhcb_relative_changepw,
 			R.id.myhcb_relative_activation, R.id.myhcb_relative_account,
-			R.id.myhcb_relative_shopping, R.id.myhcb_relative_baseinfo,
-			R.id.myhcb_relative_exchange, R.id.myhcb_relative_points_record,
-			R.id.myhcb_relative_faqs, R.id.myhcb_relative_notices,
-			R.id.myhcb_relative_about_us };
+			R.id.myhcb_relative_shoprecord, R.id.myhcb_relative_shopping,
+			R.id.myhcb_relative_baseinfo, R.id.myhcb_relative_exchange,
+			R.id.myhcb_relative_points_record, R.id.myhcb_relative_faqs,
+			R.id.myhcb_relative_notices, R.id.myhcb_relative_about_us };
 	List<RelativeLayout> list_rela = new ArrayList<RelativeLayout>();
 	Button tButton;
 

@@ -2,6 +2,8 @@ package com.btten.hcb.pointRecord;
 
 import com.btten.base.ListItemBase;
 import com.btten.hcbvip.R;
+
+import android.content.Context;
 import android.view.View;
 import android.widget.TextView;
 
@@ -26,7 +28,7 @@ public class PointRecordsListItem extends ListItemBase {
 	}
 
 	@Override
-	public void initView(View view) {
+	public void initView(View view, Context context) {
 		Child.tv_date = (TextView) view
 				.findViewById(R.id.myjiesuan_item_numdate);
 		Child.tv_type = (TextView) view

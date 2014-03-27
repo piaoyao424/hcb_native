@@ -1,27 +1,36 @@
 package com.btten.hcb.carClub;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.text.Html;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.TranslateAnimation;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.btten.hcbvip.R;
 import com.btten.base.BaseActivity;
 import com.btten.network.NetSceneBase;
 import com.btten.network.OnSceneCallBack;
-import com.btten.tools.InfoQuery;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 public class CarClubPartyInfoActivity extends BaseActivity {
 
-	private TextView txtTitle, txtContent, txtAddr, txtDate, txtProcess,
-			txtOther, txtMenuContent, txtMenuFaq, txtMenuMember;
+	private TextView txtTitle, txtContent, txtInitiator, txtstartDate,
+			txttotleDate, txtParticipantNum, txtOther, txtMenuContent,
+			txtMenuFaq, txtMenuMember, txtEvalu;
 	// 导航栏底部滑动效果
 	private View mImageView;
+	private ImageView adImage;
 	private LinearLayout contentLinear, memberLinear;
+	private String content, other;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -35,16 +44,25 @@ public class CarClubPartyInfoActivity extends BaseActivity {
 
 	public void initView() {
 
-		txtTitle = (TextView) findViewById(R.id.party_info_title);
-		txtAddr = (TextView) findViewById(R.id.party_info_addr);
-		txtProcess = (TextView) findViewById(R.id.party_info_process);
-		txtDate = (TextView) findViewById(R.id.party_info_date);
+		txtTitle = (TextView) findViewById(R.id.car_club_detail_title);
+		txtInitiator = (TextView) findViewById(R.id.car_club_detail_initiator);
+		txtstartDate = (TextView) findViewById(R.id.car_club_detail_startdate);
+		txttotleDate = (TextView) findViewById(R.id.car_club_detail_totledate);
+		txtParticipantNum = (TextView) findViewById(R.id.car_club_detail_participantNum);
+		adImage = (ImageView) findViewById(R.id.car_club_detail_ad_image);
+		txtEvalu = (TextView) findViewById(R.id.car_club_detail_menu_evaluate);
 
 		txtContent = (TextView) findViewById(R.id.car_club_detail_content_txt);
+		txtContent.setMovementMethod(ScrollingMovementMethod.getInstance());// 滚动
 		contentLinear = (LinearLayout) findViewById(R.id.car_club_detail_content_linear);
+		memberLinear = (LinearLayout) findViewById(R.id.car_club_detail_member_linear);
+		
 		txtMenuContent = (TextView) findViewById(R.id.car_club_detail_menu_content);
+		txtMenuContent.setOnClickListener(clickListener);
 		txtMenuFaq = (TextView) findViewById(R.id.car_club_detail_menu_faq);
+		txtMenuFaq.setOnClickListener(clickListener);
 		txtMenuMember = (TextView) findViewById(R.id.car_club_detail_menu_member);
+		txtMenuMember.setOnClickListener(clickListener);
 		mImageView = findViewById(R.id.car_club_detail_menu_image);
 
 		Bundle bundle = this.getIntent().getExtras();
@@ -58,13 +76,17 @@ public class CarClubPartyInfoActivity extends BaseActivity {
 		@Override
 		public void OnSuccess(Object data, NetSceneBase<?> netScene) {
 			CarClubPartyInfoResult items = (CarClubPartyInfoResult) data;
+			txtTitle.setText(items.item.title + items.item.addr);
+			txtInitiator.setText(items.item.initiator);
+			txtstartDate.setText(items.item.startDate + "出发");
+			txttotleDate.setText("共" + items.item.totleDate + "天");
+			txtParticipantNum.setText(items.item.participantNum + "人参加");
+			ImageLoader.getInstance().displayImage(items.item.image, adImage);
+			txtEvalu.setText("评论（" + items.item.evalu + "）");
 
-			txtTitle.setText(items.item.title);
-			txtAddr.setText(items.item.addr);
-			txtDate.setText("开始时间" + items.item.startDate + " 共"
-					+ items.item.totleDate + "天");
-			txtOther.setText(InfoQuery.ToDBC(items.item.other));
-
+			content = items.item.content;
+			other = items.item.other;
+			txtContent.setText(Html.fromHtml(content));
 			HideProgress();
 			return;
 		}
@@ -92,20 +114,15 @@ public class CarClubPartyInfoActivity extends BaseActivity {
 				i = 0;
 				break;
 			case R.id.car_club_detail_menu_content:
-				memberLinear.setVisibility(View.GONE);
-				contentLinear.setVisibility(View.VISIBLE);
-				txtContent.setText("");
+				handler.sendEmptyMessage(0);
 				i = 1;
 				break;
 			case R.id.car_club_detail_menu_faq:
-				memberLinear.setVisibility(View.GONE);
-				contentLinear.setVisibility(View.VISIBLE);
-				txtContent.setText("");
+				handler.sendEmptyMessage(1);
 				i = 1;
 				break;
 			case R.id.car_club_detail_menu_member:
-				contentLinear.setVisibility(View.GONE);
-				memberLinear.setVisibility(View.VISIBLE);
+				handler.sendEmptyMessage(2);
 				i = 1;
 				break;
 			default:
@@ -124,7 +141,39 @@ public class CarClubPartyInfoActivity extends BaseActivity {
 				mImageView.setLayoutParams(new LayoutParams(v.getWidth(), 6));
 				mImageView.startAnimation(_AnimationSet);
 			}
-
 		}
+	};
+
+	@SuppressLint("HandlerLeak")
+	Handler handler = new Handler() {
+
+		public void handleMessage(Message msg) {
+
+			switch (msg.what) {
+			case 0:
+				if (memberLinear.getVisibility() == View.VISIBLE) {
+					memberLinear.setVisibility(View.GONE);
+				}
+				contentLinear.setVisibility(View.VISIBLE);
+				txtContent.setText(Html.fromHtml(content));
+				break;
+			case 1:
+				if (memberLinear.getVisibility() == View.VISIBLE) {
+					memberLinear.setVisibility(View.GONE);
+				}
+				contentLinear.setVisibility(View.VISIBLE);
+				txtContent.setText(Html.fromHtml(other));
+				break;
+			case 2:
+				if (contentLinear.getVisibility() == View.VISIBLE) {
+					contentLinear.setVisibility(View.GONE);
+				}
+				memberLinear.setVisibility(View.VISIBLE);
+				break;
+			default:
+				break;
+			}
+
+		};
 	};
 }

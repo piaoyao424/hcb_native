@@ -1,5 +1,6 @@
 package com.btten.hcb.serviceEvaluation;
 
+import android.content.Context;
 import android.view.View;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -21,7 +22,7 @@ public class ServiceEvaluationItem extends ListItemBase {
 	}
 
 	@Override
-	public void initView(View view) {
+	public void initView(View view, Context context) {
 
 		txtViewVipName = (TextView) view
 				.findViewById(R.id.evaluation_service_listitem_vipname);

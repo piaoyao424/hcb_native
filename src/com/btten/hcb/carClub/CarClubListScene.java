@@ -13,11 +13,9 @@ public class CarClubListScene extends NomalJsonSceneBase {
 		return new CarClubListResult();
 	}
 
-	public void doScene(OnSceneCallBack callBack,String partyType,int processType) {
+	public void doScene(OnSceneCallBack callBack) {
 		SetCallBack(callBack);
-		targetUrl = UrlFactory.GetUrlNew("PublicNotice",
-				"getPublicNoticeMaster");
-		System.out.println(targetUrl);
+		targetUrl = UrlFactory.GetUrlMobile("club","g","club","a","list") ;
 		Log.d("url", targetUrl);
 		ThreadPoolUtils.execute(this);
 	}

@@ -15,16 +15,14 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.view.Gravity;
 import android.webkit.CookieManager;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebStorage;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.Toast;
 
-@SuppressLint({ "SetJavaScriptEnabled", "SdCardPath" })
+@SuppressLint({ "SetJavaScriptEnabled", "SdCardPath", "JavascriptInterface" })
 public class BuyCardWebActivity extends BaseActivity {
 	private WebView wv_shouye = null;
 	private ProgressDialog pd_shouye_pd = null;
@@ -38,12 +36,12 @@ public class BuyCardWebActivity extends BaseActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.buy_card_web_activity);
+		init();// 执行初始化函数
+
 		ConnectivityManager cManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
 		NetworkInfo info = cManager.getActiveNetworkInfo();
-		init();// 执行初始化函数
-		// 能联网,载入网页
 		if (info != null && info.isAvailable()) {
-
+			// 能联网,载入网页
 			String url = UrlFactory.javaRoot + "/Alipay/doSubmit?";
 			url = url + "vid=" + VIPInfoManager.getInstance().getUserid();
 			url = url + "&itemname=" + URLEncoder.encode(item.name);
@@ -58,6 +56,7 @@ public class BuyCardWebActivity extends BaseActivity {
 		}
 	}
 
+	@SuppressLint("HandlerLeak")
 	private Handler handler = new Handler() {
 		public void handleMessage(Message msg) {// 定义一个Handler，用于处理下载线程与UI间通讯
 			if (!Thread.currentThread().isInterrupted()) {
@@ -66,8 +65,7 @@ public class BuyCardWebActivity extends BaseActivity {
 					pd_shouye_pd.show();// 显示进度对话框
 					break;
 				case UI_PDHIDE:
-					pd_shouye_pd.hide();
-					// 隐藏进度对话框，不可使用dismiss()、cancel(),否则再次调用show()时，显示的对话框小圆圈不会动。
+					pd_shouye_pd.hide();// 隐藏进度对话框，不可使用dismiss()、cancel(),否则再次调用show()时，显示的对话框小圆圈不会动。
 					break;
 				}
 			}
@@ -76,6 +74,7 @@ public class BuyCardWebActivity extends BaseActivity {
 	};
 
 	public void init() {// 初始化
+		iniWebview();
 		Bundle bundle = getIntent().getExtras();
 		item = new BuyCardItem();
 		item.id = bundle.getString("KEY_ID");
@@ -83,8 +82,6 @@ public class BuyCardWebActivity extends BaseActivity {
 		item.price = bundle.getDouble("KEY_PRICE");
 		item.value = bundle.getDouble("KEY_VALUE");
 		itemNum = bundle.getInt("KEY_NUM");
-
-		iniWebview();
 	}
 
 	private void iniWebview() {
@@ -92,12 +89,12 @@ public class BuyCardWebActivity extends BaseActivity {
 		WebSettings webset = wv_shouye.getSettings();
 		// 可用JS
 		webset.setJavaScriptEnabled(true);
-		// 设置js接口
-		wv_shouye.addJavascriptInterface(new JsCommunication(this),
-				"JsCommunication");
 		CookieManager.getInstance().setAcceptCookie(true);
-
+		// 设置js接口
+		wv_shouye.addJavascriptInterface(new JsCommunication(),
+				"JsCommunication");
 		wv_shouye.setWebViewClient(new WebViewClient() {
+
 			// 重写点击动作,用webview载入
 			@Override
 			public void onPageStarted(WebView view, String url, Bitmap favicon) {
@@ -108,6 +105,7 @@ public class BuyCardWebActivity extends BaseActivity {
 			@Override
 			public void onPageFinished(WebView view, String url) {
 				handler.sendEmptyMessage(UI_PDHIDE);
+				System.out.println(url);
 				super.onPageFinished(view, url);
 			}
 
@@ -121,17 +119,12 @@ public class BuyCardWebActivity extends BaseActivity {
 				NetworkInfo info = cManager.getActiveNetworkInfo();
 				if (info != null && info.isAvailable()) {
 					view.loadUrl("file:///android_asset/content_error.html");
-					Alert(description);
+					AlertExit(description);
 				} else {
-					// 不能联网
-					Toast toast = Toast.makeText(getBaseContext(), "网络中断",
-							Toast.LENGTH_LONG);
-					toast.setGravity(Gravity.CENTER, 0, 0);
-					toast.show();
-					view.loadUrl("file:///android_asset/content_error.html");
+					AlertExit("网络中断");
 				}
-				super.onReceivedError(view, errorCode, description, failingUrl);
 			}
+
 		});
 
 		wv_shouye.setWebChromeClient(new WebChromeClient() {
@@ -174,21 +167,18 @@ public class BuyCardWebActivity extends BaseActivity {
 		startActivity(intent);
 	}
 
-	class JsCommunication {
-		Context content;
+	public class JsCommunication {
 
-		public JsCommunication(Context content) {
-			this.content = content;
-		}
-
-		public void goback(int status) {
+		public void goback(final int status) {
 			switch (status) {
-			case 0:
+			case 1:
 				// 支付成功
+				Alert("支付成功");
 				BacktoActivity("支付成功！", 1);
 				break;
-			case 1:
+			case 0:
 				// 支付失败
+				Alert("支付失败");
 				BacktoActivity("支付失败！", 0);
 				finish();
 				break;
@@ -210,12 +200,17 @@ public class BuyCardWebActivity extends BaseActivity {
 
 	@Override
 	protected void onDestroy() {
+		// TODO Auto-generated method stub
 		wv_shouye.destroy();
+		if (pd_shouye_pd != null) {
+			pd_shouye_pd.dismiss();
+		}
 		super.onDestroy();
 	}
 
 	@Override
 	public void initDate() {
+		// TODO Auto-generated method stub
 
 	}
 }

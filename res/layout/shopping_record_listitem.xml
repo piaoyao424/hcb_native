@@ -1,28 +1,79 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="30dp"
-    android:background="@color/white"
-    android:orientation="horizontal"
-    android:padding="5dp" >
-    <TextView
-        android:id="@+id/recharge_records_listitem_date"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="2.5"
-        android:gravity="center"
-        android:text="2013-09-08"
-        android:textColor="@color/black"
-        android:textSize="15sp" />
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/light_gray"
+    android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/recharge_records_listitem_gotpoints"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="2.5"
-        android:gravity="center"
-        android:text="200元"
-        android:textColor="@color/black"
-        android:textSize="15sp" />
+    <RelativeLayout
+        style="@style/aboutus_relative_style"
+        android:layout_marginBottom="1dp" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingRight="40dp" >
+
+            <TextView
+                android:id="@+id/shopping_record_listitem_date"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:gravity="center"
+                android:text="2013-09-08"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/shopping_record_listitem_count"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="2"
+                android:textColor="@color/orange"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="笔消费"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:gravity="center"
+                android:text="合计:"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/shopping_record_listitem_money"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="200"
+                android:textColor="@color/orange"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="元"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <ImageView
+            style="@style/aboutus_image_style"
+            android:contentDescription="@string/ImageDescription"
+            android:padding="2dp" />
+    </RelativeLayout>
 
 </LinearLayout>

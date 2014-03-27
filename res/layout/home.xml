@@ -2,124 +2,140 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:padding="12dp"
     android:background="@color/light_gray"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:padding="12dp" >
+
     <ImageView
         android:layout_width="120dp"
         android:layout_height="72dp"
         android:layout_margin="15dp"
         android:src="@drawable/logo_app" />
-	<RelativeLayout
-	    android:layout_width="fill_parent"
-	    android:layout_height="130dp"
+
+    <RelativeLayout
+        android:id="@+id/home_relative_cheyouhui"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
         android:layout_marginBottom="6dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
+        android:background="@color/logo_blue"
         android:paddingBottom="15dp"
         android:paddingLeft="30dp"
-        android:paddingRight="30dp"
-	    android:background="@color/logo_blue" >
-	    <TextView
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_centerVertical="true"
-	        android:text="车友会"
-	        android:textColor="@color/white"
-	        android:textSize="20sp"
-	        android:textStyle="bold" />
-	    <TextView
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_alignParentBottom="true"
-	        android:layout_alignParentRight="true"
-	        android:text="进入>>"
-	        android:textColor="@color/white"
-	        android:textSize="10sp" />
-	</RelativeLayout>
-	<RelativeLayout
-	    android:layout_width="fill_parent"
-	    android:layout_height="130dp"
+        android:paddingRight="30dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="车友会"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:text="进入>>"
+            android:textColor="@color/white"
+            android:textSize="10sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/home_relative_qichefuwu"
+        android:layout_width="fill_parent"
+        android:layout_height="160dp"
+        android:layout_marginBottom="6dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:layout_marginTop="6dp"
-        android:layout_marginBottom="6dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
+        android:background="@color/logo_orange"
         android:paddingBottom="15dp"
         android:paddingLeft="30dp"
-        android:paddingRight="30dp"
-	    android:background="@color/logo_orange" >
-	    <TextView
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_centerVertical="true"
-	        android:text="汽车服务"
-	        android:textColor="@color/white"
-	        android:textSize="20sp"
-	        android:textStyle="bold" />
-	    <TextView
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_alignParentBottom="true"
-	        android:layout_alignParentRight="true"
-	        android:text="进入>>"
-	        android:textColor="@color/white"
-	        android:textSize="10sp" />
-	</RelativeLayout>
-	<TextView
-		android:layout_width="fill_parent"
-		android:layout_height="50dp"
-		android:gravity="center"
-		android:text="中国首家幸福车生活增值服务平台"
-		android:textColor="@color/black"
-		android:textSize="14sp" />
-	<RelativeLayout
-	    android:layout_width="fill_parent"
-	    android:layout_height="fill_parent" >
-	    <LinearLayout
-	        android:layout_width="fill_parent"
-	        android:layout_height="35dp"
-	        android:layout_alignParentBottom="true"
-	        android:orientation="horizontal" >
-	        <LinearLayout
-	            android:layout_width="fill_parent"
-	            android:layout_height="35dp"
-	            android:layout_weight="1"
-	            android:layout_marginRight="4dp"
-	            android:paddingLeft="5dp"
-	            android:gravity="center_vertical"
-	            android:background="@color/dark_blue" >
-	            <ImageView
-	                android:layout_width="16dp"
-	                android:layout_height="16dp"
-	           		android:layout_marginRight="5dp"
-	                android:src="@drawable/main_home_icon" />
-	    		<TextView
-	    	    	android:layout_width="fill_parent"
-	    	    	android:layout_height="wrap_content"
-	    	    	android:text="www.huichebo.com"
-	    	    	android:textColor="@color/white"
-	    	    	android:textSize="12sp" />	            
-	        </LinearLayout>
-	        <LinearLayout
-	            android:layout_width="fill_parent"
-	            android:layout_height="35dp"
-	            android:layout_weight="1"
-	            android:layout_marginLeft="4dp"
-	            android:paddingLeft="10dp"
-	            android:gravity="center_vertical"
-	            android:background="@color/dark_blue" >
-	            <ImageView
-	                android:layout_width="16dp"
-	                android:layout_height="16dp"
-	           		android:layout_marginRight="10dp"
-	                android:src="@drawable/more_contact_phone" />
-	    		<TextView
-	    	    	android:layout_width="fill_parent"
-	    	    	android:layout_height="wrap_content"
-	    	    	android:text="400-660-2020"
-	    	    	android:textColor="@color/white"
-	    	    	android:textSize="12sp" />            
-	        </LinearLayout>
-	    </LinearLayout>
-	</RelativeLayout>
+        android:paddingRight="30dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="汽车服务"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:text="进入>>"
+            android:textColor="@color/white"
+            android:textSize="10sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="中国首家幸福车生活增值服务平台"
+        android:textColor="@color/black"
+        android:textSize="14sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:id="@+id/home_linear_web"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginRight="4dp"
+            android:layout_weight="1"
+            android:background="@color/dark_blue"
+            android:gravity="center_vertical"
+            android:paddingLeft="5dp" >
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/main_home_icon" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="www.huichebo.com"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/home_linear_phone"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginLeft="4dp"
+            android:layout_weight="1"
+            android:background="@color/dark_blue"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp" >
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/more_contact_phone" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="400-660-2020"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </LinearLayout>
+
 </LinearLayout>

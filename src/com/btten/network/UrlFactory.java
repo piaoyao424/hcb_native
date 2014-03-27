@@ -53,7 +53,7 @@ public class UrlFactory {
 
 	public static final String javaRoot = "http://www.huichebo.com:8088/hcbweb";
 	//服务器 java积分查询用 连张文军
-//	public static final String javaRoot = "http://59.175.145.105:8088/hcbweb";
+//	public static final String javaRoot = "http://192.168.1.52:8080/hcbweb";
 
 	public static String GetUrlNew(String data, String action, String... args) {
 		String result = UrlFactory.javaRoot;

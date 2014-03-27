@@ -1,13 +1,13 @@
-package com.btten.hcb.rechargeRecord;
+package com.btten.hcb.shoppingRecord;
 
 import com.btten.base.ListItemAdapter;
 import android.app.Activity;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class RechargeRecordsListAdapter extends ListItemAdapter {
+public class ShoppingDetailAdapter extends ListItemAdapter {
 
-	public RechargeRecordsListAdapter(Activity context) {
+	public ShoppingDetailAdapter(Activity context) {
 		super(context);
 	}
 
