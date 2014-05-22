@@ -8,9 +8,6 @@ import com.btten.hcb.HcbAPP;
 
 public class UrlFactory {
 	//登录和连接用的域名 连许东
-	public static final String rootUrl_short = "http://www.huichebo.com";
-	public static final String rootUrl = "http://www.huichebo.com/mobile.php";
-	public static final String mobilerootUrl = "http://m.huichebo.com/interface.php";
 	
 	public static String GetUrlMobile(String data, String... args) {
 		String result = UrlFactory.mobilerootUrl;
@@ -51,9 +48,6 @@ public class UrlFactory {
 		return result;
 	}
 
-	public static final String javaRoot = "http://www.huichebo.com:8088/hcbweb";
-	//服务器 java积分查询用 连张文军
-//	public static final String javaRoot = "http://192.168.1.52:8080/hcbweb";
 
 	public static String GetUrlNew(String data, String action, String... args) {
 		String result = UrlFactory.javaRoot;
